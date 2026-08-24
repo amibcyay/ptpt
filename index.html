@@ -74,7 +74,11 @@
   .badge-adj { display: inline-block; margin-left: .4rem; padding: .1rem .4rem;
                 font-size: .68rem; font-weight: 700; letter-spacing: .03em;
                 text-transform: uppercase; vertical-align: middle;
-                background: #dbeafe; color: #1e3a8a; border-radius: 4px; }
+                background: #dbeafe; color: #1e3a8a; border-radius: 4px; cursor: pointer;
+                border: 1px solid transparent; }
+  .badge-adj:hover { border-color: #93c5fd; }
+  .badge-adj.active { background: #1e3a8a; color: #eff6ff; }
+  .hint .badge-adj { margin-left: .15rem; margin-right: .15rem; }
   .w { border-bottom: 1px dotted #a8a29e; cursor: help; }
   td.w, strong .w { border-bottom: 1px dotted #a8a29e; }
   .w:hover { background: #fef3c7; border-bottom-color: #d97706; }
@@ -116,7 +120,9 @@
   <h1>Presente do Indicativo</h1>
   <p class="sub" id="sortDesc">Sort with a button below · use Group panels to skip ahead</p>
   <p class="hint">Tap/click a verb row to open sample sentences in a panel.<br/>
-     A blue <span class="badge-adj">also adj.</span> badge marks infinitives that are also adjectives/nouns.<br/>
+     A blue <button type="button" class="badge-adj" id="adjFilterBtn" title="Show only also-adjective verbs">also adj.</button>
+     badge marks infinitives that are also adjectives/nouns — tap it to show only those
+     (from Cognate Patterns AR list; only <span id="adjCount">1</span> overlap with this verb list).<br/>
      Hover or tap any underlined word for English + part of speech + gender/number forms.</p>
   <div id="tip" role="tooltip"></div>
   <div class="ex-backdrop" id="exBackdrop" hidden></div>
@@ -14511,6 +14517,7 @@ const nEl = document.getElementById("n");
 const q = document.getElementById("q");
 const sortDesc = document.getElementById("sortDesc");
 let sortState = ["group", "level", "freq"];
+let adjOnly = false;
 
 function slug(s) {
   return String(s).toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
@@ -14667,7 +14674,7 @@ function render() {
       ? `<strong class="w" tabindex="0" data-w="${esc(String(r.inf).toLowerCase())}">${esc(r.inf)}</strong>`
       : `<strong>${esc(r.inf)}</strong>`;
     parts.push(
-      `<tr class="verb" data-inf="${esc(r.inf)}" data-text="${esc(r.inf + " " + r.en + " " + r.level + " " + r.group + searchExtra)}">` +
+      `<tr class="verb" data-inf="${esc(r.inf)}" data-adj="${r.adj ? "1" : "0"}" data-text="${esc(r.inf + " " + r.en + " " + r.level + " " + r.group + searchExtra)}">` +
       `<td class="lvl">${r.level}</td>` +
       `<td>${infCell}${adjBadge}</td>` +
       `<td class="def">${esc(r.en)}</td>` +
@@ -14677,6 +14684,8 @@ function render() {
   }
 
   tb.innerHTML = parts.join("");
+  const adjCountEl = document.getElementById("adjCount");
+  if (adjCountEl) adjCountEl.textContent = String(DATA.filter(x => x.adj).length);
   applyFilter();
   markPreset();
 }
@@ -14885,6 +14894,14 @@ function toggleJumpPanel(panel) {
 // One delegated listener set — avoids thousands of handlers that freeze mobile
 function wireDelegates() {
   document.addEventListener("click", (ev) => {
+    const adjBadge = ev.target.closest(".badge-adj");
+    if (adjBadge) {
+      ev.preventDefault();
+      ev.stopPropagation();
+      adjOnly = !adjOnly;
+      applyFilter();
+      return;
+    }
     if (ev.target.closest("#exClose") || ev.target === exBackdrop) {
       closeExSheet();
       return;
@@ -14959,7 +14976,8 @@ function applyFilter() {
       continue;
     }
     const text = (tr.dataset.text || "").toLowerCase();
-    const hit = !s || text.includes(s) || sectionHit || subHit;
+    const adjOk = !adjOnly || tr.dataset.adj === "1";
+    const hit = adjOk && (!s || text.includes(s) || sectionHit || subHit);
     tr.style.display = hit ? "" : "none";
     if (hit) shown++;
   }
@@ -14986,6 +15004,7 @@ function applyFilter() {
     tr.style.display = any ? "" : "none";
   }
   nEl.textContent = shown;
+  document.querySelectorAll(".badge-adj").forEach(b => b.classList.toggle("active", adjOnly));
 }
 
 function markPreset() {
