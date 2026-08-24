@@ -22,11 +22,27 @@
   button.preset { padding: .35rem .65rem; border: 1px solid #d6d3d1; background: #f5f5f4;
                    border-radius: 6px; font-size: .82rem; cursor: pointer; color: #292524; }
   button.preset:hover, button.preset.active { background: #292524; color: #fafaf9; border-color: #292524; }
-  .nav { display: flex; flex-wrap: wrap; gap: .4rem; margin: 0 0 1rem; }
+  .nav { display: flex; flex-wrap: wrap; gap: .4rem; }
   .chip { display: inline-block; padding: .3rem .55rem; background: #e7e5e4;
-           color: #292524; text-decoration: none; border-radius: 6px; font-size: .78rem; }
+           color: #292524; text-decoration: none; border-radius: 6px; font-size: .78rem;
+           border: none; cursor: pointer; font: inherit; }
   .chip:hover { background: #d6d3d1; }
-  .search-row { margin: 0 0 .75rem; }
+  .jump-panel { position: relative; margin: 0 0 .55rem; background: #fff;
+                 border: 1px solid #e7e5e4; border-radius: 10px; z-index: 5; }
+  .jump-toggle { width: 100%; display: flex; align-items: center; justify-content: space-between;
+                  gap: .5rem; padding: .55rem .75rem; border: 0; background: transparent;
+                  cursor: pointer; font: inherit; font-size: .82rem; font-weight: 600;
+                  color: #44403c; text-align: left; }
+  .jump-toggle::after { content: "▸"; color: #a8a29e; font-size: .75rem; }
+  .jump-panel.open .jump-toggle::after { content: "▾"; }
+  .jump-menu { display: none; position: absolute; left: 0; right: 0; top: calc(100% - 1px);
+                z-index: 30; padding: .55rem .75rem .7rem; background: #fff;
+                border: 1px solid #e7e5e4; border-radius: 0 0 10px 10px;
+                box-shadow: 0 10px 24px rgba(0,0,0,.12); max-height: min(42vh, 22rem);
+                overflow: auto; -webkit-overflow-scrolling: touch; }
+  .jump-panel.open .jump-menu { display: block; }
+  .jump-panel.open { border-radius: 10px 10px 0 0; z-index: 40; }
+  .search-row { margin: .75rem 0 .75rem; }
   input[type="search"] { width: min(420px, 100%); }
   .count { font-size: .9rem; color: #78716c; margin-bottom: .75rem; }
   .err { display: none; margin: 0 0 1rem; padding: .75rem 1rem; background: #fef2f2;
@@ -37,17 +53,14 @@
   td.def { white-space: normal; min-width: 12rem; max-width: 22rem; color: #44403c; }
   td.lvl { font-weight: 700; color: #78716c; width: 2.5rem; }
   th { position: sticky; top: 0; background: #292524; color: #fafaf9; font-weight: 600; z-index: 3; }
-  tr.section td { background: #44403c; color: #fafaf9; padding: .65rem .55rem;
-                   position: sticky; top: 2.15rem; z-index: 2; }
+  tr.section td { background: #44403c; color: #fafaf9; padding: .65rem .55rem; }
   tr.section .gname { font-weight: 700; font-size: .98rem; }
   tr.section .gcount { float: right; opacity: .75; font-size: .82rem; font-weight: 500; }
   tr.subsec td { background: #e7e5e4; color: #292524; padding: .4rem .55rem; font-weight: 700; }
   tr.subsec .lcount { float: right; opacity: .65; font-weight: 500; font-size: .82rem; }
-  tr.verb { cursor: pointer; }
+  tr.verb { cursor: pointer; content-visibility: auto; contain-intrinsic-size: auto 2.5rem; }
   tr.verb:hover td { background: #fafaf9; }
   tr.verb.open td { background: #f5f5f4; }
-  tr.detail td { background: #fafaf9; padding: .75rem 1rem 1rem; white-space: normal;
-                  border-bottom: 1px solid #d6d3d1; }
   .ex-note { font-size: .8rem; color: #78716c; margin: 0 0 .65rem; }
   .ex-list { margin: 0; padding: 0; list-style: none; display: grid; gap: .45rem; }
   .ex-list li { font-size: .95rem; line-height: 1.35; }
@@ -60,9 +73,26 @@
                 text-transform: uppercase; vertical-align: middle;
                 background: #dbeafe; color: #1e3a8a; border-radius: 4px; }
   .w { border-bottom: 1px dotted #a8a29e; cursor: help; }
+  td.w, strong .w { border-bottom: 1px dotted #a8a29e; }
   .w:hover { background: #fef3c7; border-bottom-color: #d97706; }
+  .ex-backdrop { display: none; position: fixed; inset: 0; z-index: 55;
+                  background: rgba(28,25,23,.35); }
+  .ex-backdrop.show { display: block; }
+  .ex-sheet { display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+               max-height: min(58vh, 28rem); background: #fafaf9; color: #1c1917;
+               border-radius: 14px 14px 0 0; box-shadow: 0 -10px 40px rgba(0,0,0,.22);
+               padding: 0 0 .85rem; overflow: auto; -webkit-overflow-scrolling: touch; }
+  .ex-sheet.show { display: block; }
+  .ex-sheet-head { position: sticky; top: 0; z-index: 1; display: flex; align-items: flex-start;
+                    justify-content: space-between; gap: .75rem; padding: .85rem 1rem .65rem;
+                    background: #fafaf9; border-bottom: 1px solid #e7e5e4; }
+  .ex-sheet-head .ex-title { font-weight: 700; font-size: 1.05rem; }
+  .ex-sheet-head .ex-sub { font-size: .8rem; color: #78716c; font-weight: 500; margin-top: .15rem; }
+  .ex-close { border: 0; background: #e7e5e4; color: #292524; width: 2rem; height: 2rem;
+               border-radius: 999px; font-size: 1.1rem; line-height: 1; cursor: pointer; flex: 0 0 auto; }
+  .ex-sheet-body { padding: .75rem 1rem 1rem; }
   #tip {
-    position: fixed; z-index: 50; display: none; max-width: min(22rem, calc(100vw - 1.5rem));
+    position: fixed; z-index: 70; display: none; max-width: min(22rem, calc(100vw - 1.5rem));
     padding: .65rem .8rem; background: #1c1917; color: #fafaf9;
     border-radius: 8px; font-size: .82rem; line-height: 1.35;
     box-shadow: 0 8px 24px rgba(0,0,0,.25); pointer-events: none;
@@ -75,12 +105,23 @@
 </head>
 <body>
   <h1>Presente do Indicativo</h1>
-  <p class="sub" id="sortDesc">Choose up to 3 sort keys · jump chips follow the primary grouping</p>
-  <p class="hint">Tap/click a verb row to expand sample sentences (vocabulary matched to that verb’s CEFR level).
+  <p class="sub" id="sortDesc">Choose up to 3 sort keys · use Jump panels to skip to a group or level</p>
+  <p class="hint">Tap/click a verb row to open sample sentences in a panel (vocabulary matched to that verb’s CEFR level).
      A blue <span class="badge-adj">also adj.</span> badge marks infinitives that are also adjectives/nouns
      (Cognate Patterns PDF, AR section — same spelling as the verb).
      Hover or tap any underlined word for English + part of speech + gender/number forms.</p>
   <div id="tip" role="tooltip"></div>
+  <div class="ex-backdrop" id="exBackdrop" hidden></div>
+  <div class="ex-sheet" id="exSheet" hidden role="dialog" aria-modal="true" aria-labelledby="exTitle">
+    <div class="ex-sheet-head">
+      <div>
+        <div class="ex-title" id="exTitle"></div>
+        <div class="ex-sub" id="exSub"></div>
+      </div>
+      <button type="button" class="ex-close" id="exClose" aria-label="Close">×</button>
+    </div>
+    <div class="ex-sheet-body" id="exBody"></div>
+  </div>
 
   <div class="controls">
     <div class="ctrl">
@@ -119,7 +160,18 @@
     </div>
   </div>
 
-  <div class="nav" id="nav"></div>
+  <div class="jump-panel" id="jumpGroups">
+    <button type="button" class="jump-toggle" aria-expanded="false">Jump to meaning group</button>
+    <div class="jump-menu" hidden>
+      <div class="nav" id="nav"></div>
+    </div>
+  </div>
+  <div class="jump-panel" id="jumpLevels">
+    <button type="button" class="jump-toggle" aria-expanded="false">Jump to CEFR level</button>
+    <div class="jump-menu" hidden>
+      <div class="nav" id="navLevels"></div>
+    </div>
+  </div>
   <div class="search-row">
     <input id="q" type="search" placeholder="Search verb, definition, level, or group…" autofocus/>
   </div>
@@ -13956,6 +14008,7 @@ const LABELS = { group: "Meaning group", level: "CEFR level", freq: "Frequency" 
 
 const tb = document.getElementById("tb");
 const nav = document.getElementById("nav");
+const navLevels = document.getElementById("navLevels");
 const nEl = document.getElementById("n");
 const q = document.getElementById("q");
 const s1 = document.getElementById("s1");
@@ -14002,40 +14055,99 @@ function sortedData() {
   });
 }
 
+function scrollToId(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  // instant scroll — smooth + huge table freezes mobile browsers
+  el.scrollIntoView({ behavior: "auto", block: "start" });
+}
+
+function jumpToGroup(id) {
+  if (s1.value !== "group") {
+    s1.value = "group";
+    if (s2.value === "group") s2.value = "level";
+    if (s3.value === "group") s3.value = "freq";
+    if (!s2.value) s2.value = "level";
+    if (!s3.value) s3.value = "freq";
+    render();
+  }
+  requestAnimationFrame(() => scrollToId(id));
+}
+
+function jumpToLevel(level) {
+  if (s1.value !== "level") {
+    s1.value = "level";
+    if (s2.value === "level") s2.value = "group";
+    if (s3.value === "level") s3.value = "freq";
+    if (!s2.value) s2.value = "freq";
+    render();
+  }
+  requestAnimationFrame(() => scrollToId(slug(level)));
+}
+
+function renderGroupChips() {
+  const counts = {};
+  for (const r of DATA) counts[r.group] = (counts[r.group] || 0) + 1;
+  nav.innerHTML = GROUP_ORDER.map(g => {
+    const id = slug(g);
+    const n = counts[g] || 0;
+    return `<button type="button" class="chip" data-gid="${id}">${g} <span style="opacity:.65">(${n})</span></button>`;
+  }).join("");
+}
+
+function renderLevelChips() {
+  const counts = {};
+  for (const r of DATA) counts[r.level] = (counts[r.level] || 0) + 1;
+  navLevels.innerHTML = LEVEL_ORDER.map(lv =>
+    `<button type="button" class="chip" data-level="${lv}">${lv} <span style="opacity:.65">(${counts[lv] || 0})</span></button>`
+  ).join("");
+}
+
 function render() {
+  closeExSheet();
   const ks = keys();
   const primary = ks[0] || "group";
   const secondary = ks[1] || null;
   sortDesc.textContent = "Sort: " + ks.map(k => LABELS[k]).join(" → ")
-    + " · jump chips follow the 1st key";
+    + " · Jump panels skip to a meaning group or CEFR level";
 
   const rows = sortedData();
   const parts = [];
-  const chipSeen = new Set();
-  const chips = [];
   let curPrimary = null;
   let curSecondary = null;
   let primaryCount = 0;
   let secondaryCount = 0;
 
-  const flushSecondary = () => {};
+  // Pre-count primary sections in one pass
+  const primaryCounts = {};
+  for (const r of rows) {
+    const pv = sectionValue(r, primary);
+    primaryCounts[pv] = (primaryCounts[pv] || 0) + 1;
+  }
+  const secondaryCounts = {};
+  if (secondary === "group" || secondary === "level") {
+    for (const r of rows) {
+      const key = sectionValue(r, primary) + "\0" + sectionValue(r, secondary);
+      secondaryCounts[key] = (secondaryCounts[key] || 0) + 1;
+    }
+  }
+
+  const tipCell = (form) => {
+    const key = String(form).toLowerCase();
+    return GLOSS[key]
+      ? `<td class="w" data-w="${esc(key)}">${esc(form)}</td>`
+      : `<td>${esc(form)}</td>`;
+  };
 
   for (const r of rows) {
     const pVal = sectionValue(r, primary);
-    const sVal = secondary && secondary !== "freq" ? sectionValue(r, secondary)
-              : (secondary === "freq" ? null : null);
-    // For secondary headers: show for group/level; skip freq bands as subheaders (too noisy under another key)
     const useSub = secondary === "group" || secondary === "level";
 
     if (pVal !== curPrimary) {
       curPrimary = pVal;
       curSecondary = null;
-      primaryCount = rows.filter(x => sectionValue(x, primary) === pVal).length;
+      primaryCount = primaryCounts[pVal] || 0;
       const id = slug(pVal);
-      if (!chipSeen.has(id)) {
-        chipSeen.add(id);
-        chips.push(`<a class="chip" href="#${id}">${pVal}</a>`);
-      }
       parts.push(
         `<tr class="section" id="${id}"><td colspan="8"><span class="gname">${pVal}</span>` +
         `<span class="gcount">${primaryCount} verbs</span></td></tr>`
@@ -14046,9 +14158,7 @@ function render() {
       const sv = sectionValue(r, secondary);
       if (sv !== curSecondary) {
         curSecondary = sv;
-        secondaryCount = rows.filter(
-          x => sectionValue(x, primary) === curPrimary && sectionValue(x, secondary) === sv
-        ).length;
+        secondaryCount = secondaryCounts[curPrimary + "\0" + sv] || 0;
         parts.push(
           `<tr class="subsec"><td colspan="8"><span class="lname">${sv}</span>` +
           `<span class="lcount">${secondaryCount}</span></td></tr>`
@@ -14060,20 +14170,20 @@ function render() {
       ? `<span class="badge-adj" title="${esc(r.adjNote || "also adjective/noun")}">also adj.</span>`
       : "";
     const searchExtra = r.adj ? " also adjective adj" : "";
+    const infCell = GLOSS[String(r.inf).toLowerCase()]
+      ? `<strong class="w" tabindex="0" data-w="${esc(String(r.inf).toLowerCase())}">${esc(r.inf)}</strong>`
+      : `<strong>${esc(r.inf)}</strong>`;
     parts.push(
       `<tr class="verb" data-inf="${esc(r.inf)}" data-text="${esc(r.inf + " " + r.en + " " + r.level + " " + r.group + searchExtra)}">` +
       `<td class="lvl">${r.level}</td>` +
-      `<td><strong>${wrapWord(r.inf)}</strong>${adjBadge}</td>` +
+      `<td>${infCell}${adjBadge}</td>` +
       `<td class="def">${esc(r.en)}</td>` +
-      `<td>${wrapWord(r.eu)}</td><td>${wrapWord(r.tu)}</td><td>${wrapWord(r.ele)}</td>` +
-      `<td>${wrapWord(r.nos)}</td><td>${wrapWord(r.eles)}</td></tr>`
+      tipCell(r.eu) + tipCell(r.tu) + tipCell(r.ele) + tipCell(r.nos) + tipCell(r.eles) +
+      `</tr>`
     );
   }
 
-  nav.innerHTML = chips.join("\n");
-  tb.innerHTML = parts.join("\n");
-  wireVerbClicks();
-  wireTips(tb);
+  tb.innerHTML = parts.join("");
   applyFilter();
   markPreset();
 }
@@ -14089,7 +14199,7 @@ function highlightForm(sentence, form) {
   });
 }
 
-function buildDetail(r) {
+function buildDetailBody(r) {
   const labels = [
     ["eu", "eu", r.eu],
     ["tu", "tu", r.tu],
@@ -14104,35 +14214,51 @@ function buildDetail(r) {
   const adjLine = r.adj
     ? `<p class="ex-note">Also an adjective/noun (same spelling) — ${esc(r.adjNote || "see Cognate Patterns AR list")}</p>`
     : "";
-  return `<tr class="detail"><td colspan="8">` +
-    `<p class="ex-note">Sample sentences · vocabulary aimed at <strong>${r.level}</strong> (same level as <em>${esc(r.inf)}</em>) · hover words for glosses</p>` +
-    adjLine +
-    `<ul class="ex-list">${items}</ul></td></tr>`;
+  return adjLine + `<ul class="ex-list">${items}</ul>`;
 }
 
+const exSheet = document.getElementById("exSheet");
+const exBackdrop = document.getElementById("exBackdrop");
+const exTitle = document.getElementById("exTitle");
+const exSub = document.getElementById("exSub");
+const exBody = document.getElementById("exBody");
+const exClose = document.getElementById("exClose");
 let openInf = null;
-function wireVerbClicks() {
-  tb.querySelectorAll("tr.verb").forEach(tr => {
-    tr.addEventListener("click", () => {
-      const inf = tr.dataset.inf;
-      const existing = tr.nextElementSibling;
-      if (existing && existing.classList.contains("detail")) {
-        existing.remove();
-        tr.classList.remove("open");
-        openInf = null;
-        return;
-      }
-      // close any other open detail
-      tb.querySelectorAll("tr.detail").forEach(d => d.remove());
-      tb.querySelectorAll("tr.verb.open").forEach(v => v.classList.remove("open"));
-      const r = DATA.find(x => x.inf === inf);
-      if (!r) return;
-      tr.insertAdjacentHTML("afterend", buildDetail(r));
-      tr.classList.add("open");
-      openInf = inf;
-      wireTips(tr.nextElementSibling);
-    });
+
+function closeExSheet() {
+  exSheet.classList.remove("show");
+  exBackdrop.classList.remove("show");
+  exSheet.hidden = true;
+  exBackdrop.hidden = true;
+  tb.querySelectorAll("tr.verb.open").forEach(v => v.classList.remove("open"));
+  openInf = null;
+}
+
+function openExSheet(r, tr) {
+  tb.querySelectorAll("tr.verb.open").forEach(v => v.classList.remove("open"));
+  tr.classList.add("open");
+  openInf = r.inf;
+  exTitle.textContent = r.inf;
+  exSub.textContent = `${r.level} · ${r.en} · sample sentences`;
+  exBody.innerHTML = buildDetailBody(r);
+  exSheet.hidden = false;
+  exBackdrop.hidden = false;
+  // show on next frame so mobile doesn't hitch on the same tap as table work
+  requestAnimationFrame(() => {
+    exSheet.classList.add("show");
+    exBackdrop.classList.add("show");
   });
+}
+
+function toggleVerbRow(tr) {
+  const inf = tr.dataset.inf;
+  if (openInf === inf) {
+    closeExSheet();
+    return;
+  }
+  const r = DATA.find(x => x.inf === inf);
+  if (!r) return;
+  openExSheet(r, tr);
 }
 
 function esc(s) {
@@ -14145,12 +14271,9 @@ function wrapWord(word) {
   return `<span class="w" tabindex="0" data-w="${esc(key)}">${esc(word)}</span>`;
 }
 
-function wrapText(text) {
-  return String(text).replace(/[A-Za-zÀ-ÿ']+/g, (m) => wrapWord(m));
-}
-
 const tipEl = document.getElementById("tip");
 let tipHideTimer = null;
+let tipTarget = null;
 
 function tipHtml(raw) {
   const lines = String(raw).split("\n");
@@ -14161,11 +14284,18 @@ function tipHtml(raw) {
   return `<div class="tip-word">${esc(word)}</div><div class="tip-gloss">${esc(gloss)}</div>${rest}`;
 }
 
+function hideTip() {
+  clearTimeout(tipHideTimer);
+  tipEl.style.display = "none";
+  tipTarget = null;
+}
+
 function showTip(el) {
   const key = el.dataset.w;
   const raw = GLOSS[key];
   if (!raw) return;
   clearTimeout(tipHideTimer);
+  tipTarget = el;
   tipEl.innerHTML = tipHtml(raw);
   tipEl.style.display = "block";
   const r = el.getBoundingClientRect();
@@ -14180,20 +14310,101 @@ function showTip(el) {
 }
 
 function hideTipSoon() {
-  tipHideTimer = setTimeout(() => { tipEl.style.display = "none"; }, 80);
+  tipHideTimer = setTimeout(() => { hideTip(); }, 80);
 }
 
-function wireTips(root) {
-  root.querySelectorAll(".w").forEach(el => {
-    el.addEventListener("mouseenter", () => showTip(el));
-    el.addEventListener("mouseleave", hideTipSoon);
-    el.addEventListener("focus", () => showTip(el));
-    el.addEventListener("blur", hideTipSoon);
-    el.addEventListener("click", (ev) => {
-      // Mobile: tap word for tip without toggling the verb row
+function toggleTip(el) {
+  if (tipTarget === el && tipEl.style.display === "block") {
+    hideTip();
+    return;
+  }
+  showTip(el);
+}
+
+function closeJumpPanels(exceptId) {
+  document.querySelectorAll(".jump-panel.open").forEach(panel => {
+    if (exceptId && panel.id === exceptId) return;
+    panel.classList.remove("open");
+    const menu = panel.querySelector(".jump-menu");
+    const btn = panel.querySelector(".jump-toggle");
+    if (menu) menu.hidden = true;
+    if (btn) btn.setAttribute("aria-expanded", "false");
+  });
+}
+
+function toggleJumpPanel(panel) {
+  const willOpen = !panel.classList.contains("open");
+  closeJumpPanels(willOpen ? panel.id : null);
+  const menu = panel.querySelector(".jump-menu");
+  const btn = panel.querySelector(".jump-toggle");
+  if (willOpen) {
+    panel.classList.add("open");
+    if (menu) menu.hidden = false;
+    if (btn) btn.setAttribute("aria-expanded", "true");
+  } else {
+    panel.classList.remove("open");
+    if (menu) menu.hidden = true;
+    if (btn) btn.setAttribute("aria-expanded", "false");
+  }
+}
+
+// One delegated listener set — avoids thousands of handlers that freeze mobile
+function wireDelegates() {
+  document.addEventListener("click", (ev) => {
+    if (ev.target.closest("#exClose") || ev.target === exBackdrop) {
+      closeExSheet();
+      return;
+    }
+    const toggle = ev.target.closest(".jump-toggle");
+    if (toggle) {
+      ev.preventDefault();
       ev.stopPropagation();
-      showTip(el);
-    });
+      toggleJumpPanel(toggle.closest(".jump-panel"));
+      return;
+    }
+    const chip = ev.target.closest(".chip");
+    if (chip && chip.dataset.gid) {
+      ev.preventDefault();
+      jumpToGroup(chip.dataset.gid);
+      closeJumpPanels();
+      return;
+    }
+    if (chip && chip.dataset.level) {
+      ev.preventDefault();
+      jumpToLevel(chip.dataset.level);
+      closeJumpPanels();
+      return;
+    }
+    if (!ev.target.closest(".jump-panel")) closeJumpPanels();
+    const w = ev.target.closest(".w");
+    if (w) {
+      ev.preventDefault();
+      ev.stopPropagation();
+      toggleTip(w);
+      return;
+    }
+    if (ev.target.closest("#exSheet")) return;
+    const verb = ev.target.closest("tr.verb");
+    if (verb && tb.contains(verb)) {
+      toggleVerbRow(verb);
+      return;
+    }
+    // click elsewhere closes tip
+    if (tipEl.style.display === "block" && !ev.target.closest("#tip")) hideTip();
+  });
+
+  document.addEventListener("mouseover", (ev) => {
+    const w = ev.target.closest(".w");
+    if (!w || w === tipTarget) return;
+    // only desktop hover (no coarse pointer)
+    if (window.matchMedia && window.matchMedia("(hover: hover)").matches) showTip(w);
+  });
+  document.addEventListener("mouseout", (ev) => {
+    const w = ev.target.closest(".w");
+    if (!w) return;
+    const to = ev.relatedTarget && ev.relatedTarget.closest && ev.relatedTarget.closest(".w");
+    if (to === w) return;
+    if (window.matchMedia && window.matchMedia("(hover: hover)").matches) hideTipSoon();
   });
 }
 
@@ -14213,16 +14424,9 @@ function applyFilter() {
       subHit = !s || tr.innerText.toLowerCase().includes(s);
       continue;
     }
-    if (tr.classList.contains("detail")) {
-      // visibility follows previous verb row
-      continue;
-    }
-    const text = (tr.dataset.text || tr.innerText).toLowerCase();
+    const text = (tr.dataset.text || "").toLowerCase();
     const hit = !s || text.includes(s) || sectionHit || subHit;
     tr.style.display = hit ? "" : "none";
-    if (tr.nextElementSibling && tr.nextElementSibling.classList.contains("detail")) {
-      tr.nextElementSibling.style.display = hit && tr.classList.contains("open") ? "" : "none";
-    }
     if (hit) shown++;
   }
   for (let i = 0; i < rows.length; i++) {
@@ -14282,6 +14486,9 @@ document.querySelectorAll("button.preset").forEach(btn => {
   });
 });
 
+wireDelegates();
+renderGroupChips();
+renderLevelChips();
 render();
 } catch (e) {
   const err = document.getElementById("err");
