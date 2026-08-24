@@ -8,6 +8,8 @@ from __future__ import annotations
 
 from typing import Any
 
+from pronounce_pt import pronounce
+
 # Fields used in tips:
 #   en, pos, gender, number, lemma, masc, fem, masc_pl, fem_pl, note
 # gender: masculine | feminine | common
@@ -455,7 +457,14 @@ def format_tip(word: str, entry: Lex) -> str:
     en = entry.get("en", "")
     pos = entry.get("pos", "")
     is_verbish = pos == "v." or str(pos).startswith("v./")
-    lines = [f"{word}", f"{en} ({pos})" if pos else en]
+    lines = [f"{word}"]
+
+    pron = pronounce(word)
+    if pron:
+        ipa, respell = pron
+        lines.append(f"/{ipa}/ · {respell}")
+
+    lines.append(f"{en} ({pos})" if pos else en)
 
     morph_bits: list[str] = []
     gender = entry.get("gender")

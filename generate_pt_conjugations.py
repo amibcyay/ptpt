@@ -8,7 +8,7 @@ from pathlib import Path
 
 from verbecc import CompleteConjugator
 
-from also_adjectives import ALSO_ADJECTIVE
+from also_adjectives import ALSO_ADJECTIVE, also_adj_examples, also_adj_note
 from verb_groups import GROUPS
 from verb_levels import LEVEL_ORDER, VERB_FREQ_RANK, VERB_LEVEL
 from sentence_examples import make_examples
@@ -668,7 +668,7 @@ def main() -> None:
         "libertar": "to free / to release",
         "projectar": "to project / to plan",
         "adoptar": "to adopt",
-        "circular": "to circulate / to go around (also adj./noun: circular)",
+        "circular": "to circulate / to go around",
     }
 
     def definition_for(infinitive: str, gloss: str) -> str:
@@ -695,7 +695,7 @@ def main() -> None:
                 row["level"] = VERB_LEVEL[inf]
                 row["freq_rank"] = str(VERB_FREQ_RANK[inf])
                 row["also_adjective"] = "yes" if inf in ALSO_ADJECTIVE else ""
-                row["also_adjective_note"] = ALSO_ADJECTIVE.get(inf, "")
+                row["also_adjective_note"] = also_adj_note(inf)
                 members.append(row)
                 seen.add(inf)
         members.sort(
@@ -752,6 +752,7 @@ def main() -> None:
                 "en": r["english"],
                 "adj": bool(r.get("also_adjective")),
                 "adjNote": r.get("also_adjective_note") or "",
+                "adjEx": also_adj_examples(r["infinitive"]),
                 "eu": r["eu"],
                 "tu": r["tu"],
                 "ele": r["ele_ela"],
@@ -846,6 +847,15 @@ def main() -> None:
   .ex-list .who {{ display: inline-block; min-width: 7.5rem; font-weight: 700; color: #44403c; }}
   .ex-list .form {{ color: #a8a29e; font-size: .85rem; margin-right: .35rem; }}
   .ex-list mark {{ background: #fef3c7; color: inherit; padding: 0 .15rem; border-radius: 2px; }}
+  .ex-section {{ margin: 0 0 1rem; }}
+  .ex-section:last-child {{ margin-bottom: 0; }}
+  .ex-section-title {{ font-size: .78rem; font-weight: 700; letter-spacing: .04em;
+                       text-transform: uppercase; color: #78716c; margin: 0 0 .55rem; }}
+  .ex-adj-list {{ margin: 0; padding: 0; list-style: none; display: grid; gap: .65rem; }}
+  .ex-adj-list li {{ font-size: .95rem; line-height: 1.4; }}
+  .ex-adj-list .ex-label {{ display: inline-block; min-width: 5.5rem; font-weight: 700;
+                            color: #44403c; font-size: .82rem; text-transform: lowercase; }}
+  .ex-adj-list .ex-en {{ display: block; margin-top: .2rem; font-size: .82rem; color: #78716c; }}
   .hint {{ font-size: .82rem; color: #78716c; margin: 0 0 .75rem; }}
   .badge-adj {{ display: inline-block; margin-left: .4rem; padding: .1rem .4rem;
                 font-size: .68rem; font-weight: 700; letter-spacing: .03em;
@@ -883,6 +893,7 @@ def main() -> None:
     white-space: pre-line;
   }}
   #tip .tip-word {{ font-weight: 700; color: #fde68a; margin-bottom: .15rem; }}
+  #tip .tip-ipa {{ color: #a7f3d0; font-size: .86rem; margin: .1rem 0 .25rem; }}
   #tip .tip-gloss {{ font-size: .9rem; }}
   #tip .tip-morph {{ color: #d6d3d1; margin-top: .25rem; font-size: .78rem; }}
 </style>
@@ -1147,14 +1158,28 @@ function buildDetailBody(r) {{
     ["nos", "nós", r.nos],
     ["eles", "eles/elas/vocês", r.eles],
   ];
-  const items = labels.map(([k, who, form]) => {{
+  const verbItems = labels.map(([k, who, form]) => {{
     const sent = (r.ex && r.ex[k]) ? r.ex[k] : "";
     return `<li><span class="who">${{who}}</span> <span class="form">(${{wrapWord(form)}})</span> ${{highlightForm(sent, form)}}</li>`;
   }}).join("");
-  const adjLine = r.adj
-    ? `<p class="ex-note">Also an adjective/noun (same spelling) — ${{esc(r.adjNote || "see Cognate Patterns AR list")}}</p>`
-    : "";
-  return adjLine + `<ul class="ex-list">${{items}}</ul>`;
+  const verbBlock =
+    `<div class="ex-section"><div class="ex-section-title">As a verb</div>` +
+    `<ul class="ex-list">${{verbItems}}</ul></div>`;
+
+  if (!r.adj || !r.adjEx || !r.adjEx.length) return verbBlock;
+
+  const adjItems = r.adjEx.map(ex => {{
+    const form = ex.form || r.inf;
+    const label = ex.label || "adjective";
+    const en = ex.en ? `<span class="ex-en">${{esc(ex.en)}}</span>` : "";
+    return `<li><span class="ex-label">${{esc(label)}}</span> ${{highlightForm(ex.pt || "", form)}}${{en}}</li>`;
+  }}).join("");
+  const note = r.adjNote ? `<p class="ex-note">${{esc(r.adjNote)}}</p>` : "";
+  const adjBlock =
+    `<div class="ex-section"><div class="ex-section-title">As an adjective / noun</div>` +
+    note +
+    `<ul class="ex-adj-list">${{adjItems}}</ul></div>`;
+  return verbBlock + adjBlock;
 }}
 
 const exSheet = document.getElementById("exSheet");
@@ -1239,9 +1264,16 @@ function tipHtml(raw) {{
   const lines = String(raw).split("\\n");
   if (!lines.length) return "";
   const word = lines[0] || "";
-  const gloss = lines[1] || "";
-  const rest = lines.slice(2).map(l => `<div class="tip-morph">${{esc(l)}}</div>`).join("");
-  return `<div class="tip-word">${{esc(word)}}</div><div class="tip-gloss">${{esc(gloss)}}</div>${{rest}}`;
+  let i = 1;
+  let ipa = "";
+  if (lines[i] && lines[i].startsWith("/")) {{
+    ipa = lines[i];
+    i += 1;
+  }}
+  const gloss = lines[i] || "";
+  const rest = lines.slice(i + 1).map(l => `<div class="tip-morph">${{esc(l)}}</div>`).join("");
+  const ipaHtml = ipa ? `<div class="tip-ipa">${{esc(ipa)}}</div>` : "";
+  return `<div class="tip-word">${{esc(word)}}</div>${{ipaHtml}}<div class="tip-gloss">${{esc(gloss)}}</div>${{rest}}`;
 }}
 
 function hideTip() {{
