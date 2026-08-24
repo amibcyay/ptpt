@@ -833,11 +833,22 @@ def main() -> None:
   td.def {{ white-space: normal; min-width: 12rem; max-width: 22rem; color: #44403c; }}
   td.lvl {{ font-weight: 700; color: #78716c; width: 2.5rem; }}
   th {{ position: sticky; top: 0; background: #292524; color: #fafaf9; font-weight: 600; z-index: 3; }}
+  tr.section {{ scroll-margin-top: 3.25rem; }}
   tr.section td {{ background: #44403c; color: #fafaf9; padding: .65rem .55rem; }}
   tr.section .gname {{ font-weight: 700; font-size: .98rem; }}
   tr.section .gcount {{ float: right; opacity: .75; font-size: .82rem; font-weight: 500; }}
+  tr.subsec {{ scroll-margin-top: 3.25rem; }}
   tr.subsec td {{ background: #e7e5e4; color: #292524; padding: .4rem .55rem; font-weight: 700; }}
   tr.subsec .lcount {{ float: right; opacity: .65; font-weight: 500; font-size: .82rem; }}
+  .to-top {{ position: fixed; right: 1rem; bottom: 1rem; z-index: 45;
+             width: 2.75rem; height: 2.75rem; border-radius: 999px; border: 0;
+             background: #292524; color: #fafaf9; font-size: 1.15rem; cursor: pointer;
+             box-shadow: 0 6px 18px rgba(0,0,0,.22); display: none; align-items: center;
+             justify-content: center; }}
+  .to-top.show {{ display: flex; }}
+  .to-top:hover {{ background: #44403c; }}
+  tr.section.jump-flash td {{ outline: 2px solid #fbbf24; outline-offset: -2px; }}
+  tr.subsec.jump-flash td {{ outline: 2px solid #fbbf24; outline-offset: -2px; }}
   tr.verb {{ cursor: pointer; content-visibility: auto; contain-intrinsic-size: auto 2.5rem; }}
   tr.verb:hover td {{ background: #fafaf9; }}
   tr.verb.open td {{ background: #f5f5f4; }}
@@ -869,6 +880,7 @@ def main() -> None:
   td.w, strong .w {{ border-bottom: 1px dotted #a8a29e; }}
   .w:hover {{ background: #fef3c7; border-bottom-color: #d97706; }}
   body.ex-open {{ overflow: hidden; touch-action: none; overscroll-behavior: none; }}
+  body.ex-open .to-top {{ display: none !important; }}
   .ex-backdrop {{ display: none; position: fixed; inset: 0; z-index: 55;
                   background: rgba(28,25,23,.4); }}
   .ex-backdrop.show {{ display: block; }}
@@ -904,11 +916,10 @@ def main() -> None:
 </head>
 <body>
   <h1>Presente do Indicativo</h1>
-  <p class="sub" id="sortDesc">Sort with a button below · use Group panels to skip ahead</p>
+  <p class="sub" id="sortDesc">Sort with a button below</p>
   <p class="hint">Tap/click a verb row to open sample sentences in a panel.<br/>
      A blue <button type="button" class="badge-adj" id="adjFilterBtn" title="Show only also-adjective verbs">also adj.</button>
-     badge marks infinitives that are also adjectives/nouns — tap it to show only those
-     (from Cognate Patterns AR list; only <span id="adjCount">1</span> overlap with this verb list).<br/>
+     badge marks infinitives that are also adjectives/nouns.<br/>
      Hover or tap any underlined word for English + part of speech + gender/number forms.</p>
   <div id="tip" role="tooltip"></div>
   <div class="ex-backdrop" id="exBackdrop" hidden></div>
@@ -949,6 +960,7 @@ def main() -> None:
   </div>
   <div class="count"><span id="n">0</span> verbs shown</div>
   <div class="err" id="err"></div>
+  <button type="button" class="to-top" id="toTop" aria-label="Back to top" title="Back to top">↑</button>
   <table>
     <thead>
       <tr>
@@ -1023,8 +1035,14 @@ function sortedData() {{
 function scrollToId(id) {{
   const el = document.getElementById(id);
   if (!el) return;
-  // instant scroll — smooth + huge table freezes mobile browsers
-  el.scrollIntoView({{ behavior: "auto", block: "start" }});
+  // Offset for sticky table header so the section title stays visible
+  const header = document.querySelector("thead th");
+  const pad = (header ? header.getBoundingClientRect().height : 40) + 10;
+  const y = el.getBoundingClientRect().top + window.scrollY - pad;
+  window.scrollTo({{ top: Math.max(0, y), behavior: "auto" }});
+  // brief highlight so the group header is obvious
+  el.classList.add("jump-flash");
+  setTimeout(() => el.classList.remove("jump-flash"), 1200);
 }}
 
 function jumpToGroup(id) {{
@@ -1032,6 +1050,7 @@ function jumpToGroup(id) {{
     setSort("group", "level", "freq");
     render();
   }}
+  closeJumpPanels();
   requestAnimationFrame(() => scrollToId(id));
 }}
 
@@ -1040,6 +1059,7 @@ function jumpToLevel(level) {{
     setSort("level", "freq", "");
     render();
   }}
+  closeJumpPanels();
   requestAnimationFrame(() => scrollToId(slug(level)));
 }}
 
@@ -1066,8 +1086,7 @@ function render() {{
   const ks = keys();
   const primary = ks[0] || "group";
   const secondary = ks[1] || null;
-  sortDesc.textContent = "Sort: " + ks.map(k => LABELS[k]).join(" → ")
-    + " · Group panels skip to a meaning or level";
+  sortDesc.textContent = "Sort: " + ks.map(k => LABELS[k]).join(" → ");
 
   const rows = sortedData();
   const parts = [];
@@ -1142,8 +1161,6 @@ function render() {{
   }}
 
   tb.innerHTML = parts.join("");
-  const adjCountEl = document.getElementById("adjCount");
-  if (adjCountEl) adjCountEl.textContent = String(DATA.filter(x => x.adj).length);
   applyFilter();
   markPreset();
 }}
@@ -1473,6 +1490,19 @@ function markPreset() {{
 }}
 
 q.addEventListener("input", applyFilter);
+
+const toTop = document.getElementById("toTop");
+function syncToTop() {{
+  if (!toTop) return;
+  toTop.classList.toggle("show", window.scrollY > 400);
+}}
+window.addEventListener("scroll", syncToTop, {{ passive: true }});
+if (toTop) {{
+  toTop.addEventListener("click", () => {{
+    window.scrollTo({{ top: 0, behavior: "auto" }});
+  }});
+}}
+syncToTop();
 
 document.querySelectorAll("button.preset").forEach(btn => {{
   btn.addEventListener("click", () => {{
