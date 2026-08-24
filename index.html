@@ -105,9 +105,8 @@
 <body>
   <h1>Presente do Indicativo</h1>
   <p class="sub" id="sortDesc">Sort with a button below · use Group panels to skip ahead</p>
-  <p class="hint">Tap/click a verb row to open sample sentences in a panel (vocabulary matched to that verb’s CEFR level).
-     A blue <span class="badge-adj">also adj.</span> badge marks infinitives that are also adjectives/nouns
-     (Cognate Patterns PDF, AR section — same spelling as the verb).
+  <p class="hint">Tap/click a verb row to open sample sentences in a panel.<br/>
+     A blue <span class="badge-adj">also adj.</span> badge marks infinitives that are also adjectives/nouns.<br/>
      Hover or tap any underlined word for English + part of speech + gender/number forms.</p>
   <div id="tip" role="tooltip"></div>
   <div class="ex-backdrop" id="exBackdrop" hidden></div>
@@ -14224,7 +14223,7 @@ function openExSheet(r, tr) {
   tr.classList.add("open");
   openInf = r.inf;
   exTitle.textContent = r.inf;
-  exSub.textContent = `${r.level} · ${r.en} · sample sentences`;
+  exSub.textContent = `${r.level} · ${r.en}`;
   exBody.innerHTML = buildDetailBody(r);
   exBody.scrollTop = 0;
   exSheet.hidden = false;
