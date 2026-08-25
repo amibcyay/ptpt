@@ -237,6 +237,94 @@
     color: var(--muted);
     margin: 0 0 .75rem;
   }
+  .sync-bar {
+    margin: 0 0 1rem;
+    padding: .75rem .85rem;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    font-size: .88rem;
+  }
+  .sync-bar .sync-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem;
+    align-items: center;
+  }
+  .sync-bar .sync-status {
+    color: var(--muted);
+    flex: 1 1 10rem;
+    margin: 0;
+  }
+  .sync-bar button,
+  .sync-bar .sync-actions button {
+    padding: .35rem .7rem;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #fff;
+    font: inherit;
+    font-size: .82rem;
+    cursor: pointer;
+    color: var(--ink);
+  }
+  .sync-bar button:hover:not(:disabled) { background: #f5f5f4; }
+  .sync-bar button:disabled { opacity: .45; cursor: default; }
+  .sync-bar button.primary {
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-color: #b7d9d4;
+    font-weight: 600;
+  }
+  .sync-panel {
+    margin: .75rem 0 0;
+    padding: .75rem 0 0;
+    border-top: 1px solid var(--line);
+  }
+  .sync-panel[hidden] { display: none !important; }
+  .sync-panel label {
+    display: block;
+    font-size: .78rem;
+    font-weight: 600;
+    color: var(--muted);
+    margin: 0 0 .3rem;
+  }
+  .sync-panel input,
+  .sync-panel textarea {
+    width: 100%;
+    max-width: 36rem;
+    padding: .45rem .6rem;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font: inherit;
+    font-size: .88rem;
+    margin: 0 0 .55rem;
+    box-sizing: border-box;
+  }
+  .sync-panel textarea { min-height: 4.5rem; resize: vertical; }
+  .sync-panel .hint {
+    margin: 0 0 .65rem;
+    color: var(--muted);
+    font-size: .82rem;
+    max-width: 36rem;
+  }
+  .sync-panel .hint a { color: var(--accent); }
+  .sync-panel .sync-msg {
+    margin: .5rem 0 0;
+    font-size: .82rem;
+  }
+  .sync-panel .sync-msg.ok { color: var(--accent); }
+  .sync-panel .sync-msg.err { color: #991b1b; }
+  .sync-code-box {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: .78rem;
+    word-break: break-all;
+    background: #f5f5f4;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: .55rem .65rem;
+    max-width: 36rem;
+    margin: 0 0 .55rem;
+  }
 </style>
 </head>
 <body>
@@ -256,6 +344,46 @@
     <h1 class="brand"><img class="brand-logo" src="../logo.png?v=2" alt="" width="40" height="40"/>Study plan</h1>
     <p class="lead" id="lead" hidden></p>
 
+    <div class="sync-bar" id="sync-bar" aria-live="polite">
+      <div class="sync-row">
+        <p class="sync-status" id="sync-status">Checklist stays on this device until you set up sync.</p>
+        <span class="sync-actions" id="sync-actions"></span>
+      </div>
+      <div class="sync-panel" id="sync-panel-setup" hidden>
+        <p class="hint">
+          One-time setup: create a GitHub
+          <a href="https://github.com/settings/tokens/new?scopes=gist&amp;description=ptpt-plan-sync" target="_blank" rel="noopener">personal access token</a>
+          with the <strong>gist</strong> scope only, paste it below, then copy the sync code onto your phone.
+          Treat the code like a password.
+        </p>
+        <label for="sync-token">GitHub token (gist scope)</label>
+        <input id="sync-token" type="password" autocomplete="off" spellcheck="false" placeholder="ghp_…"/>
+        <div class="sync-row">
+          <button type="button" class="primary" id="sync-create">Create sync code</button>
+          <button type="button" id="sync-cancel-setup">Cancel</button>
+        </div>
+        <p class="sync-msg" id="sync-setup-msg" hidden></p>
+        <div id="sync-created" hidden>
+          <label>Your sync code</label>
+          <div class="sync-code-box" id="sync-code-display"></div>
+          <div class="sync-row">
+            <button type="button" class="primary" id="sync-copy-new">Copy code</button>
+            <button type="button" id="sync-copy-link">Copy link</button>
+          </div>
+        </div>
+      </div>
+      <div class="sync-panel" id="sync-panel-enter" hidden>
+        <p class="hint">Paste the sync code from your other device (or open the sync link).</p>
+        <label for="sync-code-input">Sync code</label>
+        <textarea id="sync-code-input" spellcheck="false" placeholder="ptpt1.…"></textarea>
+        <div class="sync-row">
+          <button type="button" class="primary" id="sync-connect">Connect</button>
+          <button type="button" id="sync-cancel-enter">Cancel</button>
+        </div>
+        <p class="sync-msg" id="sync-enter-msg" hidden></p>
+      </div>
+    </div>
+
     <div class="tabs" role="tablist">
       <button type="button" class="active" data-tab="this-week" role="tab">This week</button>
       <button type="button" data-tab="browse" role="tab">Browse</button>
@@ -265,7 +393,7 @@
     <section id="panel-browse" class="panel" role="tabpanel"></section>
   </main>
   <script src="../scripts/vocab-sheet.js" defer></script>
-  <script src="../scripts/plan.js" defer></script>
+  <script src="../scripts/plan.js?v=sync1" defer></script>
   <script src="../scripts/translator.js" defer></script>
 </body>
 </html>

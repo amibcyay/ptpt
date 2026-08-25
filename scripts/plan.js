@@ -2,6 +2,10 @@
 (function () {
   const DATA_URL = "../data/plan-weeks.json";
   const STORAGE_KEY = "ptpt-plan-checks-v2";
+  const SYNC_CFG_KEY = "ptpt-plan-sync-cfg";
+  const SYNC_META_KEY = "ptpt-plan-sync-meta";
+  const GIST_FILE = "ptpt-plan-checks.json";
+  const SYNC_PREFIX = "ptpt1.";
 
   const SKILLS = [
     ["output", "Output"],
@@ -38,6 +42,8 @@
   let browseDateValue = "";
   let calViewYear = null;
   let calViewMonth = null;
+  let pushTimer = null;
+  let syncBusy = false;
 
   function loadChecks() {
     try {
@@ -51,6 +57,51 @@
     localStorage.setItem(STORAGE_KEY, JSON.stringify(obj));
   }
 
+  function loadSyncCfg() {
+    try {
+      const c = JSON.parse(localStorage.getItem(SYNC_CFG_KEY) || "null");
+      if (c && c.gistId && c.token) return c;
+    } catch {
+      /* ignore */
+    }
+    return null;
+  }
+
+  function saveSyncCfg(cfg) {
+    if (!cfg) localStorage.removeItem(SYNC_CFG_KEY);
+    else localStorage.setItem(SYNC_CFG_KEY, JSON.stringify(cfg));
+  }
+
+  function loadSyncMeta() {
+    try {
+      return JSON.parse(localStorage.getItem(SYNC_META_KEY) || "{}") || {};
+    } catch {
+      return {};
+    }
+  }
+
+  function saveSyncMeta(meta) {
+    localStorage.setItem(SYNC_META_KEY, JSON.stringify(meta || {}));
+  }
+
+  function localUpdatedAt() {
+    return Number(loadSyncMeta().updatedAt) || 0;
+  }
+
+  function touchLocal() {
+    const meta = loadSyncMeta();
+    meta.updatedAt = Date.now();
+    saveSyncMeta(meta);
+  }
+
+  function progressWhere() {
+    return loadSyncCfg() ? "synced across devices" : "saved in this browser only";
+  }
+
+  function progressText(done, total) {
+    return `${done}/${total} checked · ${progressWhere()}`;
+  }
+
   function weekChecks(id) {
     return loadChecks()[id] || {};
   }
@@ -62,6 +113,365 @@
     else delete all[id][skill];
     if (!Object.keys(all[id]).length) delete all[id];
     saveChecks(all);
+    touchLocal();
+    schedulePush();
+  }
+
+  function b64urlEncode(str) {
+    const bytes = new TextEncoder().encode(str);
+    let bin = "";
+    bytes.forEach((b) => {
+      bin += String.fromCharCode(b);
+    });
+    return btoa(bin).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/g, "");
+  }
+
+  function b64urlDecode(str) {
+    const pad = str.length % 4 === 0 ? "" : "=".repeat(4 - (str.length % 4));
+    const b64 = str.replace(/-/g, "+").replace(/_/g, "/") + pad;
+    const bin = atob(b64);
+    const bytes = Uint8Array.from(bin, (c) => c.charCodeAt(0));
+    return new TextDecoder().decode(bytes);
+  }
+
+  function encodeSyncCode(cfg) {
+    return SYNC_PREFIX + b64urlEncode(JSON.stringify({ g: cfg.gistId, t: cfg.token }));
+  }
+
+  function decodeSyncCode(raw) {
+    let s = String(raw || "").trim();
+    const urlMatch = s.match(/[?&]sync=([^&#]+)/i);
+    if (urlMatch) s = decodeURIComponent(urlMatch[1]);
+    if (s.startsWith(SYNC_PREFIX)) s = s.slice(SYNC_PREFIX.length);
+    try {
+      const obj = JSON.parse(b64urlDecode(s));
+      if (obj && obj.g && obj.t) return { gistId: obj.g, token: obj.t };
+    } catch {
+      /* ignore */
+    }
+    return null;
+  }
+
+  function syncLinkFor(cfg) {
+    const code = encodeSyncCode(cfg);
+    const base = `${location.origin}${location.pathname}`;
+    return `${base}?sync=${encodeURIComponent(code)}`;
+  }
+
+  function envelope(checks, updatedAt) {
+    return {
+      v: 1,
+      updatedAt: updatedAt || Date.now(),
+      checks: checks || {},
+    };
+  }
+
+  async function gistRequest(method, path, token, body) {
+    const res = await fetch(`https://api.github.com${path}`, {
+      method,
+      headers: {
+        Accept: "application/vnd.github+json",
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+        "X-GitHub-Api-Version": "2022-11-28",
+      },
+      body: body ? JSON.stringify(body) : undefined,
+    });
+    const text = await res.text();
+    let json = null;
+    try {
+      json = text ? JSON.parse(text) : null;
+    } catch {
+      json = null;
+    }
+    if (!res.ok) {
+      const msg =
+        (json && (json.message || json.error)) ||
+        `GitHub API ${res.status}`;
+      throw new Error(msg);
+    }
+    return json;
+  }
+
+  function parseGistPayload(gist) {
+    const file =
+      (gist.files && gist.files[GIST_FILE]) ||
+      (gist.files && Object.values(gist.files)[0]);
+    if (!file || !file.content) throw new Error("Sync file missing in gist.");
+    const payload = JSON.parse(file.content);
+    return {
+      updatedAt: Number(payload.updatedAt) || 0,
+      checks: payload.checks && typeof payload.checks === "object" ? payload.checks : {},
+    };
+  }
+
+  async function pullRemote() {
+    const cfg = loadSyncCfg();
+    if (!cfg) return { changed: false };
+    const gist = await gistRequest("GET", `/gists/${cfg.gistId}`, cfg.token);
+    const remote = parseGistPayload(gist);
+    const localAt = localUpdatedAt();
+    if (remote.updatedAt > localAt) {
+      saveChecks(remote.checks);
+      saveSyncMeta({ updatedAt: remote.updatedAt, lastPull: Date.now() });
+      return { changed: true, remote };
+    }
+    saveSyncMeta({ ...loadSyncMeta(), lastPull: Date.now() });
+    return { changed: false, remote };
+  }
+
+  async function pushRemote() {
+    const cfg = loadSyncCfg();
+    if (!cfg) return;
+    const updatedAt = localUpdatedAt() || Date.now();
+    const content = JSON.stringify(envelope(loadChecks(), updatedAt), null, 2);
+    await gistRequest("PATCH", `/gists/${cfg.gistId}`, cfg.token, {
+      files: { [GIST_FILE]: { content } },
+    });
+    saveSyncMeta({ ...loadSyncMeta(), updatedAt, lastPush: Date.now() });
+  }
+
+  function schedulePush() {
+    if (!loadSyncCfg()) return;
+    clearTimeout(pushTimer);
+    pushTimer = setTimeout(() => {
+      pushRemote().catch((err) => {
+        setSyncStatus(`Sync push failed: ${err.message}`, true);
+      });
+    }, 800);
+  }
+
+  async function createSync(token) {
+    const updatedAt = Date.now();
+    const content = JSON.stringify(envelope(loadChecks(), updatedAt), null, 2);
+    const gist = await gistRequest("POST", "/gists", token, {
+      description: "ptpt study plan checklist sync",
+      public: false,
+      files: { [GIST_FILE]: { content } },
+    });
+    const cfg = { gistId: gist.id, token };
+    saveSyncCfg(cfg);
+    saveSyncMeta({ updatedAt, lastPush: Date.now() });
+    return cfg;
+  }
+
+  async function connectSync(cfg) {
+    saveSyncCfg(cfg);
+    const remote = await pullRemote();
+    if (!remote.changed && Object.keys(loadChecks()).length) {
+      touchLocal();
+      await pushRemote();
+    }
+    return remote;
+  }
+
+  function setSyncStatus(text, isError) {
+    const el = document.getElementById("sync-status");
+    if (!el) return;
+    el.textContent = text;
+    el.style.color = isError ? "#991b1b" : "";
+  }
+
+  function showPanel(which) {
+    const setup = document.getElementById("sync-panel-setup");
+    const enter = document.getElementById("sync-panel-enter");
+    if (setup) setup.hidden = which !== "setup";
+    if (enter) enter.hidden = which !== "enter";
+  }
+
+  function setMsg(id, text, ok) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (!text) {
+      el.hidden = true;
+      el.textContent = "";
+      return;
+    }
+    el.hidden = false;
+    el.textContent = text;
+    el.className = `sync-msg ${ok ? "ok" : "err"}`;
+  }
+
+  function refreshOpenWeekPanels() {
+    const thisWeek = document.getElementById("panel-this-week");
+    if (thisWeek && thisWeek.classList.contains("active")) renderThisWeek();
+    const browse = document.getElementById("panel-browse");
+    if (browse && browse.classList.contains("active")) renderBrowse();
+  }
+
+  function renderSyncBar() {
+    const actions = document.getElementById("sync-actions");
+    if (!actions) return;
+    const cfg = loadSyncCfg();
+    const meta = loadSyncMeta();
+    if (cfg) {
+      const when = meta.lastPull || meta.lastPush;
+      const ago = when
+        ? ` · last sync ${new Date(when).toLocaleString()}`
+        : "";
+      setSyncStatus(`Sync on${ago}. Treat your sync code like a password.`);
+      actions.innerHTML = `
+        <button type="button" id="sync-now">Sync now</button>
+        <button type="button" id="sync-copy">Copy code</button>
+        <button type="button" id="sync-disconnect">Disconnect</button>`;
+      actions.querySelector("#sync-now")?.addEventListener("click", async () => {
+        if (syncBusy) return;
+        syncBusy = true;
+        setSyncStatus("Syncing…");
+        try {
+          const result = await pullRemote();
+          if (localUpdatedAt() >= (result.remote?.updatedAt || 0)) await pushRemote();
+          setSyncStatus(`Synced · ${new Date().toLocaleString()}`);
+          if (result.changed) refreshOpenWeekPanels();
+          else renderSyncBar();
+        } catch (err) {
+          setSyncStatus(`Sync failed: ${err.message}`, true);
+        } finally {
+          syncBusy = false;
+        }
+      });
+      actions.querySelector("#sync-copy")?.addEventListener("click", async () => {
+        const code = encodeSyncCode(cfg);
+        try {
+          await navigator.clipboard.writeText(code);
+          setSyncStatus("Sync code copied.");
+        } catch {
+          window.prompt("Copy this sync code:", code);
+        }
+      });
+      actions.querySelector("#sync-disconnect")?.addEventListener("click", () => {
+        if (!confirm("Disconnect sync on this device? Checkmarks stay here locally.")) return;
+        saveSyncCfg(null);
+        showPanel(null);
+        renderSyncBar();
+        refreshOpenWeekPanels();
+      });
+    } else {
+      setSyncStatus("Checklist stays on this device until you set up sync.");
+      actions.innerHTML = `
+        <button type="button" class="primary" id="sync-open-setup">Set up sync</button>
+        <button type="button" id="sync-open-enter">Enter code</button>`;
+      actions.querySelector("#sync-open-setup")?.addEventListener("click", () => {
+        showPanel("setup");
+        document.getElementById("sync-created")?.setAttribute("hidden", "");
+        setMsg("sync-setup-msg", "");
+      });
+      actions.querySelector("#sync-open-enter")?.addEventListener("click", () => {
+        showPanel("enter");
+        setMsg("sync-enter-msg", "");
+      });
+    }
+  }
+
+  function setupSyncUi() {
+    renderSyncBar();
+    document.getElementById("sync-cancel-setup")?.addEventListener("click", () => showPanel(null));
+    document.getElementById("sync-cancel-enter")?.addEventListener("click", () => showPanel(null));
+    document.getElementById("sync-create")?.addEventListener("click", async () => {
+      const token = document.getElementById("sync-token")?.value.trim();
+      if (!token) {
+        setMsg("sync-setup-msg", "Paste a GitHub token with gist scope.", false);
+        return;
+      }
+      const btn = document.getElementById("sync-create");
+      if (btn) btn.disabled = true;
+      setMsg("sync-setup-msg", "Creating private gist…", true);
+      try {
+        const cfg = await createSync(token);
+        const code = encodeSyncCode(cfg);
+        const box = document.getElementById("sync-code-display");
+        const created = document.getElementById("sync-created");
+        const tokenInput = document.getElementById("sync-token");
+        if (tokenInput) tokenInput.value = "";
+        if (box) box.textContent = code;
+        if (created) created.hidden = false;
+        setMsg("sync-setup-msg", "Sync created. Copy the code to your phone.", true);
+        renderSyncBar();
+        refreshOpenWeekPanels();
+      } catch (err) {
+        setMsg("sync-setup-msg", err.message || "Could not create sync.", false);
+      } finally {
+        if (btn) btn.disabled = false;
+      }
+    });
+    document.getElementById("sync-copy-new")?.addEventListener("click", async () => {
+      const cfg = loadSyncCfg();
+      if (!cfg) return;
+      const code = encodeSyncCode(cfg);
+      try {
+        await navigator.clipboard.writeText(code);
+        setMsg("sync-setup-msg", "Code copied.", true);
+      } catch {
+        window.prompt("Copy this sync code:", code);
+      }
+    });
+    document.getElementById("sync-copy-link")?.addEventListener("click", async () => {
+      const cfg = loadSyncCfg();
+      if (!cfg) return;
+      const link = syncLinkFor(cfg);
+      try {
+        await navigator.clipboard.writeText(link);
+        setMsg("sync-setup-msg", "Link copied.", true);
+      } catch {
+        window.prompt("Copy this sync link:", link);
+      }
+    });
+    document.getElementById("sync-connect")?.addEventListener("click", async () => {
+      const raw = document.getElementById("sync-code-input")?.value || "";
+      const cfg = decodeSyncCode(raw);
+      if (!cfg) {
+        setMsg("sync-enter-msg", "That does not look like a valid sync code.", false);
+        return;
+      }
+      const btn = document.getElementById("sync-connect");
+      if (btn) btn.disabled = true;
+      setMsg("sync-enter-msg", "Connecting…", true);
+      try {
+        await connectSync(cfg);
+        showPanel(null);
+        setMsg("sync-enter-msg", "");
+        renderSyncBar();
+        refreshOpenWeekPanels();
+        setSyncStatus(`Connected · ${new Date().toLocaleString()}`);
+      } catch (err) {
+        saveSyncCfg(null);
+        setMsg("sync-enter-msg", err.message || "Could not connect.", false);
+        renderSyncBar();
+      } finally {
+        if (btn) btn.disabled = false;
+      }
+    });
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState !== "visible" || !loadSyncCfg()) return;
+      pullRemote()
+        .then((r) => {
+          if (r.changed) refreshOpenWeekPanels();
+          renderSyncBar();
+        })
+        .catch(() => {});
+    });
+  }
+
+  async function absorbSyncQuery() {
+    const params = new URLSearchParams(location.search);
+    const raw = params.get("sync");
+    if (!raw) return;
+    const cfg = decodeSyncCode(raw);
+    history.replaceState({}, "", location.pathname + location.hash);
+    if (!cfg) {
+      setSyncStatus("Invalid sync link.", true);
+      return;
+    }
+    try {
+      await connectSync(cfg);
+      renderSyncBar();
+      setSyncStatus(`Connected via link · ${new Date().toLocaleString()}`);
+    } catch (err) {
+      saveSyncCfg(null);
+      setSyncStatus(`Sync link failed: ${err.message}`, true);
+      renderSyncBar();
+    }
   }
 
   function progressFor(week) {
@@ -336,7 +746,7 @@
         <span class="pill phase-${esc(week.phase)}">${esc(week.phase)}</span>
         <span class="pill">${esc(week.level || "")}</span>
         ${statusNote}
-        <p class="progress">${done}/${total} checked · saved in this browser only</p>
+        <p class="progress">${progressText(done, total)}</p>
       </div>
       ${skillsHtml}
     `;
@@ -358,7 +768,7 @@
         const prog = root.querySelector(".progress");
         if (week && prog) {
           const { done, total } = progressFor(week);
-          prog.textContent = `${done}/${total} checked · saved in this browser only`;
+          prog.textContent = progressText(done, total);
         }
       });
     });
@@ -627,10 +1037,23 @@
       }
       return;
     }
+    setupSyncUi();
+    await absorbSyncQuery();
+    if (loadSyncCfg()) {
+      try {
+        const result = await pullRemote();
+        if (result.changed) {
+          /* panels render after */
+        }
+      } catch (err) {
+        setSyncStatus(`Sync pull failed: ${err.message}`, true);
+      }
+    }
     setupTabs();
     const { week } = findThisWeek(data.weeks, new Date());
     syncBrowseToWeek(week, toISODate(new Date()));
     renderThisWeek();
+    renderSyncBar();
   }
 
   init();
