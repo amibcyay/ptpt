@@ -54,6 +54,16 @@ main {
   letter-spacing: -0.03em;
   margin: 0 0 .5rem;
   line-height: 1.15;
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+}
+.brand-logo {
+  width: 2.5rem;
+  height: 2.5rem;
+  object-fit: contain;
+  border-radius: 8px;
+  flex: 0 0 auto;
 }
 .lead {
   margin: 0 0 1.75rem;
