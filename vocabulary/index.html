@@ -244,6 +244,7 @@
   </div>
   <button type="button" class="to-top" id="toTop" aria-label="Back to top">↑</button>
 
+<script src="../scripts/fold.js"></script>
 <script>
 const DATA = [
  {
@@ -223767,17 +223768,20 @@ function sectionKey(r) {
 }
 
 function render() {
-  const query = q.value.trim().toLowerCase();
+  const query = foldPt(q.value.trim());
   filtered = DATA.filter(r => {
     if (!query) return true;
-    if (r.lemma.toLowerCase().includes(query)
-      || r.en.toLowerCase().includes(query)
-      || r.topic.toLowerCase().includes(query)
-      || r.pos.toLowerCase().includes(query)
-      || (r.short && r.short.toLowerCase().includes(query))) return true;
+    if (foldPt(r.lemma).includes(query)
+      || foldPt(r.en).includes(query)
+      || foldPt(r.topic).includes(query)
+      || foldPt(r.pos).includes(query)
+      || (r.short && foldPt(r.short).includes(query))) return true;
     const forms = r.forms || [];
     // Prefer exact form match (morro → morrer); also allow prefix on longer forms
-    return forms.some(f => f === query || (query.length >= 3 && f.startsWith(query)));
+    return forms.some((f) => {
+      const ff = foldPt(f);
+      return ff === query || (query.length >= 3 && ff.startsWith(query));
+    });
   });
   const rows = sortRows(filtered);
   countEl.textContent = `${rows.length} word${rows.length === 1 ? "" : "s"}`;
@@ -224110,10 +224114,10 @@ render();
   if (!qq) return;
   q.value = qq;
   render();
-  const needle = qq.trim().toLowerCase();
+  const needle = foldPt(qq.trim());
   const hit = DATA.find(r =>
-    r.lemma.toLowerCase() === needle
-    || (r.forms || []).some(f => f === needle)
+    foldPt(r.lemma) === needle
+    || (r.forms || []).some(f => foldPt(f) === needle)
   );
   if (hit) openSheet(hit);
 })();

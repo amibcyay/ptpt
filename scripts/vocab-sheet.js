@@ -182,13 +182,13 @@ button.vocab-open:hover { color: #0d5f58; }
   }
 
   function findRow(lemma) {
-    const q = String(lemma || "").toLowerCase().trim();
+    const q = foldPt(String(lemma || "").trim());
     if (!q || !DATA) return null;
-    let hit = DATA.find((r) => String(r.lemma).toLowerCase() === q);
+    let hit = DATA.find((r) => foldPt(r.lemma) === q);
     if (hit) return hit;
-    hit = DATA.find((r) => (r.forms || []).some((f) => String(f).toLowerCase() === q));
+    hit = DATA.find((r) => (r.forms || []).some((f) => foldPt(f) === q));
     if (hit) return hit;
-    hit = DATA.find((r) => String(r.lemma).toLowerCase().replace(/\/.*/, "") === q);
+    hit = DATA.find((r) => foldPt(String(r.lemma).replace(/\/.*/, "")) === q);
     if (hit) return hit;
     // Phrase chip like "bom dia" → try first word
     if (q.includes(" ")) {
@@ -196,6 +196,14 @@ button.vocab-open:hover { color: #0d5f58; }
       return findRow(first);
     }
     return null;
+  }
+
+  function foldPt(s) {
+    if (typeof window.foldPt === "function") return window.foldPt(s);
+    return String(s || "")
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase();
   }
 
   function renderRow(r) {

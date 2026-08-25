@@ -229,6 +229,7 @@
   </div>
   <button type="button" class="to-top" id="toTop" aria-label="Back to top" title="Back to top">↑</button>
 
+<script src="../scripts/fold.js"></script>
 <script>
 try {
 const DATA = [
@@ -26272,22 +26273,22 @@ function wireDelegates() {
 }
 
 function applyFilter() {
-  const s = q.value.trim().toLowerCase();
+  const s = foldPt(q.value.trim());
   const rows = [...tb.rows];
   let shown = 0;
   let sectionHit = false;
   let subHit = false;
   for (const tr of rows) {
     if (tr.classList.contains("section")) {
-      sectionHit = !s || tr.innerText.toLowerCase().includes(s);
+      sectionHit = !s || foldPt(tr.innerText).includes(s);
       subHit = false;
       continue;
     }
     if (tr.classList.contains("subsec")) {
-      subHit = !s || tr.innerText.toLowerCase().includes(s);
+      subHit = !s || foldPt(tr.innerText).includes(s);
       continue;
     }
-    const text = (tr.dataset.text || "").toLowerCase();
+    const text = foldPt(tr.dataset.text || "");
     const adjOk = !adjOnly || tr.dataset.adj === "1";
     // Match infinitive, English, group — and present forms (morro → morrer)
     const tokens = text.split(/\s+/);

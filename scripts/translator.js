@@ -23,8 +23,27 @@
     : [new URL("data/translator-index.json", siteRoot).href];
 
   let indexMap = null;
+  let foldIndexMap = null;
   let loadError = null;
   let loading = null;
+
+  function foldPt(s) {
+    const shared = typeof window !== "undefined" ? window.foldPt : null;
+    if (typeof shared === "function" && shared !== foldPt) return shared(s);
+    return String(s || "")
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase();
+  }
+
+  function rebuildFoldIndex() {
+    foldIndexMap = Object.create(null);
+    if (!indexMap) return;
+    for (const [k, v] of Object.entries(indexMap)) {
+      const fk = foldPt(k);
+      if (fk && foldIndexMap[fk] == null) foldIndexMap[fk] = { key: k, hit: v };
+    }
+  }
 
   function injectStyles() {
     if (document.getElementById("pt-tr-styles")) return;
@@ -219,6 +238,7 @@ button.to-top, .to-top { bottom: 4.5rem !important; }
 
   /** Fallback: search DATA already on the verbs/vocab page. */
   function lookupFromPageData(q) {
+    const needle = foldPt(q);
     try {
       if (typeof DATA !== "undefined" && Array.isArray(DATA) && DATA.length) {
         const sample = DATA[0] || {};
@@ -226,8 +246,8 @@ button.to-top, .to-top { bottom: 4.5rem !important; }
         if ("lemma" in sample) {
           const hit = DATA.find(
             (r) =>
-              String(r.lemma).toLowerCase() === q ||
-              (r.forms || []).some((f) => String(f).toLowerCase() === q)
+              foldPt(r.lemma) === needle ||
+              (r.forms || []).some((f) => foldPt(f) === needle)
           );
           if (hit) {
             return {
@@ -238,7 +258,7 @@ button.to-top, .to-top { bottom: 4.5rem !important; }
                 pos: hit.pos || "",
                 src: "vocab",
                 path: "vocabulary/",
-                form: q !== String(hit.lemma).toLowerCase() ? q : null,
+                form: foldPt(hit.lemma) !== needle ? q : null,
               },
             };
           }
@@ -246,10 +266,9 @@ button.to-top, .to-top { bottom: 4.5rem !important; }
         // Verb rows
         if ("inf" in sample) {
           const hit = DATA.find((r) => {
-            const inf = String(r.inf || "").toLowerCase();
-            if (inf === q) return true;
+            if (foldPt(r.inf) === needle) return true;
             return ["eu", "tu", "ele", "nos", "eles"].some(
-              (k) => String(r[k] || "").toLowerCase() === q
+              (k) => foldPt(r[k]) === needle
             );
           });
           if (hit) {
@@ -261,7 +280,7 @@ button.to-top, .to-top { bottom: 4.5rem !important; }
                 pos: "v.",
                 src: "verb",
                 path: "verbs/",
-                form: q !== String(hit.inf).toLowerCase() ? q : null,
+                form: foldPt(hit.inf) !== needle ? q : null,
               },
             };
           }
@@ -288,12 +307,14 @@ button.to-top, .to-top { bottom: 4.5rem !important; }
       )
       .then((data) => {
         indexMap = data.map || {};
+        rebuildFoldIndex();
         loadError = null;
         return indexMap;
       })
       .catch((err) => {
         loadError = err && err.message ? err.message : String(err);
         indexMap = indexMap || {};
+        rebuildFoldIndex();
         return indexMap;
       })
       .finally(() => {
@@ -303,11 +324,13 @@ button.to-top, .to-top { bottom: 4.5rem !important; }
   }
 
   function lookup(raw) {
-    const q = raw.trim().toLowerCase();
+    const q = foldPt(raw.trim());
     if (!q) return null;
     if (indexMap && indexMap[q]) return { key: q, hit: indexMap[q] };
+    if (foldIndexMap && foldIndexMap[q]) return foldIndexMap[q];
     const bare = q.replace(/[.,!?;:«»""''()]/g, "");
     if (bare && indexMap && indexMap[bare]) return { key: bare, hit: indexMap[bare] };
+    if (bare && foldIndexMap && foldIndexMap[bare]) return foldIndexMap[bare];
     return lookupFromPageData(q) || (bare !== q ? lookupFromPageData(bare) : null);
   }
 

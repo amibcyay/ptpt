@@ -238,7 +238,7 @@
     margin: 0 0 .75rem;
   }
   .sync-bar {
-    margin: 0 0 1rem;
+    margin: 1.5rem 0 0;
     padding: .75rem .85rem;
     background: var(--card);
     border: 1px solid var(--line);
@@ -344,6 +344,14 @@
     <h1 class="brand"><img class="brand-logo" src="../logo.png?v=2" alt="" width="40" height="40"/>Study plan</h1>
     <p class="lead" id="lead" hidden></p>
 
+    <div class="tabs" role="tablist">
+      <button type="button" class="active" data-tab="this-week" role="tab">This week</button>
+      <button type="button" data-tab="browse" role="tab">Browse</button>
+    </div>
+
+    <section id="panel-this-week" class="panel active" role="tabpanel"></section>
+    <section id="panel-browse" class="panel" role="tabpanel"></section>
+
     <div class="sync-bar" id="sync-bar" aria-live="polite">
       <div class="sync-row">
         <p class="sync-status" id="sync-status">Checklist stays on this device until you set up sync.</p>
@@ -383,17 +391,10 @@
         <p class="sync-msg" id="sync-enter-msg" hidden></p>
       </div>
     </div>
-
-    <div class="tabs" role="tablist">
-      <button type="button" class="active" data-tab="this-week" role="tab">This week</button>
-      <button type="button" data-tab="browse" role="tab">Browse</button>
-    </div>
-
-    <section id="panel-this-week" class="panel active" role="tabpanel"></section>
-    <section id="panel-browse" class="panel" role="tabpanel"></section>
   </main>
+  <script src="../scripts/fold.js"></script>
   <script src="../scripts/vocab-sheet.js" defer></script>
-  <script src="../scripts/plan.js?v=sync1" defer></script>
+  <script src="../scripts/plan.js?v=sync2" defer></script>
   <script src="../scripts/translator.js" defer></script>
 </body>
 </html>
