@@ -1234,6 +1234,7 @@ function unlockPageScroll() {{
 }}
 
 function closeExSheet() {{
+  hideTip();
   if (!exSheet.classList.contains("show") && exSheet.hidden) return;
   exSheet.classList.remove("show");
   exBackdrop.classList.remove("show");
@@ -1409,14 +1410,13 @@ function wireDelegates() {{
       toggleTip(w);
       return;
     }}
+    if (tipEl.style.display === "block" && !ev.target.closest("#tip")) hideTip();
     if (ev.target.closest("#exSheet")) return;
     const verb = ev.target.closest("tr.verb");
     if (verb && tb.contains(verb)) {{
       toggleVerbRow(verb);
       return;
     }}
-    // click elsewhere closes tip
-    if (tipEl.style.display === "block" && !ev.target.closest("#tip")) hideTip();
   }});
 
   document.addEventListener("mouseover", (ev) => {{
