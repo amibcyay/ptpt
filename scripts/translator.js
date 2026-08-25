@@ -32,7 +32,7 @@
     s.id = "pt-tr-styles";
     s.textContent = `
 #pt-tr-btn {
-  position: fixed; left: 1rem; bottom: 1rem; z-index: 90;
+  position: fixed; right: 1rem; left: auto; bottom: 1rem; z-index: 90;
   width: 2.85rem; height: 2.85rem; border-radius: 999px; border: 0;
   background: #0f766e; color: #fafaf9; font-size: 1.05rem; font-weight: 700;
   cursor: pointer; box-shadow: 0 6px 18px rgba(0,0,0,.22);
@@ -41,7 +41,7 @@
 }
 #pt-tr-btn:hover { background: #0d5f58; }
 #pt-tr-panel {
-  position: fixed; left: 1rem; bottom: 4.1rem; z-index: 91;
+  position: fixed; right: 1rem; left: auto; bottom: 4.1rem; z-index: 91;
   width: min(22rem, calc(100vw - 2rem));
   background: #fff; color: #1c1917;
   border: 1px solid #e7e5e4; border-radius: 14px;
@@ -80,9 +80,12 @@
 #pt-tr-out a { color: #0f766e; }
 #pt-tr-out .ext { margin-top: .55rem; font-size: .82rem; display: grid; gap: .25rem; }
 #pt-tr-out .miss { color: #78716c; }
+/* Stack above the translate button so they don't overlap */
+button.to-top, .to-top { bottom: 4.5rem !important; }
 @media (max-width: 720px) {
-  #pt-tr-btn { bottom: 4.5rem; }
-  #pt-tr-panel { bottom: 7.6rem; }
+  #pt-tr-btn { bottom: 1rem; }
+  #pt-tr-panel { bottom: 4.1rem; max-height: min(70vh, 28rem); overflow: auto; }
+  button.to-top, .to-top { bottom: 4.5rem !important; }
 }
 `;
     document.head.appendChild(s);
