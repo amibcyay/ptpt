@@ -3,20 +3,22 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<link rel="icon" type="image/png" href="logo.png"/>
+
+<link rel="icon" type="image/png" sizes="32x32" href="logo.png?v=2"/>
+<link rel="shortcut icon" type="image/png" href="logo.png?v=2"/>
 <title>Portuguese study</title>
 <link rel="stylesheet" href="styles/site.css"/>
 </head>
 <body>
   <main>
-    <h1 class="brand"><img class="brand-logo" src="logo.png" alt="" width="40" height="40"/>Portuguese study</h1>
+    <h1 class="brand"><img class="brand-logo" src="logo.png?v=2" alt="" width="40" height="40"/>Portuguese study</h1>
     <p class="lead">European Portuguese — verb conjugations, grammar notes, and vocabulary lists. Start anywhere; the sections cross-link as you go.</p>
 
     <div class="links">
       <a class="card" href="verbs/">
         <h2>Verb conjugations</h2>
-        <p>Present indicative for 499 common verbs — grouped by meaning and level, with examples and pronunciation tips.</p>
-        <span class="tag">499 verbs</span>
+        <p>Present indicative for A1–B2 (and selected C1–C2) European Portuguese verbs — grouped by meaning and level, with examples and pronunciation tips.</p>
+        <span class="tag">841 verbs</span>
       </a>
 
       <a class="card" href="grammar/">
@@ -30,9 +32,16 @@
         <p>A1–B2 word bank — sort by level, topic, or frequency. IPA, forms, and sample sentences.</p>
         <span class="tag">Dictionary</span>
       </a>
+
+      <a class="card" href="#translate">
+        <h2>Quick translate</h2>
+        <p>Look up a Portuguese word or conjugated form in our lists — or jump out to DeepL / Google Translate.</p>
+        <span class="tag">Floating tool</span>
+      </a>
     </div>
 
     <footer>Hosted on GitHub Pages · repo <code>ptpt-verbs</code></footer>
   </main>
+  <script src="scripts/translator.js" defer></script>
 </body>
 </html>
