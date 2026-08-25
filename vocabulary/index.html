@@ -198572,6 +198572,10 @@ document.addEventListener("click", e => {
   if (tipEl.style.display === "block" && !e.target.closest("#tip")) hideTip();
 });
 
+exSheet.addEventListener("click", e => {
+  if (!e.target.closest(".w") && tipEl.style.display === "block") hideTip();
+});
+
 document.addEventListener("mouseover", e => {
   const w = e.target.closest(".w");
   if (!w || w === tipTarget) return;
