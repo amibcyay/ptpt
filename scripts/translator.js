@@ -82,6 +82,11 @@
 #pt-tr-out .miss { color: #78716c; }
 /* Stack above the translate button so they don't overlap */
 button.to-top, .to-top { bottom: 4.5rem !important; }
+#pt-site-back {
+  border: 0; background: transparent; color: #0f766e; font: inherit;
+  font-size: .9rem; padding: 0; cursor: pointer; text-decoration: none;
+}
+#pt-site-back:hover { text-decoration: underline; color: #0d5f58; }
 @media (max-width: 720px) {
   #pt-tr-btn { bottom: 1rem; }
   #pt-tr-panel { bottom: 4.1rem; max-height: min(70vh, 28rem); overflow: auto; }
@@ -89,6 +94,103 @@ button.to-top, .to-top { bottom: 4.5rem !important; }
 }
 `;
     document.head.appendChild(s);
+  }
+
+  function isHomePage() {
+    try {
+      const path = location.pathname.replace(/\\/g, "/");
+      return /\/(index\.html)?$/i.test(path) && !/\/(grammar|verbs|vocabulary|plan|quiz)\//i.test(path);
+    } catch (_) {
+      return false;
+    }
+  }
+
+  function sameOrigin(url) {
+    try {
+      return new URL(url, location.href).origin === location.origin;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  function homeHref() {
+    return new URL("./", siteRoot).href;
+  }
+
+  /** Prefer previous page in history when it was on this site; else Home. */
+  function goBackSmart(fallbackHref) {
+    const ref = document.referrer;
+    if (ref && sameOrigin(ref) && ref !== location.href) {
+      history.back();
+      return;
+    }
+    location.href = fallbackHref || homeHref();
+  }
+
+  function injectBackControl() {
+    if (isHomePage()) return;
+    if (document.getElementById("pt-site-back")) return;
+    const nav = document.querySelector(".site-nav, nav.site-nav");
+    if (!nav) return;
+
+    const links = Array.from(nav.querySelectorAll("a"));
+    let homeLink = null;
+    for (const a of links) {
+      const label = (a.textContent || "").replace(/\s+/g, " ").trim();
+      if (/^(←\s*)?Home$/i.test(label) || /^(←\s*)?Início$/i.test(label)) {
+        homeLink = a;
+        // Normalize label to plain "Home" (Back is separate)
+        a.textContent = "Home";
+        break;
+      }
+    }
+
+    const fallback = homeLink
+      ? homeLink.getAttribute("href") || homeHref()
+      : homeHref();
+
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.id = "pt-site-back";
+    btn.textContent = "← Back";
+    btn.setAttribute("aria-label", "Back to previous page");
+    btn.addEventListener("click", () => goBackSmart(fallback));
+
+    const sep = document.createElement("span");
+    sep.className = "sep";
+    sep.textContent = "·";
+
+    if (homeLink) {
+      // ← Back · Home · …
+      nav.insertBefore(btn, homeLink);
+      nav.insertBefore(sep, homeLink);
+    } else {
+      nav.insertBefore(sep, nav.firstChild);
+      nav.insertBefore(btn, nav.firstChild);
+    }
+  }
+
+  function injectToTop() {
+    if (document.querySelector(".to-top, #toTop, #pt-to-top")) return;
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "to-top";
+    btn.id = "pt-to-top";
+    btn.setAttribute("aria-label", "Back to top");
+    btn.title = "Back to top";
+    btn.textContent = "↑";
+    btn.style.cssText =
+      "position:fixed;right:1rem;bottom:1rem;z-index:45;width:2.75rem;height:2.75rem;" +
+      "border-radius:999px;border:0;background:#292524;color:#fafaf9;font-size:1.15rem;" +
+      "cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.22);display:none;align-items:center;" +
+      "justify-content:center;";
+    document.body.appendChild(btn);
+    const sync = () => {
+      btn.style.display = window.scrollY > 400 ? "flex" : "none";
+    };
+    window.addEventListener("scroll", sync, { passive: true });
+    btn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+    sync();
   }
 
   function esc(s) {
@@ -327,9 +429,16 @@ button.to-top, .to-top { bottom: 4.5rem !important; }
     loadIndex();
   }
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", mount);
-  } else {
+  function mountChrome() {
+    injectStyles();
+    injectBackControl();
+    injectToTop();
     mount();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", mountChrome);
+  } else {
+    mountChrome();
   }
 })();

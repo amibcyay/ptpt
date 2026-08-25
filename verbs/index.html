@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="pt">
+﻿<!DOCTYPE html><html lang="pt">
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -7,7 +7,26 @@
 <title>Presente do Indicativo</title>
 <style>
   :root { font-family: "Segoe UI", system-ui, sans-serif; }
-  body { margin: 1.5rem; background: #f7f4ef; color: #1c1917; }
+  * { box-sizing: border-box; }
+  html { overflow-x: clip; }
+  body {
+    margin: 0;
+    padding: 0;
+    background: #f7f4ef;
+    color: #1c1917;
+    min-height: 100vh;
+  }
+  /* Same centered column as plan / grammar (site.css main) */
+  main.page {
+    width: min(1120px, calc(100% - 2rem));
+    margin: 0 auto;
+    padding: 2rem 0 4rem;
+  }
+  .table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
   .site-nav { display: flex; flex-wrap: wrap; gap: .35rem 1rem; margin: 0 0 .85rem; font-size: .9rem; }
   .site-nav a { color: #0f766e; text-decoration: none; }
   .site-nav a:hover { text-decoration: underline; }
@@ -137,6 +156,7 @@
 </style>
 </head>
 <body>
+  <main class="page">
   <nav class="site-nav">
     <a href="../">← Home</a>
     <span class="sep">·</span>
@@ -145,6 +165,8 @@
     <a href="../verbs/">Verbs</a>
     <span class="sep">·</span>
     <a href="../vocabulary/">Vocabulary</a>
+    <span class="sep">·</span>
+    <a href="../plan/">Plan</a>
   </nav>
   <h1>Presente do Indicativo</h1>
   <p class="sub" id="sortDesc">Sort with a button below</p>
@@ -152,21 +174,6 @@
      A blue <button type="button" class="badge-adj" id="adjFilterBtn" title="Show only also-adjective verbs">also adj.</button>
      badge marks infinitives that are also adjectives/nouns.<br/>
      Hover or tap any underlined word for English + part of speech + gender/number forms.</p>
-  <div id="tip" role="tooltip"></div>
-  <div class="ex-backdrop" id="exBackdrop" hidden></div>
-  <div class="ex-sheet" id="exSheet" hidden role="dialog" aria-modal="true" aria-labelledby="exTitle">
-    <div class="ex-handle" aria-hidden="true"><span></span></div>
-    <div class="ex-sheet-head">
-      <div>
-        <div class="ex-title" id="exTitle"></div>
-        <div class="ex-pron" id="exPron" hidden></div>
-        <div class="ex-sub" id="exSub"></div>
-      </div>
-      <button type="button" class="ex-close" id="exClose" aria-label="Close">×</button>
-    </div>
-    <div class="ex-sheet-body" id="exBody"></div>
-  </div>
-
   <div class="controls">
     <button type="button" class="preset active" data-sort="group,level,freq">Meaning → Level → Freq</button>
     <button type="button" class="preset" data-sort="level,freq,">Level → Freq</button>
@@ -192,7 +199,7 @@
   </div>
   <div class="count"><span id="n">0</span> verbs shown</div>
   <div class="err" id="err"></div>
-  <button type="button" class="to-top" id="toTop" aria-label="Back to top" title="Back to top">↑</button>
+  <div class="table-wrap">
   <table>
     <thead>
       <tr>
@@ -203,6 +210,24 @@
     </thead>
     <tbody id="tb"></tbody>
   </table>
+  </div>
+  </main>
+
+  <div id="tip" role="tooltip"></div>
+  <div class="ex-backdrop" id="exBackdrop" hidden></div>
+  <div class="ex-sheet" id="exSheet" hidden role="dialog" aria-modal="true" aria-labelledby="exTitle">
+    <div class="ex-handle" aria-hidden="true"><span></span></div>
+    <div class="ex-sheet-head">
+      <div>
+        <div class="ex-title" id="exTitle"></div>
+        <div class="ex-pron" id="exPron" hidden></div>
+        <div class="ex-sub" id="exSub"></div>
+      </div>
+      <button type="button" class="ex-close" id="exClose" aria-label="Close">×</button>
+    </div>
+    <div class="ex-sheet-body" id="exBody"></div>
+  </div>
+  <button type="button" class="to-top" id="toTop" aria-label="Back to top" title="Back to top">↑</button>
 
 <script>
 try {

@@ -1,0 +1,271 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="icon" type="image/png" sizes="32x32" href="../logo.png?v=2"/>
+<link rel="shortcut icon" type="image/png" href="../logo.png?v=2"/>
+<title>Study plan · Portuguese study</title>
+<link rel="stylesheet" href="../styles/site.css?v=3"/>
+<style>
+  .tabs {
+    display: flex; flex-wrap: wrap; gap: .4rem;
+    margin: 0 0 1rem;
+  }
+  .tabs button {
+    padding: .4rem .75rem;
+    border: 1px solid var(--line);
+    background: var(--card);
+    border-radius: 8px;
+    font: inherit;
+    font-size: .88rem;
+    cursor: pointer;
+    color: var(--ink);
+  }
+  .tabs button.active {
+    background: #292524;
+    color: #fafaf9;
+    border-color: #292524;
+  }
+  .panel { display: none; }
+  .panel.active { display: block; }
+  .week-hero {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 1rem 1.15rem;
+    margin: 0 0 1rem;
+  }
+  .week-hero .meta {
+    color: var(--muted);
+    font-size: .88rem;
+    margin: 0 0 .35rem;
+  }
+  .week-hero h2 {
+    margin: 0 0 .5rem;
+    font-size: 1.25rem;
+  }
+  .pill {
+    display: inline-block;
+    padding: .15rem .5rem;
+    border-radius: 6px;
+    font-size: .75rem;
+    font-weight: 600;
+    background: var(--accent-soft);
+    color: var(--accent);
+    margin-right: .35rem;
+  }
+  .pill.phase-Learn { background: #e0f2fe; color: #075985; }
+  .pill.phase-Drill { background: #fef3c7; color: #92400e; }
+  .pill.phase-Produce { background: #ede9fe; color: #5b21b6; }
+  .pill.phase-Assess { background: #fee2e2; color: #991b1b; }
+  .skill {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: .75rem .9rem;
+    margin: 0 0 .55rem;
+    background: #fff;
+  }
+  .skill label {
+    display: flex;
+    gap: .55rem;
+    align-items: flex-start;
+    cursor: pointer;
+  }
+  .skill input { margin-top: .25rem; flex: 0 0 auto; }
+  .skill .label {
+    font-size: .72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: var(--muted);
+    margin: 0 0 .2rem;
+  }
+  .skill .body { font-size: .95rem; }
+  .skill-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .35rem .75rem;
+    margin: .45rem 0 0 1.7rem;
+    font-size: .82rem;
+    justify-content: flex-start;
+    text-align: left;
+  }
+  .skill-links a { color: var(--accent); }
+  .browse-row {
+    display: flex; flex-wrap: wrap; gap: .4rem;
+    margin: 0 0 .75rem;
+    align-items: center;
+  }
+  .browse-row select {
+    padding: .4rem .6rem;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font: inherit;
+    font-size: .88rem;
+    background: #fff;
+    color: var(--ink);
+  }
+  .browse-date {
+    margin: 0 0 .85rem;
+    padding: .75rem .85rem;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+  }
+  .browse-date .cal-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5rem;
+    margin: 0 0 .55rem;
+  }
+  .browse-date .cal-title {
+    font-size: .95rem;
+    font-weight: 700;
+    margin: 0;
+  }
+  .browse-date .cal-nav {
+    display: flex;
+    gap: .3rem;
+    align-items: center;
+  }
+  .browse-date .cal-nav button {
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #fff;
+    font: inherit;
+    cursor: pointer;
+    color: var(--ink);
+  }
+  .browse-date .cal-nav button:hover:not(:disabled) { background: #f5f5f4; }
+  .browse-date .cal-nav button:disabled { opacity: .35; cursor: default; }
+  .browse-date .cal-nav button.cal-today,
+  .nav-week button.today-btn {
+    width: auto;
+    height: auto;
+    padding: .35rem .65rem;
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-color: #b7d9d4;
+  }
+  .browse-date .cal-nav button.cal-today:hover:not(:disabled),
+  .nav-week button.today-btn:hover:not(:disabled) {
+    background: #d7ebe7;
+  }
+  .cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: .2rem;
+    text-align: center;
+  }
+  .cal-dow {
+    font-size: .72rem;
+    font-weight: 700;
+    color: var(--muted);
+    padding: .25rem 0;
+  }
+  .cal-day {
+    appearance: none;
+    border: 1px solid transparent;
+    background: transparent;
+    border-radius: 8px;
+    padding: .4rem 0;
+    font: inherit;
+    font-size: .88rem;
+    color: var(--ink);
+    cursor: pointer;
+    min-height: 2.1rem;
+  }
+  .cal-day:hover:not(:disabled) { background: var(--accent-soft); }
+  .cal-day.muted { color: #a8a29e; }
+  .cal-day.in-plan { font-weight: 600; }
+  .cal-day.selected {
+    background: #0f766e;
+    color: #fff;
+    border-color: #0f766e;
+  }
+  .cal-day.today:not(.selected) { border-color: #292524; }
+  .cal-day:disabled { opacity: .35; cursor: default; }
+  .week-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem;
+  }
+  .week-list li { margin: 0 0 .35rem; }
+  .week-list button {
+    width: 100%;
+    text-align: left;
+    padding: .65rem .8rem;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--card);
+    font: inherit;
+    cursor: pointer;
+    color: inherit;
+  }
+  .week-list button:hover { border-color: var(--accent); }
+  .week-list button.current {
+    outline: 2px solid var(--accent);
+    outline-offset: -1px;
+  }
+  .week-list .wmeta {
+    font-size: .78rem;
+    color: var(--muted);
+  }
+  .muted { color: var(--muted); font-size: .9rem; }
+  .nav-week {
+    display: flex; gap: .5rem; flex-wrap: wrap;
+    margin: 0 0 1rem;
+  }
+  .nav-week button {
+    padding: .35rem .7rem;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #fff;
+    font: inherit;
+    font-size: .85rem;
+    cursor: pointer;
+  }
+  .progress {
+    font-size: .85rem;
+    color: var(--muted);
+    margin: 0 0 .75rem;
+  }
+</style>
+</head>
+<body>
+  <main>
+    <nav class="site-nav" aria-label="Site">
+      <a href="../">Home</a>
+      <span class="sep">·</span>
+      <a href="../grammar/">Grammar</a>
+      <span class="sep">·</span>
+      <a href="../verbs/">Verbs</a>
+      <span class="sep">·</span>
+      <a href="../vocabulary/">Vocabulary</a>
+      <span class="sep">·</span>
+      <a href="./" aria-current="page">Plan</a>
+    </nav>
+
+    <h1 class="brand"><img class="brand-logo" src="../logo.png?v=2" alt="" width="40" height="40"/>Study plan</h1>
+    <p class="lead" id="lead" hidden></p>
+
+    <div class="tabs" role="tablist">
+      <button type="button" class="active" data-tab="this-week" role="tab">This week</button>
+      <button type="button" data-tab="browse" role="tab">Browse</button>
+    </div>
+
+    <section id="panel-this-week" class="panel active" role="tabpanel"></section>
+    <section id="panel-browse" class="panel" role="tabpanel"></section>
+  </main>
+  <script src="../scripts/vocab-sheet.js" defer></script>
+  <script src="../scripts/plan.js" defer></script>
+  <script src="../scripts/translator.js" defer></script>
+</body>
+</html>

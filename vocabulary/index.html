@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
@@ -8,7 +8,26 @@
 <title>Vocabulary dictionary · Portuguese study</title>
 <style>
   :root { font-family: "Segoe UI", system-ui, sans-serif; }
-  body { margin: 1.5rem; background: #f7f4ef; color: #1c1917; }
+  * { box-sizing: border-box; }
+  html { overflow-x: clip; }
+  body {
+    margin: 0;
+    padding: 0;
+    background: #f7f4ef;
+    color: #1c1917;
+    min-height: 100vh;
+  }
+  /* Same centered column as plan / grammar (site.css main) */
+  main.page {
+    width: min(1120px, calc(100% - 2rem));
+    margin: 0 auto;
+    padding: 2rem 0 4rem;
+  }
+  .table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
   .site-nav { display: flex; flex-wrap: wrap; gap: .35rem 1rem; margin: 0 0 .85rem; font-size: .9rem; }
   .site-nav a { color: #0f766e; text-decoration: none; }
   .site-nav a:hover { text-decoration: underline; }
@@ -148,6 +167,7 @@
 </style>
 </head>
 <body>
+  <main class="page">
   <nav class="site-nav">
     <a href="../">← Home</a>
     <span class="sep">·</span>
@@ -156,12 +176,13 @@
     <a href="../verbs/">Verbs</a>
     <span class="sep">·</span>
     <a href="../vocabulary/">Vocabulary</a>
+    <span class="sep">·</span>
+    <a href="../plan/">Plan</a>
   </nav>
   <h1>Vocabulary dictionary</h1>
   <p class="sub" id="sortDesc">Sort with a button below</p>
   <p class="hint">European Portuguese through B2. Hover a word for a quick gloss bubble (same as verbs). Click any row for the full card: IPA, meaning, examples, common uses, and similar words. In card examples, hover or tap underlined words for a gloss. <a href="lists/" style="color:#0f766e">Topic phrase lists</a></p>
 
-  <div id="tip" role="tooltip"></div>
   <div class="controls" id="presets">
     <button type="button" class="preset active" data-sort="level-topic-freq">Level → Topic → Freq</button>
     <button type="button" class="preset" data-sort="topic-level-freq">Topic → Level → Freq</button>
@@ -188,6 +209,23 @@
   </div>
   <div class="count" id="count"></div>
 
+  <div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Level</th>
+        <th>Word</th>
+        <th>English</th>
+        <th>POS</th>
+        <th class="pron">Pronunciation</th>
+      </tr>
+    </thead>
+    <tbody id="tb"></tbody>
+  </table>
+  </div>
+  </main>
+
+  <div id="tip" role="tooltip"></div>
   <div class="ex-backdrop" id="exBackdrop" hidden></div>
   <div class="ex-sheet" id="exSheet" hidden role="dialog" aria-modal="true" aria-labelledby="exTitle">
     <div class="ex-handle" aria-hidden="true"><span></span></div>
@@ -204,19 +242,6 @@
     </div>
     <div class="ex-sheet-body" id="exBody"></div>
   </div>
-
-  <table>
-    <thead>
-      <tr>
-        <th>Level</th>
-        <th>Word</th>
-        <th>English</th>
-        <th>POS</th>
-        <th class="pron">Pronunciation</th>
-      </tr>
-    </thead>
-    <tbody id="tb"></tbody>
-  </table>
   <button type="button" class="to-top" id="toTop" aria-label="Back to top">↑</button>
 
 <script>

@@ -28,7 +28,7 @@ a { color: var(--accent); }
 a:hover { color: #0d5f58; }
 
 main {
-  width: min(720px, calc(100% - 2rem));
+  width: min(1120px, calc(100% - 2rem));
   margin: 0 auto;
   padding: 2rem 0 4rem;
 }
