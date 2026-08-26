@@ -2,10 +2,37 @@
 (function () {
   const DATA_URL = "../data/plan-weeks.json";
   const STORAGE_KEY = "ptpt-plan-checks-v2";
+  const OVERRIDE_KEY = "ptpt-plan-overrides-v1";
   const SYNC_CFG_KEY = "ptpt-plan-sync-cfg";
   const SYNC_META_KEY = "ptpt-plan-sync-meta";
   const GIST_FILE = "ptpt-plan-checks.json";
   const SYNC_PREFIX = "ptpt1.";
+
+  const OVERRIDE_FIELDS = [
+    "theme",
+    "phase",
+    "level",
+    "dates",
+    "year",
+    "month",
+    "week",
+    "output",
+    "vocab",
+    "grammar",
+    "listening",
+    "speaking",
+    "reading",
+    "writing",
+    "review",
+  ];
+
+  const MONTH_ABBR = [
+    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+  ];
+
+  const PHASES = ["Learn", "Drill", "Produce", "Assess"];
+  const LEVELS = ["A1", "A2", "B1", "B2", "C1"];
 
   const SKILLS = [
     ["output", "Output"],
@@ -35,6 +62,7 @@
     oct: 9, october: 9, nov: 10, november: 10, dec: 11, december: 11,
   };
 
+  let baseData = null;
   let data = null;
   let selectedId = null;
   let browseYear = 2026;
@@ -44,6 +72,7 @@
   let calViewMonth = null;
   let pushTimer = null;
   let syncBusy = false;
+  let editingWeekId = null;
 
   function loadChecks() {
     try {
@@ -55,6 +84,43 @@
 
   function saveChecks(obj) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(obj));
+  }
+
+  function loadOverrides() {
+    try {
+      const o = JSON.parse(localStorage.getItem(OVERRIDE_KEY) || "{}") || {};
+      return o && typeof o === "object" ? o : {};
+    } catch {
+      return {};
+    }
+  }
+
+  function saveOverrides(obj) {
+    localStorage.setItem(OVERRIDE_KEY, JSON.stringify(obj || {}));
+  }
+
+  function weekHasOverride(id) {
+    return !!loadOverrides()[id];
+  }
+
+  function applyOverridesToData() {
+    if (!baseData) return;
+    const overrides = loadOverrides();
+    data = {
+      meta: baseData.meta,
+      weeks: baseData.weeks.map((w) => {
+        const o = overrides[w.id];
+        if (!o || typeof o !== "object") return { ...w };
+        const merged = { ...w };
+        for (const key of OVERRIDE_FIELDS) {
+          if (Object.prototype.hasOwnProperty.call(o, key) && o[key] != null) {
+            merged[key] = o[key];
+          }
+        }
+        merged.id = w.id;
+        return merged;
+      }),
+    };
   }
 
   function loadSyncCfg() {
@@ -95,7 +161,9 @@
   }
 
   function progressWhere() {
-    return loadSyncCfg() ? "synced across devices" : "saved in this browser only";
+    return loadSyncCfg()
+      ? "synced across devices (checks + plan edits)"
+      : "saved in this browser only";
   }
 
   function progressText(done, total) {
@@ -158,11 +226,12 @@
     return `${base}?sync=${encodeURIComponent(code)}`;
   }
 
-  function envelope(checks, updatedAt) {
+  function envelope(checks, overrides, updatedAt) {
     return {
-      v: 1,
+      v: 2,
       updatedAt: updatedAt || Date.now(),
       checks: checks || {},
+      weekOverrides: overrides || {},
     };
   }
 
@@ -202,6 +271,10 @@
     return {
       updatedAt: Number(payload.updatedAt) || 0,
       checks: payload.checks && typeof payload.checks === "object" ? payload.checks : {},
+      weekOverrides:
+        payload.weekOverrides && typeof payload.weekOverrides === "object"
+          ? payload.weekOverrides
+          : {},
     };
   }
 
@@ -213,6 +286,8 @@
     const localAt = localUpdatedAt();
     if (remote.updatedAt > localAt) {
       saveChecks(remote.checks);
+      saveOverrides(remote.weekOverrides);
+      applyOverridesToData();
       saveSyncMeta({ updatedAt: remote.updatedAt, lastPull: Date.now() });
       return { changed: true, remote };
     }
@@ -224,7 +299,11 @@
     const cfg = loadSyncCfg();
     if (!cfg) return;
     const updatedAt = localUpdatedAt() || Date.now();
-    const content = JSON.stringify(envelope(loadChecks(), updatedAt), null, 2);
+    const content = JSON.stringify(
+      envelope(loadChecks(), loadOverrides(), updatedAt),
+      null,
+      2
+    );
     await gistRequest("PATCH", `/gists/${cfg.gistId}`, cfg.token, {
       files: { [GIST_FILE]: { content } },
     });
@@ -243,9 +322,13 @@
 
   async function createSync(token) {
     const updatedAt = Date.now();
-    const content = JSON.stringify(envelope(loadChecks(), updatedAt), null, 2);
+    const content = JSON.stringify(
+      envelope(loadChecks(), loadOverrides(), updatedAt),
+      null,
+      2
+    );
     const gist = await gistRequest("POST", "/gists", token, {
-      description: "ptpt study plan checklist sync",
+      description: "ptpt study plan checklist + edits sync",
       public: false,
       files: { [GIST_FILE]: { content } },
     });
@@ -258,7 +341,9 @@
   async function connectSync(cfg) {
     saveSyncCfg(cfg);
     const remote = await pullRemote();
-    if (!remote.changed && Object.keys(loadChecks()).length) {
+    const hasLocal =
+      Object.keys(loadChecks()).length > 0 || Object.keys(loadOverrides()).length > 0;
+    if (!remote.changed && hasLocal) {
       touchLocal();
       await pushRemote();
     }
@@ -309,7 +394,7 @@
       const ago = when
         ? ` · last sync ${new Date(when).toLocaleString()}`
         : "";
-      setSyncStatus(`Sync on${ago}. Treat your sync code like a password.`);
+      setSyncStatus(`Sync on${ago}. Checklist and plan edits sync. Treat your sync code like a password.`);
       actions.innerHTML = `
         <button type="button" id="sync-now">Sync now</button>
         <button type="button" id="sync-copy">Copy code</button>
@@ -340,14 +425,14 @@
         }
       });
       actions.querySelector("#sync-disconnect")?.addEventListener("click", () => {
-        if (!confirm("Disconnect sync on this device? Checkmarks stay here locally.")) return;
+        if (!confirm("Disconnect sync on this device? Checkmarks and plan edits stay here locally.")) return;
         saveSyncCfg(null);
         showPanel(null);
         renderSyncBar();
         refreshOpenWeekPanels();
       });
     } else {
-      setSyncStatus("Checklist stays on this device until you set up sync.");
+      setSyncStatus("Checklist and plan edits stay on this device until you set up sync.");
       actions.innerHTML = `
         <button type="button" class="primary" id="sync-open-setup">Set up sync</button>
         <button type="button" id="sync-open-enter">Enter code</button>`;
@@ -585,6 +670,83 @@
     return new Date(+m[1], +m[2] - 1, +m[3], 12, 0, 0);
   }
 
+  function formatDateRange(start, end) {
+    const sDay = start.getDate();
+    const eDay = end.getDate();
+    const sMo = MONTH_ABBR[start.getMonth()];
+    const eMo = MONTH_ABBR[end.getMonth()];
+    const sY = start.getFullYear();
+    const eY = end.getFullYear();
+    if (sY === eY && start.getMonth() === end.getMonth()) {
+      return `${sDay}–${eDay} ${sMo} ${sY}`;
+    }
+    if (sY === eY) {
+      return `${sDay} ${sMo} – ${eDay} ${eMo} ${sY}`;
+    }
+    return `${sDay} ${sMo} ${sY} – ${eDay} ${eMo} ${eY}`;
+  }
+
+  function addDays(date, n) {
+    const d = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 12, 0, 0);
+    d.setDate(d.getDate() + n);
+    return d;
+  }
+
+  function findOverlappingWeeks(weekId, start, end) {
+    const s = new Date(start.getFullYear(), start.getMonth(), start.getDate()).getTime();
+    const e = new Date(end.getFullYear(), end.getMonth(), end.getDate(), 23, 59, 59).getTime();
+    const hits = [];
+    for (const w of data.weeks) {
+      if (w.id === weekId) continue;
+      const r = parseDateRange(w.dates);
+      if (!r) continue;
+      if (s <= r.end.getTime() && e >= r.start.getTime()) hits.push(w);
+    }
+    return hits;
+  }
+
+  function buildWeekOverrideFromForm(weekId, form) {
+    const start = parseISODateLocal(form.start);
+    const end = parseISODateLocal(form.end);
+    if (!start || !end) throw new Error("Pick valid start and end dates.");
+    if (end.getTime() < start.getTime()) throw new Error("End date must be on or after start date.");
+    return {
+      theme: form.theme,
+      phase: form.phase,
+      level: form.level,
+      dates: formatDateRange(start, end),
+      year: start.getFullYear(),
+      month: start.getMonth() + 1,
+      week: form.week,
+      output: form.output,
+      vocab: form.vocab,
+      grammar: form.grammar,
+      listening: form.listening,
+      speaking: form.speaking,
+      reading: form.reading,
+      writing: form.writing,
+      review: form.review,
+    };
+  }
+
+  function saveWeekOverride(weekId, patch) {
+    const all = loadOverrides();
+    all[weekId] = { ...(all[weekId] || {}), ...patch };
+    saveOverrides(all);
+    applyOverridesToData();
+    touchLocal();
+    schedulePush();
+  }
+
+  function revertWeekOverride(weekId) {
+    const all = loadOverrides();
+    delete all[weekId];
+    saveOverrides(all);
+    applyOverridesToData();
+    touchLocal();
+    schedulePush();
+  }
+
   function planDateBounds() {
     let min = null;
     let max = null;
@@ -668,6 +830,9 @@
     return out;
   }
 
+  const MONTH1_SCRIPT_URL =
+    "https://docs.google.com/document/d/1Vdow94VdPx9N7Kdz5-qntESqtwoaTmVpkZGu4ldjrjg/edit?tab=t.0#heading=h.hn9i3br5cc79";
+
   function skillLinks(key, text, week) {
     const links = [];
     if (key === "vocab") {
@@ -683,6 +848,25 @@
       }
       const v = (text.match(/\b(ser|estar|ter|ir|haver|falar|pagar)\b/i) || [])[1];
       if (v) links.push(`<a href="../verbs/?q=${encodeURIComponent(v)}">Verb: ${esc(v)}</a>`);
+    }
+    if (key === "output" && /month-1 practice script/i.test(text || "")) {
+      links.push(
+        `<a href="${MONTH1_SCRIPT_URL}" target="_blank" rel="noopener">Month-1 practice script (Google Doc)</a>`
+      );
+    }
+    if (
+      key === "vocab" ||
+      key === "speaking" ||
+      key === "reading" ||
+      key === "review"
+    ) {
+      if (
+        /\b(travel phrases|desculpe|queria um|aceita cart[aã]o|n[aã]o percebi|mais devagar|muito prazer|onde [eé]|quanto custa)\b/i.test(
+          text || ""
+        )
+      ) {
+        links.push(`<a href="../vocabulary/travel/">Travel phrases</a>`);
+      }
     }
     if (key === "review") links.push(`<a href="../verbs/">Verbs</a>`);
     return links.length ? `<div class="skill-links">${links.join("")}</div>` : "";
@@ -713,6 +897,99 @@
     const { done, total } = progressFor(week);
     const statusNote = opts.statusNote ? `<p class="muted">${esc(opts.statusNote)}</p>` : "";
     const showToday = !!opts.showToday;
+    const edited = weekHasOverride(week.id);
+    const isEditing = editingWeekId === week.id;
+
+    const idx = data.weeks.findIndex((w) => w.id === week.id);
+    const prev = idx > 0 ? data.weeks[idx - 1] : null;
+    const next = idx >= 0 && idx < data.weeks.length - 1 ? data.weeks[idx + 1] : null;
+
+    const navHtml = `
+      <div class="nav-week">
+        <button type="button" data-goto="${prev ? esc(prev.id) : ""}" ${prev ? "" : "disabled"}>← Prev</button>
+        ${showToday ? `<button type="button" class="today-btn" data-today="1">TODAY</button>` : ""}
+        <button type="button" data-goto="${next ? esc(next.id) : ""}" ${next ? "" : "disabled"}>Next →</button>
+      </div>`;
+
+    if (isEditing) {
+      const range = parseDateRange(week.dates);
+      const startIso = range ? toISODate(range.start) : "";
+      const endIso = range ? toISODate(range.end) : "";
+      const phaseOpts = PHASES.map(
+        (p) =>
+          `<option value="${esc(p)}" ${p === week.phase ? "selected" : ""}>${esc(p)}</option>`
+      ).join("");
+      const levelOpts = LEVELS.map(
+        (l) =>
+          `<option value="${esc(l)}" ${l === week.level ? "selected" : ""}>${esc(l)}</option>`
+      ).join("");
+
+      const skillsHtml = SKILLS.map(([key, label]) => {
+        const id = `chk-${week.id}-${key}`;
+        const body = week[key] || "";
+        return `<div class="skill skill-edit">
+          <div class="skill-edit-head">
+            <label class="skill-check" for="${id}">
+              <input type="checkbox" id="${id}" data-week="${esc(week.id)}" data-skill="${key}" ${checks[key] ? "checked" : ""}/>
+              <span class="label">${label}</span>
+            </label>
+          </div>
+          <textarea class="edit-skill" id="edit-${key}" data-edit-field="${key}" rows="3">${esc(body)}</textarea>
+        </div>`;
+      }).join("");
+
+      return `
+        ${navHtml}
+        <div class="week-hero week-edit">
+          <div class="week-hero-top">
+            <p class="meta">Editing${edited ? ' · <span class="edited-badge">had edits</span>' : ""}</p>
+          </div>
+          <div class="edit-grid">
+            <div class="edit-field">
+              <label for="edit-theme">Theme</label>
+              <input id="edit-theme" type="text" autocomplete="off" value="${esc(week.theme || "")}"/>
+            </div>
+            <div class="edit-row-2">
+              <div class="edit-field">
+                <label for="edit-phase">Phase</label>
+                <select id="edit-phase">${phaseOpts}</select>
+              </div>
+              <div class="edit-field">
+                <label for="edit-level">Level</label>
+                <select id="edit-level">${levelOpts}</select>
+              </div>
+            </div>
+            <div class="edit-field">
+              <label for="edit-week-num">Week number (in month)</label>
+              <input id="edit-week-num" type="number" min="1" max="6" step="1" value="${esc(week.week || 1)}"/>
+            </div>
+            <div class="edit-row-2">
+              <div class="edit-field">
+                <label for="edit-start">Start date</label>
+                <input id="edit-start" type="date" value="${esc(startIso)}"/>
+              </div>
+              <div class="edit-field">
+                <label for="edit-end">End date</label>
+                <input id="edit-end" type="date" value="${esc(endIso)}"/>
+              </div>
+            </div>
+            <div class="edit-shift">
+              <button type="button" data-edit-shift="-7">Shift −7 days</button>
+              <button type="button" data-edit-shift="7">Shift +7 days</button>
+            </div>
+          </div>
+          ${statusNote}
+          <p class="progress">${progressText(done, total)}</p>
+        </div>
+        ${skillsHtml}
+        <p class="edit-msg" id="edit-msg" hidden></p>
+        <div class="week-edit-actions">
+          ${edited ? `<button type="button" class="danger" data-edit-revert>Revert week</button>` : ""}
+          <button type="button" data-edit-cancel>Cancel</button>
+          <button type="button" class="primary" data-edit-save>Save</button>
+        </div>
+      `;
+    }
 
     const skillsHtml = SKILLS.map(([key, label]) => {
       const body = week[key];
@@ -730,18 +1007,13 @@
       </div>`;
     }).join("");
 
-    const idx = data.weeks.findIndex((w) => w.id === week.id);
-    const prev = idx > 0 ? data.weeks[idx - 1] : null;
-    const next = idx >= 0 && idx < data.weeks.length - 1 ? data.weeks[idx + 1] : null;
-
     return `
-      <div class="nav-week">
-        <button type="button" data-goto="${prev ? esc(prev.id) : ""}" ${prev ? "" : "disabled"}>← Prev</button>
-        ${showToday ? `<button type="button" class="today-btn" data-today="1">TODAY</button>` : ""}
-        <button type="button" data-goto="${next ? esc(next.id) : ""}" ${next ? "" : "disabled"}>Next →</button>
-      </div>
+      ${navHtml}
       <div class="week-hero">
-        <p class="meta">${esc(week.dates)}</p>
+        <div class="week-hero-top">
+          <p class="meta">${esc(week.dates)}${edited ? ' · <span class="edited-badge">edited</span>' : ""}</p>
+          <button type="button" class="edit-week-btn" data-edit-week="${esc(week.id)}">Edit week</button>
+        </div>
         <h2>${esc(weekTitle(week))}</h2>
         <span class="pill phase-${esc(week.phase)}">${esc(week.phase)}</span>
         <span class="pill">${esc(week.level || "")}</span>
@@ -757,6 +1029,102 @@
     const { week, status } = findThisWeek(data.weeks, now);
     syncBrowseToWeek(week, toISODate(now));
     return { week, status };
+  }
+
+  function readEditForm(root) {
+    const q = (sel) => root.querySelector(sel);
+    return {
+      theme: q("#edit-theme")?.value.trim() || "",
+      phase: q("#edit-phase")?.value || "Learn",
+      level: q("#edit-level")?.value || "A1",
+      week: Number(q("#edit-week-num")?.value) || 1,
+      start: q("#edit-start")?.value || "",
+      end: q("#edit-end")?.value || "",
+      output: q("#edit-output")?.value || "",
+      vocab: q("#edit-vocab")?.value || "",
+      grammar: q("#edit-grammar")?.value || "",
+      listening: q("#edit-listening")?.value || "",
+      speaking: q("#edit-speaking")?.value || "",
+      reading: q("#edit-reading")?.value || "",
+      writing: q("#edit-writing")?.value || "",
+      review: q("#edit-review")?.value || "",
+    };
+  }
+
+  function setEditMsg(root, text, isError) {
+    const el = root?.querySelector("#edit-msg");
+    if (!el) return;
+    if (!text) {
+      el.hidden = true;
+      el.textContent = "";
+      return;
+    }
+    el.hidden = false;
+    el.textContent = text;
+    el.className = `edit-msg ${isError ? "err" : "ok"}`;
+  }
+
+  function exitEditMode() {
+    editingWeekId = null;
+  }
+
+  function enterEditMode(weekId) {
+    editingWeekId = weekId;
+  }
+
+  function shiftEditDates(root, days) {
+    const startEl = root.querySelector("#edit-start");
+    const endEl = root.querySelector("#edit-end");
+    if (!startEl || !endEl) return;
+    const start = parseISODateLocal(startEl.value);
+    const end = parseISODateLocal(endEl.value);
+    if (!start || !end) {
+      setEditMsg(root, "Set start and end dates before shifting.", true);
+      return;
+    }
+    startEl.value = toISODate(addDays(start, days));
+    endEl.value = toISODate(addDays(end, days));
+    setEditMsg(root, `Shifted ${days > 0 ? "+" : ""}${days} days.`);
+  }
+
+  function submitInlineEdit(root) {
+    if (!editingWeekId) return;
+    try {
+      const form = readEditForm(root);
+      const patch = buildWeekOverrideFromForm(editingWeekId, form);
+      const start = parseISODateLocal(form.start);
+      const end = parseISODateLocal(form.end);
+      const overlaps = findOverlappingWeeks(editingWeekId, start, end);
+      if (overlaps.length) {
+        const names = overlaps
+          .slice(0, 3)
+          .map((w) => `${weekTitle(w)} (${w.dates})`)
+          .join("; ");
+        const more = overlaps.length > 3 ? ` (+${overlaps.length - 3} more)` : "";
+        if (
+          !confirm(
+            `This date range overlaps: ${names}${more}.\n\nSave anyway?`
+          )
+        ) {
+          return;
+        }
+      }
+      saveWeekOverride(editingWeekId, patch);
+      const week = data.weeks.find((w) => w.id === editingWeekId);
+      if (week) syncBrowseToWeek(week, browseDateValue || undefined);
+      exitEditMode();
+      refreshOpenWeekPanels();
+    } catch (err) {
+      setEditMsg(root, err.message || "Could not save.", true);
+    }
+  }
+
+  function rerenderWeekPanel(root, opts) {
+    if (opts.thisWeekMode) {
+      renderThisWeek();
+      return;
+    }
+    renderBrowse();
   }
 
   function bindWeekPanel(root, opts = {}) {
@@ -776,6 +1144,7 @@
       btn.addEventListener("click", () => {
         const id = btn.getAttribute("data-goto");
         if (!id) return;
+        exitEditMode();
         const week = data.weeks.find((w) => w.id === id);
         selectedId = id;
         if (opts.thisWeekMode) {
@@ -789,6 +1158,7 @@
     });
     root.querySelectorAll("button[data-today]").forEach((btn) => {
       btn.addEventListener("click", () => {
+        exitEditMode();
         const { week, status } = goToTodayWeek();
         root.innerHTML = renderWeekDetail(week, {
           statusNote: statusMessage(status, week),
@@ -796,6 +1166,53 @@
         });
         bindWeekPanel(root, { thisWeekMode: true });
       });
+    });
+    root.querySelectorAll("button[data-edit-week]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const id = btn.getAttribute("data-edit-week");
+        if (!id) return;
+        enterEditMode(id);
+        rerenderWeekPanel(root, opts);
+        const panel = opts.thisWeekMode
+          ? document.getElementById("panel-this-week")
+          : document.getElementById("browse-detail") || root;
+        panel?.querySelector("#edit-theme")?.focus();
+      });
+    });
+    root.querySelectorAll("button[data-edit-cancel]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        exitEditMode();
+        rerenderWeekPanel(root, opts);
+      });
+    });
+    root.querySelectorAll("button[data-edit-save]").forEach((btn) => {
+      btn.addEventListener("click", () => submitInlineEdit(root));
+    });
+    root.querySelectorAll("button[data-edit-revert]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        if (!editingWeekId) return;
+        if (!confirm("Revert this week to the published plan text and dates?")) return;
+        revertWeekOverride(editingWeekId);
+        const week = data.weeks.find((w) => w.id === editingWeekId);
+        if (week) syncBrowseToWeek(week, browseDateValue || undefined);
+        exitEditMode();
+        refreshOpenWeekPanels();
+      });
+    });
+    root.querySelectorAll("button[data-edit-shift]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const n = Number(btn.getAttribute("data-edit-shift"));
+        if (!Number.isFinite(n)) return;
+        shiftEditDates(root, n);
+      });
+    });
+  }
+
+  function setupInlineEditKeys() {
+    document.addEventListener("keydown", (e) => {
+      if (e.key !== "Escape" || !editingWeekId) return;
+      exitEditMode();
+      refreshOpenWeekPanels();
     });
   }
 
@@ -892,6 +1309,7 @@
     if (!d) return;
     const week = findWeekForDate(d);
     if (!week) return;
+    if (editingWeekId && editingWeekId !== week.id) exitEditMode();
     syncBrowseToWeek(week, iso);
     renderBrowse();
     document.querySelector("#browse-detail")?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -1002,7 +1420,10 @@
     panel.querySelectorAll("button[data-pick]").forEach((btn) => {
       btn.addEventListener("click", () => {
         const week = data.weeks.find((w) => w.id === btn.getAttribute("data-pick"));
-        if (week) syncBrowseToWeek(week);
+        if (week) {
+          if (editingWeekId && editingWeekId !== week.id) exitEditMode();
+          syncBrowseToWeek(week);
+        }
         renderBrowse();
       });
     });
@@ -1028,7 +1449,8 @@
     try {
       const res = await fetch(DATA_URL);
       if (!res.ok) throw new Error(res.statusText);
-      data = await res.json();
+      baseData = await res.json();
+      applyOverridesToData();
     } catch (e) {
       if (lead) {
         lead.hidden = false;
@@ -1037,6 +1459,7 @@
       }
       return;
     }
+    setupInlineEditKeys();
     setupSyncUi();
     await absorbSyncQuery();
     if (loadSyncCfg()) {

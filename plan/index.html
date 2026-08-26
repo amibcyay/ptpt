@@ -325,6 +325,148 @@
     max-width: 36rem;
     margin: 0 0 .55rem;
   }
+  .week-hero-top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: .5rem;
+    margin: 0 0 .35rem;
+  }
+  .week-hero-top .meta { margin: 0; }
+  .edited-badge {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: .78rem;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+  }
+  .edit-week-btn {
+    padding: .4rem .75rem;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font: inherit;
+    font-size: .82rem;
+    font-weight: 600;
+    cursor: pointer;
+    min-height: 2.4rem;
+  }
+  .edit-week-btn:hover { background: #d7ebe7; }
+  .edit-grid {
+    display: grid;
+    gap: .75rem;
+    margin: .5rem 0 0;
+  }
+  .edit-row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .65rem;
+  }
+  @media (max-width: 480px) {
+    .edit-row-2 { grid-template-columns: 1fr; }
+  }
+  .edit-field label {
+    display: block;
+    font-size: .75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: var(--muted);
+    margin: 0 0 .3rem;
+  }
+  .edit-field input,
+  .edit-field select,
+  .edit-field textarea,
+  .skill-edit textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: .55rem .65rem;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font: inherit;
+    font-size: 1rem;
+    color: var(--ink);
+    background: #fff;
+    min-height: 2.6rem;
+  }
+  .skill-edit textarea {
+    min-height: 4.5rem;
+    resize: vertical;
+    line-height: 1.4;
+    margin-top: .35rem;
+  }
+  .skill-edit-head .skill-check {
+    display: flex;
+    align-items: center;
+    gap: .45rem;
+    cursor: pointer;
+  }
+  .skill-edit-head .label {
+    font-size: .72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: var(--muted);
+    margin: 0;
+  }
+  .edit-shift {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem;
+    margin: .15rem 0 0;
+  }
+  .edit-shift button {
+    padding: .45rem .7rem;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #fff;
+    font: inherit;
+    font-size: .85rem;
+    cursor: pointer;
+    min-height: 2.4rem;
+  }
+  .edit-msg {
+    margin: .65rem 0;
+    font-size: .85rem;
+  }
+  .edit-msg.ok { color: var(--accent); }
+  .edit-msg.err { color: #991b1b; }
+  .week-edit-actions {
+    position: sticky;
+    bottom: 0;
+    z-index: 5;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .45rem;
+    padding: .75rem 0 calc(.75rem + env(safe-area-inset-bottom, 0));
+    margin: .5rem 0 0;
+    background: linear-gradient(to top, #fafaf9 70%, rgba(250,250,249,0));
+    border-top: 1px solid var(--line);
+  }
+  .week-edit-actions button {
+    padding: .55rem .85rem;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #fff;
+    font: inherit;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    min-height: 2.75rem;
+    flex: 1 1 auto;
+  }
+  .week-edit-actions button.primary {
+    background: #0f766e;
+    color: #fff;
+    border-color: #0f766e;
+  }
+  .week-edit-actions button.danger {
+    color: #991b1b;
+    border-color: #fecaca;
+    background: #fef2f2;
+  }
 </style>
 </head>
 <body>
@@ -354,7 +496,7 @@
 
     <div class="sync-bar" id="sync-bar" aria-live="polite">
       <div class="sync-row">
-        <p class="sync-status" id="sync-status">Checklist stays on this device until you set up sync.</p>
+        <p class="sync-status" id="sync-status">Checklist and plan edits stay on this device until you set up sync.</p>
         <span class="sync-actions" id="sync-actions"></span>
       </div>
       <div class="sync-panel" id="sync-panel-setup" hidden>
@@ -362,7 +504,7 @@
           One-time setup: create a GitHub
           <a href="https://github.com/settings/tokens/new?scopes=gist&amp;description=ptpt-plan-sync" target="_blank" rel="noopener">personal access token</a>
           with the <strong>gist</strong> scope only, paste it below, then copy the sync code onto your phone.
-          Treat the code like a password.
+          Syncs checkmarks and plan edits. Treat the code like a password.
         </p>
         <label for="sync-token">GitHub token (gist scope)</label>
         <input id="sync-token" type="password" autocomplete="off" spellcheck="false" placeholder="ghp_…"/>
@@ -394,7 +536,7 @@
   </main>
   <script src="../scripts/fold.js"></script>
   <script src="../scripts/vocab-sheet.js" defer></script>
-  <script src="../scripts/plan.js?v=sync2" defer></script>
+  <script src="../scripts/plan.js?v=inline3" defer></script>
   <script src="../scripts/translator.js" defer></script>
 </body>
 </html>
