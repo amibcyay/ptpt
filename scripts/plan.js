@@ -1067,7 +1067,7 @@
 
   function filterSyllabusCatalog(query) {
     const q = fold(query).trim();
-    if (!q) return syllabusCatalog.slice(0, 12);
+    if (!q) return { items: syllabusCatalog.slice(0, 12), fuzzy: [] };
     const scored = [];
     for (const item of syllabusCatalog) {
       const hay = fold(`${item.id} ${item.level} ${item.category} ${item.label}`);
@@ -1075,19 +1075,37 @@
       scored.push(item);
       if (scored.length >= 12) break;
     }
-    return scored;
+    if (scored.length || q.length < 2 || !window.PtFuzzy) {
+      return { items: scored, fuzzy: [] };
+    }
+    const cands = syllabusCatalog.map((i) => ({
+      key: i.id,
+      label: i.label,
+      hay: `${i.label} ${i.category || ""}`,
+      meta: i.level,
+    }));
+    const fuzzy = PtFuzzy.suggest(String(query || "").trim(), cands, { limit: 5 });
+    const fuzzyItems = fuzzy
+      .map((s) => syllabusById[s.key])
+      .filter(Boolean);
+    return { items: fuzzyItems, fuzzy };
   }
 
-  function showSyllabusDropdown(root, items) {
+  function showSyllabusDropdown(root, result) {
     const dd = root.querySelector("#syllabus-pick-dropdown");
     if (!dd) return;
+    const items = result?.items || [];
+    const fuzzy = result?.fuzzy || [];
     if (!items.length) {
       dd.hidden = true;
       dd.innerHTML = "";
       return;
     }
     dd.hidden = false;
-    dd.innerHTML = items
+    const hint = fuzzy.length
+      ? `<div class="didyou-mean syllabus-pick-fuzzy-hint">No exact match — closest:</div>`
+      : "";
+    const opts = items
       .map((item) => {
         const already =
           editingManualSyllabus.includes(item.id) ||
@@ -1098,6 +1116,7 @@
         </button>`;
       })
       .join("");
+    dd.innerHTML = hint + opts;
     dd.querySelectorAll("[data-add-sid]").forEach((btn) => {
       btn.addEventListener("click", () => {
         const sid = btn.getAttribute("data-add-sid");

@@ -7,7 +7,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="../../logo.png?v=2"/>
 <link rel="shortcut icon" type="image/png" href="../../logo.png?v=2"/>
 <title>Grammar syllabus A1–C2 · Portuguese study</title>
-<link rel="stylesheet" href="../../styles/site.css?v=8"/>
+<link rel="stylesheet" href="../../styles/site.css?v=9"/>
 </head>
 <body>
   <main>
@@ -31,6 +31,10 @@
     <div id="syllabusSummary" class="syllabus-summary" aria-live="polite"></div>
 
     <div class="syllabus-toolbar">
+      <label class="syllabus-search-wrap">
+        <span class="visually-hidden">Search syllabus</span>
+        <input type="search" id="syllabusSearch" class="syllabus-search" placeholder="Search titles and lessons…" autocomplete="off"/>
+      </label>
       <div id="levelPills" class="syllabus-pills"></div>
       <nav class="syllabus-jump" aria-label="Jump to level">
         <span class="syllabus-jump-label">Jump:</span>
@@ -39,13 +43,15 @@
       <button type="button" class="syllabus-reset" id="resetChecks">Reset progress</button>
     </div>
 
+    <div id="syllabusDidYou" class="syllabus-didyou" hidden></div>
     <div id="syllabusBody"></div>
 
     <footer><a href="../">← Grammar topics</a> · 79 syllabus items · Sources: CAPLE · Referencial Camões PLE · QECR</footer>
   </main>
   <script src="../../scripts/fold.js"></script>
+  <script src="../../scripts/fuzzy.js"></script>
   <script src="../../scripts/ptpt-sync.js" defer></script>
-  <script src="syllabus.js?v=6" defer></script>
+  <script src="syllabus.js?v=7" defer></script>
   <script src="../../scripts/translator.js" defer></script>
 </body>
 </html>

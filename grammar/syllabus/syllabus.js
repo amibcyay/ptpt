@@ -21,18 +21,100 @@
   const RECENT_KEY = "ptpt-syllabus-recent-weeks";
 
   let items = [];
+  let lessonText = {};
   let checks = S.loadSyllabusChecks();
   let autoToWeeks = {};
   let aliases = {};
   let planWeeks = [];
   let weekById = {};
   let activeLevel = "all";
+  let searchQuery = "";
   let openPopover = null;
 
   function fold(s) {
+    if (window.PtFuzzy && typeof PtFuzzy.fold === "function") return PtFuzzy.fold(s);
     return typeof window.foldPt === "function"
       ? window.foldPt(s)
       : String(s || "").toLowerCase();
+  }
+
+  function itemHaystack(item) {
+    const body = (item.lesson_slug && lessonText[item.lesson_slug]) || "";
+    return fold(
+      [
+        item.id,
+        item.level,
+        item.category,
+        item.label,
+        item.note || "",
+        body,
+      ].join(" ")
+    );
+  }
+
+  function itemMatchesQuery(item, q) {
+    if (!q) return true;
+    return itemHaystack(item).includes(q);
+  }
+
+  function filteredItems() {
+    const q = fold(searchQuery).trim();
+    return items.filter((i) => {
+      if (activeLevel !== "all" && i.level !== activeLevel) return false;
+      return itemMatchesQuery(i, q);
+    });
+  }
+
+  function fuzzyCandidates() {
+    return items.map((i) => ({
+      key: i.id,
+      label: i.label,
+      hay: `${i.label} ${i.category || ""}`,
+      meta: i.level,
+    }));
+  }
+
+  function renderDidYou(q, matchCount) {
+    const el = document.getElementById("syllabusDidYou");
+    if (!el) return;
+    const raw = String(searchQuery || "").trim();
+    if (!raw || matchCount > 0 || !window.PtFuzzy) {
+      el.hidden = true;
+      el.innerHTML = "";
+      return;
+    }
+    const suggestions = PtFuzzy.suggest(raw, fuzzyCandidates(), { limit: 5 });
+    if (!suggestions.length) {
+      el.hidden = true;
+      el.innerHTML = "";
+      return;
+    }
+    el.hidden = false;
+    el.innerHTML = PtFuzzy.didYouMeanHtml(raw, suggestions, (s) => `data-suggest-id="${esc(s.key)}"`);
+    el.querySelectorAll("[data-suggest-id]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const id = btn.getAttribute("data-suggest-id");
+        const item = items.find((x) => x.id === id);
+        if (!item) return;
+        const input = document.getElementById("syllabusSearch");
+        searchQuery = item.label;
+        if (input) input.value = item.label;
+        syncSearchParam(item.label);
+        renderLevelPills();
+        renderBody();
+        requestAnimationFrame(() => {
+          document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "center" });
+        });
+      });
+    });
+  }
+
+  function syncSearchParam(q) {
+    const url = new URL(location.href);
+    const trimmed = String(q || "").trim();
+    if (trimmed) url.searchParams.set("q", trimmed);
+    else url.searchParams.delete("q");
+    history.replaceState(null, "", url.pathname + url.search + url.hash);
   }
 
   function resolveId(id) {
@@ -281,7 +363,21 @@
     if (!el) return;
     el.innerHTML = "";
 
-    const filtered = activeLevel === "all" ? items : items.filter((i) => i.level === activeLevel);
+    const filtered = filteredItems();
+    const q = fold(searchQuery).trim();
+    renderDidYou(q, filtered.length);
+
+    if (!filtered.length) {
+      const empty = document.createElement("p");
+      empty.className = "syllabus-empty";
+      empty.textContent = q
+        ? "No syllabus items match that search."
+        : "No items in this level.";
+      el.appendChild(empty);
+      renderSummary();
+      return;
+    }
+
     const byLevel = {};
     filtered.forEach((i) => {
       byLevel[i.level] = byLevel[i.level] || {};
@@ -408,6 +504,23 @@
     renderSummary();
   }
 
+  function bindSearch() {
+    const input = document.getElementById("syllabusSearch");
+    if (!input) return;
+    input.value = searchQuery;
+    let timer = null;
+    const apply = () => {
+      searchQuery = input.value || "";
+      syncSearchParam(searchQuery);
+      renderBody();
+    };
+    input.addEventListener("input", () => {
+      clearTimeout(timer);
+      timer = setTimeout(apply, 120);
+    });
+    input.addEventListener("search", apply);
+  }
+
   function bindJump() {
     const menu = document.getElementById("levelJump");
     if (!menu) return;
@@ -469,6 +582,7 @@
       const data = await dataRes.json();
       items = data.items || [];
       aliases = data.aliases || {};
+      lessonText = data.lessonText || {};
       migrateChecks();
       if (mapRes.ok) {
         const map = await mapRes.json();
@@ -497,6 +611,10 @@
     }
 
     bindLiveUpdates();
+    const params = new URLSearchParams(location.search);
+    const qParam = params.get("q");
+    if (qParam) searchQuery = qParam;
+    bindSearch();
     renderLevelPills();
     bindJump();
     bindReset();
