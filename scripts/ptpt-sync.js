@@ -2,6 +2,7 @@
 (function () {
   const SYLLABUS_STORAGE_KEY = "ptpt-syllabus-checks-v1";
   const LEGACY_SYLLABUS_KEY = "ptpt-grammar-syllabus-v1";
+  const WEEK_SYLLABUS_KEY = "ptpt-week-syllabus-v1";
   const PLAN_CHECKS_KEY = "ptpt-plan-checks-v2";
   const OVERRIDE_KEY = "ptpt-plan-overrides-v1";
   const SYNC_CFG_KEY = "ptpt-plan-sync-cfg";
@@ -37,16 +38,70 @@
     }
   }
 
-  function saveSyllabusChecks(obj) {
+  function saveSyllabusChecks(obj, detail) {
     localStorage.setItem(SYLLABUS_STORAGE_KEY, JSON.stringify(obj || {}));
-    window.dispatchEvent(new CustomEvent("ptpt-syllabus-changed", { detail: { id, on } }));
+    window.dispatchEvent(new CustomEvent("ptpt-syllabus-changed", { detail: detail || {} }));
   }
 
   function setSyllabusCheck(id, on) {
     const all = loadSyllabusChecks();
     if (on) all[id] = true;
     else delete all[id];
-    saveSyllabusChecks(all);
+    saveSyllabusChecks(all, { id, on });
+  }
+
+  function loadWeekSyllabus() {
+    try {
+      const o = JSON.parse(localStorage.getItem(WEEK_SYLLABUS_KEY) || "{}") || {};
+      return o && typeof o === "object" ? o : {};
+    } catch {
+      return {};
+    }
+  }
+
+  function saveWeekSyllabus(obj) {
+    localStorage.setItem(WEEK_SYLLABUS_KEY, JSON.stringify(obj || {}));
+    window.dispatchEvent(new CustomEvent("ptpt-week-syllabus-changed"));
+  }
+
+  function getWeekSyllabusIds(weekId) {
+    const list = loadWeekSyllabus()[weekId];
+    return Array.isArray(list) ? list.slice() : [];
+  }
+
+  function setWeekSyllabusIds(weekId, ids) {
+    const all = loadWeekSyllabus();
+    const clean = Array.from(new Set((ids || []).filter(Boolean)));
+    if (clean.length) all[weekId] = clean;
+    else delete all[weekId];
+    saveWeekSyllabus(all);
+  }
+
+  function addWeekSyllabusId(weekId, syllabusId) {
+    if (!weekId || !syllabusId) return;
+    const ids = getWeekSyllabusIds(weekId);
+    if (!ids.includes(syllabusId)) ids.push(syllabusId);
+    setWeekSyllabusIds(weekId, ids);
+  }
+
+  function removeWeekSyllabusId(weekId, syllabusId) {
+    setWeekSyllabusIds(
+      weekId,
+      getWeekSyllabusIds(weekId).filter((id) => id !== syllabusId)
+    );
+  }
+
+  function invertWeekSyllabus() {
+    const out = {};
+    const all = loadWeekSyllabus();
+    for (const [weekId, ids] of Object.entries(all)) {
+      if (!Array.isArray(ids)) continue;
+      for (const sid of ids) {
+        if (!out[sid]) out[sid] = [];
+        if (!out[sid].includes(weekId)) out[sid].push(weekId);
+      }
+    }
+    return out;
   }
 
   function loadPlanChecks() {
@@ -152,13 +207,14 @@
     return `${base}?sync=${encodeURIComponent(code)}`;
   }
 
-  function envelope(checks, overrides, syllabusChecks, updatedAt) {
+  function envelope(checks, overrides, syllabusChecks, weekSyllabus, updatedAt) {
     return {
       v: 3,
       updatedAt: updatedAt || Date.now(),
       checks: checks || {},
       weekOverrides: overrides || {},
       syllabusChecks: syllabusChecks || {},
+      weekSyllabus: weekSyllabus || {},
     };
   }
 
@@ -204,6 +260,10 @@
         payload.syllabusChecks && typeof payload.syllabusChecks === "object"
           ? payload.syllabusChecks
           : {},
+      weekSyllabus:
+        payload.weekSyllabus && typeof payload.weekSyllabus === "object"
+          ? payload.weekSyllabus
+          : {},
     };
   }
 
@@ -217,6 +277,7 @@
       savePlanChecks(remote.checks);
       saveOverrides(remote.weekOverrides);
       saveSyllabusChecks(remote.syllabusChecks);
+      saveWeekSyllabus(remote.weekSyllabus);
       saveSyncMeta({ updatedAt: remote.updatedAt, lastPull: Date.now() });
       if (typeof onRemoteApplied === "function") onRemoteApplied(remote);
       return { changed: true, remote };
@@ -230,7 +291,13 @@
     if (!cfg) return;
     const updatedAt = localUpdatedAt() || Date.now();
     const content = JSON.stringify(
-      envelope(loadPlanChecks(), loadOverrides(), loadSyllabusChecks(), updatedAt),
+      envelope(
+        loadPlanChecks(),
+        loadOverrides(),
+        loadSyllabusChecks(),
+        loadWeekSyllabus(),
+        updatedAt
+      ),
       null,
       2
     );
@@ -253,7 +320,13 @@
   async function createSync(token) {
     const updatedAt = Date.now();
     const content = JSON.stringify(
-      envelope(loadPlanChecks(), loadOverrides(), loadSyllabusChecks(), updatedAt),
+      envelope(
+        loadPlanChecks(),
+        loadOverrides(),
+        loadSyllabusChecks(),
+        loadWeekSyllabus(),
+        updatedAt
+      ),
       null,
       2
     );
@@ -274,7 +347,8 @@
     const hasLocal =
       Object.keys(loadPlanChecks()).length > 0 ||
       Object.keys(loadOverrides()).length > 0 ||
-      Object.keys(loadSyllabusChecks()).length > 0;
+      Object.keys(loadSyllabusChecks()).length > 0 ||
+      Object.keys(loadWeekSyllabus()).length > 0;
     if (!remote.changed && hasLocal) {
       touchLocal();
       await pushRemote();
@@ -284,6 +358,7 @@
 
   window.PtptSync = {
     SYLLABUS_STORAGE_KEY,
+    WEEK_SYLLABUS_KEY,
     PLAN_CHECKS_KEY,
     OVERRIDE_KEY,
     SYNC_CFG_KEY,
@@ -293,6 +368,13 @@
     loadSyllabusChecks,
     saveSyllabusChecks,
     setSyllabusCheck,
+    loadWeekSyllabus,
+    saveWeekSyllabus,
+    getWeekSyllabusIds,
+    setWeekSyllabusIds,
+    addWeekSyllabusId,
+    removeWeekSyllabusId,
+    invertWeekSyllabus,
     loadPlanChecks,
     savePlanChecks,
     loadOverrides,

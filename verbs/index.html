@@ -12,14 +12,19 @@
   body {
     margin: 0;
     padding: 0;
-    background: #f7f4ef;
     color: #1c1917;
     min-height: 100vh;
+    background:
+      radial-gradient(1200px 600px at 10% -10%, #e8f2ef 0%, transparent 55%),
+      radial-gradient(900px 500px at 100% 0%, #f6e9d8 0%, transparent 50%),
+      #f3efe6;
   }
   main.page {
     width: min(1120px, calc(100% - 2rem));
+    max-width: 1120px;
     margin: 0 auto;
-    padding: 2rem 0 4rem;
+    padding: 2rem 1rem 4rem;
+    box-sizing: border-box;
   }
   .table-wrap {
     width: 100%;
@@ -63,6 +68,15 @@
   input[type="search"] { width: min(420px, 100%); padding: .5rem .65rem; border: 1px solid #d6d3d1;
            border-radius: 8px; font-size: .95rem; background: #fff; color: #1c1917; }
   .count { font-size: .9rem; color: #78716c; margin-bottom: .75rem; }
+  .didyou-mean {
+    margin: -.35rem 0 .85rem; font-size: .88rem; color: #57534e; line-height: 1.45;
+  }
+  .didyou-chip {
+    display: inline-block; margin: .15rem .2rem; padding: .2rem .5rem;
+    border: 1px solid #d6d3d1; border-radius: 6px; background: #fff;
+    color: #0f766e; font: inherit; font-size: .82rem; font-weight: 600; cursor: pointer;
+  }
+  .didyou-chip:hover { border-color: #0f766e; background: #e8f2ef; }
   .err { display: none; margin: 0 0 1rem; padding: .75rem 1rem; background: #fef2f2;
           border: 1px solid #fecaca; color: #991b1b; border-radius: 8px; font-size: .9rem; }
   table { border-collapse: collapse; width: 100%; background: #fff; }
@@ -155,14 +169,19 @@
 </style>
 </head>
 <body>
+<main class="page">
   <nav class="site-nav">
     <a href="../">← Home</a>
     <span class="sep">·</span>
-    <a href="../grammar/">Grammar</a>
+    <a href="../plan/">Plan</a>
+    <span class="sep">·</span>
+    <a href="../grammar/syllabus/">Syllabus</a>
     <span class="sep">·</span>
     <a href="../verbs/">Verbs</a>
     <span class="sep">·</span>
     <a href="../vocabulary/">Vocabulary</a>
+    <span class="sep">·</span>
+    <a href="../grammar/">Grammar</a>
   </nav>
   <h1>Presente do Indicativo</h1>
   <p class="sub" id="sortDesc">Sort with a button below</p>
@@ -209,6 +228,7 @@
     <input id="q" type="search" placeholder="Search verb, definition, level, or group…" autofocus/>
   </div>
   <div class="count"><span id="n">0</span> verbs shown</div>
+  <div class="didyou-mean" id="didyou" hidden></div>
   <div class="err" id="err"></div>
   <button type="button" class="to-top" id="toTop" aria-label="Back to top" title="Back to top">↑</button>
   <table>
@@ -221,6 +241,7 @@
     </thead>
     <tbody id="tb"></tbody>
   </table>
+</main>
 
 <script>
 try {
@@ -26415,29 +26436,74 @@ function wireDelegates() {
 }
 
 function applyFilter() {
-  const s = q.value.trim().toLowerCase();
+  const rawQ = q.value.trim();
+  const s = rawQ.toLowerCase();
+  const fold = (window.PtFuzzy && PtFuzzy.fold) || ((x) => String(x || "").toLowerCase());
+  const fq = fold(rawQ);
   const rows = [...tb.rows];
   let shown = 0;
   let sectionHit = false;
   let subHit = false;
+  const verbRows = [];
   for (const tr of rows) {
     if (tr.classList.contains("section")) {
-      sectionHit = !s || tr.innerText.toLowerCase().includes(s);
+      sectionHit = !s || tr.innerText.toLowerCase().includes(s) || (fq && fold(tr.innerText).includes(fq));
       subHit = false;
       continue;
     }
     if (tr.classList.contains("subsec")) {
-      subHit = !s || tr.innerText.toLowerCase().includes(s);
+      subHit = !s || tr.innerText.toLowerCase().includes(s) || (fq && fold(tr.innerText).includes(fq));
       continue;
     }
     const text = (tr.dataset.text || "").toLowerCase();
+    const ftext = fold(tr.dataset.text || "");
     const adjOk = !adjOnly || tr.dataset.adj === "1";
-    // Match infinitive, English, group — and present forms (morro → morrer)
     const tokens = text.split(/\s+/);
-    const formHit = !s || tokens.includes(s) || text.includes(s);
+    const formHit = !s || tokens.includes(s) || text.includes(s) || (fq && (ftext.includes(fq) || ftext.split(/\s+/).includes(fq)));
     const hit = adjOk && (formHit || sectionHit || subHit);
     tr.style.display = hit ? "" : "none";
-    if (hit) shown++;
+    if (tr.classList.contains("verb")) verbRows.push(tr);
+    if (hit && tr.classList.contains("verb")) shown++;
+  }
+  let suggestions = [];
+  if (s && shown === 0 && window.PtFuzzy && typeof DATA !== "undefined") {
+    const cands = [];
+    for (const r of DATA) {
+      cands.push({ key: r.inf, label: r.inf, hay: r.inf, meta: r.en });
+      if (r.en) cands.push({ key: r.inf, label: r.inf, hay: r.en, meta: r.en });
+      for (const k of ["eu", "tu", "ele", "nos", "eles"]) {
+        if (r[k]) cands.push({ key: r.inf, label: r.inf, hay: r[k], meta: r.en });
+      }
+    }
+    suggestions = PtFuzzy.suggest(rawQ, cands, { limit: 5 });
+    if (suggestions.length) {
+      const keys = new Set(suggestions.map((x) => fold(x.key)));
+      shown = 0;
+      for (const tr of verbRows) {
+        const inf = fold((tr.dataset.inf || tr.querySelector(".inf")?.textContent || "").trim());
+        const ok = (!adjOnly || tr.dataset.adj === "1") && keys.has(inf);
+        tr.style.display = ok ? "" : "none";
+        if (ok) shown++;
+      }
+    }
+  }
+  const didyou = document.getElementById("didyou");
+  if (didyou) {
+    if (s && suggestions.length) {
+      didyou.hidden = false;
+      didyou.innerHTML = PtFuzzy.didYouMeanHtml(rawQ, suggestions, (sug) =>
+        `data-suggest="${String(sug.key).replace(/"/g, "&quot;")}"`
+      );
+      didyou.querySelectorAll("[data-suggest]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          q.value = btn.getAttribute("data-suggest") || "";
+          applyFilter();
+        });
+      });
+    } else {
+      didyou.hidden = true;
+      didyou.innerHTML = "";
+    }
   }
   for (let i = 0; i < rows.length; i++) {
     const tr = rows[i];
@@ -26515,6 +26581,8 @@ render();
   console.error(e);
 }
 </script>
+<script src="../scripts/fold.js"></script>
+<script src="../scripts/fuzzy.js"></script>
 <script src="../scripts/translator.js" defer></script>
 </body>
 </html>

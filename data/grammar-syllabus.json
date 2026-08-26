@@ -1,924 +1,961 @@
 {
- "version": 1,
+ "version": 3,
  "levels": [
   "A1",
   "A2",
   "B1",
-  "B2"
+  "B2",
+  "C1",
+  "C2"
  ],
- "item_count": 114,
+ "item_count": 79,
+ "gap_count": 11,
+ "sources": [
+  "CAPLE exams (ACESSO-DUPLE)",
+  "Referencial Camoes PLE",
+  "QECR"
+ ],
  "items": [
   {
    "id": "a1-noun-gender",
    "level": "A1",
-   "category": "Articles & nouns",
-   "label": "Noun gender — every noun is m. or f.",
+   "exam": "ACESSO",
+   "category": "Nouns & adjectives",
+   "label": "Noun gender & number; agreement with articles/adjectives",
    "lesson_slug": "articles-gender",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/every-noun-has-a-gender/"
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/every-noun-has-a-gender/",
+   "gap": false,
+   "note": null
   },
   {
-   "id": "a1-def-articles",
+   "id": "a1-adjectives",
    "level": "A1",
-   "category": "Articles & nouns",
-   "label": "Definite articles — o, a, os, as",
-   "lesson_slug": "articles-gender",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/definite-articles/"
-  },
-  {
-   "id": "a1-indef-articles",
-   "level": "A1",
-   "category": "Articles & nouns",
-   "label": "Indefinite articles — um, uma, uns, umas",
-   "lesson_slug": "articles-gender",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/indefinite-articles/"
-  },
-  {
-   "id": "a1-article-usage",
-   "level": "A1",
-   "category": "Articles & nouns",
-   "label": "When EP uses the definite article (names, countries, gostar do…)",
-   "lesson_slug": "articles-gender",
-   "pp_url": null
+   "exam": "ACESSO",
+   "category": "Nouns & adjectives",
+   "label": "Adjective agreement & basic placement",
+   "lesson_slug": "adjectives",
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/introduction-to-portuguese-adjectives/",
+   "gap": false,
+   "note": null
   },
   {
    "id": "a1-plurals-s",
    "level": "A1",
-   "category": "Articles & nouns",
-   "label": "Regular plurals — add -s",
+   "exam": "ACESSO",
+   "category": "Nouns & adjectives",
+   "label": "Plurals — -s, -es, -ões, irregulars",
    "lesson_slug": "plurals",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/forming-plurals-in-portuguese/"
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/forming-plurals-in-portuguese/",
+   "gap": false,
+   "note": null
   },
   {
-   "id": "a1-plurals-es",
+   "id": "a1-def-articles",
    "level": "A1",
-   "category": "Articles & nouns",
-   "label": "Plurals in -es (consonant endings)",
-   "lesson_slug": "plurals",
-   "pp_url": null
-  },
-  {
-   "id": "a1-plurals-oes",
-   "level": "A1",
-   "category": "Articles & nouns",
-   "label": "Plurals in -ões / irregular",
-   "lesson_slug": "plurals",
-   "pp_url": null
+   "exam": "ACESSO",
+   "category": "Articles",
+   "label": "Definite & indefinite articles — o/a, um/uma",
+   "lesson_slug": "articles-gender",
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/definite-articles/",
+   "gap": false,
+   "note": null
   },
   {
    "id": "a1-present-ar",
    "level": "A1",
-   "category": "Verbs — present",
-   "label": "Regular -AR verbs in the present",
+   "exam": "ACESSO",
+   "category": "Present indicative",
+   "label": "Regular present — -AR (incl. stem changes overview)",
    "lesson_slug": "presente-regular",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/regular-ar-verbs-in-the-present-tense/"
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/regular-ar-verbs-in-the-present-tense/",
+   "gap": false,
+   "note": null
   },
   {
    "id": "a1-present-er",
    "level": "A1",
-   "category": "Verbs — present",
-   "label": "Regular -ER verbs in the present",
+   "exam": "ACESSO",
+   "category": "Present indicative",
+   "label": "Regular present — -ER",
    "lesson_slug": "presente-regular",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/regular-er-verbs-in-the-present-tense/"
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/regular-er-verbs-in-the-present-tense/",
+   "gap": false,
+   "note": null
   },
   {
    "id": "a1-present-ir",
    "level": "A1",
-   "category": "Verbs — present",
-   "label": "Regular -IR verbs in the present",
+   "exam": "ACESSO",
+   "category": "Present indicative",
+   "label": "Regular present — -IR",
    "lesson_slug": "presente-regular",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/regular-ir-verbs-in-the-present-tense/"
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/regular-ir-verbs-in-the-present-tense/",
+   "gap": false,
+   "note": null
   },
   {
-   "id": "a1-stem-changes",
+   "id": "a1-irreg-present",
    "level": "A1",
-   "category": "Verbs — present",
-   "label": "Stem changes in the present (e.g. pedir → peço)",
-   "lesson_slug": "presente-regular",
-   "pp_url": null
+   "exam": "ACESSO",
+   "category": "Present indicative",
+   "label": "Core irregulars — ser, estar, ter, ir, vir, fazer, poder, querer, ver, dizer, sair, pôr…",
+   "lesson_slug": "presente-irregular",
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/irregular-verbs-in-the-present-tense/",
+   "gap": false,
+   "note": null
   },
   {
-   "id": "a1-ser-estar",
+   "id": "a1-irreg-present-more",
    "level": "A1",
-   "category": "Verbs — present",
-   "label": "Ser vs estar — identity vs state/location",
-   "lesson_slug": "ser-vs-estar",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/ser-vs-estar-two-ways-of-being/"
-  },
-  {
-   "id": "a1-ser-uses",
-   "level": "A1",
-   "category": "Verbs — present",
-   "label": "When to use ser (profession, origin, traits)",
-   "lesson_slug": "ser-vs-estar",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/ser-vs-estar-when-to-use-ser/"
-  },
-  {
-   "id": "a1-estar-uses",
-   "level": "A1",
-   "category": "Verbs — present",
-   "label": "When to use estar (location, mood, health)",
-   "lesson_slug": "ser-vs-estar",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/ser-vs-estar-when-to-use-estar/"
-  },
-  {
-   "id": "a1-estar-a",
-   "level": "A1",
-   "category": "Verbs — present",
-   "label": "Estar a + infinitive — EP progressive",
-   "lesson_slug": "present-continuous",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/present-continuous-in-portuguese/"
+   "exam": "ACESSO",
+   "category": "Present indicative",
+   "label": "More high-frequency irregulars — dar, saber, haver, pedir, trazer…",
+   "lesson_slug": "presente-irregular",
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/a-few-more-common-irregular-verbs/",
+   "gap": false,
+   "note": null
   },
   {
    "id": "a1-core-verbs",
    "level": "A1",
-   "category": "Verbs — present",
-   "label": "Core high-frequency verbs (ter, ir, fazer…)",
+   "exam": "ACESSO",
+   "category": "Present indicative",
+   "label": "Core high-frequency verbs in use",
    "lesson_slug": "core-verbs",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/75-most-common-portuguese-verbs/"
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/75-most-common-portuguese-verbs/",
+   "gap": false,
+   "note": null
   },
   {
-   "id": "a1-regular-vs-irreg",
+   "id": "a1-ser-estar",
    "level": "A1",
-   "category": "Verbs — present",
-   "label": "Regular vs irregular verbs — overview",
-   "lesson_slug": "presente-regular",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/regular-vs-irregular-verbs/"
+   "exam": "ACESSO",
+   "category": "Present indicative",
+   "label": "Ser vs estar — identity, traits, location, mood",
+   "lesson_slug": "ser-vs-estar",
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/ser-vs-estar-two-ways-of-being/",
+   "gap": false,
+   "note": null
+  },
+  {
+   "id": "a1-ir-inf",
+   "level": "A1",
+   "exam": "ACESSO",
+   "category": "Verbal aspects",
+   "label": "Immediate future — ir + infinitive",
+   "lesson_slug": "past-future",
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/talking-about-the-future-in-portuguese/",
+   "gap": false,
+   "note": null
+  },
+  {
+   "id": "a1-estar-a",
+   "level": "A1",
+   "exam": "ACESSO",
+   "category": "Verbal aspects",
+   "label": "Continuous present — estar a + infinitive (EP)",
+   "lesson_slug": "present-continuous",
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/present-continuous-in-portuguese/",
+   "gap": false,
+   "note": null
+  },
+  {
+   "id": "a1-imperative-basic",
+   "level": "A1",
+   "exam": "ACESSO",
+   "category": "Imperative",
+   "label": "Basic affirmative imperative (social: entra, faz favor, diga…)",
+   "lesson_slug": "imperative",
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/the-imperative/",
+   "gap": false,
+   "note": "Camões A1: frequent social forms; full paradigm expands at A2."
+  },
+  {
+   "id": "a1-prep-contract",
+   "level": "A1",
+   "exam": "ACESSO",
+   "category": "Prepositions",
+   "label": "Core prepositions & contractions — em/de/a/por/para → no, do, ao, pelo…",
+   "lesson_slug": "prepositions-depth",
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/portuguese-contractions/",
+   "gap": false,
+   "note": null
+  },
+  {
+   "id": "a1-possessives",
+   "level": "A1",
+   "exam": "ACESSO",
+   "category": "Determiners",
+   "label": "Possessives — o meu, a tua… (+ article habits)",
+   "lesson_slug": "possessives",
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/introduction-to-possessives/",
+   "gap": false,
+   "note": null
+  },
+  {
+   "id": "a1-demonstratives",
+   "level": "A1",
+   "exam": "ACESSO",
+   "category": "Determiners",
+   "label": "Demonstratives — este/esse/aquele, isto/isso/aquilo & basic contractions",
+   "lesson_slug": "demonstratives",
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/introduction-to-portuguese-demonstratives/",
+   "gap": false,
+   "note": null
   },
   {
    "id": "a1-questions",
    "level": "A1",
-   "category": "Sentence basics",
-   "label": "Asking questions — intonation, question words",
+   "exam": "ACESSO",
+   "category": "Syntax",
+   "label": "Interrogatives & negation — quem, onde, quando, como, porquê, o que, quanto; não, nunca, nada",
    "lesson_slug": "questions-negation",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/asking-questions-in-portuguese/"
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/asking-questions-in-portuguese/",
+   "gap": false,
+   "note": null
   },
   {
    "id": "a1-e-que",
    "level": "A1",
-   "category": "Sentence basics",
+   "exam": "ACESSO",
+   "category": "Syntax",
    "label": "É que in questions",
    "lesson_slug": "questions-negation",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/using-e-que-in-portuguese-questions/"
-  },
-  {
-   "id": "a1-negation",
-   "level": "A1",
-   "category": "Sentence basics",
-   "label": "Negation — não, nunca, ninguém",
-   "lesson_slug": "questions-negation",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/forming-negative-phrases/"
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/using-e-que-in-portuguese-questions/",
+   "gap": false,
+   "note": null
   },
   {
    "id": "a1-cognates",
    "level": "A1",
+   "exam": "ACESSO",
    "category": "Word patterns",
-   "label": "Cognate patterns — -tion/-ção, -ty/-dade",
+   "label": "Cognates & false friends — -tion/-ção, -ty/-dade",
    "lesson_slug": "cognate-patterns",
-   "pp_url": null
-  },
-  {
-   "id": "a1-false-friends",
-   "level": "A1",
-   "category": "Word patterns",
-   "label": "False friends and tricky endings",
-   "lesson_slug": "cognate-patterns",
-   "pp_url": null
-  },
-  {
-   "id": "a2-demonstr-intro",
-   "level": "A2",
-   "category": "Demonstratives",
-   "label": "Introduction to demonstratives",
-   "lesson_slug": "demonstratives",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/introduction-to-portuguese-demonstratives/"
-  },
-  {
-   "id": "a2-demonstr-var-sg",
-   "level": "A2",
-   "category": "Demonstratives",
-   "label": "Variable demonstratives — singular (este, esse, aquele)",
-   "lesson_slug": "demonstratives",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/variable-demonstratives-singular/"
-  },
-  {
-   "id": "a2-demonstr-var-pl",
-   "level": "A2",
-   "category": "Demonstratives",
-   "label": "Variable demonstratives — plural",
-   "lesson_slug": "demonstratives",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/variable-demonstratives-plural/"
-  },
-  {
-   "id": "a2-demonstr-invar",
-   "level": "A2",
-   "category": "Demonstratives",
-   "label": "Invariable pronouns — isto, isso, aquilo",
-   "lesson_slug": "demonstratives",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/invariable-demonstrative-pronouns/"
-  },
-  {
-   "id": "a2-demonstr-det",
-   "level": "A2",
-   "category": "Demonstratives",
-   "label": "Demonstrative determiners vs pronouns",
-   "lesson_slug": "demonstratives",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/demonstrative-determiners/"
-  },
-  {
-   "id": "a2-poss-intro",
-   "level": "A2",
-   "category": "Possessives",
-   "label": "Introduction to possessives",
-   "lesson_slug": "possessives",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/introduction-to-possessives/"
-  },
-  {
-   "id": "a2-poss-1st-2nd",
-   "level": "A2",
-   "category": "Possessives",
-   "label": "1st & 2nd person — meu, teu, nosso",
-   "lesson_slug": "possessives",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/1st-and-2nd-person-possessives/"
-  },
-  {
-   "id": "a2-poss-seu",
-   "level": "A2",
-   "category": "Possessives",
-   "label": "3rd person seu/sua — ambiguity",
-   "lesson_slug": "possessives",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/3rd-person-possessives-seu-and-sua/"
-  },
-  {
-   "id": "a2-poss-dele",
-   "level": "A2",
-   "category": "Possessives",
-   "label": "Dele/dela vs seu/sua",
-   "lesson_slug": "possessives",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/when-to-use-dele-dela-vs-seu-sua/"
-  },
-  {
-   "id": "a2-poss-article",
-   "level": "A2",
-   "category": "Possessives",
-   "label": "O meu vs meu — EP article with possessives",
-   "lesson_slug": "possessives",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/meu-or-o-meu/"
-  },
-  {
-   "id": "a2-prep-pairings",
-   "level": "A2",
-   "category": "Prepositions",
-   "label": "Verb + preposition pairings (gostar de, pensar em…)",
-   "lesson_slug": "prepositions",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/preposition-pairings/"
-  },
-  {
-   "id": "a2-prep-de",
-   "level": "A2",
-   "category": "Prepositions",
-   "label": "The preposition de",
-   "lesson_slug": "prepositions-depth",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/the-preposition-de/"
-  },
-  {
-   "id": "a2-prep-em",
-   "level": "A2",
-   "category": "Prepositions",
-   "label": "The preposition em",
-   "lesson_slug": "prepositions-depth",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/the-preposition-em/"
-  },
-  {
-   "id": "a2-prep-a",
-   "level": "A2",
-   "category": "Prepositions",
-   "label": "The preposition a",
-   "lesson_slug": "prepositions-depth",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/the-preposition-a/"
-  },
-  {
-   "id": "a2-prep-com",
-   "level": "A2",
-   "category": "Prepositions",
-   "label": "The preposition com",
-   "lesson_slug": "prepositions-depth",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/the-preposition-com/"
-  },
-  {
-   "id": "a2-contractions",
-   "level": "A2",
-   "category": "Prepositions",
-   "label": "Contractions — do, da, no, na, ao…",
-   "lesson_slug": "prepositions-depth",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/portuguese-contractions/"
-  },
-  {
-   "id": "a2-adj-intro",
-   "level": "A2",
-   "category": "Adjectives",
-   "label": "Introduction to adjectives & agreement",
-   "lesson_slug": "adjectives",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/introduction-to-portuguese-adjectives/"
-  },
-  {
-   "id": "a2-adj-agreement",
-   "level": "A2",
-   "category": "Adjectives",
-   "label": "Gender & number agreement",
-   "lesson_slug": "adjectives",
-   "pp_url": null
-  },
-  {
-   "id": "a2-adj-position",
-   "level": "A2",
-   "category": "Adjectives",
-   "label": "Adjective position — before vs after noun",
-   "lesson_slug": "adjectives",
-   "pp_url": null
-  },
-  {
-   "id": "a2-bom-bem",
-   "level": "A2",
-   "category": "Adjectives",
-   "label": "Bom/bem vs mau/mal",
-   "lesson_slug": "adjectives",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/mau-vs-mal-and-bom-vs-bem/"
-  },
-  {
-   "id": "a2-adj-degrees",
-   "level": "A2",
-   "category": "Adjectives",
-   "label": "Degrees of adjectives — muito, mais, o mais",
-   "lesson_slug": "adjectives",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/degrees-of-adjectives/"
-  },
-  {
-   "id": "a2-adv-intro",
-   "level": "A2",
-   "category": "Adverbs",
-   "label": "Introduction to adverbs",
-   "lesson_slug": "adverbs",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/introduction-to-portuguese-adverbs/"
-  },
-  {
-   "id": "a2-adv-place",
-   "level": "A2",
-   "category": "Adverbs",
-   "label": "Adverbs of place — aqui, ali, lá, aonde",
-   "lesson_slug": "adverbs",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/adverbs-of-place-here-and-there/"
-  },
-  {
-   "id": "a2-adv-time",
-   "level": "A2",
-   "category": "Adverbs",
-   "label": "Adverbs of time — já, ainda, sempre",
-   "lesson_slug": "adverbs",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/adverbs-of-time/"
-  },
-  {
-   "id": "a2-conj-essential",
-   "level": "A2",
-   "category": "Conjunctions",
-   "label": "Essential conjunctions — e, mas, ou, porque",
-   "lesson_slug": "conjunctions",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/essential-portuguese-conjunctions/"
-  },
-  {
-   "id": "a2-conj-quando-se",
-   "level": "A2",
-   "category": "Conjunctions",
-   "label": "Quando, se, antes de, depois de",
-   "lesson_slug": "conjunctions",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/intro-to-subordinating-conjunctions/"
-  },
-  {
-   "id": "a2-haver-há",
-   "level": "A2",
-   "category": "Haver",
-   "label": "Impersonal há — there is/are",
-   "lesson_slug": "haver",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/the-verb-haver/"
-  },
-  {
-   "id": "a2-haver-time",
-   "level": "A2",
-   "category": "Haver",
-   "label": "Há + time — há dois anos",
-   "lesson_slug": "haver",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/talking-about-the-past-with-haver/"
-  },
-  {
-   "id": "a2-haver-exist",
-   "level": "A2",
-   "category": "Haver",
-   "label": "Haver vs ter — existence",
-   "lesson_slug": "haver",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/haver-as-to-exist-to-have/"
-  },
-  {
-   "id": "a2-irreg-present",
-   "level": "A2",
-   "category": "Tenses",
-   "label": "Irregular present — ser, estar, ir, ter, fazer",
-   "lesson_slug": "presente-irregular",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/irregular-verbs-in-the-present-tense/"
-  },
-  {
-   "id": "a2-irreg-present-more",
-   "level": "A2",
-   "category": "Tenses",
-   "label": "More irregular present — dar, ver, saber, querer, poder",
-   "lesson_slug": "presente-irregular",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/a-few-more-common-irregular-verbs/"
+   "pp_url": null,
+   "gap": false,
+   "note": null
   },
   {
    "id": "a2-past-ar",
    "level": "A2",
-   "category": "Tenses",
-   "label": "Regular -AR in the pretérito perfeito",
+   "exam": "CIPLE",
+   "category": "Past indicative",
+   "label": "Pretérito perfeito simples — regular -AR",
    "lesson_slug": "past-future",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/regular-ar-verbs-in-the-simple-past/"
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/regular-ar-verbs-in-the-simple-past/",
+   "gap": false,
+   "note": null
   },
   {
    "id": "a2-past-er-ir",
    "level": "A2",
-   "category": "Tenses",
-   "label": "Regular -ER/-IR in the pretérito perfeito",
+   "exam": "CIPLE",
+   "category": "Past indicative",
+   "label": "Pretérito perfeito — regular -ER/-IR",
    "lesson_slug": "past-future",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/regular-er-ir-verbs-in-the-simple-past/"
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/regular-er-ir-verbs-in-the-simple-past/",
+   "gap": false,
+   "note": null
   },
   {
    "id": "a2-past-irreg",
    "level": "A2",
-   "category": "Tenses",
-   "label": "Irregular pretérito perfeito — ir, ser, estar, dar, querer",
+   "exam": "CIPLE",
+   "category": "Past indicative",
+   "label": "Irregular pretérito perfeito — fui, tive, estive, fiz, vi…",
    "lesson_slug": "past-future",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/irregular-verbs-in-the-simple-past/"
-  },
-  {
-   "id": "a2-past-irreg-more",
-   "level": "A2",
-   "category": "Tenses",
-   "label": "More irregular past — fazer, ver, saber, ter",
-   "lesson_slug": "past-future",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/more-irregular-verbs-in-the-simple-past/"
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/irregular-verbs-in-the-simple-past/",
+   "gap": false,
+   "note": null
   },
   {
    "id": "a2-imperf-intro",
    "level": "A2",
-   "category": "Tenses",
-   "label": "Pretérito imperfeito — introduction",
+   "exam": "CIPLE",
+   "category": "Past indicative",
+   "label": "Pretérito imperfeito — habits, background, descriptions",
    "lesson_slug": "past-future",
-   "pp_url": null
+   "pp_url": null,
+   "gap": false,
+   "note": null
   },
   {
-   "id": "a2-future-ir",
+   "id": "a2-past-contrast",
    "level": "A2",
-   "category": "Tenses",
-   "label": "Future with ir + infinitive",
+   "exam": "CIPLE",
+   "category": "Past indicative",
+   "label": "Perfeito vs imperfeito — finished event vs habitual/ongoing past",
    "lesson_slug": "past-future",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/talking-about-the-future-in-portuguese/"
+   "pp_url": null,
+   "gap": false,
+   "note": "Contrast is core CIPLE; covered inside the past/future lesson."
   },
   {
-   "id": "a2-future-simple",
+   "id": "a2-imperative",
    "level": "A2",
-   "category": "Tenses",
-   "label": "Futuro simples — overview",
-   "lesson_slug": "past-future",
-   "pp_url": null
+   "exam": "CIPLE",
+   "category": "Imperative",
+   "label": "Imperative — affirmative & negative (tu / você)",
+   "lesson_slug": "imperative",
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/the-imperative/",
+   "gap": false,
+   "note": null
   },
   {
    "id": "a2-clitics-intro",
    "level": "A2",
-   "category": "Pronouns & clitics",
-   "label": "Introduction to clitic object pronouns",
+   "exam": "CIPLE",
+   "category": "Clitic pronouns",
+   "label": "Clitic pronouns — me, te, o/a, nos…; intro & forms",
    "lesson_slug": "clitics-intro",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/introduction-to-clitic-object-pronouns/"
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/introduction-to-clitic-object-pronouns/",
+   "gap": false,
+   "note": null
   },
   {
    "id": "a2-clitics-me-te",
    "level": "A2",
-   "category": "Pronouns & clitics",
-   "label": "Clitics me & te",
+   "exam": "CIPLE",
+   "category": "Clitic pronouns",
+   "label": "Clitics me & te in use",
    "lesson_slug": "clitics-intro",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/clitic-pronouns-me-te/"
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/clitic-pronouns-me-te/",
+   "gap": false,
+   "note": null
   },
   {
    "id": "a2-clitics-placement",
    "level": "A2",
-   "category": "Pronouns & clitics",
-   "label": "Placement after the verb; proclisis with não",
+   "exam": "CIPLE",
+   "category": "Clitic pronouns",
+   "label": "Placement — ênclise default vs próclise with negation (não me chamo)",
    "lesson_slug": "clitics-intro",
-   "pp_url": null
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/introduction-to-clitic-object-pronouns/",
+   "gap": false,
+   "note": null
+  },
+  {
+   "id": "a2-comparatives",
+   "level": "A2",
+   "exam": "CIPLE",
+   "category": "Adjectives",
+   "label": "Comparatives & superlatives — mais… do que, o mais…; melhor/pior/maior/menor",
+   "lesson_slug": "adjectives",
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/introduction-to-portuguese-adjectives/",
+   "gap": false,
+   "note": "Degrees of comparison; irregulars bom/mau/grande/pequeno."
+  },
+  {
+   "id": "a2-adv-place",
+   "level": "A2",
+   "exam": "CIPLE",
+   "category": "Adverbs",
+   "label": "Adverbs of place — aqui, ali, lá; aonde vs onde",
+   "lesson_slug": "adverbs",
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/adverbs-of-place-here-and-there/",
+   "gap": false,
+   "note": null
+  },
+  {
+   "id": "a2-adv-time",
+   "level": "A2",
+   "exam": "CIPLE",
+   "category": "Adverbs",
+   "label": "Adverbs — time, manner, degree (já, ainda, bem…)",
+   "lesson_slug": "adverbs",
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/adverbs-of-time/",
+   "gap": false,
+   "note": null
+  },
+  {
+   "id": "a2-conj-essential",
+   "level": "A2",
+   "exam": "CIPLE",
+   "category": "Conjunctions",
+   "label": "Essential conjunctions — e, mas, ou, porque",
+   "lesson_slug": "conjunctions",
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/essential-portuguese-conjunctions/",
+   "gap": false,
+   "note": null
+  },
+  {
+   "id": "a2-conj-quando-se",
+   "level": "A2",
+   "exam": "CIPLE",
+   "category": "Conjunctions",
+   "label": "Subordinating — quando, se, porque, enquanto…",
+   "lesson_slug": "conjunctions",
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/intro-to-subordinating-conjunctions/",
+   "gap": false,
+   "note": null
+  },
+  {
+   "id": "a2-haver-há",
+   "level": "A2",
+   "exam": "CIPLE",
+   "category": "Haver",
+   "label": "Haver — há (there is/are), existence vs ter",
+   "lesson_slug": "haver",
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/the-verb-haver/",
+   "gap": false,
+   "note": null
+  },
+  {
+   "id": "a2-haver-time",
+   "level": "A2",
+   "exam": "CIPLE",
+   "category": "Haver",
+   "label": "Há + time — há dois anos",
+   "lesson_slug": "haver",
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/talking-about-the-past-with-haver/",
+   "gap": false,
+   "note": null
+  },
+  {
+   "id": "a2-prep-verbs",
+   "level": "A2",
+   "exam": "CIPLE",
+   "category": "Prepositions",
+   "label": "Verb + preposition pairings (gostar de, pensar em…)",
+   "lesson_slug": "prepositions",
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/preposition-pairings/",
+   "gap": false,
+   "note": null
   },
   {
    "id": "a2-ask-nicely",
    "level": "A2",
+   "exam": "CIPLE",
    "category": "Politeness",
-   "label": "Asking nicely — queria, podia, faz favor",
+   "label": "Asking nicely — queria, podia, será que, faz favor",
    "lesson_slug": "ask-nicely",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/how-to-ask-nicely-in-european-portuguese/"
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/how-to-ask-nicely-in-european-portuguese/",
+   "gap": false,
+   "note": null
   },
   {
-   "id": "a2-sera-que",
+   "id": "a2-relative-que",
    "level": "A2",
-   "category": "Politeness",
-   "label": "Será que… for polite questions",
-   "lesson_slug": "ask-nicely",
-   "pp_url": null
+   "exam": "CIPLE",
+   "category": "Relative clauses",
+   "label": "Basic relative que (& quem)",
+   "lesson_slug": "relative-pronouns",
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/relative-pronouns/",
+   "gap": false,
+   "note": null
+  },
+  {
+   "id": "a2-past-cont",
+   "level": "A2",
+   "exam": "CIPLE",
+   "category": "Verbal aspects",
+   "label": "Past continuous — estava a + infinitive",
+   "lesson_slug": "past-continuous",
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/past-continuous-tense/",
+   "gap": false,
+   "note": null
+  },
+  {
+   "id": "b1-subj-intro",
+   "level": "B1",
+   "exam": "DEPLE",
+   "category": "Subjunctive",
+   "label": "Subjunctive mood — when & why (doubt, wish, emotion, necessity)",
+   "lesson_slug": "subjunctive",
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/the-subjunctive-mood-in-portuguese-conjuntivo/",
+   "gap": false,
+   "note": null
+  },
+  {
+   "id": "b1-subj-present",
+   "level": "B1",
+   "exam": "DEPLE",
+   "category": "Subjunctive",
+   "label": "Presente do conjuntivo — espero que, é possível que, para que…",
+   "lesson_slug": "subjunctive",
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/present-subjunctive/",
+   "gap": false,
+   "note": null
+  },
+  {
+   "id": "b1-pers-inf",
+   "level": "B1",
+   "exam": "DEPLE",
+   "category": "Infinitive",
+   "label": "Infinitivo pessoal — para tu fazeres, ao chegarmos",
+   "lesson_slug": "personal-infinitive",
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/impersonal-vs-personal-infinitive/",
+   "gap": false,
+   "note": null
+  },
+  {
+   "id": "b1-mais-que-perf",
+   "level": "B1",
+   "exam": "DEPLE",
+   "category": "Compound pasts",
+   "label": "Pretérito mais-que-perfeito composto — já tinha saído quando…",
+   "lesson_slug": "compound-tenses",
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/compound-tenses-in-the-indicative-and-conditional-moods/",
+   "gap": false,
+   "note": null
+  },
+  {
+   "id": "b1-perf-composto",
+   "level": "B1",
+   "exam": "DEPLE",
+   "category": "Compound pasts",
+   "label": "Pretérito perfeito composto — tenho estudado (ongoing relevance)",
+   "lesson_slug": "compound-tenses",
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/preterito-perfeito-composto-do-indicativo/",
+   "gap": false,
+   "note": null
+  },
+  {
+   "id": "b1-clitics-adv",
+   "level": "B1",
+   "exam": "DEPLE",
+   "category": "Clitic pronouns",
+   "label": "Advanced clitics — -lo/-la/-no/-na; combinations (mo, lho…); próclise triggers",
+   "lesson_slug": "clitics-advanced",
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/clitic-pronouns-3rd-person/",
+   "gap": false,
+   "note": null
+  },
+  {
+   "id": "b1-passive",
+   "level": "B1",
+   "exam": "DEPLE",
+   "category": "Voice & aspect",
+   "label": "Passive voice — ser + participle; reflexive passive (vende-se); deixar de / acabar de / passar a",
+   "lesson_slug": null,
+   "pp_url": null,
+   "gap": true,
+   "note": "No dedicated lesson yet; compound-tenses & reflexive pages cover parts."
   },
   {
    "id": "b1-por-para",
    "level": "B1",
+   "exam": "DEPLE",
    "category": "Prepositions",
    "label": "Por vs para — movement, beneficiary, duration",
    "lesson_slug": "por-para",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/the-difference-between-por-and-para/"
-  },
-  {
-   "id": "b1-prep-phrases",
-   "level": "B1",
-   "category": "Prepositions",
-   "label": "Prepositional phrases & fixed expressions",
-   "lesson_slug": "prepositions-depth",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/simple-prepositions-and-prepositional-phrases/"
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/the-difference-between-por-and-para/",
+   "gap": false,
+   "note": null
   },
   {
    "id": "b1-prep-questions",
    "level": "B1",
+   "exam": "DEPLE",
    "category": "Prepositions",
-   "label": "Prepositions in questions — De onde és?",
+   "label": "Prepositions in questions & with tonic pronouns",
    "lesson_slug": "prepositions-depth",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/using-prepositions-in-portuguese-questions/"
-  },
-  {
-   "id": "b1-prep-tonic",
-   "level": "B1",
-   "category": "Prepositions",
-   "label": "Tonic pronouns with prepositions — comigo, contigo",
-   "lesson_slug": "prepositions-depth",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/using-tonic-pronouns-with-prepositions/"
-  },
-  {
-   "id": "b1-demonstr-contr",
-   "level": "B1",
-   "category": "Prepositions",
-   "label": "Combining de/em/a with demonstratives",
-   "lesson_slug": "demonstratives",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/combining-de-with-demonstratives/"
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/using-prepositions-in-portuguese-questions/",
+   "gap": false,
+   "note": null
   },
   {
    "id": "b1-personal-pron",
    "level": "B1",
-   "category": "Pronouns & clitics",
-   "label": "Personal pronouns — eu, tu, ele/ela",
+   "exam": "DEPLE",
+   "category": "Pronouns",
+   "label": "Personal pronouns — eu, tu, ele/ela (forms & use)",
    "lesson_slug": "personal-pronouns",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/intro-to-portuguese-verbs-and-personal-pronouns/"
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/intro-to-portuguese-verbs-and-personal-pronouns/",
+   "gap": false,
+   "note": null
   },
   {
    "id": "b1-tonic-pron",
    "level": "B1",
-   "category": "Pronouns & clitics",
+   "exam": "DEPLE",
+   "category": "Pronouns",
    "label": "Tonic pronouns — mim, ti, si",
    "lesson_slug": "personal-pronouns",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/introduction-to-tonic-pronouns/"
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/introduction-to-tonic-pronouns/",
+   "gap": false,
+   "note": null
   },
   {
    "id": "b1-tu-voce",
    "level": "B1",
-   "category": "Pronouns & clitics",
+   "exam": "DEPLE",
+   "category": "Pronouns",
    "label": "Tu vs você in European Portuguese",
    "lesson_slug": "tu-vs-voce",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/tu-vs-voce-in-european-portuguese/"
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/tu-vs-voce-in-european-portuguese/",
+   "gap": false,
+   "note": null
   },
   {
    "id": "b1-reflexive",
    "level": "B1",
-   "category": "Pronouns & clitics",
+   "exam": "DEPLE",
+   "category": "Pronouns",
    "label": "Reflexive verbs & pronouns — lavar-se",
    "lesson_slug": "reflexive",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/reflexive-verbs-reflexive-pronouns/"
-  },
-  {
-   "id": "b1-si-consigo",
-   "level": "B1",
-   "category": "Pronouns & clitics",
-   "label": "Si & consigo",
-   "lesson_slug": "clitics-advanced",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/the-pronouns-si-consigo/"
-  },
-  {
-   "id": "b1-pres-cont",
-   "level": "B1",
-   "category": "Tenses",
-   "label": "Present continuous — estar a + infinitive",
-   "lesson_slug": "present-continuous",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/present-continuous-in-portuguese/"
-  },
-  {
-   "id": "b1-past-cont",
-   "level": "B1",
-   "category": "Tenses",
-   "label": "Past continuous — estava a + infinitive",
-   "lesson_slug": "past-continuous",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/past-continuous-tense/"
-  },
-  {
-   "id": "b1-imperf-uses",
-   "level": "B1",
-   "category": "Tenses",
-   "label": "Imperfeito — habits, description, background",
-   "lesson_slug": "past-future",
-   "pp_url": null
-  },
-  {
-   "id": "b1-relative-que",
-   "level": "B1",
-   "category": "Relative clauses",
-   "label": "Relative que & quem",
-   "lesson_slug": "relative-pronouns",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/relative-pronouns/"
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/reflexive-verbs-reflexive-pronouns/",
+   "gap": false,
+   "note": null
   },
   {
    "id": "b1-relative-onde",
    "level": "B1",
+   "exam": "DEPLE",
    "category": "Relative clauses",
    "label": "Relative onde & cujo/cuja",
    "lesson_slug": "relative-pronouns",
-   "pp_url": null
+   "pp_url": null,
+   "gap": false,
+   "note": null
   },
   {
    "id": "b1-indef-det",
    "level": "B1",
+   "exam": "DEPLE",
    "category": "Determiners",
-   "label": "Indefinite determiners — algum, nenhum, todo",
+   "label": "Quantity & interrogative determiners — algum, nenhum, todo, quanto",
    "lesson_slug": "quantity-determiners",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/indefinite-determiners/"
-  },
-  {
-   "id": "b1-interrog-det",
-   "level": "B1",
-   "category": "Determiners",
-   "label": "Interrogative determiners & quantifiers",
-   "lesson_slug": "quantity-determiners",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/interrogative-determiners/"
-  },
-  {
-   "id": "b1-adv-manner",
-   "level": "B1",
-   "category": "Adverbs",
-   "label": "Adverbs of manner — bem, mal, rapidamente",
-   "lesson_slug": "adverbs",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/adverbs-of-manner-well-poorly-etc/"
-  },
-  {
-   "id": "b1-adv-degree",
-   "level": "B1",
-   "category": "Adverbs",
-   "label": "Adverbs of degree — muito, pouco, bastante",
-   "lesson_slug": "adverbs",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/adverbs-of-degree-a-little-a-lot-etc/"
-  },
-  {
-   "id": "b1-adv-affirm-neg",
-   "level": "B1",
-   "category": "Adverbs",
-   "label": "Affirmation & negation adverbs — sim, não, nunca",
-   "lesson_slug": "adverbs",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/adverbs-of-affirmation-and-negation/"
-  },
-  {
-   "id": "b1-aonde-onde",
-   "level": "B1",
-   "category": "Adverbs",
-   "label": "Aonde vs onde",
-   "lesson_slug": "adverbs",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/aonde-vs-onde/"
-  },
-  {
-   "id": "b1-conj-temporal",
-   "level": "B1",
-   "category": "Conjunctions",
-   "label": "Temporal subordinating — quando, enquanto, antes de",
-   "lesson_slug": "conjunctions",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/temporal-subordinating-conjunctions/"
-  },
-  {
-   "id": "b1-conj-causal",
-   "level": "B1",
-   "category": "Conjunctions",
-   "label": "Causal — porque, pois, como",
-   "lesson_slug": "conjunctions",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/causal-subordinating-conjunctions/"
-  },
-  {
-   "id": "b2-imperative-aff",
-   "level": "B2",
-   "category": "Imperative",
-   "label": "Affirmative imperative — tu & você forms",
-   "lesson_slug": "imperative",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/the-imperative/"
-  },
-  {
-   "id": "b2-imperative-neg",
-   "level": "B2",
-   "category": "Imperative",
-   "label": "Negative imperative — subjunctive forms",
-   "lesson_slug": "imperative",
-   "pp_url": null
-  },
-  {
-   "id": "b2-conditional",
-   "level": "B2",
-   "category": "Conditional",
-   "label": "Simple conditional — -ia endings",
-   "lesson_slug": "conditional",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/the-conditional/"
-  },
-  {
-   "id": "b2-conditional-uses",
-   "level": "B2",
-   "category": "Conditional",
-   "label": "Polite requests & hypotheticals",
-   "lesson_slug": "conditional",
-   "pp_url": null
-  },
-  {
-   "id": "b2-cond-composto",
-   "level": "B2",
-   "category": "Conditional",
-   "label": "Conditional compound — teria + participle",
-   "lesson_slug": "conditional",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/condicional-composto/"
-  },
-  {
-   "id": "b2-subj-intro",
-   "level": "B2",
-   "category": "Subjunctive",
-   "label": "Subjunctive mood — when and why",
-   "lesson_slug": "subjunctive",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/the-subjunctive-mood-in-portuguese-conjuntivo/"
-  },
-  {
-   "id": "b2-subj-present",
-   "level": "B2",
-   "category": "Subjunctive",
-   "label": "Present subjunctive — Espero que…",
-   "lesson_slug": "subjunctive",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/present-subjunctive/"
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/indefinite-determiners/",
+   "gap": false,
+   "note": null
   },
   {
    "id": "b2-subj-imperfect",
    "level": "B2",
+   "exam": "DIPLE",
    "category": "Subjunctive",
-   "label": "Imperfect subjunctive — Se fosse…",
+   "label": "Imperfeito do conjuntivo — se eu tivesse…, oxalá…",
    "lesson_slug": "subjunctive",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/imperfect-subjunctive/"
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/imperfect-subjunctive/",
+   "gap": false,
+   "note": null
   },
   {
    "id": "b2-subj-future",
    "level": "B2",
+   "exam": "DIPLE",
    "category": "Subjunctive",
-   "label": "Future subjunctive — Se vieres…",
+   "label": "Futuro do conjuntivo — quando chegares, se quiserem",
    "lesson_slug": "subjunctive",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/future-subjunctive/"
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/future-subjunctive/",
+   "gap": false,
+   "note": null
   },
   {
-   "id": "b2-subj-triggers",
+   "id": "b2-subj-composto",
    "level": "B2",
+   "exam": "DIPLE",
    "category": "Subjunctive",
-   "label": "Common triggers — que, se, quando, para que",
+   "label": "Compound subjunctives — espero que tenhas chegado; se eu tivesse sabido…",
    "lesson_slug": "subjunctive",
-   "pp_url": null
+   "pp_url": null,
+   "gap": false,
+   "note": "Present perfect & pluperfect subjunctive uses; expand with compound-tenses lesson."
+  },
+  {
+   "id": "b2-conditional",
+   "level": "B2",
+   "exam": "DIPLE",
+   "category": "Conditional",
+   "label": "Condicional simples — -ia; polite requests & hypotheses",
+   "lesson_slug": "conditional",
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/the-conditional/",
+   "gap": false,
+   "note": null
+  },
+  {
+   "id": "b2-cond-composto",
+   "level": "B2",
+   "exam": "DIPLE",
+   "category": "Conditional",
+   "label": "Condicional composto — teria feito (counterfactual past)",
+   "lesson_slug": "conditional",
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/the-conditional/",
+   "gap": false,
+   "note": null
+  },
+  {
+   "id": "b2-mesoclisis",
+   "level": "B2",
+   "exam": "DIPLE",
+   "category": "Clitic pronouns",
+   "label": "Mesóclise — far-me-ás, dir-lhe-ia (future & conditional infixation)",
+   "lesson_slug": "clitics-advanced",
+   "pp_url": null,
+   "gap": false,
+   "note": "Covered briefly in advanced clitics; rare in speech, expected in formal DIPLE writing."
+  },
+  {
+   "id": "b2-relative-prep",
+   "level": "B2",
+   "exam": "DIPLE",
+   "category": "Relative clauses",
+   "label": "Complex relatives with prepositions — o livro do qual, a pessoa a quem…",
+   "lesson_slug": "relative-pronouns",
+   "pp_url": null,
+   "gap": false,
+   "note": "Extension of relative-pronouns lesson; prep + relative is DIPLE-level."
   },
   {
    "id": "b2-part-reg",
    "level": "B2",
+   "exam": "DIPLE",
    "category": "Participles & compounds",
-   "label": "Regular past participles — -ado, -ido",
+   "label": "Past participles — regular -ado/-ido",
    "lesson_slug": "participles",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/regular-past-participles/"
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/regular-past-participles/",
+   "gap": false,
+   "note": null
   },
   {
    "id": "b2-part-irreg",
    "level": "B2",
+   "exam": "DIPLE",
    "category": "Participles & compounds",
-   "label": "Irregular participles — feito, visto, dito",
+   "label": "Irregular & double participles — feito, visto, dito…",
    "lesson_slug": "participles",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/irregular-past-participles/"
-  },
-  {
-   "id": "b2-part-double",
-   "level": "B2",
-   "category": "Participles & compounds",
-   "label": "Double participles — eleito/eleger",
-   "lesson_slug": "participles",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/double-past-participles/"
-  },
-  {
-   "id": "b2-perf-composto",
-   "level": "B2",
-   "category": "Participles & compounds",
-   "label": "Pretérito perfeito composto",
-   "lesson_slug": "compound-tenses",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/preterito-perfeito-composto-do-indicativo/"
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/irregular-past-participles/",
+   "gap": false,
+   "note": null
   },
   {
    "id": "b2-fut-composto",
    "level": "B2",
+   "exam": "DIPLE",
    "category": "Participles & compounds",
-   "label": "Futuro composto",
+   "label": "Futuro composto do indicativo",
    "lesson_slug": "compound-tenses",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/futuro-composto-do-indicativo/"
-  },
-  {
-   "id": "b2-mais-que-perf",
-   "level": "B2",
-   "category": "Participles & compounds",
-   "label": "Pretérito mais-que-perfeito composto",
-   "lesson_slug": "compound-tenses",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/preterito-mais-que-perfeito-composto-do-indicativo/"
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/futuro-composto-do-indicativo/",
+   "gap": false,
+   "note": null
   },
   {
    "id": "b2-compound-overview",
    "level": "B2",
+   "exam": "DIPLE",
    "category": "Participles & compounds",
    "label": "Compound tenses overview — ter/haver + participle",
    "lesson_slug": "compound-tenses",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/compound-tenses-in-the-indicative-and-conditional-moods/"
-  },
-  {
-   "id": "b2-clitics-3rd",
-   "level": "B2",
-   "category": "Pronouns & clitics",
-   "label": "3rd person clitics — o, a, lhe, lhes",
-   "lesson_slug": "clitics-advanced",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/clitic-pronouns-3rd-person/"
-  },
-  {
-   "id": "b2-clitics-merge",
-   "level": "B2",
-   "category": "Pronouns & clitics",
-   "label": "Merging clitics — mo, lho, nos",
-   "lesson_slug": "clitics-advanced",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/merging-clitic-object-pronouns/"
-  },
-  {
-   "id": "b2-clitics-meso",
-   "level": "B2",
-   "category": "Pronouns & clitics",
-   "label": "Mesoclisis — future/conditional pronoun placement",
-   "lesson_slug": "clitics-advanced",
-   "pp_url": null
-  },
-  {
-   "id": "b2-clitics-vp",
-   "level": "B2",
-   "category": "Pronouns & clitics",
-   "label": "Clitics in verb phrases — ir-se embora",
-   "lesson_slug": "clitics-advanced",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/verb-phrases-clitic-pronouns/"
-  },
-  {
-   "id": "b2-pers-inf",
-   "level": "B2",
-   "category": "Infinitive",
-   "label": "Personal infinitive — para ires, antes de falarmos",
-   "lesson_slug": "personal-infinitive",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/impersonal-vs-personal-infinitive/"
-  },
-  {
-   "id": "b2-nominal-forms",
-   "level": "B2",
-   "category": "Infinitive",
-   "label": "Nominal forms — infinitive, gerund, participle",
-   "lesson_slug": "participles",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/nominal-forms/"
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/compound-tenses-in-the-indicative-and-conditional-moods/",
+   "gap": false,
+   "note": null
   },
   {
    "id": "b2-ficar",
    "level": "B2",
+   "exam": "DIPLE",
    "category": "Verb contrasts",
    "label": "Ficar vs ser/estar",
    "lesson_slug": "verb-contrasts",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/how-to-use-the-verb-ficar/"
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/how-to-use-the-verb-ficar/",
+   "gap": false,
+   "note": null
   },
   {
    "id": "b2-dizer-falar",
    "level": "B2",
+   "exam": "DIPLE",
    "category": "Verb contrasts",
    "label": "Dizer vs falar vs contar",
    "lesson_slug": "verb-contrasts",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/dizer-vs-falar-vs-contar/"
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/dizer-vs-falar-vs-contar/",
+   "gap": false,
+   "note": null
   },
   {
    "id": "b2-poder-conseguir",
    "level": "B2",
+   "exam": "DIPLE",
    "category": "Verb contrasts",
    "label": "Poder vs conseguir",
    "lesson_slug": "verb-contrasts",
-   "pp_url": "https://www.practiceportuguese.com/learning-notes/poder-vs-conseguir/"
+   "pp_url": "https://www.practiceportuguese.com/learning-notes/poder-vs-conseguir/",
+   "gap": false,
+   "note": null
+  },
+  {
+   "id": "c1-subj-mastery",
+   "level": "C1",
+   "exam": "DAPLE",
+   "category": "Subjunctive",
+   "label": "Full subjunctive mastery across simple & compound tenses in multi-clause discourse",
+   "lesson_slug": "subjunctive",
+   "pp_url": null,
+   "gap": true,
+   "note": "Builds on B1–B2 subjunctive lessons; no C1-specific page yet."
+  },
+  {
+   "id": "c1-connectors",
+   "level": "C1",
+   "exam": "DAPLE",
+   "category": "Discourse",
+   "label": "Advanced connectors — não obstante, porquanto, conquanto, posto que, de modo a que…",
+   "lesson_slug": null,
+   "pp_url": null,
+   "gap": true,
+   "note": "Camões/DAPLE discourse markers; no lesson yet."
+  },
+  {
+   "id": "c1-inf-syntax",
+   "level": "C1",
+   "exam": "DAPLE",
+   "category": "Infinitive",
+   "label": "Advanced infinitive syntax — impersonal vs personal in condensed/formal style",
+   "lesson_slug": "personal-infinitive",
+   "pp_url": null,
+   "gap": true,
+   "note": "Extension of personal-infinitive lesson."
+  },
+  {
+   "id": "c1-nominalization",
+   "level": "C1",
+   "exam": "DAPLE",
+   "category": "Style",
+   "label": "Nominalization & stylistic inversion for formal registers",
+   "lesson_slug": null,
+   "pp_url": null,
+   "gap": true,
+   "note": null
+  },
+  {
+   "id": "c1-periphrases",
+   "level": "C1",
+   "exam": "DAPLE",
+   "category": "Verbal periphrases",
+   "label": "Fine aspectual periphrases — ir/vir + gerúndio, dar por + participle, haver de + infinitive",
+   "lesson_slug": null,
+   "pp_url": null,
+   "gap": true,
+   "note": null
+  },
+  {
+   "id": "c1-register",
+   "level": "C1",
+   "exam": "DAPLE",
+   "category": "Register",
+   "label": "Administrative, legal, and academic syntactic patterns",
+   "lesson_slug": null,
+   "pp_url": null,
+   "gap": true,
+   "note": null
+  },
+  {
+   "id": "c2-syntax-integration",
+   "level": "C2",
+   "exam": "DUPLE",
+   "category": "Mastery",
+   "label": "Instinctive command of rare/archaic syntactic structures",
+   "lesson_slug": null,
+   "pp_url": null,
+   "gap": true,
+   "note": null
+  },
+  {
+   "id": "c2-stylistic",
+   "level": "C2",
+   "exam": "DUPLE",
+   "category": "Mastery",
+   "label": "Stylistic versatility — humour, irony, emphasis, literary effect",
+   "lesson_slug": null,
+   "pp_url": null,
+   "gap": true,
+   "note": null
+  },
+  {
+   "id": "c2-dialectal",
+   "level": "C2",
+   "exam": "DUPLE",
+   "category": "Variation",
+   "label": "Regional EP variation (Açores, Madeira, North/South) & historical text structures",
+   "lesson_slug": null,
+   "pp_url": null,
+   "gap": true,
+   "note": null
+  },
+  {
+   "id": "c2-nuance",
+   "level": "C2",
+   "exam": "DUPLE",
+   "category": "Nuance",
+   "label": "Subtle modality, prepositions, and aspect across extreme formal/informal registers",
+   "lesson_slug": null,
+   "pp_url": null,
+   "gap": true,
+   "note": null
   }
- ]
+ ],
+ "aliases": {
+  "a1-stem-changes": "a1-present-ar",
+  "a1-regular-vs-irreg": "a1-present-ar",
+  "a1-ser-uses": "a1-ser-estar",
+  "a1-estar-uses": "a1-ser-estar",
+  "b1-pres-cont": "a1-estar-a",
+  "a1-indef-articles": "a1-def-articles",
+  "a1-article-usage": "a1-noun-gender",
+  "a1-plurals-es": "a1-plurals-s",
+  "a1-plurals-oes": "a1-plurals-s",
+  "a1-false-friends": "a1-cognates",
+  "a1-negation": "a1-questions",
+  "a2-demonstr-var-pl": "a1-demonstratives",
+  "a2-demonstr-invar": "a1-demonstratives",
+  "a2-demonstr-det": "a1-demonstratives",
+  "a2-demonstr-intro": "a1-demonstratives",
+  "a2-demonstr-var-sg": "a1-demonstratives",
+  "b1-demonstr-contr": "a1-demonstratives",
+  "a2-poss-seu": "a1-possessives",
+  "a2-poss-dele": "a1-possessives",
+  "a2-poss-article": "a1-possessives",
+  "a2-poss-intro": "a1-possessives",
+  "a2-poss-1st-2nd": "a1-possessives",
+  "a2-prep-de": "a1-prep-contract",
+  "a2-prep-em": "a1-prep-contract",
+  "a2-prep-a": "a1-prep-contract",
+  "a2-prep-com": "a1-prep-contract",
+  "a2-contractions": "a1-prep-contract",
+  "a2-prep-pairings": "a2-prep-verbs",
+  "b1-prep-phrases": "b1-prep-questions",
+  "b1-prep-tonic": "b1-prep-questions",
+  "a2-adj-agreement": "a1-adjectives",
+  "a2-adj-position": "a1-adjectives",
+  "a2-bom-bem": "a1-adjectives",
+  "a2-adj-degrees": "a2-comparatives",
+  "a2-adj-intro": "a1-adjectives",
+  "a2-adv-intro": "a2-adv-time",
+  "b1-adv-manner": "a2-adv-time",
+  "b1-adv-degree": "a2-adv-time",
+  "b1-adv-affirm-neg": "a2-adv-time",
+  "b1-aonde-onde": "a2-adv-place",
+  "a2-haver-exist": "a2-haver-há",
+  "a2-future-simple": "a1-ir-inf",
+  "a2-future-ir": "a1-ir-inf",
+  "a2-irreg-present": "a1-irreg-present",
+  "a2-irreg-present-more": "a1-irreg-present-more",
+  "a2-past-irreg-more": "a2-past-irreg",
+  "b1-imperf-uses": "a2-imperf-intro",
+  "a2-clitics-placement": "a2-clitics-intro",
+  "a2-sera-que": "a2-ask-nicely",
+  "b1-conj-temporal": "a2-conj-quando-se",
+  "b1-conj-causal": "a2-conj-quando-se",
+  "b1-interrog-det": "b1-indef-det",
+  "b1-relative-que": "a2-relative-que",
+  "b2-imperative-neg": "a2-imperative",
+  "b2-imperative-aff": "a2-imperative",
+  "b2-conditional-uses": "b2-conditional",
+  "b2-cond-composto": "b2-cond-composto",
+  "b2-subj-triggers": "b1-subj-intro",
+  "b2-subj-intro": "b1-subj-intro",
+  "b2-subj-present": "b1-subj-present",
+  "b2-part-double": "b2-part-irreg",
+  "b2-nominal-forms": "b2-part-reg",
+  "b2-mais-que-perf": "b1-mais-que-perf",
+  "b2-perf-composto": "b1-perf-composto",
+  "b2-pers-inf": "b1-pers-inf",
+  "b2-clitics-merge": "b1-clitics-adv",
+  "b2-clitics-meso": "b2-mesoclisis",
+  "b2-clitics-vp": "b1-clitics-adv",
+  "b1-si-consigo": "b1-clitics-adv",
+  "b2-clitics-3rd": "b1-clitics-adv"
+ }
 }

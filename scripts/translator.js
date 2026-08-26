@@ -99,6 +99,13 @@
 #pt-tr-out a { color: #0f766e; }
 #pt-tr-out .ext { margin-top: .55rem; font-size: .82rem; display: grid; gap: .25rem; }
 #pt-tr-out .miss { color: #78716c; }
+#pt-tr-out .didyou-mean { margin-top: .55rem; color: #57534e; font-size: .85rem; }
+#pt-tr-out .didyou-chip {
+  display: inline-block; margin: .15rem .15rem; padding: .15rem .45rem;
+  border: 1px solid #d6d3d1; border-radius: 6px; background: #fff;
+  color: #0f766e; font: inherit; font-size: .78rem; font-weight: 600; cursor: pointer;
+}
+#pt-tr-out .didyou-chip:hover { border-color: #0f766e; background: #e8f2ef; }
 /* Stack above the translate button so they don't overlap */
 button.to-top, .to-top { bottom: 4.5rem !important; }
 #pt-site-back {
@@ -146,11 +153,66 @@ button.to-top, .to-top { bottom: 4.5rem !important; }
     location.href = fallbackHref || homeHref();
   }
 
+  function ensureSiteNavLinks() {
+    const nav = document.querySelector(".site-nav, nav.site-nav");
+    if (!nav) return;
+    const wanted = [
+      { label: "Plan", path: "plan/" },
+      { label: "Syllabus", path: "grammar/syllabus/" },
+      { label: "Verbs", path: "verbs/" },
+      { label: "Vocabulary", path: "vocabulary/" },
+      { label: "Grammar", path: "grammar/" },
+    ];
+    const byLabel = {};
+    Array.from(nav.querySelectorAll("a")).forEach((a) => {
+      const label = (a.textContent || "").replace(/\s+/g, " ").trim().toLowerCase();
+      byLabel[label] = a;
+    });
+    // Keep Back + Home; rebuild the rest in tile order
+    const keep = [];
+    Array.from(nav.childNodes).forEach((node) => {
+      if (node.nodeType !== 1) return;
+      if (node.id === "pt-site-back") {
+        keep.push(node);
+        return;
+      }
+      if (node.tagName === "A") {
+        const label = (node.textContent || "").replace(/\s+/g, " ").trim();
+        if (/^(←\s*)?Home$/i.test(label) || /^(←\s*)?Início$/i.test(label)) {
+          node.textContent = "Home";
+          keep.push(node);
+        }
+      }
+    });
+    nav.innerHTML = "";
+    const addSep = () => {
+      if (!nav.childNodes.length) return;
+      const sep = document.createElement("span");
+      sep.className = "sep";
+      sep.textContent = "·";
+      nav.appendChild(sep);
+    };
+    keep.forEach((el, i) => {
+      if (i) addSep();
+      nav.appendChild(el);
+    });
+    for (const item of wanted) {
+      addSep();
+      const existing = byLabel[item.label.toLowerCase()];
+      const a = existing || document.createElement("a");
+      a.href = new URL(item.path, siteRoot).href;
+      a.textContent = item.label;
+      nav.appendChild(a);
+    }
+  }
+
   function injectBackControl() {
     if (isHomePage()) return;
     if (document.getElementById("pt-site-back")) return;
     const nav = document.querySelector(".site-nav, nav.site-nav");
     if (!nav) return;
+
+    ensureSiteNavLinks();
 
     const links = Array.from(nav.querySelectorAll("a"));
     let homeLink = null;
@@ -323,6 +385,40 @@ button.to-top, .to-top { bottom: 4.5rem !important; }
     return loading;
   }
 
+  function fuzzyCandidatesFromIndex() {
+    const out = [];
+    const seen = new Set();
+    const add = (key, hit) => {
+      const k = foldPt(key);
+      if (!k || seen.has(k)) return;
+      seen.add(k);
+      out.push({
+        key: hit.lemma || key,
+        label: hit.lemma || key,
+        hay: key,
+        meta: hit.en || "",
+        hit,
+      });
+    };
+    if (indexMap) {
+      for (const [k, hit] of Object.entries(indexMap)) add(k, hit || {});
+    }
+    if (foldIndexMap) {
+      for (const v of Object.values(foldIndexMap)) {
+        if (v && v.key) add(v.key, v.hit || {});
+      }
+    }
+    try {
+      if (typeof DATA !== "undefined" && Array.isArray(DATA)) {
+        for (const r of DATA) {
+          if (r.lemma) add(r.lemma, { lemma: r.lemma, en: r.short || r.en, pos: r.pos, src: "vocab", path: "vocabulary/" });
+          if (r.inf) add(r.inf, { lemma: r.inf, en: r.en, pos: "v.", src: "verb", path: "verbs/" });
+        }
+      }
+    } catch (_) {}
+    return out;
+  }
+
   function lookup(raw) {
     const q = foldPt(raw.trim());
     if (!q) return null;
@@ -342,10 +438,27 @@ button.to-top, .to-top { bottom: 4.5rem !important; }
       return;
     }
     if (!found) {
+      let suggestHtml = "";
+      if (window.PtFuzzy) {
+        const suggestions = PtFuzzy.suggest(query, fuzzyCandidatesFromIndex(), { limit: 4 });
+        if (suggestions.length) {
+          suggestHtml = PtFuzzy.didYouMeanHtml(query, suggestions, (s) =>
+            `data-tr-suggest="${esc(s.key)}"`
+          );
+        }
+      }
       const hint = loadError
         ? `<div class="miss">Lookup list failed to load (${esc(loadError)}). Upload <code>data/translator-index.json</code> with the site, or open via a local server (not file://).</div>`
         : `<div class="miss">Not in our vocab / verb lists.</div>`;
-      out.innerHTML = hint + externalLinks(query.trim());
+      out.innerHTML = hint + suggestHtml + externalLinks(query.trim());
+      out.querySelectorAll("[data-tr-suggest]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const input = document.getElementById("pt-tr-input");
+          const val = btn.getAttribute("data-tr-suggest") || "";
+          if (input) input.value = val;
+          renderResult(val, lookup(val));
+        });
+      });
       return;
     }
     const h = found.hit;
@@ -452,11 +565,37 @@ button.to-top, .to-top { bottom: 4.5rem !important; }
     loadIndex();
   }
 
+  function ensureScript(src, id) {
+    return new Promise((resolve) => {
+      if (id && document.getElementById(id)) {
+        resolve();
+        return;
+      }
+      if ([...document.scripts].some((s) => (s.src || "").includes(src.split("/").pop()))) {
+        resolve();
+        return;
+      }
+      const el = document.createElement("script");
+      if (id) el.id = id;
+      el.src = src;
+      el.onload = () => resolve();
+      el.onerror = () => resolve();
+      document.head.appendChild(el);
+    });
+  }
+
   function mountChrome() {
-    injectStyles();
-    injectBackControl();
-    injectToTop();
-    mount();
+    const fuzzyUrl = new URL("scripts/fuzzy.js", siteRoot).href;
+    const foldUrl = new URL("scripts/fold.js", siteRoot).href;
+    Promise.resolve()
+      .then(() => (typeof window.foldPt === "function" ? null : ensureScript(foldUrl, "pt-fold-js")))
+      .then(() => (window.PtFuzzy ? null : ensureScript(fuzzyUrl, "pt-fuzzy-js")))
+      .then(() => {
+        injectStyles();
+        injectBackControl();
+        injectToTop();
+        mount();
+      });
   }
 
   if (document.readyState === "loading") {

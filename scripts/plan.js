@@ -116,6 +116,57 @@
   let syncBusy = false;
   let editingWeekId = null;
   let grammarSyllabusMap = null;
+  let syllabusCatalog = [];
+  let syllabusById = {};
+  let editingManualSyllabus = []; // draft list while editing a week
+
+  const SYLLABUS_JSON_URL = "../data/grammar-syllabus.json";
+
+  function fold(s) {
+    return typeof window.foldPt === "function"
+      ? window.foldPt(s)
+      : String(s || "").toLowerCase();
+  }
+
+  function autoSyllabusIds(weekId) {
+    return grammarSyllabusMap?.weeks?.[weekId]?.syllabusIds || [];
+  }
+
+  function manualSyllabusIds(weekId) {
+    return S.getWeekSyllabusIds(weekId);
+  }
+
+  function mergedSyllabusIds(weekId) {
+    const seen = new Set();
+    const out = [];
+    for (const id of [...autoSyllabusIds(weekId), ...manualSyllabusIds(weekId)]) {
+      if (!id || seen.has(id)) continue;
+      seen.add(id);
+      out.push(id);
+    }
+    return out;
+  }
+
+  function syllabusLabel(id) {
+    if (syllabusById[id]?.label) return syllabusById[id].label;
+    const fromMap = grammarSyllabusMap?.weeks;
+    if (fromMap) {
+      for (const entry of Object.values(fromMap)) {
+        if (entry.labels && entry.labels[id]) return entry.labels[id];
+      }
+    }
+    return id;
+  }
+
+  function syllabusShortLabel(id) {
+    return syllabusLabel(id).split("—")[0].split("–")[0].trim();
+  }
+
+  function weeksForSyllabusId(sid) {
+    const auto = grammarSyllabusMap?.syllabusToWeeks?.[sid] || [];
+    const manual = S.invertWeekSyllabus()[sid] || [];
+    return Array.from(new Set([...auto, ...manual]));
+  }
 
   function weekHasOverride(id) {
     return !!loadOverrides()[id];
@@ -143,7 +194,7 @@
 
   function progressWhere() {
     return loadSyncCfg()
-      ? "synced across devices (checks + syllabus + plan edits)"
+      ? "synced across devices (checks + syllabus + week topics + plan edits)"
       : "saved in this browser only";
   }
 
@@ -162,8 +213,8 @@
     else delete all[id][skill];
     if (!Object.keys(all[id]).length) delete all[id];
     saveChecks(all);
-    if (skill === "grammar" && grammarSyllabusMap?.weeks?.[id]) {
-      for (const sid of grammarSyllabusMap.weeks[id].syllabusIds || []) {
+    if (skill === "grammar") {
+      for (const sid of mergedSyllabusIds(id)) {
         S.setSyllabusCheck(sid, on);
       }
     }
@@ -172,16 +223,15 @@
   }
 
   function syncPlanGrammarFromSyllabus(changedId) {
-    if (!grammarSyllabusMap?.syllabusToWeeks) return;
-    const weekIds = grammarSyllabusMap.syllabusToWeeks[changedId] || [];
+    const weekIds = weeksForSyllabusId(changedId);
     if (!weekIds.length) return;
     const syllabusChecks = S.loadSyllabusChecks();
     const all = loadChecks();
     let planChanged = false;
     for (const wid of weekIds) {
-      const entry = grammarSyllabusMap.weeks[wid];
-      if (!entry?.syllabusIds?.length) continue;
-      const allDone = entry.syllabusIds.every((sid) => syllabusChecks[sid]);
+      const ids = mergedSyllabusIds(wid);
+      if (!ids.length) continue;
+      const allDone = ids.every((sid) => syllabusChecks[sid]);
       if (!all[wid]) all[wid] = {};
       if (allDone) {
         if (!all[wid].grammar) planChanged = true;
@@ -250,6 +300,7 @@
       setSyncStatus(`Sync on${ago}. Checklist, syllabus, and plan edits sync. Treat your sync code like a password.`);
       actions.innerHTML = `
         <button type="button" id="sync-now">Sync now</button>
+        <button type="button" class="primary" id="sync-copy-link-bar">Copy link</button>
         <button type="button" id="sync-copy">Copy code</button>
         <button type="button" id="sync-disconnect">Disconnect</button>`;
       actions.querySelector("#sync-now")?.addEventListener("click", async () => {
@@ -272,9 +323,18 @@
         const code = encodeSyncCode(cfg);
         try {
           await navigator.clipboard.writeText(code);
-          setSyncStatus("Sync code copied.");
+          setSyncStatus("Sync code copied. Prefer Copy link to share a one-tap URL.");
         } catch {
           window.prompt("Copy this sync code:", code);
+        }
+      });
+      actions.querySelector("#sync-copy-link-bar")?.addEventListener("click", async () => {
+        const link = syncLinkFor(cfg);
+        try {
+          await navigator.clipboard.writeText(link);
+          setSyncStatus("Sync link copied — open it on your other device to connect.");
+        } catch {
+          window.prompt("Copy this sync link:", link);
         }
       });
       actions.querySelector("#sync-disconnect")?.addEventListener("click", () => {
@@ -687,18 +747,45 @@
     "https://docs.google.com/document/d/1Vdow94VdPx9N7Kdz5-qntESqtwoaTmVpkZGu4ldjrjg/edit?tab=t.0#heading=h.hn9i3br5cc79";
 
   function syllabusMapHtml(weekId) {
-    const entry = grammarSyllabusMap?.weeks?.[weekId];
-    if (!entry?.syllabusIds?.length) return "";
+    const ids = mergedSyllabusIds(weekId);
+    if (!ids.length) return "";
     const syllabusChecks = S.loadSyllabusChecks();
-    const chips = entry.syllabusIds
+    const chips = ids
       .map((id) => {
-        const label = (entry.labels && entry.labels[id]) || id;
-        const short = label.split("—")[0].split("–")[0].trim();
+        const short = syllabusShortLabel(id);
         const done = syllabusChecks[id] ? " done" : "";
-        return `<a class="syllabus-map-item${done}" href="../grammar/syllabus/#${esc(id)}">${esc(short)}</a>`;
+        return `<a class="syllabus-map-item${done}" href="../grammar/syllabus/#${esc(id)}" title="${esc(syllabusLabel(id))}">${esc(short)}</a>`;
       })
       .join("");
     return `<div class="syllabus-map"><span class="syllabus-map-label">Syllabus</span>${chips}</div>`;
+  }
+
+  function syllabusPickerHtml(weekId) {
+    const autoIds = autoSyllabusIds(weekId);
+    const autoChips = autoIds
+      .map((id) => {
+        return `<span class="syllabus-pick-chip auto" title="From plan grammar text">${esc(syllabusShortLabel(id))}</span>`;
+      })
+      .join("");
+    const manualChips = editingManualSyllabus
+      .map((id) => {
+        return `<span class="syllabus-pick-chip manual" data-sid="${esc(id)}">${esc(syllabusShortLabel(id))}<button type="button" class="syllabus-pick-remove" data-remove-sid="${esc(id)}" aria-label="Remove">×</button></span>`;
+      })
+      .join("");
+    return `
+      <div class="syllabus-picker" data-week="${esc(weekId)}">
+        <div class="syllabus-picker-head">
+          <span class="label">Syllabus for this week</span>
+          <span class="hint">Search and attach topics to study</span>
+        </div>
+        <div class="syllabus-picker-search-wrap">
+          <input type="search" id="syllabus-pick-search" class="syllabus-pick-search" placeholder="Search syllabus (e.g. subjunctive, por vs para)…" autocomplete="off"/>
+          <div class="syllabus-pick-dropdown" id="syllabus-pick-dropdown" hidden></div>
+        </div>
+        <div class="syllabus-picker-chips" id="syllabus-pick-chips">
+          ${autoChips}${manualChips || (autoIds.length ? "" : '<span class="muted">No syllabus items yet — search above to add.</span>')}
+        </div>
+      </div>`;
   }
 
   function skillLinks(key, text, week) {
@@ -853,6 +940,7 @@
           <p class="progress">${progressText(done, total)}</p>
         </div>
         ${skillsHtml}
+        ${syllabusPickerHtml(week.id)}
         <p class="edit-msg" id="edit-msg" hidden></p>
         <div class="week-edit-actions">
           ${edited ? `<button type="button" class="danger" data-edit-revert>Revert week</button>` : ""}
@@ -864,17 +952,18 @@
 
     const skillsHtml = SKILLS.map(([key, label]) => {
       const body = week[key];
-      if (!body) return "";
+      const hasSyllabus = key === "grammar" && mergedSyllabusIds(week.id).length;
+      if (!body && !hasSyllabus) return "";
       const id = `chk-${week.id}-${key}`;
       return `<div class="skill">
         <label for="${id}">
           <input type="checkbox" id="${id}" data-week="${esc(week.id)}" data-skill="${key}" ${checks[key] ? "checked" : ""}/>
           <span>
             <div class="label">${label}</div>
-            <div class="body">${esc(body)}</div>
+            ${body ? `<div class="body">${esc(body)}</div>` : ""}
           </span>
         </label>
-        ${skillLinks(key, body, week)}
+        ${skillLinks(key, body || "", week)}
       </div>`;
     }).join("");
 
@@ -935,12 +1024,112 @@
     el.className = `edit-msg ${isError ? "err" : "ok"}`;
   }
 
-  function exitEditMode() {
-    editingWeekId = null;
-  }
-
   function enterEditMode(weekId) {
     editingWeekId = weekId;
+    editingManualSyllabus = manualSyllabusIds(weekId);
+  }
+
+  function exitEditMode() {
+    editingWeekId = null;
+    editingManualSyllabus = [];
+  }
+
+  function renderPickerChips(root) {
+    const wrap = root.querySelector("#syllabus-pick-chips");
+    if (!wrap || !editingWeekId) return;
+    const autoIds = autoSyllabusIds(editingWeekId);
+    const autoChips = autoIds
+      .map(
+        (id) =>
+          `<span class="syllabus-pick-chip auto" title="From plan grammar text">${esc(syllabusShortLabel(id))}</span>`
+      )
+      .join("");
+    const manualChips = editingManualSyllabus
+      .map(
+        (id) =>
+          `<span class="syllabus-pick-chip manual" data-sid="${esc(id)}">${esc(syllabusShortLabel(id))}<button type="button" class="syllabus-pick-remove" data-remove-sid="${esc(id)}" aria-label="Remove">×</button></span>`
+      )
+      .join("");
+    wrap.innerHTML =
+      autoChips +
+      manualChips +
+      (!autoIds.length && !editingManualSyllabus.length
+        ? '<span class="muted">No syllabus items yet — search above to add.</span>'
+        : "");
+    wrap.querySelectorAll("[data-remove-sid]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const sid = btn.getAttribute("data-remove-sid");
+        editingManualSyllabus = editingManualSyllabus.filter((x) => x !== sid);
+        renderPickerChips(root);
+      });
+    });
+  }
+
+  function filterSyllabusCatalog(query) {
+    const q = fold(query).trim();
+    if (!q) return syllabusCatalog.slice(0, 12);
+    const scored = [];
+    for (const item of syllabusCatalog) {
+      const hay = fold(`${item.id} ${item.level} ${item.category} ${item.label}`);
+      if (!hay.includes(q)) continue;
+      scored.push(item);
+      if (scored.length >= 12) break;
+    }
+    return scored;
+  }
+
+  function showSyllabusDropdown(root, items) {
+    const dd = root.querySelector("#syllabus-pick-dropdown");
+    if (!dd) return;
+    if (!items.length) {
+      dd.hidden = true;
+      dd.innerHTML = "";
+      return;
+    }
+    dd.hidden = false;
+    dd.innerHTML = items
+      .map((item) => {
+        const already =
+          editingManualSyllabus.includes(item.id) ||
+          (editingWeekId && autoSyllabusIds(editingWeekId).includes(item.id));
+        return `<button type="button" class="syllabus-pick-option" data-add-sid="${esc(item.id)}" ${already ? "disabled" : ""}>
+          <span class="tag">${esc(item.level)}</span>
+          <span>${esc(item.label)}</span>
+        </button>`;
+      })
+      .join("");
+    dd.querySelectorAll("[data-add-sid]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const sid = btn.getAttribute("data-add-sid");
+        if (!sid || editingManualSyllabus.includes(sid)) return;
+        if (editingWeekId && autoSyllabusIds(editingWeekId).includes(sid)) return;
+        editingManualSyllabus.push(sid);
+        renderPickerChips(root);
+        const search = root.querySelector("#syllabus-pick-search");
+        if (search) search.value = "";
+        dd.hidden = true;
+        dd.innerHTML = "";
+      });
+    });
+  }
+
+  function bindSyllabusPicker(root) {
+    if (!root?.querySelector(".syllabus-picker")) return;
+    renderPickerChips(root);
+    const search = root.querySelector("#syllabus-pick-search");
+    const dd = root.querySelector("#syllabus-pick-dropdown");
+    search?.addEventListener("input", () => {
+      showSyllabusDropdown(root, filterSyllabusCatalog(search.value));
+    });
+    search?.addEventListener("focus", () => {
+      showSyllabusDropdown(root, filterSyllabusCatalog(search.value));
+    });
+    search?.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && dd) {
+        dd.hidden = true;
+        dd.innerHTML = "";
+      }
+    });
   }
 
   function shiftEditDates(root, days) {
@@ -981,6 +1170,9 @@
         }
       }
       saveWeekOverride(editingWeekId, patch);
+      S.setWeekSyllabusIds(editingWeekId, editingManualSyllabus);
+      touchLocal();
+      schedulePush();
       const week = data.weeks.find((w) => w.id === editingWeekId);
       if (week) syncBrowseToWeek(week, browseDateValue || undefined);
       exitEditMode();
@@ -991,15 +1183,13 @@
   }
 
   function rerenderWeekPanel(root, opts) {
-    if (opts.thisWeekMode) {
-      renderThisWeek();
-      return;
-    }
-    renderBrowse();
+    if (opts?.thisWeekMode) renderThisWeek();
+    else renderBrowse();
   }
 
   function bindWeekPanel(root, opts = {}) {
     if (!root) return;
+    bindSyllabusPicker(root);
     root.querySelectorAll('input[type="checkbox"][data-week]').forEach((el) => {
       el.addEventListener("change", () => {
         setCheck(el.dataset.week, el.dataset.skill, el.checked);
@@ -1017,33 +1207,29 @@
         if (!id) return;
         exitEditMode();
         const week = data.weeks.find((w) => w.id === id);
-        selectedId = id;
-        if (opts.thisWeekMode) {
-          root.innerHTML = renderWeekDetail(week, { showToday: true });
-          bindWeekPanel(root, opts);
-        } else {
-          syncBrowseToWeek(week);
-          renderBrowse();
-        }
+        if (!week) return;
+        syncBrowseToWeek(week);
+        if (opts.thisWeekMode) renderThisWeek({ weekId: id });
+        else renderBrowse();
       });
     });
     root.querySelectorAll("button[data-today]").forEach((btn) => {
       btn.addEventListener("click", () => {
         exitEditMode();
-        const { week, status } = goToTodayWeek();
-        root.innerHTML = renderWeekDetail(week, {
-          statusNote: statusMessage(status, week),
-          showToday: true,
-        });
-        bindWeekPanel(root, { thisWeekMode: true });
+        goToTodayWeek();
+        if (opts.thisWeekMode) renderThisWeek({ resetToToday: true });
+        else renderBrowse();
       });
     });
     root.querySelectorAll("button[data-edit-week]").forEach((btn) => {
       btn.addEventListener("click", () => {
         const id = btn.getAttribute("data-edit-week");
         if (!id) return;
+        const week = data.weeks.find((w) => w.id === id);
+        if (week) syncBrowseToWeek(week);
         enterEditMode(id);
-        rerenderWeekPanel(root, opts);
+        if (opts.thisWeekMode) renderThisWeek({ weekId: id });
+        else renderBrowse();
         const panel = opts.thisWeekMode
           ? document.getElementById("panel-this-week")
           : document.getElementById("browse-detail") || root;
@@ -1087,12 +1273,26 @@
     });
   }
 
-  function renderThisWeek() {
+  function renderThisWeek(opts = {}) {
     const panel = document.getElementById("panel-this-week");
-    const { week, status } = findThisWeek(data.weeks, new Date());
+    if (!panel) return;
+    const todayInfo = findThisWeek(data.weeks, new Date());
+    let week = todayInfo.week;
+    if (opts.weekId) {
+      week = data.weeks.find((w) => w.id === opts.weekId) || week;
+    } else if (!opts.resetToToday) {
+      if (editingWeekId) {
+        week = data.weeks.find((w) => w.id === editingWeekId) || week;
+      } else if (selectedId) {
+        week = data.weeks.find((w) => w.id === selectedId) || week;
+      }
+    }
     selectedId = week.id;
+    const isCalendarWeek = week.id === todayInfo.week.id;
     panel.innerHTML = renderWeekDetail(week, {
-      statusNote: statusMessage(status, week),
+      statusNote: isCalendarWeek
+        ? statusMessage(todayInfo.status, week)
+        : `Viewing Week ${week.week} · ${week.dates} (not the calendar week — tap TODAY to jump back).`,
       showToday: true,
     });
     bindWeekPanel(panel, { thisWeekMode: true });
@@ -1298,7 +1498,7 @@
         renderBrowse();
       });
     });
-    bindWeekPanel(panel.querySelector("#browse-detail"));
+    bindWeekPanel(panel.querySelector("#browse-detail"), { browseMode: true });
   }
 
   function setupTabs() {
@@ -1325,16 +1525,41 @@
       if (e.detail?.id) syncPlanGrammarFromSyllabus(e.detail.id);
       refreshOpenWeekPanels();
     });
+    window.addEventListener("ptpt-week-syllabus-changed", () => {
+      refreshOpenWeekPanels();
+    });
     window.addEventListener("storage", (e) => {
-      if (e.key === S.SYLLABUS_STORAGE_KEY || e.key === S.PLAN_CHECKS_KEY) {
+      if (
+        e.key === S.SYLLABUS_STORAGE_KEY ||
+        e.key === S.PLAN_CHECKS_KEY ||
+        e.key === S.WEEK_SYLLABUS_KEY
+      ) {
         refreshOpenWeekPanels();
       }
+    });
+    document.addEventListener("click", (e) => {
+      document.querySelectorAll(".syllabus-pick-dropdown:not([hidden])").forEach((dd) => {
+        const wrap = dd.closest(".syllabus-picker");
+        if (wrap && wrap.contains(e.target)) return;
+        dd.hidden = true;
+      });
     });
     try {
       const mapRes = await fetch(MAP_URL);
       if (mapRes.ok) grammarSyllabusMap = await mapRes.json();
     } catch {
       grammarSyllabusMap = null;
+    }
+    try {
+      const catRes = await fetch(SYLLABUS_JSON_URL);
+      if (catRes.ok) {
+        const cat = await catRes.json();
+        syllabusCatalog = cat.items || [];
+        syllabusById = {};
+        for (const item of syllabusCatalog) syllabusById[item.id] = item;
+      }
+    } catch {
+      syllabusCatalog = [];
     }
     try {
       const res = await fetch(DATA_URL);
