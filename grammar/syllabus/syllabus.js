@@ -148,7 +148,9 @@
   }
 
   function weeksForItem(itemId) {
-    const auto = autoToWeeks[itemId] || [];
+    const auto = (autoToWeeks[itemId] || []).filter(
+      (weekId) => !S.isWeekSyllabusHidden?.(weekId, itemId)
+    );
     const manual = S.invertWeekSyllabus()[itemId] || [];
     return Array.from(new Set([...auto, ...manual]));
   }

@@ -622,6 +622,19 @@ footer {
   font: inherit;
   cursor: pointer;
 }
+.syllabus-pick-option.is-on {
+  background: var(--accent-soft);
+}
+.syllabus-pick-toggle-hint {
+  margin-left: auto;
+  font-size: .72rem;
+  font-weight: 600;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.syllabus-pick-option.is-on .syllabus-pick-toggle-hint {
+  color: #991b1b;
+}
 .syllabus-pick-option:last-child { border-bottom: none; }
 .syllabus-pick-option:hover:not(:disabled) { background: var(--accent-soft); }
 .syllabus-pick-option:disabled { opacity: .45; cursor: default; }

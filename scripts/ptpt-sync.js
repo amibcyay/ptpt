@@ -64,39 +64,85 @@
     window.dispatchEvent(new CustomEvent("ptpt-week-syllabus-changed"));
   }
 
+  /** Normalize legacy string[] or {add,hide} into {add, hide}. */
+  function normalizeWeekSyllabusEntry(raw) {
+    if (Array.isArray(raw)) {
+      return { add: raw.filter(Boolean).slice(), hide: [] };
+    }
+    if (raw && typeof raw === "object") {
+      const add = Array.isArray(raw.add)
+        ? raw.add.filter(Boolean)
+        : Array.isArray(raw.ids)
+          ? raw.ids.filter(Boolean)
+          : [];
+      const hide = Array.isArray(raw.hide) ? raw.hide.filter(Boolean) : [];
+      return { add: add.slice(), hide: hide.slice() };
+    }
+    return { add: [], hide: [] };
+  }
+
+  function getWeekSyllabusEntry(weekId) {
+    return normalizeWeekSyllabusEntry(loadWeekSyllabus()[weekId]);
+  }
+
+  function writeWeekSyllabusEntry(weekId, entry) {
+    const all = loadWeekSyllabus();
+    const add = Array.from(new Set((entry.add || []).filter(Boolean)));
+    const hide = Array.from(new Set((entry.hide || []).filter(Boolean)));
+    if (!add.length && !hide.length) delete all[weekId];
+    else if (!hide.length) all[weekId] = add; // legacy shape when no hides
+    else all[weekId] = { add, hide };
+    saveWeekSyllabus(all);
+  }
+
   function getWeekSyllabusIds(weekId) {
-    const list = loadWeekSyllabus()[weekId];
-    return Array.isArray(list) ? list.slice() : [];
+    return getWeekSyllabusEntry(weekId).add;
+  }
+
+  function getWeekSyllabusHide(weekId) {
+    return getWeekSyllabusEntry(weekId).hide;
+  }
+
+  function isWeekSyllabusHidden(weekId, syllabusId) {
+    return getWeekSyllabusHide(weekId).includes(syllabusId);
   }
 
   function setWeekSyllabusIds(weekId, ids) {
-    const all = loadWeekSyllabus();
-    const clean = Array.from(new Set((ids || []).filter(Boolean)));
-    if (clean.length) all[weekId] = clean;
-    else delete all[weekId];
-    saveWeekSyllabus(all);
+    const cur = getWeekSyllabusEntry(weekId);
+    writeWeekSyllabusEntry(weekId, { add: ids || [], hide: cur.hide });
+  }
+
+  function setWeekSyllabusHide(weekId, ids) {
+    const cur = getWeekSyllabusEntry(weekId);
+    writeWeekSyllabusEntry(weekId, { add: cur.add, hide: ids || [] });
+  }
+
+  function setWeekSyllabusState(weekId, addIds, hideIds) {
+    writeWeekSyllabusEntry(weekId, { add: addIds || [], hide: hideIds || [] });
   }
 
   function addWeekSyllabusId(weekId, syllabusId) {
     if (!weekId || !syllabusId) return;
-    const ids = getWeekSyllabusIds(weekId);
-    if (!ids.includes(syllabusId)) ids.push(syllabusId);
-    setWeekSyllabusIds(weekId, ids);
+    const cur = getWeekSyllabusEntry(weekId);
+    if (!cur.add.includes(syllabusId)) cur.add.push(syllabusId);
+    cur.hide = cur.hide.filter((id) => id !== syllabusId);
+    writeWeekSyllabusEntry(weekId, cur);
   }
 
   function removeWeekSyllabusId(weekId, syllabusId) {
-    setWeekSyllabusIds(
-      weekId,
-      getWeekSyllabusIds(weekId).filter((id) => id !== syllabusId)
-    );
+    const cur = getWeekSyllabusEntry(weekId);
+    writeWeekSyllabusEntry(weekId, {
+      add: cur.add.filter((id) => id !== syllabusId),
+      hide: cur.hide,
+    });
   }
 
   function invertWeekSyllabus() {
     const out = {};
     const all = loadWeekSyllabus();
-    for (const [weekId, ids] of Object.entries(all)) {
-      if (!Array.isArray(ids)) continue;
-      for (const sid of ids) {
+    for (const [weekId, raw] of Object.entries(all)) {
+      const { add } = normalizeWeekSyllabusEntry(raw);
+      for (const sid of add) {
         if (!out[sid]) out[sid] = [];
         if (!out[sid].includes(weekId)) out[sid].push(weekId);
       }
@@ -371,7 +417,11 @@
     loadWeekSyllabus,
     saveWeekSyllabus,
     getWeekSyllabusIds,
+    getWeekSyllabusHide,
+    isWeekSyllabusHidden,
     setWeekSyllabusIds,
+    setWeekSyllabusHide,
+    setWeekSyllabusState,
     addWeekSyllabusId,
     removeWeekSyllabusId,
     invertWeekSyllabus,

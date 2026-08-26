@@ -119,6 +119,7 @@
   let syllabusCatalog = [];
   let syllabusById = {};
   let editingManualSyllabus = []; // draft list while editing a week
+  let editingHiddenAuto = []; // auto-mapped ids the user removed while editing
 
   const SYLLABUS_JSON_URL = "../data/grammar-syllabus.json";
 
@@ -136,10 +137,24 @@
     return S.getWeekSyllabusIds(weekId);
   }
 
+  function hiddenAutoSyllabusIds(weekId) {
+    return typeof S.getWeekSyllabusHide === "function"
+      ? S.getWeekSyllabusHide(weekId)
+      : [];
+  }
+
+  function visibleAutoSyllabusIds(weekId, hideIds) {
+    const hide = new Set(hideIds != null ? hideIds : hiddenAutoSyllabusIds(weekId));
+    return autoSyllabusIds(weekId).filter((id) => !hide.has(id));
+  }
+
   function mergedSyllabusIds(weekId) {
     const seen = new Set();
     const out = [];
-    for (const id of [...autoSyllabusIds(weekId), ...manualSyllabusIds(weekId)]) {
+    for (const id of [
+      ...visibleAutoSyllabusIds(weekId),
+      ...manualSyllabusIds(weekId),
+    ]) {
       if (!id || seen.has(id)) continue;
       seen.add(id);
       out.push(id);
@@ -163,7 +178,9 @@
   }
 
   function weeksForSyllabusId(sid) {
-    const auto = grammarSyllabusMap?.syllabusToWeeks?.[sid] || [];
+    const auto = (grammarSyllabusMap?.syllabusToWeeks?.[sid] || []).filter(
+      (weekId) => !S.isWeekSyllabusHidden?.(weekId, sid)
+    );
     const manual = S.invertWeekSyllabus()[sid] || [];
     return Array.from(new Set([...auto, ...manual]));
   }
@@ -761,17 +778,6 @@
   }
 
   function syllabusPickerHtml(weekId) {
-    const autoIds = autoSyllabusIds(weekId);
-    const autoChips = autoIds
-      .map((id) => {
-        return `<span class="syllabus-pick-chip auto" title="From plan grammar text">${esc(syllabusShortLabel(id))}</span>`;
-      })
-      .join("");
-    const manualChips = editingManualSyllabus
-      .map((id) => {
-        return `<span class="syllabus-pick-chip manual" data-sid="${esc(id)}">${esc(syllabusShortLabel(id))}<button type="button" class="syllabus-pick-remove" data-remove-sid="${esc(id)}" aria-label="Remove">×</button></span>`;
-      })
-      .join("");
     return `
       <div class="syllabus-picker" data-week="${esc(weekId)}">
         <div class="syllabus-picker-head">
@@ -782,9 +788,7 @@
           <input type="search" id="syllabus-pick-search" class="syllabus-pick-search" placeholder="Search syllabus (e.g. subjunctive, por vs para)…" autocomplete="off"/>
           <div class="syllabus-pick-dropdown" id="syllabus-pick-dropdown" hidden></div>
         </div>
-        <div class="syllabus-picker-chips" id="syllabus-pick-chips">
-          ${autoChips}${manualChips || (autoIds.length ? "" : '<span class="muted">No syllabus items yet — search above to add.</span>')}
-        </div>
+        <div class="syllabus-picker-chips" id="syllabus-pick-chips"></div>
       </div>`;
   }
 
@@ -1027,21 +1031,42 @@
   function enterEditMode(weekId) {
     editingWeekId = weekId;
     editingManualSyllabus = manualSyllabusIds(weekId);
+    editingHiddenAuto = hiddenAutoSyllabusIds(weekId);
   }
 
   function exitEditMode() {
     editingWeekId = null;
     editingManualSyllabus = [];
+    editingHiddenAuto = [];
+  }
+
+  function draftHasSyllabusId(id) {
+    if (editingManualSyllabus.includes(id)) return true;
+    if (!editingWeekId) return false;
+    return visibleAutoSyllabusIds(editingWeekId, editingHiddenAuto).includes(id);
+  }
+
+  function removeDraftSyllabusId(id) {
+    editingManualSyllabus = editingManualSyllabus.filter((x) => x !== id);
+    if (editingWeekId && autoSyllabusIds(editingWeekId).includes(id)) {
+      if (!editingHiddenAuto.includes(id)) editingHiddenAuto.push(id);
+    }
+  }
+
+  function addDraftSyllabusId(id) {
+    editingHiddenAuto = editingHiddenAuto.filter((x) => x !== id);
+    if (editingWeekId && autoSyllabusIds(editingWeekId).includes(id)) return;
+    if (!editingManualSyllabus.includes(id)) editingManualSyllabus.push(id);
   }
 
   function renderPickerChips(root) {
     const wrap = root.querySelector("#syllabus-pick-chips");
     if (!wrap || !editingWeekId) return;
-    const autoIds = autoSyllabusIds(editingWeekId);
+    const autoIds = visibleAutoSyllabusIds(editingWeekId, editingHiddenAuto);
     const autoChips = autoIds
       .map(
         (id) =>
-          `<span class="syllabus-pick-chip auto" title="From plan grammar text">${esc(syllabusShortLabel(id))}</span>`
+          `<span class="syllabus-pick-chip auto" data-sid="${esc(id)}" title="From plan grammar text — click × to remove">${esc(syllabusShortLabel(id))}<button type="button" class="syllabus-pick-remove" data-remove-sid="${esc(id)}" aria-label="Remove">×</button></span>`
       )
       .join("");
     const manualChips = editingManualSyllabus
@@ -1057,9 +1082,12 @@
         ? '<span class="muted">No syllabus items yet — search above to add.</span>'
         : "");
     wrap.querySelectorAll("[data-remove-sid]").forEach((btn) => {
-      btn.addEventListener("click", () => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
         const sid = btn.getAttribute("data-remove-sid");
-        editingManualSyllabus = editingManualSyllabus.filter((x) => x !== sid);
+        if (!sid) return;
+        removeDraftSyllabusId(sid);
         renderPickerChips(root);
       });
     });
@@ -1107,27 +1135,24 @@
       : "";
     const opts = items
       .map((item) => {
-        const already =
-          editingManualSyllabus.includes(item.id) ||
-          (editingWeekId && autoSyllabusIds(editingWeekId).includes(item.id));
-        return `<button type="button" class="syllabus-pick-option" data-add-sid="${esc(item.id)}" ${already ? "disabled" : ""}>
+        const already = draftHasSyllabusId(item.id);
+        return `<button type="button" class="syllabus-pick-option${already ? " is-on" : ""}" data-toggle-sid="${esc(item.id)}">
           <span class="tag">${esc(item.level)}</span>
           <span>${esc(item.label)}</span>
+          <span class="syllabus-pick-toggle-hint">${already ? "Remove" : "Add"}</span>
         </button>`;
       })
       .join("");
     dd.innerHTML = hint + opts;
-    dd.querySelectorAll("[data-add-sid]").forEach((btn) => {
+    dd.querySelectorAll("[data-toggle-sid]").forEach((btn) => {
       btn.addEventListener("click", () => {
-        const sid = btn.getAttribute("data-add-sid");
-        if (!sid || editingManualSyllabus.includes(sid)) return;
-        if (editingWeekId && autoSyllabusIds(editingWeekId).includes(sid)) return;
-        editingManualSyllabus.push(sid);
+        const sid = btn.getAttribute("data-toggle-sid");
+        if (!sid) return;
+        if (draftHasSyllabusId(sid)) removeDraftSyllabusId(sid);
+        else addDraftSyllabusId(sid);
         renderPickerChips(root);
         const search = root.querySelector("#syllabus-pick-search");
-        if (search) search.value = "";
-        dd.hidden = true;
-        dd.innerHTML = "";
+        showSyllabusDropdown(root, filterSyllabusCatalog(search?.value || ""));
       });
     });
   }
@@ -1189,7 +1214,11 @@
         }
       }
       saveWeekOverride(editingWeekId, patch);
-      S.setWeekSyllabusIds(editingWeekId, editingManualSyllabus);
+      if (typeof S.setWeekSyllabusState === "function") {
+        S.setWeekSyllabusState(editingWeekId, editingManualSyllabus, editingHiddenAuto);
+      } else {
+        S.setWeekSyllabusIds(editingWeekId, editingManualSyllabus);
+      }
       touchLocal();
       schedulePush();
       const week = data.weeks.find((w) => w.id === editingWeekId);
