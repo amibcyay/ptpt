@@ -66,11 +66,25 @@ Being & existing,C2,493,situar,to situate,,,situo,situas,situa,situamos,situam
 "Becoming, changing & causing",B1,273,variar,to vary,,,vario,varias,varia,variamos,variam
 "Becoming, changing & causing",B1,289,melhorar,to improve,,,melhoro,melhoras,melhora,melhoramos,melhoram
 "Becoming, changing & causing",B1,318,diminuir,to decline,,,diminuo,diminuis,diminui,diminuímos,diminuem
+"Becoming, changing & causing",B1,587,piorar,to get worse,,,pioro,pioras,piora,pioramos,pioram
+"Becoming, changing & causing",B1,669,ajustar,to adjust,,,ajusto,ajustas,ajusta,ajustamos,ajustam
 "Becoming, changing & causing",B2,297,limitar,to limit,,,limito,limitas,limita,limitamos,limitam
 "Becoming, changing & causing",B2,298,encher,to fill,,,encho,enches,enche,enchemos,enchem
 "Becoming, changing & causing",B2,313,alterar,to change,,,altero,alteras,altera,alteramos,alteram
 "Becoming, changing & causing",B2,348,misturar,to mix,,,misturo,misturas,mistura,misturamos,misturam
 "Becoming, changing & causing",B2,367,influenciar,to influence,,,influencio,influencias,influencia,influenciamos,influenciam
+"Becoming, changing & causing",B2,727,amplificar,to amplify,,,amplifico,amplificas,amplifica,amplificamos,amplificam
+"Becoming, changing & causing",B2,728,atenuar,to attenuate / tone down,,,atenuo,atenuas,atenua,atenuamos,atenuam
+"Becoming, changing & causing",B2,730,agravar,to aggravate,,,agravo,agravas,agrava,agravamos,agravam
+"Becoming, changing & causing",B2,731,exacerbar,to exacerbate,,,exacerbo,exacerbas,exacerba,exacerbamos,exacerbam
+"Becoming, changing & causing",B2,732,intensificar,to intensify,,,intensifico,intensificas,intensifica,intensificamos,intensificam
+"Becoming, changing & causing",B2,733,diluir,to dilute,,,diluo,diluis,dilui,diluímos,diluem
+"Becoming, changing & causing",B2,735,fortalecer,to strengthen,,,fortaleço,fortaleces,fortalece,fortalecemos,fortalecem
+"Becoming, changing & causing",B2,736,enfraquecer,to weaken,,,enfraqueço,enfraqueces,enfraquece,enfraquecemos,enfraquecem
+"Becoming, changing & causing",B2,826,concretizar,to make concrete / achieve,,,concretizo,concretizas,concretiza,concretizamos,concretizam
+"Becoming, changing & causing",B2,827,materializar,to materialise,,,materializo,materializas,materializa,materializamos,materializam
+"Becoming, changing & causing",B2,830,propiciar,to foster / bring about,,,propicio,propicias,propicia,propiciamos,propiciam
+"Becoming, changing & causing",B2,832,estimular,to stimulate,,,estimulo,estimulas,estimula,estimulamos,estimulam
 "Becoming, changing & causing",C1,344,afectar,to affect,,,afeto,afetas,afeta,afetamos,afetam
 "Becoming, changing & causing",C1,395,derivar,to derive,,,derivo,derivas,deriva,derivamos,derivam
 "Becoming, changing & causing",C1,412,facilitar,to facilitate,,,facilito,facilitas,facilita,facilitamos,facilitam
@@ -118,6 +132,8 @@ Being & existing,C2,493,situar,to situate,,,situo,situas,situa,situamos,situam
 "Wanting, deciding & trying",B2,161,determinar,to determine,,,determino,determinas,determina,determinamos,determinam
 "Wanting, deciding & trying",B2,312,costumar,to be used to / to usually do,,,costumo,costumas,costuma,costumamos,costumam
 "Wanting, deciding & trying",B2,346,visar,to aim / to target,,,viso,visas,visa,visamos,visam
+"Wanting, deciding & trying",B2,713,reconsiderar,to reconsider,,,reconsidero,reconsideras,reconsidera,reconsideramos,reconsideram
+"Wanting, deciding & trying",B2,840,antecipar,to anticipate,,,antecipo,antecipas,antecipa,antecipamos,antecipam
 "Wanting, deciding & trying",C1,270,designar,to designate,,,designo,designas,designa,designamos,designam
 "Wanting, deciding & trying",C1,409,acertar,to hit (target),,,acerto,acertas,acerta,acertamos,acertam
 "Wanting, deciding & trying",C1,436,errar,to err,,,erro,erras,erra,erramos,erram
@@ -157,6 +173,7 @@ Being & existing,C2,493,situar,to situate,,,situo,situas,situa,situamos,situam
 "Doing, working & using",B2,694,encriptar,to encrypt,,,encripto,encriptas,encripta,encriptamos,encriptam
 "Doing, working & using",B2,710,reconfigurar,to reconfigure,,,reconfiguro,reconfiguras,reconfigura,reconfiguramos,reconfiguram
 "Doing, working & using",B2,805,indexar,to index,,,indexo,indexas,indexa,indexamos,indexam
+"Doing, working & using",B2,823,orquestrar,to orchestrate,,,orquestro,orquestras,orquestra,orquestramos,orquestram
 "Doing, working & using",C1,278,actuar,to act,,,atuo,atuas,atua,atuamos,atuam
 "Doing, working & using",C1,383,empregar,to employ,,,emprego,empregas,emprega,empregamos,empregam
 "Doing, working & using",C1,388,operar,to operate,,,opero,operas,opera,operamos,operam
@@ -176,6 +193,7 @@ Being & existing,C2,493,situar,to situate,,,situo,situas,situa,situamos,situam
 "Starting, stopping & continuing",B2,352,prosseguir,to continue,,,prossigo,prossegues,prossegue,prosseguimos,prosseguem
 "Starting, stopping & continuing",B2,359,soltar,to release,,,solto,soltas,solta,soltamos,soltam
 "Starting, stopping & continuing",B2,380,interromper,to interrupt,,,interrompo,interrompes,interrompe,interrompemos,interrompem
+"Starting, stopping & continuing",B2,698,preceder,to precede,,,precedo,precedes,precede,precedemos,precedem
 "Starting, stopping & continuing",C1,345,libertar,to free / to release,,,liberto,libertas,liberta,libertamos,libertam
 "Starting, stopping & continuing",C1,396,ceder,to yield,,,cedo,cedes,cede,cedemos,cedem
 "Starting, stopping & continuing",C1,420,prender,to arrest,,,prendo,prendes,prende,prendemos,prendem
@@ -231,6 +249,7 @@ Moving the body & objects,A2,98,mandar,to send,,,mando,mandas,manda,mandamos,man
 Moving the body & objects,A2,100,atingir,to reach,,,atinjo,atinges,atinge,atingimos,atingem
 Moving the body & objects,A2,103,bater,to hit,,,bato,bates,bate,batemos,batem
 Moving the body & objects,A2,110,lançar,to launch,,,lanço,lanças,lança,lançamos,lançam
+Moving the body & objects,A2,577,empurrar,to push,,,empurro,empurras,empurra,empurramos,empurram
 Moving the body & objects,B1,174,virar,to turn,,,viro,viras,vira,viramos,viram
 Moving the body & objects,B1,195,aproximar,to approach,,,aproximo,aproximas,aproxima,aproximamos,aproximam
 Moving the body & objects,B1,202,afastar,to move away,,,afasto,afastas,afasta,afastamos,afastam
@@ -265,6 +284,8 @@ Moving the body & objects,C2,481,encaminhar,to forward,,,encaminho,encaminhas,en
 "Putting, taking & placing",B1,186,retirar,to remove,,,retiro,retiras,retira,retiramos,retiram
 "Putting, taking & placing",B1,205,dispor,to arrange,,,disponho,dispões,dispõe,dispomos,dispõem
 "Putting, taking & placing",B1,256,apanhar,to catch,,,apanho,apanhas,apanha,apanhamos,apanham
+"Putting, taking & placing",B1,670,remover,to remove,,,removo,removes,remove,removemos,removem
+"Putting, taking & placing",B1,679,esvaziar,to empty,,,esvazio,esvazias,esvazia,esvaziamos,esvaziam
 "Putting, taking & placing",B2,324,recolher,to collect,,,recolho,recolhes,recolhe,recolhemos,recolhem
 "Putting, taking & placing",C1,390,arrancar,to pull out / to start (up),,,arranco,arrancas,arranca,arrancamos,arrancam
 "Putting, taking & placing",C1,447,segurar,to hold,,,seguro,seguras,segura,seguramos,seguram
@@ -275,8 +296,12 @@ Moving the body & objects,C2,481,encaminhar,to forward,,,encaminho,encaminhas,en
 "Opening, closing & covering",A1,361,limpar,to clean / to wipe,,,limpo,limpas,limpa,limpamos,limpam
 "Opening, closing & covering",A1,421,vestir,to dress,,,visto,vestes,veste,vestimos,vestem
 "Opening, closing & covering",A1,497,lavar,to wash,,,lavo,lavas,lava,lavamos,lavam
+"Opening, closing & covering",A2,585,embrulhar,to wrap up,,,embrulho,embrulhas,embrulha,embrulhamos,embrulham
 "Opening, closing & covering",B1,233,cobrir,to cover,,,cubro,cobres,cobre,cobrimos,cobrem
 "Opening, closing & covering",B1,272,esconder,to hide,,,escondo,escondes,esconde,escondemos,escondem
+"Opening, closing & covering",B1,680,desembrulhar,to unwrap,,,desembrulho,desembrulhas,desembrulha,desembrulhamos,desembrulham
+"Opening, closing & covering",B2,695,ocultar,to conceal,,,oculto,ocultas,oculta,ocultamos,ocultam
+"Opening, closing & covering",B2,723,dissimular,to conceal / dissemble,,,dissimulo,dissimulas,dissimula,dissimulamos,dissimulam
 "Opening, closing & covering",C2,468,acender,to light / to turn on,,,acendo,acendes,acende,acendemos,acendem
 "Opening, closing & covering",C2,470,apagar,to erase / to turn off / to delete,,,apago,apagas,apaga,apagamos,apagam
 "Creating, building & destroying",A1,49,criar,to create,,,crio,crias,cria,criamos,criam
@@ -305,6 +330,8 @@ Seeing & looking,A2,137,revelar,to reveal,,,revelo,revelas,revela,revelamos,reve
 Seeing & looking,A2,147,indicar,to indicate,,,indico,indicas,indica,indicamos,indicam
 Seeing & looking,B1,155,destacar,to highlight,,,destaco,destacas,destaca,destacamos,destacam
 Seeing & looking,B1,262,notar,to note,,,noto,notas,nota,notamos,notam
+Seeing & looking,B2,721,iluminar,to illuminate / clarify,,,ilumino,iluminas,ilumina,iluminamos,iluminam
+Seeing & looking,B2,722,obscurecer,to obscure,,,obscureço,obscureces,obscurece,obscurecemos,obscurecem
 Seeing & looking,C1,411,salientar,to highlight,,,saliento,salientas,salienta,salientamos,salientam
 Seeing & looking,C1,418,expor,to expose,,,exponho,expões,expõe,expomos,expõem
 Seeing & looking,C1,428,encarar,to face,,,encaro,encaras,encara,encaramos,encaram
@@ -313,6 +340,7 @@ Seeing & looking,C2,488,contemplar,to contemplate,,,contemplo,contemplas,contemp
 Hearing & sensing,A1,34,sentir,to feel,,,sinto,sentes,sente,sentimos,sentem
 Hearing & sensing,A1,42,ouvir,to listen,,,ouço,ouves,ouve,ouvimos,ouvem
 Hearing & sensing,A2,101,sofrer,to suffer,,,sofro,sofres,sofre,sofremos,sofrem
+Hearing & sensing,A2,516,cheirar,to smell,,,cheiro,cheiras,cheira,cheiramos,cheiram
 Hearing & sensing,C1,382,escutar,to listen,,,escuto,escutas,escuta,escutamos,escutam
 Hearing & sensing,C1,391,provar,to taste,,,provo,provas,prova,provamos,provam
 Hearing & sensing,C2,496,tremer,to shiver,,,tremo,tremes,treme,trememos,tremem
@@ -338,6 +366,13 @@ Hearing & sensing,C2,496,tremer,to shiver,,,tremo,tremes,treme,trememos,tremem
 "Body, rest & daily routines",A2,535,suar,to sweat,,,suo,suas,sua,suamos,suam
 "Body, rest & daily routines",A2,536,emagrecer,to lose weight,,,emagreço,emagreces,emagrece,emagrecemos,emagrecem
 "Body, rest & daily routines",A2,537,engordar,to gain weight,,,engordo,engordas,engorda,engordamos,engordam
+"Body, rest & daily routines",A2,578,despir,to undress,,,dispo,despes,despe,despimos,despem
+"Body, rest & daily routines",A2,579,calçar,to put on (shoes),,,calço,calças,calça,calçamos,calçam
+"Body, rest & daily routines",A2,580,pentear,to comb,,,penteio,penteias,penteia,penteamos,penteiam
+"Body, rest & daily routines",A2,581,barbear,to shave,,,barbeio,barbeias,barbeia,barbeamos,barbeiam
+"Body, rest & daily routines",A2,582,banhar,to bathe,,,banho,banhas,banha,banhamos,banham
+"Body, rest & daily routines",A2,583,secar,to dry,,,seco,secas,seca,secamos,secam
+"Body, rest & daily routines",A2,584,molhar,to wet,,,molho,molhas,molha,molhamos,molham
 "Body, rest & daily routines",B1,596,engomar,to iron,,,engomo,engomas,engoma,engomamos,engomam
 "Body, rest & daily routines",B1,597,esticar,to stretch / hang out,,,estico,esticas,estica,esticamos,esticam
 "Body, rest & daily routines",B1,598,desembalar,to unpack,,,desembalo,desembalas,desembala,desembalamos,desembalam
@@ -353,6 +388,8 @@ Hearing & sensing,C2,496,tremer,to shiver,,,tremo,tremes,treme,trememos,tremem
 "Body, rest & daily routines",B1,608,examinar,to examine,,,examino,examinas,examina,examinamos,examinam
 "Body, rest & daily routines",B1,609,exercitar,to exercise,,,exercito,exercitas,exercita,exercitamos,exercitam
 "Body, rest & daily routines",B1,610,alongar,to stretch,,,alongo,alongas,alonga,alongamos,alongam
+"Body, rest & daily routines",B1,677,descalçar,to take off (shoes),,,descalço,descalças,descalça,descalçamos,descalçam
+"Body, rest & daily routines",B1,678,maquilhar,to put on make-up,,,maquilho,maquilhas,maquilha,maquilhamos,maquilham
 "Body, rest & daily routines",B2,684,diagnosticar,to diagnose,,,diagnostico,diagnosticas,diagnostica,diagnosticamos,diagnosticam
 "Body, rest & daily routines",B2,737,debilitar,to debilitate,,,debilito,debilitas,debilita,debilitamos,debilitam
 "Body, rest & daily routines",C1,429,sonhar,to dream,,,sonho,sonhas,sonha,sonhamos,sonham
@@ -393,6 +430,7 @@ Thinking & knowing,B1,203,admitir,to admit,,,admito,admites,admite,admitimos,adm
 Thinking & knowing,B1,215,propor,to propose,,,proponho,propões,propõe,propomos,propõem
 Thinking & knowing,B1,240,confirmar,to confirm,,,confirmo,confirmas,confirma,confirmamos,confirmam
 Thinking & knowing,B1,311,sugerir,to suggest,,,sugiro,sugeres,sugere,sugerimos,sugerem
+Thinking & knowing,B1,588,duvidar,to doubt,,,duvido,duvidas,duvida,duvidamos,duvidam
 Thinking & knowing,B2,38,considerar,to consider,,,considero,consideras,considera,consideramos,consideram
 Thinking & knowing,B2,54,afirmar,to state,,,afirmo,afirmas,afirma,afirmamos,afirmam
 Thinking & knowing,B2,261,declarar,to state,,,declaro,declaras,declara,declaramos,declaram
@@ -403,6 +441,9 @@ Thinking & knowing,B2,371,distinguir,to distinguish,,,distingo,distingues,distin
 Thinking & knowing,B2,389,supor,to suppose,,,suponho,supões,supõe,supomos,supõem
 Thinking & knowing,B2,413,interpretar,to interpret,,,interpreto,interpretas,interpreta,interpretamos,interpretam
 Thinking & knowing,B2,458,confessar,to confess,,,confesso,confessas,confessa,confessamos,confessam
+Thinking & knowing,B2,696,fundamentar,to substantiate,,,fundamento,fundamentas,fundamenta,fundamentamos,fundamentam
+Thinking & knowing,B2,699,postular,to postulate,,,postulo,postulas,postula,postulamos,postulam
+Thinking & knowing,B2,800,evocar,to evoke,,,evoco,evocas,evoca,evocamos,evocam
 Thinking & knowing,C1,327,reflectir,to reflect,,,reflito,refletes,reflete,refletimos,refletem
 Thinking & knowing,C1,408,concentrar,to concentrate,,,concentro,concentras,concentra,concentramos,concentram
 Thinking & knowing,C2,479,alegar,to allege,,,alego,alegas,alega,alegamos,alegam
@@ -449,6 +490,7 @@ Thinking & knowing,C2,479,alegar,to allege,,,alego,alegas,alega,alegamos,alegam
 "Learning, reading & writing",B2,686,supervisionar,to supervise,,,supervisiono,supervisionas,supervisiona,supervisionamos,supervisionam
 "Learning, reading & writing",B2,687,delegar,to delegate,,,delego,delegas,delega,delegamos,delegam
 "Learning, reading & writing",B2,688,orçamentar,to budget,,,orçamento,orçamentas,orçamenta,orçamentamos,orçamentam
+"Learning, reading & writing",B2,697,ilustrar,to illustrate,,,ilustro,ilustras,ilustra,ilustramos,ilustram
 "Learning, reading & writing",B2,700,teorizar,to theorise,,,teorizo,teorizas,teoriza,teorizamos,teorizam
 "Learning, reading & writing",B2,701,conceptualizar,to conceptualise,,,conceptualizo,conceptualizas,conceptualiza,conceptualizamos,conceptualizam
 "Learning, reading & writing",B2,702,problematizar,to problematise,,,problematizo,problematizas,problematiza,problematizamos,problematizam
@@ -464,6 +506,7 @@ Thinking & knowing,C2,479,alegar,to allege,,,alego,alegas,alega,alegamos,alegam
 "Learning, reading & writing",B2,718,enunciar,to enunciate / state,,,enuncio,enuncias,enuncia,enunciamos,enunciam
 "Learning, reading & writing",B2,719,explicitar,to make explicit,,,explicito,explicitas,explicita,explicitamos,explicitam
 "Learning, reading & writing",B2,720,elucidar,to elucidate,,,elucido,elucidas,elucida,elucidamos,elucidam
+"Learning, reading & writing",B2,724,omitir,to omit,,,omito,omites,omite,omitimos,omitem
 "Learning, reading & writing",B2,734,consolidar,to consolidate,,,consolido,consolidas,consolida,consolidamos,consolidam
 "Learning, reading & writing",B2,743,monitorizar,to monitor,,,monitorizo,monitorizas,monitoriza,monitorizamos,monitorizam
 "Learning, reading & writing",B2,745,auditar,to audit,,,audito,auditas,audita,auditamos,auditam
@@ -510,10 +553,14 @@ Speaking & communicating,B1,216,informar,to inform,,,informo,informas,informa,in
 Speaking & communicating,B1,244,prometer,to promise,,,prometo,prometes,promete,prometemos,prometem
 Speaking & communicating,B1,247,conversar,to chat,,,converso,conversas,conversa,conversamos,conversam
 Speaking & communicating,B1,288,comentar,to comment,,,comento,comentas,comenta,comentamos,comentam
+Speaking & communicating,B1,666,mencionar,to mention,,,menciono,mencionas,menciona,mencionamos,mencionam
 Speaking & communicating,B2,287,calar,to shut up,,,calo,calas,cala,calamos,calam
 Speaking & communicating,B2,322,divulgar,to disclose,,,divulgo,divulgas,divulga,divulgamos,divulgam
 Speaking & communicating,B2,330,transmitir,to transmit,,,transmito,transmites,transmite,transmitimos,transmitem
 Speaking & communicating,B2,347,manifestar,to manifest,,,manifesto,manifestas,manifesta,manifestamos,manifestam
+Speaking & communicating,B2,716,asseverar,to assert,,,assevero,asseveras,assevera,asseveramos,asseveram
+Speaking & communicating,B2,799,invocar,to invoke,,,invoco,invocas,invoca,invocamos,invocam
+Speaking & communicating,B2,801,aludir,to allude,,,aludo,aludes,alude,aludimos,aludem
 Speaking & communicating,C1,386,emitir,to issue,,,emito,emites,emite,emitimos,emitem
 Speaking & communicating,C1,407,convencer,to convince,,,convenço,convences,convence,convencemos,convencem
 Speaking & communicating,C1,430,avisar,to warn,,,aviso,avisas,avisa,avisamos,avisam
@@ -525,6 +572,7 @@ Speaking & communicating,C2,464,murmurar,to murmur,,,murmuro,murmuras,murmura,mu
 "Asking, answering & arguing",A1,91,responder,to reply,,,respondo,respondes,responde,respondemos,respondem
 "Asking, answering & arguing",A1,291,convidar,to invite,,,convido,convidas,convida,convidamos,convidam
 "Asking, answering & arguing",A2,127,aceitar,to accept,,,aceito,aceitas,aceita,aceitamos,aceitam
+"Asking, answering & arguing",A2,510,recomendar,to recommend,,,recomendo,recomendas,recomenda,recomendamos,recomendam
 "Asking, answering & arguing",B1,163,exigir,to demand,,,exijo,exiges,exige,exigimos,exigem
 "Asking, answering & arguing",B1,170,eleger,to elect,,,elejo,eleges,elege,elegemos,elegem
 "Asking, answering & arguing",B1,198,discutir,to discuss,,,discuto,discutes,discute,discutimos,discutem
@@ -533,11 +581,18 @@ Speaking & communicating,C2,464,murmurar,to murmur,,,murmuro,murmuras,murmura,mu
 "Asking, answering & arguing",B1,310,recusar,to refuse,,,recuso,recusas,recusa,recusamos,recusam
 "Asking, answering & arguing",B1,321,insistir,to insist,,,insisto,insistes,insiste,insistimos,insistem
 "Asking, answering & arguing",B1,323,concordar,to agree,,,concordo,concordas,concorda,concordamos,concordam
+"Asking, answering & arguing",B1,664,discordar,to disagree,,,discordo,discordas,discorda,discordamos,discordam
+"Asking, answering & arguing",B1,665,opinar,to give an opinion,,,opino,opinas,opina,opinamos,opinam
 "Asking, answering & arguing",B2,306,votar,to vote,,,voto,votas,vota,votamos,votam
 "Asking, answering & arguing",B2,316,justificar,to justify,,,justifico,justificas,justifica,justificamos,justificam
 "Asking, answering & arguing",B2,355,criticar,to criticize,,,critico,criticas,critica,criticamos,criticam
 "Asking, answering & arguing",B2,365,aprovar,to approve,,,aprovo,aprovas,aprova,aprovamos,aprovam
 "Asking, answering & arguing",B2,372,opor,to oppose,,,oponho,opões,opõe,opomos,opõem
+"Asking, answering & arguing",B2,681,argumentar,to argue (make a case),,,argumento,argumentas,argumenta,argumentamos,argumentam
+"Asking, answering & arguing",B2,783,contrapor,to counterpose,,,contraponho,contrapões,contrapõe,contrapomos,contrapõem
+"Asking, answering & arguing",B2,784,contrariar,to contradict / go against,,,contrario,contrarias,contraria,contrariamos,contrariam
+"Asking, answering & arguing",B2,785,desafiar,to challenge,,,desafio,desafias,desafia,desafiamos,desafiam
+"Asking, answering & arguing",B2,786,questionar,to question,,,questiono,questionas,questiona,questionamos,questionam
 "Asking, answering & arguing",C1,400,reclamar,to complain / to claim,,,reclamo,reclamas,reclama,reclamamos,reclamam
 "Asking, answering & arguing",C1,417,recorrer,to resort to / to appeal,,,recorro,recorres,recorre,recorremos,recorrem
 "Asking, answering & arguing",C1,424,denunciar,to report,,,denuncio,denuncias,denuncia,denunciamos,denunciam
@@ -560,6 +615,7 @@ Emotions & attitudes,A2,542,desculpar,to excuse / apologise,,,desculpo,desculpas
 Emotions & attitudes,A2,543,confiar,to trust,,,confio,confias,confia,confiamos,confiam
 Emotions & attitudes,B1,191,desejar,to wish,,,desejo,desejas,deseja,desejamos,desejam
 Emotions & attitudes,B1,209,aproveitar,to take advantage of / to enjoy,,,aproveito,aproveitas,aproveita,aproveitamos,aproveitam
+Emotions & attitudes,B1,589,elogiar,to praise,,,elogio,elogias,elogia,elogiamos,elogiam
 Emotions & attitudes,B1,611,alegrar,to cheer up / gladden,,,alegro,alegras,alegra,alegramos,alegram
 Emotions & attitudes,B1,612,entristecer,to sadden,,,entristeço,entristeces,entristece,entristecemos,entristecem
 Emotions & attitudes,B1,613,decepcionar,to disappoint,,,decepciono,decepcionas,decepciona,decepcionamos,decepcionam
@@ -574,6 +630,7 @@ Emotions & attitudes,B2,349,atrair,to attract,,,atraio,atrais,atrai,atraímos,at
 Emotions & attitudes,B2,435,surpreender,to surprise,,,surpreendo,surpreendes,surpreende,surpreendemos,surpreendem
 Emotions & attitudes,B2,450,ignorar,to ignore,,,ignoro,ignoras,ignora,ignoramos,ignoram
 Emotions & attitudes,B2,685,invejar,to envy,,,invejo,invejas,inveja,invejamos,invejam
+Emotions & attitudes,B2,833,incentivar,to incentivise / encourage,,,incentivo,incentivas,incentiva,incentivamos,incentivam
 Emotions & attitudes,B2,837,seduzir,to seduce / entice,,,seduzo,seduzes,seduz,seduzimos,seduzem
 Emotions & attitudes,C1,438,satisfazer,to satisfy,,,satisfaço,satisfazes,satisfaz,satisfazemos,satisfazem
 Emotions & attitudes,C2,461,admirar,to admire,,,admiro,admiras,admira,admiramos,admiram
@@ -582,6 +639,7 @@ Emotions & attitudes,C2,461,admirar,to admire,,,admiro,admiras,admira,admiramos,
 "People, help & relationships",A2,113,participar,to participate,,,participo,participas,participa,participamos,participam
 "People, help & relationships",A2,144,envolver,to get involved,,,envolvo,envolves,envolve,envolvemos,envolvem
 "People, help & relationships",A2,551,reciclar,to recycle,,,reciclo,reciclas,recicla,reciclamos,reciclam
+"People, help & relationships",A2,574,cumprimentar,to greet,,,cumprimento,cumprimentas,cumprimenta,cumprimentamos,cumprimentam
 "People, help & relationships",B1,168,casar,to marry,,,caso,casas,casa,casamos,casam
 "People, help & relationships",B1,199,apoiar,to support,,,apóio,apóias,apóia,apoiamos,apóiam
 "People, help & relationships",B1,231,dedicar,to dedicate,,,dedico,dedicas,dedica,dedicamos,dedicam
@@ -593,6 +651,11 @@ Emotions & attitudes,C2,461,admirar,to admire,,,admiro,admiras,admira,admiramos,
 "People, help & relationships",B1,640,preservar,to preserve,,,preservo,preservas,preserva,preservamos,preservam
 "People, help & relationships",B1,641,consumir,to consume,,,consumo,consomes,consome,consumimos,consomem
 "People, help & relationships",B1,642,fabricar,to manufacture,,,fabrico,fabricas,fabrica,fabricamos,fabricam
+"People, help & relationships",B1,667,relacionar,to relate,,,relaciono,relacionas,relaciona,relacionamos,relacionam
+"People, help & relationships",B1,668,associar,to associate,,,associo,associas,associa,associamos,associam
+"People, help & relationships",B1,672,resgatar,to rescue,,,resgato,resgatas,resgata,resgatamos,resgatam
+"People, help & relationships",B1,675,hospedar,to host / accommodate,,,hospedo,hospedas,hospeda,hospedamos,hospedam
+"People, help & relationships",B1,676,alojar,to lodge / house,,,alojo,alojas,aloja,alojamos,alojam
 "People, help & relationships",B2,325,respeitar,to respect,,,respeito,respeitas,respeita,respeitamos,respeitam
 "People, help & relationships",B2,689,legislar,to legislate,,,legislo,legislas,legisla,legislamos,legislam
 "People, help & relationships",B2,690,reivindicar,to claim / demand,,,reivindico,reivindicas,reivindica,reivindicamos,reivindicam
@@ -603,6 +666,7 @@ Emotions & attitudes,C2,461,admirar,to admire,,,admiro,admiras,admira,admiramos,
 "People, help & relationships",B2,717,proclamar,to proclaim,,,proclamo,proclamas,proclama,proclamamos,proclamam
 "People, help & relationships",B2,726,silenciar,to silence,,,silenciio,silenciias,silenciia,silenciamos,silenciiam
 "People, help & relationships",B2,729,mitigar,to mitigate,,,mitigo,mitigas,mitiga,mitigamos,mitigam
+"People, help & relationships",B2,738,comprometir,to compromise / jeopardise,,,comprometo,comprometes,compromete,comprometemos,comprometem
 "People, help & relationships",B2,739,salvaguardar,to safeguard,,,salvaguardo,salvaguardas,salvaguarda,salvaguardamos,salvaguardam
 "People, help & relationships",B2,741,tutelar,to tutor / protect legally,,,tutelo,tutelas,tutela,tutelamos,tutelam
 "People, help & relationships",B2,742,fiscalizar,to oversee / inspect,,,fiscalizo,fiscalizas,fiscaliza,fiscalizamos,fiscalizam
@@ -657,6 +721,9 @@ Emotions & attitudes,C2,461,admirar,to admire,,,admiro,admiras,admira,admiramos,
 "Finding, searching & waiting",A2,95,descobrir,to discover,,,descubro,descobres,descobre,descobrimos,descobrem
 "Finding, searching & waiting",B1,193,buscar,to fetch,,,busco,buscas,busca,buscamos,buscam
 "Finding, searching & waiting",B2,446,investigar,to investigate,,,investigo,investigas,investiga,investigamos,investigam
+"Finding, searching & waiting",B2,789,averiguar,to ascertain / look into,,,averiguo,averiguas,averigua,averiguamos,averiguam
+"Finding, searching & waiting",B2,790,indagar,to inquire,,,indago,indagas,indaga,indagamos,indagam
+"Finding, searching & waiting",B2,791,perscrutar,to probe / scrutinise,,,perscruto,perscrutas,perscruta,perscrutamos,perscrutam
 "Finding, searching & waiting",C1,405,explorar,to explore,,,exploro,exploras,explora,exploramos,exploram
 "Finding, searching & waiting",C1,425,aguardar,to wait,,,aguardo,aguardas,aguarda,aguardamos,aguardam
 "Giving, receiving & exchanging",A1,9,dar,to give,,,dou,dás,dá,damos,dão
@@ -677,6 +744,7 @@ Emotions & attitudes,C2,461,admirar,to admire,,,admiro,admiras,admira,admiramos,
 "Giving, receiving & exchanging",B2,305,separar,to separate,,,separo,separas,separa,separamos,separam
 "Giving, receiving & exchanging",B2,307,unir,to join,,,uno,unes,une,unimos,unem
 "Giving, receiving & exchanging",B2,335,trocar,to exchange,,,troco,trocas,troca,trocamos,trocam
+"Giving, receiving & exchanging",B2,682,excluir,to exclude,,,excluo,excluis,exclui,excluímos,excluem
 "Giving, receiving & exchanging",C1,384,distribuir,to distribute,,,distribuo,distribuis,distribui,distribuímos,distribuem
 "Giving, receiving & exchanging",C1,385,espalhar,to spread,,,espalho,espalhas,espalha,espalhamos,espalham
 "Money, buying & selling",A1,46,perder,to lose,,,perco,perdes,perde,perdemos,perdem
@@ -701,10 +769,13 @@ Emotions & attitudes,C2,461,admirar,to admire,,,admiro,admiras,admira,admiramos,
 "Joining, separating & organizing",C1,449,ordenar,to order / to sort,,,ordeno,ordenas,ordena,ordenamos,ordenam
 "Joining, separating & organizing",C2,485,classificar,to classify / to sort,,,classifico,classificas,classifica,classificamos,classificam
 "Joining, separating & organizing",C2,487,conferir,to confer,,,confiro,conferes,confere,conferimos,conferem
+"Measuring, checking & analyzing",A2,572,somar,to add (numbers),,,somo,somas,soma,somamos,somam
+"Measuring, checking & analyzing",A2,573,multiplicar,to multiply,,,multiplico,multiplicas,multiplica,multiplicamos,multiplicam
 "Measuring, checking & analyzing",B1,188,verificar,to check,,,verifico,verificas,verifica,verificamos,verificam
 "Measuring, checking & analyzing",B1,239,analisar,to analyze,,,analiso,analisas,analisa,analisamos,analisam
 "Measuring, checking & analyzing",B1,254,pesar,to weigh / to grieve,,,peso,pesas,pesa,pesamos,pesam
 "Measuring, checking & analyzing",B1,340,comparar,to compare,,,comparo,comparas,compara,comparamos,comparam
+"Measuring, checking & analyzing",B1,671,subtrair,to subtract,,,subtraio,subtrais,subtrai,subtraímos,subtraem
 "Measuring, checking & analyzing",B2,309,avaliar,to evaluate,,,avalio,avalias,avalia,avaliamos,avaliam
 "Measuring, checking & analyzing",B2,342,calcular,to calculate,,,calculo,calculas,calcula,calculamos,calculam
 "Measuring, checking & analyzing",B2,379,medir,to measure,,,meço,medes,mede,medimos,medem
@@ -714,6 +785,7 @@ Emotions & attitudes,C2,461,admirar,to admire,,,admiro,admiras,admira,admiramos,
 "Force, conflict & law",B1,171,julgar,to judge,,,julgo,julgas,julga,julgamos,julgam
 "Force, conflict & law",B1,260,enfrentar,to face,,,enfrento,enfrentas,enfrenta,enfrentamos,enfrentam
 "Force, conflict & law",B1,267,conquistar,to conquer,,,conquisto,conquistas,conquista,conquistamos,conquistam
+"Force, conflict & law",B1,673,capturar,to capture,,,capturo,capturas,captura,capturamos,capturam
 "Force, conflict & law",B2,283,dominar,to dominate,,,domino,dominas,domina,dominamos,dominam
 "Force, conflict & law",B2,292,proteger,to protect,,,protejo,proteges,protege,protegemos,protegem
 "Force, conflict & law",B2,319,atacar,to attack,,,ataco,atacas,ataca,atacamos,atacam
@@ -721,6 +793,7 @@ Emotions & attitudes,C2,461,admirar,to admire,,,admiro,admiras,admira,admiramos,
 "Force, conflict & law",B2,328,disputar,to dispute,,,disputo,disputas,disputa,disputamos,disputam
 "Force, conflict & law",B2,343,ameaçar,to threaten,,,ameaço,ameaças,ameaça,ameaçamos,ameaçam
 "Force, conflict & law",B2,362,invadir,to invade,,,invado,invades,invade,invadimos,invadem
+"Force, conflict & law",B2,740,resguardar,to protect / shelter,,,resguardo,resguardas,resguarda,resguardamos,resguardam
 "Force, conflict & law",C1,410,reagir,to react,,,reajo,reages,reage,reagimos,reagem
 "Force, conflict & law",C2,399,comandar,to command,,,comando,comandas,comanda,comandamos,comandam
 "Force, conflict & law",C2,451,governar,to rule,,,governo,governas,governa,governamos,governam
@@ -735,6 +808,12 @@ Emotions & attitudes,C2,461,admirar,to admire,,,admiro,admiras,admira,admiramos,
 "Allowing, forcing & controlling",B1,480,proibir,to ban,,,proíbo,proíbes,proíbe,proibimos,proíbem
 "Allowing, forcing & controlling",B2,300,assegurar,to secure,,,asseguro,asseguras,assegura,asseguramos,asseguram
 "Allowing, forcing & controlling",B2,317,impor,to impose,,,imponho,impões,impõe,impomos,impõem
+"Allowing, forcing & controlling",B2,683,autorizar,to authorise,,,autorizo,autorizas,autoriza,autorizamos,autorizam
+"Allowing, forcing & controlling",B2,725,suprimir,to suppress,,,suprimo,suprimes,suprime,suprimimos,suprimem
+"Allowing, forcing & controlling",B2,835,dissuadir,to dissuade,,,dissuado,dissuades,dissuade,dissuadimos,dissuadem
+"Allowing, forcing & controlling",B2,836,persuadir,to persuade,,,persuado,persuades,persuade,persuadimos,persuadem
+"Allowing, forcing & controlling",B2,839,condicionar,to condition,,,condiciono,condicionas,condiciona,condicionamos,condicionam
+"Allowing, forcing & controlling",B2,841,precaver,to take precautions,,,-,-,-,precavemos,-
 "Play, arts & leisure",A1,143,tocar,to touch / to play (music),,,toco,tocas,toca,tocamos,tocam
 "Play, arts & leisure",A1,150,jogar,to play (a game) / to throw,,,jogo,jogas,joga,jogamos,jogam
 "Play, arts & leisure",A1,201,cantar,to sing,,,canto,cantas,canta,cantamos,cantam
@@ -748,6 +827,8 @@ Emotions & attitudes,C2,461,admirar,to admire,,,admiro,admiras,admira,admiramos,
 "Play, arts & leisure",A2,557,chutar,to kick,,,chuto,chutas,chuta,chutamos,chutam
 "Play, arts & leisure",A2,558,empatar,to draw (match),,,empato,empatas,empata,empatamos,empatam
 "Play, arts & leisure",A2,559,treinar,to train,,,treino,treinas,treina,treinamos,treinam
+"Play, arts & leisure",A2,575,celebrar,to celebrate,,,celebro,celebras,celebra,celebramos,celebram
+"Play, arts & leisure",A2,576,festejar,to party / celebrate,,,festejo,festejas,festeja,festejamos,festejam
 "Play, arts & leisure",B1,232,assistir,to watch / to attend,,,assisto,assistes,assiste,assistimos,assistem
 "Play, arts & leisure",B1,378,pintar,to paint,,,pinto,pintas,pinta,pintamos,pintam
 "Play, arts & leisure",B1,454,desenhar,to draw,,,desenho,desenhas,desenha,desenhamos,desenham
@@ -758,85 +839,4 @@ Emotions & attitudes,C2,461,admirar,to admire,,,admiro,admiras,admira,admiramos,
 "Play, arts & leisure",B1,651,ensaiar,to rehearse,,,ensaio,ensaias,ensaia,ensaiamos,ensaiam
 "Play, arts & leisure",B1,652,colecionar,to collect,,,coleciono,colecionas,coleciona,colecionamos,colecionam
 "Play, arts & leisure",B1,653,acampar,to camp,,,acampo,acampas,acampa,acampamos,acampam
-Extra A1–B2 verbs,A2,510,recomendar,to recommend,,,recomendo,recomendas,recomenda,recomendamos,recomendam
-Extra A1–B2 verbs,A2,516,cheirar,to smell,,,cheiro,cheiras,cheira,cheiramos,cheiram
-Extra A1–B2 verbs,A2,572,somar,to add (numbers),,,somo,somas,soma,somamos,somam
-Extra A1–B2 verbs,A2,573,multiplicar,to multiply,,,multiplico,multiplicas,multiplica,multiplicamos,multiplicam
-Extra A1–B2 verbs,A2,574,cumprimentar,to greet,,,cumprimento,cumprimentas,cumprimenta,cumprimentamos,cumprimentam
-Extra A1–B2 verbs,A2,575,celebrar,to celebrate,,,celebro,celebras,celebra,celebramos,celebram
-Extra A1–B2 verbs,A2,576,festejar,to party / celebrate,,,festejo,festejas,festeja,festejamos,festejam
-Extra A1–B2 verbs,A2,577,empurrar,to push,,,empurro,empurras,empurra,empurramos,empurram
-Extra A1–B2 verbs,A2,578,despir,to undress,,,dispo,despes,despe,despimos,despem
-Extra A1–B2 verbs,A2,579,calçar,to put on (shoes),,,calço,calças,calça,calçamos,calçam
-Extra A1–B2 verbs,A2,580,pentear,to comb,,,penteio,penteias,penteia,penteamos,penteiam
-Extra A1–B2 verbs,A2,581,barbear,to shave,,,barbeio,barbeias,barbeia,barbeamos,barbeiam
-Extra A1–B2 verbs,A2,582,banhar,to bathe,,,banho,banhas,banha,banhamos,banham
-Extra A1–B2 verbs,A2,583,secar,to dry,,,seco,secas,seca,secamos,secam
-Extra A1–B2 verbs,A2,584,molhar,to wet,,,molho,molhas,molha,molhamos,molham
-Extra A1–B2 verbs,A2,585,embrulhar,to wrap up,,,embrulho,embrulhas,embrulha,embrulhamos,embrulham
-Extra A1–B2 verbs,B1,587,piorar,to get worse,,,pioro,pioras,piora,pioramos,pioram
-Extra A1–B2 verbs,B1,588,duvidar,to doubt,,,duvido,duvidas,duvida,duvidamos,duvidam
-Extra A1–B2 verbs,B1,589,elogiar,to praise,,,elogio,elogias,elogia,elogiamos,elogiam
-Extra A1–B2 verbs,B1,664,discordar,to disagree,,,discordo,discordas,discorda,discordamos,discordam
-Extra A1–B2 verbs,B1,665,opinar,to give an opinion,,,opino,opinas,opina,opinamos,opinam
-Extra A1–B2 verbs,B1,666,mencionar,to mention,,,menciono,mencionas,menciona,mencionamos,mencionam
-Extra A1–B2 verbs,B1,667,relacionar,to relate,,,relaciono,relacionas,relaciona,relacionamos,relacionam
-Extra A1–B2 verbs,B1,668,associar,to associate,,,associo,associas,associa,associamos,associam
-Extra A1–B2 verbs,B1,669,ajustar,to adjust,,,ajusto,ajustas,ajusta,ajustamos,ajustam
-Extra A1–B2 verbs,B1,670,remover,to remove,,,removo,removes,remove,removemos,removem
-Extra A1–B2 verbs,B1,671,subtrair,to subtract,,,subtraio,subtrais,subtrai,subtraímos,subtraem
-Extra A1–B2 verbs,B1,672,resgatar,to rescue,,,resgato,resgatas,resgata,resgatamos,resgatam
-Extra A1–B2 verbs,B1,673,capturar,to capture,,,capturo,capturas,captura,capturamos,capturam
-Extra A1–B2 verbs,B1,674,comemorar,to commemorate / celebrate,,,comemoro,comemoras,comemora,comemoramos,comemoram
-Extra A1–B2 verbs,B1,675,hospedar,to host / accommodate,,,hospedo,hospedas,hospeda,hospedamos,hospedam
-Extra A1–B2 verbs,B1,676,alojar,to lodge / house,,,alojo,alojas,aloja,alojamos,alojam
-Extra A1–B2 verbs,B1,677,descalçar,to take off (shoes),,,descalço,descalças,descalça,descalçamos,descalçam
-Extra A1–B2 verbs,B1,678,maquilhar,to put on make-up,,,maquilho,maquilhas,maquilha,maquilhamos,maquilham
-Extra A1–B2 verbs,B1,679,esvaziar,to empty,,,esvazio,esvazias,esvazia,esvaziamos,esvaziam
-Extra A1–B2 verbs,B1,680,desembrulhar,to unwrap,,,desembrulho,desembrulhas,desembrulha,desembrulhamos,desembrulham
-Extra A1–B2 verbs,B2,681,argumentar,to argue (make a case),,,argumento,argumentas,argumenta,argumentamos,argumentam
-Extra A1–B2 verbs,B2,682,excluir,to exclude,,,excluo,excluis,exclui,excluímos,excluem
-Extra A1–B2 verbs,B2,683,autorizar,to authorise,,,autorizo,autorizas,autoriza,autorizamos,autorizam
-Extra A1–B2 verbs,B2,695,ocultar,to conceal,,,oculto,ocultas,oculta,ocultamos,ocultam
-Extra A1–B2 verbs,B2,696,fundamentar,to substantiate,,,fundamento,fundamentas,fundamenta,fundamentamos,fundamentam
-Extra A1–B2 verbs,B2,697,ilustrar,to illustrate,,,ilustro,ilustras,ilustra,ilustramos,ilustram
-Extra A1–B2 verbs,B2,698,preceder,to precede,,,precedo,precedes,precede,precedemos,precedem
-Extra A1–B2 verbs,B2,699,postular,to postulate,,,postulo,postulas,postula,postulamos,postulam
-Extra A1–B2 verbs,B2,713,reconsiderar,to reconsider,,,reconsidero,reconsideras,reconsidera,reconsideramos,reconsideram
-Extra A1–B2 verbs,B2,716,asseverar,to assert,,,assevero,asseveras,assevera,asseveramos,asseveram
-Extra A1–B2 verbs,B2,721,iluminar,to illuminate / clarify,,,ilumino,iluminas,ilumina,iluminamos,iluminam
-Extra A1–B2 verbs,B2,722,obscurecer,to obscure,,,obscureço,obscureces,obscurece,obscurecemos,obscurecem
-Extra A1–B2 verbs,B2,723,dissimular,to conceal / dissemble,,,dissimulo,dissimulas,dissimula,dissimulamos,dissimulam
-Extra A1–B2 verbs,B2,724,omitir,to omit,,,omito,omites,omite,omitimos,omitem
-Extra A1–B2 verbs,B2,725,suprimir,to suppress,,,suprimo,suprimes,suprime,suprimimos,suprimem
-Extra A1–B2 verbs,B2,727,amplificar,to amplify,,,amplifico,amplificas,amplifica,amplificamos,amplificam
-Extra A1–B2 verbs,B2,728,atenuar,to attenuate / tone down,,,atenuo,atenuas,atenua,atenuamos,atenuam
-Extra A1–B2 verbs,B2,730,agravar,to aggravate,,,agravo,agravas,agrava,agravamos,agravam
-Extra A1–B2 verbs,B2,731,exacerbar,to exacerbate,,,exacerbo,exacerbas,exacerba,exacerbamos,exacerbam
-Extra A1–B2 verbs,B2,732,intensificar,to intensify,,,intensifico,intensificas,intensifica,intensificamos,intensificam
-Extra A1–B2 verbs,B2,733,diluir,to dilute,,,diluo,diluis,dilui,diluímos,diluem
-Extra A1–B2 verbs,B2,735,fortalecer,to strengthen,,,fortaleço,fortaleces,fortalece,fortalecemos,fortalecem
-Extra A1–B2 verbs,B2,736,enfraquecer,to weaken,,,enfraqueço,enfraqueces,enfraquece,enfraquecemos,enfraquecem
-Extra A1–B2 verbs,B2,738,comprometir,to compromise / jeopardise,,,comprometo,comprometes,compromete,comprometemos,comprometem
-Extra A1–B2 verbs,B2,740,resguardar,to protect / shelter,,,resguardo,resguardas,resguarda,resguardamos,resguardam
-Extra A1–B2 verbs,B2,783,contrapor,to counterpose,,,contraponho,contrapões,contrapõe,contrapomos,contrapõem
-Extra A1–B2 verbs,B2,784,contrariar,to contradict / go against,,,contrario,contrarias,contraria,contrariamos,contrariam
-Extra A1–B2 verbs,B2,785,desafiar,to challenge,,,desafio,desafias,desafia,desafiamos,desafiam
-Extra A1–B2 verbs,B2,786,questionar,to question,,,questiono,questionas,questiona,questionamos,questionam
-Extra A1–B2 verbs,B2,789,averiguar,to ascertain / look into,,,averiguo,averiguas,averigua,averiguamos,averiguam
-Extra A1–B2 verbs,B2,790,indagar,to inquire,,,indago,indagas,indaga,indagamos,indagam
-Extra A1–B2 verbs,B2,791,perscrutar,to probe / scrutinise,,,perscruto,perscrutas,perscruta,perscrutamos,perscrutam
-Extra A1–B2 verbs,B2,799,invocar,to invoke,,,invoco,invocas,invoca,invocamos,invocam
-Extra A1–B2 verbs,B2,800,evocar,to evoke,,,evoco,evocas,evoca,evocamos,evocam
-Extra A1–B2 verbs,B2,801,aludir,to allude,,,aludo,aludes,alude,aludimos,aludem
-Extra A1–B2 verbs,B2,823,orquestrar,to orchestrate,,,orquestro,orquestras,orquestra,orquestramos,orquestram
-Extra A1–B2 verbs,B2,826,concretizar,to make concrete / achieve,,,concretizo,concretizas,concretiza,concretizamos,concretizam
-Extra A1–B2 verbs,B2,827,materializar,to materialise,,,materializo,materializas,materializa,materializamos,materializam
-Extra A1–B2 verbs,B2,830,propiciar,to foster / bring about,,,propicio,propicias,propicia,propiciamos,propiciam
-Extra A1–B2 verbs,B2,832,estimular,to stimulate,,,estimulo,estimulas,estimula,estimulamos,estimulam
-Extra A1–B2 verbs,B2,833,incentivar,to incentivise / encourage,,,incentivo,incentivas,incentiva,incentivamos,incentivam
-Extra A1–B2 verbs,B2,835,dissuadir,to dissuade,,,dissuado,dissuades,dissuade,dissuadimos,dissuadem
-Extra A1–B2 verbs,B2,836,persuadir,to persuade,,,persuado,persuades,persuade,persuadimos,persuadem
-Extra A1–B2 verbs,B2,839,condicionar,to condition,,,condiciono,condicionas,condiciona,condicionamos,condicionam
-Extra A1–B2 verbs,B2,840,antecipar,to anticipate,,,antecipo,antecipas,antecipa,antecipamos,antecipam
-Extra A1–B2 verbs,B2,841,precaver,to take precautions,,,-,-,-,precavemos,-
+"Play, arts & leisure",B1,674,comemorar,to commemorate / celebrate,,,comemoro,comemoras,comemora,comemoramos,comemoram
