@@ -1,0 +1,4954 @@
+{
+ "version": 1,
+ "weekCount": 249,
+ "weeks": {
+  "w1": {
+   "weekNum": 1,
+   "theme": "Sounds first",
+   "syllabusIds": [
+    "a1-noun-gender",
+    "a1-def-articles",
+    "a1-present-ar",
+    "a1-present-er"
+   ],
+   "labels": {
+    "a1-noun-gender": "Noun gender — every noun is m. or f.",
+    "a1-def-articles": "Definite articles — o, a, os, as",
+    "a1-present-ar": "Regular -AR verbs in the present",
+    "a1-present-er": "Regular -ER verbs in the present"
+   }
+  },
+  "w2": {
+   "weekNum": 2,
+   "theme": "Who you are",
+   "syllabusIds": [
+    "a1-ser-estar",
+    "a1-ser-uses",
+    "a1-noun-gender",
+    "a1-def-articles",
+    "a2-poss-intro",
+    "a2-poss-1st-2nd",
+    "a2-irreg-present",
+    "a2-irreg-present-more"
+   ],
+   "labels": {
+    "a1-ser-estar": "Ser vs estar — identity vs state/location",
+    "a1-ser-uses": "When to use ser (profession, origin, traits)",
+    "a1-noun-gender": "Noun gender — every noun is m. or f.",
+    "a1-def-articles": "Definite articles — o, a, os, as",
+    "a2-poss-intro": "Introduction to possessives",
+    "a2-poss-1st-2nd": "1st & 2nd person — meu, teu, nosso",
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder"
+   }
+  },
+  "w3": {
+   "weekNum": 3,
+   "theme": "Numbers, money, time",
+   "syllabusIds": [
+    "a1-questions",
+    "a1-e-que",
+    "a2-adv-time",
+    "a2-adv-place"
+   ],
+   "labels": {
+    "a1-questions": "Asking questions — intonation, question words",
+    "a1-e-que": "É que in questions",
+    "a2-adv-time": "Adverbs of time — já, ainda, sempre",
+    "a2-adv-place": "Adverbs of place — aqui, ali, lá, aonde"
+   }
+  },
+  "w4": {
+   "weekNum": 4,
+   "theme": "Month 1 check + café preview",
+   "syllabusIds": [
+    "a1-ser-estar",
+    "a1-ser-uses",
+    "a2-irreg-present",
+    "a2-irreg-present-more",
+    "a2-ask-nicely",
+    "a2-sera-que",
+    "a1-plurals-s"
+   ],
+   "labels": {
+    "a1-ser-estar": "Ser vs estar — identity vs state/location",
+    "a1-ser-uses": "When to use ser (profession, origin, traits)",
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder",
+    "a2-ask-nicely": "Asking nicely — queria, podia, faz favor",
+    "a2-sera-que": "Será que… for polite questions",
+    "a1-plurals-s": "Regular plurals — add -s"
+   }
+  },
+  "w5": {
+   "weekNum": 5,
+   "theme": "Café and food",
+   "syllabusIds": [
+    "a1-present-ar",
+    "a1-present-er",
+    "a2-ask-nicely",
+    "a2-sera-que"
+   ],
+   "labels": {
+    "a1-present-ar": "Regular -AR verbs in the present",
+    "a1-present-er": "Regular -ER verbs in the present",
+    "a2-ask-nicely": "Asking nicely — queria, podia, faz favor",
+    "a2-sera-que": "Será que… for polite questions"
+   }
+  },
+  "w6": {
+   "weekNum": 6,
+   "theme": "Shopping",
+   "syllabusIds": [
+    "a1-questions",
+    "a1-e-que",
+    "a2-demonstr-intro",
+    "a2-demonstr-var-sg"
+   ],
+   "labels": {
+    "a1-questions": "Asking questions — intonation, question words",
+    "a1-e-que": "É que in questions",
+    "a2-demonstr-intro": "Introduction to demonstratives",
+    "a2-demonstr-var-sg": "Variable demonstratives — singular (este, esse, aquele)"
+   }
+  },
+  "w7": {
+   "weekNum": 7,
+   "theme": "Around town",
+   "syllabusIds": [
+    "a2-prep-pairings",
+    "a2-haver-há",
+    "a2-haver-time",
+    "a2-irreg-present",
+    "a2-irreg-present-more"
+   ],
+   "labels": {
+    "a2-prep-pairings": "Verb + preposition pairings (gostar de, pensar em…)",
+    "a2-haver-há": "Impersonal há — there is/are",
+    "a2-haver-time": "Há + time — há dois anos",
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder"
+   }
+  },
+  "w8": {
+   "weekNum": 8,
+   "theme": "Transport + month 2 check",
+   "syllabusIds": [
+    "a2-irreg-present",
+    "a2-irreg-present-more",
+    "a1-present-ar",
+    "a1-present-er",
+    "a1-estar-a",
+    "b1-pres-cont",
+    "a2-past-ar",
+    "a2-past-er-ir"
+   ],
+   "labels": {
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder",
+    "a1-present-ar": "Regular -AR verbs in the present",
+    "a1-present-er": "Regular -ER verbs in the present",
+    "a1-estar-a": "Estar a + infinitive — EP progressive",
+    "b1-pres-cont": "Present continuous — estar a + infinitive",
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito"
+   }
+  },
+  "w9": {
+   "weekNum": 9,
+   "theme": "Hotel",
+   "syllabusIds": [
+    "a2-ask-nicely",
+    "a2-sera-que"
+   ],
+   "labels": {
+    "a2-ask-nicely": "Asking nicely — queria, podia, faz favor",
+    "a2-sera-que": "Será que… for polite questions"
+   }
+  },
+  "w12": {
+   "weekNum": 12,
+   "theme": "Festive + travel mock day",
+   "syllabusIds": [
+    "a2-irreg-present",
+    "a2-irreg-present-more",
+    "a2-past-ar",
+    "a2-past-er-ir"
+   ],
+   "labels": {
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder",
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito"
+   }
+  },
+  "w13": {
+   "weekNum": 13,
+   "theme": "Travel-ready review",
+   "syllabusIds": [
+    "a1-ser-estar",
+    "a1-ser-uses",
+    "a2-irreg-present",
+    "a2-irreg-present-more",
+    "a2-ask-nicely",
+    "a2-sera-que"
+   ],
+   "labels": {
+    "a1-ser-estar": "Ser vs estar — identity vs state/location",
+    "a1-ser-uses": "When to use ser (profession, origin, traits)",
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder",
+    "a2-ask-nicely": "Asking nicely — queria, podia, faz favor",
+    "a2-sera-que": "Será que… for polite questions"
+   }
+  },
+  "w14": {
+   "weekNum": 14,
+   "theme": "Travel-ready review",
+   "syllabusIds": [
+    "a1-questions",
+    "a1-e-que",
+    "a2-demonstr-intro",
+    "a2-demonstr-var-sg"
+   ],
+   "labels": {
+    "a1-questions": "Asking questions — intonation, question words",
+    "a1-e-que": "É que in questions",
+    "a2-demonstr-intro": "Introduction to demonstratives",
+    "a2-demonstr-var-sg": "Variable demonstratives — singular (este, esse, aquele)"
+   }
+  },
+  "w15": {
+   "weekNum": 15,
+   "theme": "Personal travel lines",
+   "syllabusIds": [
+    "a2-irreg-present",
+    "a2-irreg-present-more",
+    "a1-present-ar",
+    "a1-present-er",
+    "a2-past-ar",
+    "a2-past-er-ir"
+   ],
+   "labels": {
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder",
+    "a1-present-ar": "Regular -AR verbs in the present",
+    "a1-present-er": "Regular -ER verbs in the present",
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito"
+   }
+  },
+  "w16": {
+   "weekNum": 16,
+   "theme": "Festive and help phrases",
+   "syllabusIds": [
+    "a2-ask-nicely",
+    "a2-sera-que"
+   ],
+   "labels": {
+    "a2-ask-nicely": "Asking nicely — queria, podia, faz favor",
+    "a2-sera-que": "Será que… for polite questions"
+   }
+  },
+  "w17": {
+   "weekNum": 17,
+   "theme": "Year-end consolidate",
+   "syllabusIds": [
+    "a1-ser-estar",
+    "a1-ser-uses",
+    "a1-noun-gender",
+    "a1-def-articles",
+    "a2-irreg-present",
+    "a2-irreg-present-more",
+    "a2-ask-nicely",
+    "a2-sera-que"
+   ],
+   "labels": {
+    "a1-ser-estar": "Ser vs estar — identity vs state/location",
+    "a1-ser-uses": "When to use ser (profession, origin, traits)",
+    "a1-noun-gender": "Noun gender — every noun is m. or f.",
+    "a1-def-articles": "Definite articles — o, a, os, as",
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder",
+    "a2-ask-nicely": "Asking nicely — queria, podia, faz favor",
+    "a2-sera-que": "Será que… for polite questions"
+   }
+  },
+  "w18": {
+   "weekNum": 18,
+   "theme": "People and time",
+   "syllabusIds": [
+    "a1-present-ar",
+    "a1-present-er"
+   ],
+   "labels": {
+    "a1-present-ar": "Regular -AR verbs in the present",
+    "a1-present-er": "Regular -ER verbs in the present"
+   }
+  },
+  "w19": {
+   "weekNum": 19,
+   "theme": "People and time",
+   "syllabusIds": [
+    "a1-present-ar",
+    "a1-present-er"
+   ],
+   "labels": {
+    "a1-present-ar": "Regular -AR verbs in the present",
+    "a1-present-er": "Regular -ER verbs in the present"
+   }
+  },
+  "w20": {
+   "weekNum": 20,
+   "theme": "People and time",
+   "syllabusIds": [
+    "a1-present-ar",
+    "a1-present-er"
+   ],
+   "labels": {
+    "a1-present-ar": "Regular -AR verbs in the present",
+    "a1-present-er": "Regular -ER verbs in the present"
+   }
+  },
+  "w21": {
+   "weekNum": 21,
+   "theme": "People and time",
+   "syllabusIds": [
+    "a1-present-ar",
+    "a1-present-er"
+   ],
+   "labels": {
+    "a1-present-ar": "Regular -AR verbs in the present",
+    "a1-present-er": "Regular -ER verbs in the present"
+   }
+  },
+  "w22": {
+   "weekNum": 22,
+   "theme": "Home and routine",
+   "syllabusIds": [
+    "a2-poss-intro",
+    "a2-poss-1st-2nd",
+    "a2-irreg-present",
+    "a2-irreg-present-more"
+   ],
+   "labels": {
+    "a2-poss-intro": "Introduction to possessives",
+    "a2-poss-1st-2nd": "1st & 2nd person — meu, teu, nosso",
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder"
+   }
+  },
+  "w23": {
+   "weekNum": 23,
+   "theme": "Home and routine",
+   "syllabusIds": [
+    "a2-poss-intro",
+    "a2-poss-1st-2nd",
+    "a2-irreg-present",
+    "a2-irreg-present-more"
+   ],
+   "labels": {
+    "a2-poss-intro": "Introduction to possessives",
+    "a2-poss-1st-2nd": "1st & 2nd person — meu, teu, nosso",
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder"
+   }
+  },
+  "w24": {
+   "weekNum": 24,
+   "theme": "Home and routine",
+   "syllabusIds": [
+    "a2-poss-intro",
+    "a2-poss-1st-2nd",
+    "a2-irreg-present",
+    "a2-irreg-present-more"
+   ],
+   "labels": {
+    "a2-poss-intro": "Introduction to possessives",
+    "a2-poss-1st-2nd": "1st & 2nd person — meu, teu, nosso",
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder"
+   }
+  },
+  "w25": {
+   "weekNum": 25,
+   "theme": "Home and routine",
+   "syllabusIds": [
+    "a2-poss-intro",
+    "a2-poss-1st-2nd",
+    "a2-irreg-present",
+    "a2-irreg-present-more"
+   ],
+   "labels": {
+    "a2-poss-intro": "Introduction to possessives",
+    "a2-poss-1st-2nd": "1st & 2nd person — meu, teu, nosso",
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder"
+   }
+  },
+  "w26": {
+   "weekNum": 26,
+   "theme": "Weather and plans",
+   "syllabusIds": [
+    "a2-past-ar",
+    "a2-past-er-ir",
+    "a2-irreg-present",
+    "a2-irreg-present-more",
+    "a1-present-ar",
+    "a1-present-er",
+    "a1-estar-a",
+    "b1-pres-cont"
+   ],
+   "labels": {
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito",
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder",
+    "a1-present-ar": "Regular -AR verbs in the present",
+    "a1-present-er": "Regular -ER verbs in the present",
+    "a1-estar-a": "Estar a + infinitive — EP progressive",
+    "b1-pres-cont": "Present continuous — estar a + infinitive"
+   }
+  },
+  "w27": {
+   "weekNum": 27,
+   "theme": "Weather and plans",
+   "syllabusIds": [
+    "a2-past-ar",
+    "a2-past-er-ir",
+    "a2-irreg-present",
+    "a2-irreg-present-more",
+    "a1-present-ar",
+    "a1-present-er",
+    "a1-estar-a",
+    "b1-pres-cont"
+   ],
+   "labels": {
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito",
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder",
+    "a1-present-ar": "Regular -AR verbs in the present",
+    "a1-present-er": "Regular -ER verbs in the present",
+    "a1-estar-a": "Estar a + infinitive — EP progressive",
+    "b1-pres-cont": "Present continuous — estar a + infinitive"
+   }
+  },
+  "w28": {
+   "weekNum": 28,
+   "theme": "Weather and plans",
+   "syllabusIds": [
+    "a2-past-ar",
+    "a2-past-er-ir",
+    "a2-irreg-present",
+    "a2-irreg-present-more",
+    "a1-present-ar",
+    "a1-present-er",
+    "a1-estar-a",
+    "b1-pres-cont"
+   ],
+   "labels": {
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito",
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder",
+    "a1-present-ar": "Regular -AR verbs in the present",
+    "a1-present-er": "Regular -ER verbs in the present",
+    "a1-estar-a": "Estar a + infinitive — EP progressive",
+    "b1-pres-cont": "Present continuous — estar a + infinitive"
+   }
+  },
+  "w29": {
+   "weekNum": 29,
+   "theme": "Weather and plans",
+   "syllabusIds": [
+    "a2-past-ar",
+    "a2-past-er-ir",
+    "a2-irreg-present",
+    "a2-irreg-present-more",
+    "a1-present-ar",
+    "a1-present-er",
+    "a1-estar-a",
+    "b1-pres-cont"
+   ],
+   "labels": {
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito",
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder",
+    "a1-present-ar": "Regular -AR verbs in the present",
+    "a1-present-er": "Regular -ER verbs in the present",
+    "a1-estar-a": "Estar a + infinitive — EP progressive",
+    "b1-pres-cont": "Present continuous — estar a + infinitive"
+   }
+  },
+  "w30": {
+   "weekNum": 30,
+   "theme": "Getting around",
+   "syllabusIds": [
+    "a1-noun-gender",
+    "a1-def-articles",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "a1-noun-gender": "Noun gender — every noun is m. or f.",
+    "a1-def-articles": "Definite articles — o, a, os, as",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w31": {
+   "weekNum": 31,
+   "theme": "Getting around",
+   "syllabusIds": [
+    "a1-noun-gender",
+    "a1-def-articles",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "a1-noun-gender": "Noun gender — every noun is m. or f.",
+    "a1-def-articles": "Definite articles — o, a, os, as",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w32": {
+   "weekNum": 32,
+   "theme": "Getting around",
+   "syllabusIds": [
+    "a1-noun-gender",
+    "a1-def-articles",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "a1-noun-gender": "Noun gender — every noun is m. or f.",
+    "a1-def-articles": "Definite articles — o, a, os, as",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w33": {
+   "weekNum": 33,
+   "theme": "Getting around",
+   "syllabusIds": [
+    "a1-noun-gender",
+    "a1-def-articles",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "a1-noun-gender": "Noun gender — every noun is m. or f.",
+    "a1-def-articles": "Definite articles — o, a, os, as",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w35": {
+   "weekNum": 35,
+   "theme": "A1 reading month",
+   "syllabusIds": [
+    "a1-ser-estar",
+    "a1-ser-uses",
+    "a2-irreg-present",
+    "a2-irreg-present-more"
+   ],
+   "labels": {
+    "a1-ser-estar": "Ser vs estar — identity vs state/location",
+    "a1-ser-uses": "When to use ser (profession, origin, traits)",
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder"
+   }
+  },
+  "w36": {
+   "weekNum": 36,
+   "theme": "A1 reading month",
+   "syllabusIds": [
+    "a1-ser-estar",
+    "a1-ser-uses",
+    "a2-irreg-present",
+    "a2-irreg-present-more"
+   ],
+   "labels": {
+    "a1-ser-estar": "Ser vs estar — identity vs state/location",
+    "a1-ser-uses": "When to use ser (profession, origin, traits)",
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder"
+   }
+  },
+  "w37": {
+   "weekNum": 37,
+   "theme": "A1 reading month",
+   "syllabusIds": [
+    "a1-ser-estar",
+    "a1-ser-uses",
+    "a2-irreg-present",
+    "a2-irreg-present-more"
+   ],
+   "labels": {
+    "a1-ser-estar": "Ser vs estar — identity vs state/location",
+    "a1-ser-uses": "When to use ser (profession, origin, traits)",
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder"
+   }
+  },
+  "w38": {
+   "weekNum": 38,
+   "theme": "A1 checkpoint",
+   "syllabusIds": [
+    "a1-ser-estar",
+    "a1-ser-uses",
+    "a1-noun-gender",
+    "a1-def-articles",
+    "a2-irreg-present",
+    "a2-irreg-present-more"
+   ],
+   "labels": {
+    "a1-ser-estar": "Ser vs estar — identity vs state/location",
+    "a1-ser-uses": "When to use ser (profession, origin, traits)",
+    "a1-noun-gender": "Noun gender — every noun is m. or f.",
+    "a1-def-articles": "Definite articles — o, a, os, as",
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder"
+   }
+  },
+  "w39": {
+   "weekNum": 39,
+   "theme": "A1 checkpoint",
+   "syllabusIds": [
+    "a1-ser-estar",
+    "a1-ser-uses",
+    "a1-noun-gender",
+    "a1-def-articles",
+    "a2-irreg-present",
+    "a2-irreg-present-more"
+   ],
+   "labels": {
+    "a1-ser-estar": "Ser vs estar — identity vs state/location",
+    "a1-ser-uses": "When to use ser (profession, origin, traits)",
+    "a1-noun-gender": "Noun gender — every noun is m. or f.",
+    "a1-def-articles": "Definite articles — o, a, os, as",
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder"
+   }
+  },
+  "w40": {
+   "weekNum": 40,
+   "theme": "A1 checkpoint",
+   "syllabusIds": [
+    "a1-ser-estar",
+    "a1-ser-uses",
+    "a1-noun-gender",
+    "a1-def-articles",
+    "a2-irreg-present",
+    "a2-irreg-present-more"
+   ],
+   "labels": {
+    "a1-ser-estar": "Ser vs estar — identity vs state/location",
+    "a1-ser-uses": "When to use ser (profession, origin, traits)",
+    "a1-noun-gender": "Noun gender — every noun is m. or f.",
+    "a1-def-articles": "Definite articles — o, a, os, as",
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder"
+   }
+  },
+  "w41": {
+   "weekNum": 41,
+   "theme": "A1 checkpoint",
+   "syllabusIds": [
+    "a1-ser-estar",
+    "a1-ser-uses",
+    "a1-noun-gender",
+    "a1-def-articles",
+    "a2-irreg-present",
+    "a2-irreg-present-more"
+   ],
+   "labels": {
+    "a1-ser-estar": "Ser vs estar — identity vs state/location",
+    "a1-ser-uses": "When to use ser (profession, origin, traits)",
+    "a1-noun-gender": "Noun gender — every noun is m. or f.",
+    "a1-def-articles": "Definite articles — o, a, os, as",
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder"
+   }
+  },
+  "w42": {
+   "weekNum": 42,
+   "theme": "Right now in Portugal",
+   "syllabusIds": [
+    "a2-irreg-present",
+    "a2-irreg-present-more",
+    "a1-present-ar",
+    "a1-present-er",
+    "a1-estar-a",
+    "b1-pres-cont"
+   ],
+   "labels": {
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder",
+    "a1-present-ar": "Regular -AR verbs in the present",
+    "a1-present-er": "Regular -ER verbs in the present",
+    "a1-estar-a": "Estar a + infinitive — EP progressive",
+    "b1-pres-cont": "Present continuous — estar a + infinitive"
+   }
+  },
+  "w43": {
+   "weekNum": 43,
+   "theme": "Right now in Portugal",
+   "syllabusIds": [
+    "a2-irreg-present",
+    "a2-irreg-present-more",
+    "a1-present-ar",
+    "a1-present-er",
+    "a1-estar-a",
+    "b1-pres-cont"
+   ],
+   "labels": {
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder",
+    "a1-present-ar": "Regular -AR verbs in the present",
+    "a1-present-er": "Regular -ER verbs in the present",
+    "a1-estar-a": "Estar a + infinitive — EP progressive",
+    "b1-pres-cont": "Present continuous — estar a + infinitive"
+   }
+  },
+  "w44": {
+   "weekNum": 44,
+   "theme": "Right now in Portugal",
+   "syllabusIds": [
+    "a2-irreg-present",
+    "a2-irreg-present-more",
+    "a1-present-ar",
+    "a1-present-er",
+    "a1-estar-a",
+    "b1-pres-cont"
+   ],
+   "labels": {
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder",
+    "a1-present-ar": "Regular -AR verbs in the present",
+    "a1-present-er": "Regular -ER verbs in the present",
+    "a1-estar-a": "Estar a + infinitive — EP progressive",
+    "b1-pres-cont": "Present continuous — estar a + infinitive"
+   }
+  },
+  "w45": {
+   "weekNum": 45,
+   "theme": "Right now in Portugal",
+   "syllabusIds": [
+    "a2-irreg-present",
+    "a2-irreg-present-more",
+    "a1-present-ar",
+    "a1-present-er",
+    "a1-estar-a",
+    "b1-pres-cont"
+   ],
+   "labels": {
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder",
+    "a1-present-ar": "Regular -AR verbs in the present",
+    "a1-present-er": "Regular -ER verbs in the present",
+    "a1-estar-a": "Estar a + infinitive — EP progressive",
+    "b1-pres-cont": "Present continuous — estar a + infinitive"
+   }
+  },
+  "w47": {
+   "weekNum": 47,
+   "theme": "Last weekend",
+   "syllabusIds": [
+    "a2-past-ar",
+    "a2-past-er-ir",
+    "a2-irreg-present",
+    "a2-irreg-present-more"
+   ],
+   "labels": {
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito",
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder"
+   }
+  },
+  "w48": {
+   "weekNum": 48,
+   "theme": "Last weekend",
+   "syllabusIds": [
+    "a2-past-ar",
+    "a2-past-er-ir",
+    "a2-irreg-present",
+    "a2-irreg-present-more"
+   ],
+   "labels": {
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito",
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder"
+   }
+  },
+  "w49": {
+   "weekNum": 49,
+   "theme": "Last weekend",
+   "syllabusIds": [
+    "a2-past-ar",
+    "a2-past-er-ir",
+    "a2-irreg-present",
+    "a2-irreg-present-more"
+   ],
+   "labels": {
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito",
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder"
+   }
+  },
+  "w50": {
+   "weekNum": 50,
+   "theme": "A trip I took",
+   "syllabusIds": [
+    "a2-past-ar",
+    "a2-past-er-ir",
+    "a2-irreg-present",
+    "a2-irreg-present-more"
+   ],
+   "labels": {
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito",
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder"
+   }
+  },
+  "w51": {
+   "weekNum": 51,
+   "theme": "A trip I took",
+   "syllabusIds": [
+    "a2-past-ar",
+    "a2-past-er-ir",
+    "a2-irreg-present",
+    "a2-irreg-present-more"
+   ],
+   "labels": {
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito",
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder"
+   }
+  },
+  "w52": {
+   "weekNum": 52,
+   "theme": "A trip I took",
+   "syllabusIds": [
+    "a2-past-ar",
+    "a2-past-er-ir",
+    "a2-irreg-present",
+    "a2-irreg-present-more"
+   ],
+   "labels": {
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito",
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder"
+   }
+  },
+  "w53": {
+   "weekNum": 53,
+   "theme": "A trip I took",
+   "syllabusIds": [
+    "a2-past-ar",
+    "a2-past-er-ir",
+    "a2-irreg-present",
+    "a2-irreg-present-more"
+   ],
+   "labels": {
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito",
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder"
+   }
+  },
+  "w54": {
+   "weekNum": 54,
+   "theme": "Used to",
+   "syllabusIds": [
+    "a2-past-ar",
+    "a2-past-er-ir"
+   ],
+   "labels": {
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito"
+   }
+  },
+  "w55": {
+   "weekNum": 55,
+   "theme": "Used to",
+   "syllabusIds": [
+    "a2-past-ar",
+    "a2-past-er-ir"
+   ],
+   "labels": {
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito"
+   }
+  },
+  "w56": {
+   "weekNum": 56,
+   "theme": "Used to",
+   "syllabusIds": [
+    "a2-past-ar",
+    "a2-past-er-ir"
+   ],
+   "labels": {
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito"
+   }
+  },
+  "w57": {
+   "weekNum": 57,
+   "theme": "Used to",
+   "syllabusIds": [
+    "a2-past-ar",
+    "a2-past-er-ir"
+   ],
+   "labels": {
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito"
+   }
+  },
+  "w58": {
+   "weekNum": 58,
+   "theme": "Telling a story",
+   "syllabusIds": [
+    "a2-past-ar",
+    "a2-past-er-ir"
+   ],
+   "labels": {
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito"
+   }
+  },
+  "w59": {
+   "weekNum": 59,
+   "theme": "Telling a story",
+   "syllabusIds": [
+    "a2-past-ar",
+    "a2-past-er-ir"
+   ],
+   "labels": {
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito"
+   }
+  },
+  "w60": {
+   "weekNum": 60,
+   "theme": "Telling a story",
+   "syllabusIds": [
+    "a2-past-ar",
+    "a2-past-er-ir"
+   ],
+   "labels": {
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito"
+   }
+  },
+  "w61": {
+   "weekNum": 61,
+   "theme": "Telling a story",
+   "syllabusIds": [
+    "a2-past-ar",
+    "a2-past-er-ir"
+   ],
+   "labels": {
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito"
+   }
+  },
+  "w66": {
+   "weekNum": 66,
+   "theme": "Household life",
+   "syllabusIds": [
+    "a2-clitics-intro",
+    "a2-clitics-me-te",
+    "b1-reflexive"
+   ],
+   "labels": {
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te",
+    "b1-reflexive": "Reflexive verbs & pronouns — lavar-se"
+   }
+  },
+  "w67": {
+   "weekNum": 67,
+   "theme": "Household life",
+   "syllabusIds": [
+    "a2-clitics-intro",
+    "a2-clitics-me-te",
+    "b1-reflexive"
+   ],
+   "labels": {
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te",
+    "b1-reflexive": "Reflexive verbs & pronouns — lavar-se"
+   }
+  },
+  "w68": {
+   "weekNum": 68,
+   "theme": "Household life",
+   "syllabusIds": [
+    "a2-clitics-intro",
+    "a2-clitics-me-te",
+    "b1-reflexive"
+   ],
+   "labels": {
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te",
+    "b1-reflexive": "Reflexive verbs & pronouns — lavar-se"
+   }
+  },
+  "w69": {
+   "weekNum": 69,
+   "theme": "Household life",
+   "syllabusIds": [
+    "a2-clitics-intro",
+    "a2-clitics-me-te",
+    "b1-reflexive"
+   ],
+   "labels": {
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te",
+    "b1-reflexive": "Reflexive verbs & pronouns — lavar-se"
+   }
+  },
+  "w70": {
+   "weekNum": 70,
+   "theme": "At the doctor",
+   "syllabusIds": [
+    "a2-haver-há",
+    "a2-haver-time",
+    "a2-irreg-present",
+    "a2-irreg-present-more"
+   ],
+   "labels": {
+    "a2-haver-há": "Impersonal há — there is/are",
+    "a2-haver-time": "Há + time — há dois anos",
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder"
+   }
+  },
+  "w71": {
+   "weekNum": 71,
+   "theme": "At the doctor",
+   "syllabusIds": [
+    "a2-haver-há",
+    "a2-haver-time",
+    "a2-irreg-present",
+    "a2-irreg-present-more"
+   ],
+   "labels": {
+    "a2-haver-há": "Impersonal há — there is/are",
+    "a2-haver-time": "Há + time — há dois anos",
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder"
+   }
+  },
+  "w72": {
+   "weekNum": 72,
+   "theme": "At the doctor",
+   "syllabusIds": [
+    "a2-haver-há",
+    "a2-haver-time",
+    "a2-irreg-present",
+    "a2-irreg-present-more"
+   ],
+   "labels": {
+    "a2-haver-há": "Impersonal há — there is/are",
+    "a2-haver-time": "Há + time — há dois anos",
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder"
+   }
+  },
+  "w73": {
+   "weekNum": 73,
+   "theme": "At the doctor",
+   "syllabusIds": [
+    "a2-haver-há",
+    "a2-haver-time",
+    "a2-irreg-present",
+    "a2-irreg-present-more"
+   ],
+   "labels": {
+    "a2-haver-há": "Impersonal há — there is/are",
+    "a2-haver-time": "Há + time — há dois anos",
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder"
+   }
+  },
+  "w74": {
+   "weekNum": 74,
+   "theme": "Workdays",
+   "syllabusIds": [
+    "b2-perf-composto",
+    "b2-fut-composto",
+    "a2-irreg-present",
+    "a2-irreg-present-more"
+   ],
+   "labels": {
+    "b2-perf-composto": "Pretérito perfeito composto",
+    "b2-fut-composto": "Futuro composto",
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder"
+   }
+  },
+  "w75": {
+   "weekNum": 75,
+   "theme": "Workdays",
+   "syllabusIds": [
+    "b2-perf-composto",
+    "b2-fut-composto",
+    "a2-irreg-present",
+    "a2-irreg-present-more"
+   ],
+   "labels": {
+    "b2-perf-composto": "Pretérito perfeito composto",
+    "b2-fut-composto": "Futuro composto",
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder"
+   }
+  },
+  "w76": {
+   "weekNum": 76,
+   "theme": "Workdays",
+   "syllabusIds": [
+    "b2-perf-composto",
+    "b2-fut-composto",
+    "a2-irreg-present",
+    "a2-irreg-present-more"
+   ],
+   "labels": {
+    "b2-perf-composto": "Pretérito perfeito composto",
+    "b2-fut-composto": "Futuro composto",
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder"
+   }
+  },
+  "w77": {
+   "weekNum": 77,
+   "theme": "Workdays",
+   "syllabusIds": [
+    "b2-perf-composto",
+    "b2-fut-composto",
+    "a2-irreg-present",
+    "a2-irreg-present-more"
+   ],
+   "labels": {
+    "b2-perf-composto": "Pretérito perfeito composto",
+    "b2-fut-composto": "Futuro composto",
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder"
+   }
+  },
+  "w78": {
+   "weekNum": 78,
+   "theme": "City services",
+   "syllabusIds": [
+    "a2-ask-nicely",
+    "a2-sera-que"
+   ],
+   "labels": {
+    "a2-ask-nicely": "Asking nicely — queria, podia, faz favor",
+    "a2-sera-que": "Será que… for polite questions"
+   }
+  },
+  "w79": {
+   "weekNum": 79,
+   "theme": "City services",
+   "syllabusIds": [
+    "a2-ask-nicely",
+    "a2-sera-que"
+   ],
+   "labels": {
+    "a2-ask-nicely": "Asking nicely — queria, podia, faz favor",
+    "a2-sera-que": "Será que… for polite questions"
+   }
+  },
+  "w80": {
+   "weekNum": 80,
+   "theme": "City services",
+   "syllabusIds": [
+    "a2-ask-nicely",
+    "a2-sera-que"
+   ],
+   "labels": {
+    "a2-ask-nicely": "Asking nicely — queria, podia, faz favor",
+    "a2-sera-que": "Será que… for polite questions"
+   }
+  },
+  "w81": {
+   "weekNum": 81,
+   "theme": "City services",
+   "syllabusIds": [
+    "a2-ask-nicely",
+    "a2-sera-que"
+   ],
+   "labels": {
+    "a2-ask-nicely": "Asking nicely — queria, podia, faz favor",
+    "a2-sera-que": "Será que… for polite questions"
+   }
+  },
+  "w82": {
+   "weekNum": 82,
+   "theme": "Forms and emails",
+   "syllabusIds": [
+    "a2-clitics-intro",
+    "a2-clitics-me-te",
+    "a2-past-ar",
+    "a2-past-er-ir",
+    "a2-irreg-present",
+    "a2-irreg-present-more"
+   ],
+   "labels": {
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te",
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito",
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder"
+   }
+  },
+  "w83": {
+   "weekNum": 83,
+   "theme": "Forms and emails",
+   "syllabusIds": [
+    "a2-clitics-intro",
+    "a2-clitics-me-te",
+    "a2-past-ar",
+    "a2-past-er-ir",
+    "a2-irreg-present",
+    "a2-irreg-present-more"
+   ],
+   "labels": {
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te",
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito",
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder"
+   }
+  },
+  "w84": {
+   "weekNum": 84,
+   "theme": "Forms and emails",
+   "syllabusIds": [
+    "a2-clitics-intro",
+    "a2-clitics-me-te",
+    "a2-past-ar",
+    "a2-past-er-ir",
+    "a2-irreg-present",
+    "a2-irreg-present-more"
+   ],
+   "labels": {
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te",
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito",
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder"
+   }
+  },
+  "w85": {
+   "weekNum": 85,
+   "theme": "Forms and emails",
+   "syllabusIds": [
+    "a2-clitics-intro",
+    "a2-clitics-me-te",
+    "a2-past-ar",
+    "a2-past-er-ir",
+    "a2-irreg-present",
+    "a2-irreg-present-more"
+   ],
+   "labels": {
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te",
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito",
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder"
+   }
+  },
+  "w91": {
+   "weekNum": 91,
+   "theme": "Linking ideas",
+   "syllabusIds": [
+    "a2-prep-pairings",
+    "a2-conj-essential",
+    "a2-conj-quando-se"
+   ],
+   "labels": {
+    "a2-prep-pairings": "Verb + preposition pairings (gostar de, pensar em…)",
+    "a2-conj-essential": "Essential conjunctions — e, mas, ou, porque",
+    "a2-conj-quando-se": "Quando, se, antes de, depois de"
+   }
+  },
+  "w92": {
+   "weekNum": 92,
+   "theme": "Linking ideas",
+   "syllabusIds": [
+    "a2-prep-pairings",
+    "a2-conj-essential",
+    "a2-conj-quando-se"
+   ],
+   "labels": {
+    "a2-prep-pairings": "Verb + preposition pairings (gostar de, pensar em…)",
+    "a2-conj-essential": "Essential conjunctions — e, mas, ou, porque",
+    "a2-conj-quando-se": "Quando, se, antes de, depois de"
+   }
+  },
+  "w93": {
+   "weekNum": 93,
+   "theme": "Linking ideas",
+   "syllabusIds": [
+    "a2-prep-pairings",
+    "a2-conj-essential",
+    "a2-conj-quando-se"
+   ],
+   "labels": {
+    "a2-prep-pairings": "Verb + preposition pairings (gostar de, pensar em…)",
+    "a2-conj-essential": "Essential conjunctions — e, mas, ou, porque",
+    "a2-conj-quando-se": "Quando, se, antes de, depois de"
+   }
+  },
+  "w94": {
+   "weekNum": 94,
+   "theme": "Narration 2.0",
+   "syllabusIds": [
+    "a2-past-ar",
+    "a2-past-er-ir"
+   ],
+   "labels": {
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito"
+   }
+  },
+  "w95": {
+   "weekNum": 95,
+   "theme": "Narration 2.0",
+   "syllabusIds": [
+    "a2-past-ar",
+    "a2-past-er-ir"
+   ],
+   "labels": {
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito"
+   }
+  },
+  "w96": {
+   "weekNum": 96,
+   "theme": "Narration 2.0",
+   "syllabusIds": [
+    "a2-past-ar",
+    "a2-past-er-ir"
+   ],
+   "labels": {
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito"
+   }
+  },
+  "w97": {
+   "weekNum": 97,
+   "theme": "Narration 2.0",
+   "syllabusIds": [
+    "a2-past-ar",
+    "a2-past-er-ir"
+   ],
+   "labels": {
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito"
+   }
+  },
+  "w98": {
+   "weekNum": 98,
+   "theme": "Later",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-conj-essential",
+    "a2-conj-quando-se",
+    "a2-past-ar",
+    "a2-past-er-ir",
+    "a2-irreg-present",
+    "a2-irreg-present-more"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-conj-essential": "Essential conjunctions — e, mas, ou, porque",
+    "a2-conj-quando-se": "Quando, se, antes de, depois de",
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito",
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder"
+   }
+  },
+  "w99": {
+   "weekNum": 99,
+   "theme": "Later",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-conj-essential",
+    "a2-conj-quando-se",
+    "a2-past-ar",
+    "a2-past-er-ir",
+    "a2-irreg-present",
+    "a2-irreg-present-more"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-conj-essential": "Essential conjunctions — e, mas, ou, porque",
+    "a2-conj-quando-se": "Quando, se, antes de, depois de",
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito",
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder"
+   }
+  },
+  "w100": {
+   "weekNum": 100,
+   "theme": "Later",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-conj-essential",
+    "a2-conj-quando-se",
+    "a2-past-ar",
+    "a2-past-er-ir",
+    "a2-irreg-present",
+    "a2-irreg-present-more"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-conj-essential": "Essential conjunctions — e, mas, ou, porque",
+    "a2-conj-quando-se": "Quando, se, antes de, depois de",
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito",
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder"
+   }
+  },
+  "w101": {
+   "weekNum": 101,
+   "theme": "Later",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-conj-essential",
+    "a2-conj-quando-se",
+    "a2-past-ar",
+    "a2-past-er-ir",
+    "a2-irreg-present",
+    "a2-irreg-present-more"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-conj-essential": "Essential conjunctions — e, mas, ou, porque",
+    "a2-conj-quando-se": "Quando, se, antes de, depois de",
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito",
+    "a2-irreg-present": "Irregular present — ser, estar, ir, ter, fazer",
+    "a2-irreg-present-more": "More irregular present — dar, ver, saber, querer, poder"
+   }
+  },
+  "w103": {
+   "weekNum": 103,
+   "theme": "If and please",
+   "syllabusIds": [
+    "b2-conditional",
+    "b2-conditional-uses",
+    "a2-conj-essential",
+    "a2-conj-quando-se"
+   ],
+   "labels": {
+    "b2-conditional": "Simple conditional — -ia endings",
+    "b2-conditional-uses": "Polite requests & hypotheticals",
+    "a2-conj-essential": "Essential conjunctions — e, mas, ou, porque",
+    "a2-conj-quando-se": "Quando, se, antes de, depois de"
+   }
+  },
+  "w104": {
+   "weekNum": 104,
+   "theme": "If and please",
+   "syllabusIds": [
+    "b2-conditional",
+    "b2-conditional-uses",
+    "a2-conj-essential",
+    "a2-conj-quando-se"
+   ],
+   "labels": {
+    "b2-conditional": "Simple conditional — -ia endings",
+    "b2-conditional-uses": "Polite requests & hypotheticals",
+    "a2-conj-essential": "Essential conjunctions — e, mas, ou, porque",
+    "a2-conj-quando-se": "Quando, se, antes de, depois de"
+   }
+  },
+  "w105": {
+   "weekNum": 105,
+   "theme": "If and please",
+   "syllabusIds": [
+    "b2-conditional",
+    "b2-conditional-uses",
+    "a2-conj-essential",
+    "a2-conj-quando-se"
+   ],
+   "labels": {
+    "b2-conditional": "Simple conditional — -ia endings",
+    "b2-conditional-uses": "Polite requests & hypotheticals",
+    "a2-conj-essential": "Essential conjunctions — e, mas, ou, porque",
+    "a2-conj-quando-se": "Quando, se, antes de, depois de"
+   }
+  },
+  "w106": {
+   "weekNum": 106,
+   "theme": "Clitics the Portugal way",
+   "syllabusIds": [
+    "a2-conj-essential",
+    "a2-conj-quando-se"
+   ],
+   "labels": {
+    "a2-conj-essential": "Essential conjunctions — e, mas, ou, porque",
+    "a2-conj-quando-se": "Quando, se, antes de, depois de"
+   }
+  },
+  "w107": {
+   "weekNum": 107,
+   "theme": "Clitics the Portugal way",
+   "syllabusIds": [
+    "a2-conj-essential",
+    "a2-conj-quando-se"
+   ],
+   "labels": {
+    "a2-conj-essential": "Essential conjunctions — e, mas, ou, porque",
+    "a2-conj-quando-se": "Quando, se, antes de, depois de"
+   }
+  },
+  "w108": {
+   "weekNum": 108,
+   "theme": "Clitics the Portugal way",
+   "syllabusIds": [
+    "a2-conj-essential",
+    "a2-conj-quando-se"
+   ],
+   "labels": {
+    "a2-conj-essential": "Essential conjunctions — e, mas, ou, porque",
+    "a2-conj-quando-se": "Quando, se, antes de, depois de"
+   }
+  },
+  "w109": {
+   "weekNum": 109,
+   "theme": "Clitics the Portugal way",
+   "syllabusIds": [
+    "a2-conj-essential",
+    "a2-conj-quando-se"
+   ],
+   "labels": {
+    "a2-conj-essential": "Essential conjunctions — e, mas, ou, porque",
+    "a2-conj-quando-se": "Quando, se, antes de, depois de"
+   }
+  },
+  "w111": {
+   "weekNum": 111,
+   "theme": "Wishes and opinions",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-ask-nicely",
+    "a2-sera-que"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-ask-nicely": "Asking nicely — queria, podia, faz favor",
+    "a2-sera-que": "Será que… for polite questions"
+   }
+  },
+  "w112": {
+   "weekNum": 112,
+   "theme": "Wishes and opinions",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-ask-nicely",
+    "a2-sera-que"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-ask-nicely": "Asking nicely — queria, podia, faz favor",
+    "a2-sera-que": "Será que… for polite questions"
+   }
+  },
+  "w113": {
+   "weekNum": 113,
+   "theme": "Wishes and opinions",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-ask-nicely",
+    "a2-sera-que"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-ask-nicely": "Asking nicely — queria, podia, faz favor",
+    "a2-sera-que": "Será que… for polite questions"
+   }
+  },
+  "w114": {
+   "weekNum": 114,
+   "theme": "Personal infinitive",
+   "syllabusIds": [
+    "a2-prep-pairings",
+    "a1-present-ar",
+    "a1-present-er"
+   ],
+   "labels": {
+    "a2-prep-pairings": "Verb + preposition pairings (gostar de, pensar em…)",
+    "a1-present-ar": "Regular -AR verbs in the present",
+    "a1-present-er": "Regular -ER verbs in the present"
+   }
+  },
+  "w115": {
+   "weekNum": 115,
+   "theme": "Personal infinitive",
+   "syllabusIds": [
+    "a2-prep-pairings",
+    "a1-present-ar",
+    "a1-present-er"
+   ],
+   "labels": {
+    "a2-prep-pairings": "Verb + preposition pairings (gostar de, pensar em…)",
+    "a1-present-ar": "Regular -AR verbs in the present",
+    "a1-present-er": "Regular -ER verbs in the present"
+   }
+  },
+  "w116": {
+   "weekNum": 116,
+   "theme": "Personal infinitive",
+   "syllabusIds": [
+    "a2-prep-pairings",
+    "a1-present-ar",
+    "a1-present-er"
+   ],
+   "labels": {
+    "a2-prep-pairings": "Verb + preposition pairings (gostar de, pensar em…)",
+    "a1-present-ar": "Regular -AR verbs in the present",
+    "a1-present-er": "Regular -ER verbs in the present"
+   }
+  },
+  "w117": {
+   "weekNum": 117,
+   "theme": "Personal infinitive",
+   "syllabusIds": [
+    "a2-prep-pairings",
+    "a1-present-ar",
+    "a1-present-er"
+   ],
+   "labels": {
+    "a2-prep-pairings": "Verb + preposition pairings (gostar de, pensar em…)",
+    "a1-present-ar": "Regular -AR verbs in the present",
+    "a1-present-er": "Regular -ER verbs in the present"
+   }
+  },
+  "w118": {
+   "weekNum": 118,
+   "theme": "Who and which",
+   "syllabusIds": [
+    "a2-clitics-intro",
+    "a2-clitics-me-te",
+    "b1-relative-que",
+    "b1-relative-onde"
+   ],
+   "labels": {
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te",
+    "b1-relative-que": "Relative que & quem",
+    "b1-relative-onde": "Relative onde & cujo/cuja"
+   }
+  },
+  "w119": {
+   "weekNum": 119,
+   "theme": "Who and which",
+   "syllabusIds": [
+    "a2-clitics-intro",
+    "a2-clitics-me-te",
+    "b1-relative-que",
+    "b1-relative-onde"
+   ],
+   "labels": {
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te",
+    "b1-relative-que": "Relative que & quem",
+    "b1-relative-onde": "Relative onde & cujo/cuja"
+   }
+  },
+  "w120": {
+   "weekNum": 120,
+   "theme": "Who and which",
+   "syllabusIds": [
+    "a2-clitics-intro",
+    "a2-clitics-me-te",
+    "b1-relative-que",
+    "b1-relative-onde"
+   ],
+   "labels": {
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te",
+    "b1-relative-que": "Relative que & quem",
+    "b1-relative-onde": "Relative onde & cujo/cuja"
+   }
+  },
+  "w121": {
+   "weekNum": 121,
+   "theme": "Who and which",
+   "syllabusIds": [
+    "a2-clitics-intro",
+    "a2-clitics-me-te",
+    "b1-relative-que",
+    "b1-relative-onde"
+   ],
+   "labels": {
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te",
+    "b1-relative-que": "Relative que & quem",
+    "b1-relative-onde": "Relative onde & cujo/cuja"
+   }
+  },
+  "w122": {
+   "weekNum": 122,
+   "theme": "Study and work",
+   "syllabusIds": [
+    "a2-haver-há",
+    "a2-haver-time"
+   ],
+   "labels": {
+    "a2-haver-há": "Impersonal há — there is/are",
+    "a2-haver-time": "Há + time — há dois anos"
+   }
+  },
+  "w123": {
+   "weekNum": 123,
+   "theme": "Study and work",
+   "syllabusIds": [
+    "a2-haver-há",
+    "a2-haver-time"
+   ],
+   "labels": {
+    "a2-haver-há": "Impersonal há — there is/are",
+    "a2-haver-time": "Há + time — há dois anos"
+   }
+  },
+  "w124": {
+   "weekNum": 124,
+   "theme": "Study and work",
+   "syllabusIds": [
+    "a2-haver-há",
+    "a2-haver-time"
+   ],
+   "labels": {
+    "a2-haver-há": "Impersonal há — there is/are",
+    "a2-haver-time": "Há + time — há dois anos"
+   }
+  },
+  "w125": {
+   "weekNum": 125,
+   "theme": "Study and work",
+   "syllabusIds": [
+    "a2-haver-há",
+    "a2-haver-time"
+   ],
+   "labels": {
+    "a2-haver-há": "Impersonal há — there is/are",
+    "a2-haver-time": "Há + time — há dois anos"
+   }
+  },
+  "w130": {
+   "weekNum": 130,
+   "theme": "Home admin",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…"
+   }
+  },
+  "w131": {
+   "weekNum": 131,
+   "theme": "Home admin",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…"
+   }
+  },
+  "w132": {
+   "weekNum": 132,
+   "theme": "Home admin",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…"
+   }
+  },
+  "w133": {
+   "weekNum": 133,
+   "theme": "Home admin",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…"
+   }
+  },
+  "w135": {
+   "weekNum": 135,
+   "theme": "DEPLE checkpoint",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te",
+    "a2-past-ar",
+    "a2-past-er-ir"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te",
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito"
+   }
+  },
+  "w136": {
+   "weekNum": 136,
+   "theme": "DEPLE checkpoint",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te",
+    "a2-past-ar",
+    "a2-past-er-ir"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te",
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito"
+   }
+  },
+  "w137": {
+   "weekNum": 137,
+   "theme": "DEPLE checkpoint",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te",
+    "a2-past-ar",
+    "a2-past-er-ir"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te",
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito"
+   }
+  },
+  "w139": {
+   "weekNum": 139,
+   "theme": "Subjunctive in the wild",
+   "syllabusIds": [
+    "a2-prep-pairings",
+    "b2-subj-intro",
+    "b2-subj-present"
+   ],
+   "labels": {
+    "a2-prep-pairings": "Verb + preposition pairings (gostar de, pensar em…)",
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…"
+   }
+  },
+  "w140": {
+   "weekNum": 140,
+   "theme": "Subjunctive in the wild",
+   "syllabusIds": [
+    "a2-prep-pairings",
+    "b2-subj-intro",
+    "b2-subj-present"
+   ],
+   "labels": {
+    "a2-prep-pairings": "Verb + preposition pairings (gostar de, pensar em…)",
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…"
+   }
+  },
+  "w141": {
+   "weekNum": 141,
+   "theme": "Subjunctive in the wild",
+   "syllabusIds": [
+    "a2-prep-pairings",
+    "b2-subj-intro",
+    "b2-subj-present"
+   ],
+   "labels": {
+    "a2-prep-pairings": "Verb + preposition pairings (gostar de, pensar em…)",
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…"
+   }
+  },
+  "w143": {
+   "weekNum": 143,
+   "theme": "If I had",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-conj-essential",
+    "a2-conj-quando-se",
+    "a2-past-ar",
+    "a2-past-er-ir"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-conj-essential": "Essential conjunctions — e, mas, ou, porque",
+    "a2-conj-quando-se": "Quando, se, antes de, depois de",
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito"
+   }
+  },
+  "w144": {
+   "weekNum": 144,
+   "theme": "If I had",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-conj-essential",
+    "a2-conj-quando-se",
+    "a2-past-ar",
+    "a2-past-er-ir"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-conj-essential": "Essential conjunctions — e, mas, ou, porque",
+    "a2-conj-quando-se": "Quando, se, antes de, depois de",
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito"
+   }
+  },
+  "w145": {
+   "weekNum": 145,
+   "theme": "If I had",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-conj-essential",
+    "a2-conj-quando-se",
+    "a2-past-ar",
+    "a2-past-er-ir"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-conj-essential": "Essential conjunctions — e, mas, ou, porque",
+    "a2-conj-quando-se": "Quando, se, antes de, depois de",
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito"
+   }
+  },
+  "w146": {
+   "weekNum": 146,
+   "theme": "Inflected infinitive fluency",
+   "syllabusIds": [
+    "a2-prep-pairings",
+    "a1-present-ar",
+    "a1-present-er",
+    "b2-pers-inf"
+   ],
+   "labels": {
+    "a2-prep-pairings": "Verb + preposition pairings (gostar de, pensar em…)",
+    "a1-present-ar": "Regular -AR verbs in the present",
+    "a1-present-er": "Regular -ER verbs in the present",
+    "b2-pers-inf": "Personal infinitive — para ires, antes de falarmos"
+   }
+  },
+  "w147": {
+   "weekNum": 147,
+   "theme": "Inflected infinitive fluency",
+   "syllabusIds": [
+    "a2-prep-pairings",
+    "a1-present-ar",
+    "a1-present-er",
+    "b2-pers-inf"
+   ],
+   "labels": {
+    "a2-prep-pairings": "Verb + preposition pairings (gostar de, pensar em…)",
+    "a1-present-ar": "Regular -AR verbs in the present",
+    "a1-present-er": "Regular -ER verbs in the present",
+    "b2-pers-inf": "Personal infinitive — para ires, antes de falarmos"
+   }
+  },
+  "w148": {
+   "weekNum": 148,
+   "theme": "Inflected infinitive fluency",
+   "syllabusIds": [
+    "a2-prep-pairings",
+    "a1-present-ar",
+    "a1-present-er",
+    "b2-pers-inf"
+   ],
+   "labels": {
+    "a2-prep-pairings": "Verb + preposition pairings (gostar de, pensar em…)",
+    "a1-present-ar": "Regular -AR verbs in the present",
+    "a1-present-er": "Regular -ER verbs in the present",
+    "b2-pers-inf": "Personal infinitive — para ires, antes de falarmos"
+   }
+  },
+  "w149": {
+   "weekNum": 149,
+   "theme": "Inflected infinitive fluency",
+   "syllabusIds": [
+    "a2-prep-pairings",
+    "a1-present-ar",
+    "a1-present-er",
+    "b2-pers-inf"
+   ],
+   "labels": {
+    "a2-prep-pairings": "Verb + preposition pairings (gostar de, pensar em…)",
+    "a1-present-ar": "Regular -AR verbs in the present",
+    "a1-present-er": "Regular -ER verbs in the present",
+    "b2-pers-inf": "Personal infinitive — para ires, antes de falarmos"
+   }
+  },
+  "w150": {
+   "weekNum": 150,
+   "theme": "They said that",
+   "syllabusIds": [
+    "a2-conj-essential",
+    "a2-conj-quando-se"
+   ],
+   "labels": {
+    "a2-conj-essential": "Essential conjunctions — e, mas, ou, porque",
+    "a2-conj-quando-se": "Quando, se, antes de, depois de"
+   }
+  },
+  "w151": {
+   "weekNum": 151,
+   "theme": "They said that",
+   "syllabusIds": [
+    "a2-conj-essential",
+    "a2-conj-quando-se"
+   ],
+   "labels": {
+    "a2-conj-essential": "Essential conjunctions — e, mas, ou, porque",
+    "a2-conj-quando-se": "Quando, se, antes de, depois de"
+   }
+  },
+  "w152": {
+   "weekNum": 152,
+   "theme": "They said that",
+   "syllabusIds": [
+    "a2-conj-essential",
+    "a2-conj-quando-se"
+   ],
+   "labels": {
+    "a2-conj-essential": "Essential conjunctions — e, mas, ou, porque",
+    "a2-conj-quando-se": "Quando, se, antes de, depois de"
+   }
+  },
+  "w153": {
+   "weekNum": 153,
+   "theme": "They said that",
+   "syllabusIds": [
+    "a2-conj-essential",
+    "a2-conj-quando-se"
+   ],
+   "labels": {
+    "a2-conj-essential": "Essential conjunctions — e, mas, ou, porque",
+    "a2-conj-quando-se": "Quando, se, antes de, depois de"
+   }
+  },
+  "w154": {
+   "weekNum": 154,
+   "theme": "Argue a point",
+   "syllabusIds": [
+    "a2-prep-pairings"
+   ],
+   "labels": {
+    "a2-prep-pairings": "Verb + preposition pairings (gostar de, pensar em…)"
+   }
+  },
+  "w155": {
+   "weekNum": 155,
+   "theme": "Argue a point",
+   "syllabusIds": [
+    "a2-prep-pairings"
+   ],
+   "labels": {
+    "a2-prep-pairings": "Verb + preposition pairings (gostar de, pensar em…)"
+   }
+  },
+  "w156": {
+   "weekNum": 156,
+   "theme": "Argue a point",
+   "syllabusIds": [
+    "a2-prep-pairings"
+   ],
+   "labels": {
+    "a2-prep-pairings": "Verb + preposition pairings (gostar de, pensar em…)"
+   }
+  },
+  "w157": {
+   "weekNum": 157,
+   "theme": "Argue a point",
+   "syllabusIds": [
+    "a2-prep-pairings"
+   ],
+   "labels": {
+    "a2-prep-pairings": "Verb + preposition pairings (gostar de, pensar em…)"
+   }
+  },
+  "w158": {
+   "weekNum": 158,
+   "theme": "Register",
+   "syllabusIds": [
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w159": {
+   "weekNum": 159,
+   "theme": "Register",
+   "syllabusIds": [
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w160": {
+   "weekNum": 160,
+   "theme": "Register",
+   "syllabusIds": [
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w161": {
+   "weekNum": 161,
+   "theme": "Register",
+   "syllabusIds": [
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w162": {
+   "weekNum": 162,
+   "theme": "Health system",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…"
+   }
+  },
+  "w163": {
+   "weekNum": 163,
+   "theme": "Health system",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…"
+   }
+  },
+  "w164": {
+   "weekNum": 164,
+   "theme": "Health system",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…"
+   }
+  },
+  "w165": {
+   "weekNum": 165,
+   "theme": "Health system",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…"
+   }
+  },
+  "w166": {
+   "weekNum": 166,
+   "theme": "Society and news",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-conj-essential",
+    "a2-conj-quando-se",
+    "a2-past-ar",
+    "a2-past-er-ir"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-conj-essential": "Essential conjunctions — e, mas, ou, porque",
+    "a2-conj-quando-se": "Quando, se, antes de, depois de",
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito"
+   }
+  },
+  "w167": {
+   "weekNum": 167,
+   "theme": "Society and news",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-conj-essential",
+    "a2-conj-quando-se",
+    "a2-past-ar",
+    "a2-past-er-ir"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-conj-essential": "Essential conjunctions — e, mas, ou, porque",
+    "a2-conj-quando-se": "Quando, se, antes de, depois de",
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito"
+   }
+  },
+  "w168": {
+   "weekNum": 168,
+   "theme": "Society and news",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-conj-essential",
+    "a2-conj-quando-se",
+    "a2-past-ar",
+    "a2-past-er-ir"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-conj-essential": "Essential conjunctions — e, mas, ou, porque",
+    "a2-conj-quando-se": "Quando, se, antes de, depois de",
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito"
+   }
+  },
+  "w169": {
+   "weekNum": 169,
+   "theme": "Society and news",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-conj-essential",
+    "a2-conj-quando-se",
+    "a2-past-ar",
+    "a2-past-er-ir"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-conj-essential": "Essential conjunctions — e, mas, ou, porque",
+    "a2-conj-quando-se": "Quando, se, antes de, depois de",
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito"
+   }
+  },
+  "w170": {
+   "weekNum": 170,
+   "theme": "When travel goes wrong",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…"
+   }
+  },
+  "w171": {
+   "weekNum": 171,
+   "theme": "When travel goes wrong",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…"
+   }
+  },
+  "w172": {
+   "weekNum": 172,
+   "theme": "When travel goes wrong",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…"
+   }
+  },
+  "w173": {
+   "weekNum": 173,
+   "theme": "When travel goes wrong",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…"
+   }
+  },
+  "w174": {
+   "weekNum": 174,
+   "theme": "Portugal itself",
+   "syllabusIds": [
+    "a2-past-ar",
+    "a2-past-er-ir",
+    "b1-relative-que",
+    "b1-relative-onde"
+   ],
+   "labels": {
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito",
+    "b1-relative-que": "Relative que & quem",
+    "b1-relative-onde": "Relative onde & cujo/cuja"
+   }
+  },
+  "w175": {
+   "weekNum": 175,
+   "theme": "Portugal itself",
+   "syllabusIds": [
+    "a2-past-ar",
+    "a2-past-er-ir",
+    "b1-relative-que",
+    "b1-relative-onde"
+   ],
+   "labels": {
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito",
+    "b1-relative-que": "Relative que & quem",
+    "b1-relative-onde": "Relative onde & cujo/cuja"
+   }
+  },
+  "w176": {
+   "weekNum": 176,
+   "theme": "Portugal itself",
+   "syllabusIds": [
+    "a2-past-ar",
+    "a2-past-er-ir",
+    "b1-relative-que",
+    "b1-relative-onde"
+   ],
+   "labels": {
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito",
+    "b1-relative-que": "Relative que & quem",
+    "b1-relative-onde": "Relative onde & cujo/cuja"
+   }
+  },
+  "w177": {
+   "weekNum": 177,
+   "theme": "Portugal itself",
+   "syllabusIds": [
+    "a2-past-ar",
+    "a2-past-er-ir",
+    "b1-relative-que",
+    "b1-relative-onde"
+   ],
+   "labels": {
+    "a2-past-ar": "Regular -AR in the pretérito perfeito",
+    "a2-past-er-ir": "Regular -ER/-IR in the pretérito perfeito",
+    "b1-relative-que": "Relative que & quem",
+    "b1-relative-onde": "Relative onde & cujo/cuja"
+   }
+  },
+  "w183": {
+   "weekNum": 183,
+   "theme": "Half DIPLE",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w184": {
+   "weekNum": 184,
+   "theme": "Half DIPLE",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w185": {
+   "weekNum": 185,
+   "theme": "Half DIPLE",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w187": {
+   "weekNum": 187,
+   "theme": "Diagnose",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w189": {
+   "weekNum": 189,
+   "theme": "Diagnose",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w202": {
+   "weekNum": 202,
+   "theme": "DIPLE speaking",
+   "syllabusIds": [
+    "a2-ask-nicely",
+    "a2-sera-que"
+   ],
+   "labels": {
+    "a2-ask-nicely": "Asking nicely — queria, podia, faz favor",
+    "a2-sera-que": "Será que… for polite questions"
+   }
+  },
+  "w203": {
+   "weekNum": 203,
+   "theme": "DIPLE speaking",
+   "syllabusIds": [
+    "a2-ask-nicely",
+    "a2-sera-que"
+   ],
+   "labels": {
+    "a2-ask-nicely": "Asking nicely — queria, podia, faz favor",
+    "a2-sera-que": "Será que… for polite questions"
+   }
+  },
+  "w204": {
+   "weekNum": 204,
+   "theme": "DIPLE speaking",
+   "syllabusIds": [
+    "a2-ask-nicely",
+    "a2-sera-que"
+   ],
+   "labels": {
+    "a2-ask-nicely": "Asking nicely — queria, podia, faz favor",
+    "a2-sera-que": "Será que… for polite questions"
+   }
+  },
+  "w205": {
+   "weekNum": 205,
+   "theme": "DIPLE speaking",
+   "syllabusIds": [
+    "a2-ask-nicely",
+    "a2-sera-que"
+   ],
+   "labels": {
+    "a2-ask-nicely": "Asking nicely — queria, podia, faz favor",
+    "a2-sera-que": "Será que… for polite questions"
+   }
+  },
+  "w230": {
+   "weekNum": 230,
+   "theme": "Taper and sit DIPLE",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w231": {
+   "weekNum": 231,
+   "theme": "Taper and sit DIPLE",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w232": {
+   "weekNum": 232,
+   "theme": "Taper and sit DIPLE",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w233": {
+   "weekNum": 233,
+   "theme": "Taper and sit DIPLE",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w234": {
+   "weekNum": 234,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w235": {
+   "weekNum": 235,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w236": {
+   "weekNum": 236,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w237": {
+   "weekNum": 237,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w238": {
+   "weekNum": 238,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w239": {
+   "weekNum": 239,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w240": {
+   "weekNum": 240,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w241": {
+   "weekNum": 241,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w242": {
+   "weekNum": 242,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w243": {
+   "weekNum": 243,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w244": {
+   "weekNum": 244,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w245": {
+   "weekNum": 245,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w246": {
+   "weekNum": 246,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w247": {
+   "weekNum": 247,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w248": {
+   "weekNum": 248,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w249": {
+   "weekNum": 249,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w250": {
+   "weekNum": 250,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w251": {
+   "weekNum": 251,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w252": {
+   "weekNum": 252,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w253": {
+   "weekNum": 253,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w254": {
+   "weekNum": 254,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w255": {
+   "weekNum": 255,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w256": {
+   "weekNum": 256,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w257": {
+   "weekNum": 257,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w258": {
+   "weekNum": 258,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w259": {
+   "weekNum": 259,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w260": {
+   "weekNum": 260,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w261": {
+   "weekNum": 261,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w262": {
+   "weekNum": 262,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w263": {
+   "weekNum": 263,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w264": {
+   "weekNum": 264,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w265": {
+   "weekNum": 265,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w266": {
+   "weekNum": 266,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w267": {
+   "weekNum": 267,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w268": {
+   "weekNum": 268,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w269": {
+   "weekNum": 269,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w270": {
+   "weekNum": 270,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w271": {
+   "weekNum": 271,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w272": {
+   "weekNum": 272,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w273": {
+   "weekNum": 273,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w274": {
+   "weekNum": 274,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w275": {
+   "weekNum": 275,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w276": {
+   "weekNum": 276,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w277": {
+   "weekNum": 277,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w278": {
+   "weekNum": 278,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w279": {
+   "weekNum": 279,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w280": {
+   "weekNum": 280,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w281": {
+   "weekNum": 281,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w282": {
+   "weekNum": 282,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w283": {
+   "weekNum": 283,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w284": {
+   "weekNum": 284,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w285": {
+   "weekNum": 285,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w286": {
+   "weekNum": 286,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w287": {
+   "weekNum": 287,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w288": {
+   "weekNum": 288,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w289": {
+   "weekNum": 289,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w290": {
+   "weekNum": 290,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w291": {
+   "weekNum": 291,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w292": {
+   "weekNum": 292,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w293": {
+   "weekNum": 293,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w294": {
+   "weekNum": 294,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w295": {
+   "weekNum": 295,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w296": {
+   "weekNum": 296,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w297": {
+   "weekNum": 297,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w298": {
+   "weekNum": 298,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w299": {
+   "weekNum": 299,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w300": {
+   "weekNum": 300,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w301": {
+   "weekNum": 301,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w302": {
+   "weekNum": 302,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w303": {
+   "weekNum": 303,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w304": {
+   "weekNum": 304,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w305": {
+   "weekNum": 305,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w306": {
+   "weekNum": 306,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w307": {
+   "weekNum": 307,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w308": {
+   "weekNum": 308,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w309": {
+   "weekNum": 309,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w310": {
+   "weekNum": 310,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w311": {
+   "weekNum": 311,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w312": {
+   "weekNum": 312,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w313": {
+   "weekNum": 313,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  },
+  "w314": {
+   "weekNum": 314,
+   "theme": "Strengthen and DIPLE practice",
+   "syllabusIds": [
+    "b2-subj-intro",
+    "b2-subj-present",
+    "a2-clitics-intro",
+    "a2-clitics-me-te"
+   ],
+   "labels": {
+    "b2-subj-intro": "Subjunctive mood — when and why",
+    "b2-subj-present": "Present subjunctive — Espero que…",
+    "a2-clitics-intro": "Introduction to clitic object pronouns",
+    "a2-clitics-me-te": "Clitics me & te"
+   }
+  }
+ },
+ "syllabusToWeeks": {
+  "a1-noun-gender": [
+   "w1",
+   "w2",
+   "w17",
+   "w30",
+   "w31",
+   "w32",
+   "w33",
+   "w38",
+   "w39",
+   "w40",
+   "w41"
+  ],
+  "a1-def-articles": [
+   "w1",
+   "w2",
+   "w17",
+   "w30",
+   "w31",
+   "w32",
+   "w33",
+   "w38",
+   "w39",
+   "w40",
+   "w41"
+  ],
+  "a1-present-ar": [
+   "w1",
+   "w5",
+   "w8",
+   "w15",
+   "w18",
+   "w19",
+   "w20",
+   "w21",
+   "w26",
+   "w27",
+   "w28",
+   "w29",
+   "w42",
+   "w43",
+   "w44",
+   "w45",
+   "w114",
+   "w115",
+   "w116",
+   "w117",
+   "w146",
+   "w147",
+   "w148",
+   "w149"
+  ],
+  "a1-present-er": [
+   "w1",
+   "w5",
+   "w8",
+   "w15",
+   "w18",
+   "w19",
+   "w20",
+   "w21",
+   "w26",
+   "w27",
+   "w28",
+   "w29",
+   "w42",
+   "w43",
+   "w44",
+   "w45",
+   "w114",
+   "w115",
+   "w116",
+   "w117",
+   "w146",
+   "w147",
+   "w148",
+   "w149"
+  ],
+  "a1-ser-estar": [
+   "w2",
+   "w4",
+   "w13",
+   "w17",
+   "w35",
+   "w36",
+   "w37",
+   "w38",
+   "w39",
+   "w40",
+   "w41"
+  ],
+  "a1-ser-uses": [
+   "w2",
+   "w4",
+   "w13",
+   "w17",
+   "w35",
+   "w36",
+   "w37",
+   "w38",
+   "w39",
+   "w40",
+   "w41"
+  ],
+  "a2-poss-intro": [
+   "w2",
+   "w22",
+   "w23",
+   "w24",
+   "w25"
+  ],
+  "a2-poss-1st-2nd": [
+   "w2",
+   "w22",
+   "w23",
+   "w24",
+   "w25"
+  ],
+  "a2-irreg-present": [
+   "w2",
+   "w4",
+   "w7",
+   "w8",
+   "w12",
+   "w13",
+   "w15",
+   "w17",
+   "w22",
+   "w23",
+   "w24",
+   "w25",
+   "w26",
+   "w27",
+   "w28",
+   "w29",
+   "w35",
+   "w36",
+   "w37",
+   "w38",
+   "w39",
+   "w40",
+   "w41",
+   "w42",
+   "w43",
+   "w44",
+   "w45",
+   "w47",
+   "w48",
+   "w49",
+   "w50",
+   "w51",
+   "w52",
+   "w53",
+   "w70",
+   "w71",
+   "w72",
+   "w73",
+   "w74",
+   "w75",
+   "w76",
+   "w77",
+   "w82",
+   "w83",
+   "w84",
+   "w85",
+   "w98",
+   "w99",
+   "w100",
+   "w101"
+  ],
+  "a2-irreg-present-more": [
+   "w2",
+   "w4",
+   "w7",
+   "w8",
+   "w12",
+   "w13",
+   "w15",
+   "w17",
+   "w22",
+   "w23",
+   "w24",
+   "w25",
+   "w26",
+   "w27",
+   "w28",
+   "w29",
+   "w35",
+   "w36",
+   "w37",
+   "w38",
+   "w39",
+   "w40",
+   "w41",
+   "w42",
+   "w43",
+   "w44",
+   "w45",
+   "w47",
+   "w48",
+   "w49",
+   "w50",
+   "w51",
+   "w52",
+   "w53",
+   "w70",
+   "w71",
+   "w72",
+   "w73",
+   "w74",
+   "w75",
+   "w76",
+   "w77",
+   "w82",
+   "w83",
+   "w84",
+   "w85",
+   "w98",
+   "w99",
+   "w100",
+   "w101"
+  ],
+  "a1-questions": [
+   "w3",
+   "w6",
+   "w14"
+  ],
+  "a1-e-que": [
+   "w3",
+   "w6",
+   "w14"
+  ],
+  "a2-adv-time": [
+   "w3"
+  ],
+  "a2-adv-place": [
+   "w3"
+  ],
+  "a2-ask-nicely": [
+   "w4",
+   "w5",
+   "w9",
+   "w13",
+   "w16",
+   "w17",
+   "w78",
+   "w79",
+   "w80",
+   "w81",
+   "w111",
+   "w112",
+   "w113",
+   "w202",
+   "w203",
+   "w204",
+   "w205"
+  ],
+  "a2-sera-que": [
+   "w4",
+   "w5",
+   "w9",
+   "w13",
+   "w16",
+   "w17",
+   "w78",
+   "w79",
+   "w80",
+   "w81",
+   "w111",
+   "w112",
+   "w113",
+   "w202",
+   "w203",
+   "w204",
+   "w205"
+  ],
+  "a1-plurals-s": [
+   "w4"
+  ],
+  "a2-demonstr-intro": [
+   "w6",
+   "w14"
+  ],
+  "a2-demonstr-var-sg": [
+   "w6",
+   "w14"
+  ],
+  "a2-prep-pairings": [
+   "w7",
+   "w91",
+   "w92",
+   "w93",
+   "w114",
+   "w115",
+   "w116",
+   "w117",
+   "w139",
+   "w140",
+   "w141",
+   "w146",
+   "w147",
+   "w148",
+   "w149",
+   "w154",
+   "w155",
+   "w156",
+   "w157"
+  ],
+  "a2-haver-há": [
+   "w7",
+   "w70",
+   "w71",
+   "w72",
+   "w73",
+   "w122",
+   "w123",
+   "w124",
+   "w125"
+  ],
+  "a2-haver-time": [
+   "w7",
+   "w70",
+   "w71",
+   "w72",
+   "w73",
+   "w122",
+   "w123",
+   "w124",
+   "w125"
+  ],
+  "a1-estar-a": [
+   "w8",
+   "w26",
+   "w27",
+   "w28",
+   "w29",
+   "w42",
+   "w43",
+   "w44",
+   "w45"
+  ],
+  "b1-pres-cont": [
+   "w8",
+   "w26",
+   "w27",
+   "w28",
+   "w29",
+   "w42",
+   "w43",
+   "w44",
+   "w45"
+  ],
+  "a2-past-ar": [
+   "w8",
+   "w12",
+   "w15",
+   "w26",
+   "w27",
+   "w28",
+   "w29",
+   "w47",
+   "w48",
+   "w49",
+   "w50",
+   "w51",
+   "w52",
+   "w53",
+   "w54",
+   "w55",
+   "w56",
+   "w57",
+   "w58",
+   "w59",
+   "w60",
+   "w61",
+   "w82",
+   "w83",
+   "w84",
+   "w85",
+   "w94",
+   "w95",
+   "w96",
+   "w97",
+   "w98",
+   "w99",
+   "w100",
+   "w101",
+   "w135",
+   "w136",
+   "w137",
+   "w143",
+   "w144",
+   "w145",
+   "w166",
+   "w167",
+   "w168",
+   "w169",
+   "w174",
+   "w175",
+   "w176",
+   "w177"
+  ],
+  "a2-past-er-ir": [
+   "w8",
+   "w12",
+   "w15",
+   "w26",
+   "w27",
+   "w28",
+   "w29",
+   "w47",
+   "w48",
+   "w49",
+   "w50",
+   "w51",
+   "w52",
+   "w53",
+   "w54",
+   "w55",
+   "w56",
+   "w57",
+   "w58",
+   "w59",
+   "w60",
+   "w61",
+   "w82",
+   "w83",
+   "w84",
+   "w85",
+   "w94",
+   "w95",
+   "w96",
+   "w97",
+   "w98",
+   "w99",
+   "w100",
+   "w101",
+   "w135",
+   "w136",
+   "w137",
+   "w143",
+   "w144",
+   "w145",
+   "w166",
+   "w167",
+   "w168",
+   "w169",
+   "w174",
+   "w175",
+   "w176",
+   "w177"
+  ],
+  "a2-clitics-intro": [
+   "w30",
+   "w31",
+   "w32",
+   "w33",
+   "w66",
+   "w67",
+   "w68",
+   "w69",
+   "w82",
+   "w83",
+   "w84",
+   "w85",
+   "w118",
+   "w119",
+   "w120",
+   "w121",
+   "w135",
+   "w136",
+   "w137",
+   "w158",
+   "w159",
+   "w160",
+   "w161",
+   "w183",
+   "w184",
+   "w185",
+   "w187",
+   "w189",
+   "w230",
+   "w231",
+   "w232",
+   "w233",
+   "w234",
+   "w235",
+   "w236",
+   "w237",
+   "w238",
+   "w239",
+   "w240",
+   "w241",
+   "w242",
+   "w243",
+   "w244",
+   "w245",
+   "w246",
+   "w247",
+   "w248",
+   "w249",
+   "w250",
+   "w251",
+   "w252",
+   "w253",
+   "w254",
+   "w255",
+   "w256",
+   "w257",
+   "w258",
+   "w259",
+   "w260",
+   "w261",
+   "w262",
+   "w263",
+   "w264",
+   "w265",
+   "w266",
+   "w267",
+   "w268",
+   "w269",
+   "w270",
+   "w271",
+   "w272",
+   "w273",
+   "w274",
+   "w275",
+   "w276",
+   "w277",
+   "w278",
+   "w279",
+   "w280",
+   "w281",
+   "w282",
+   "w283",
+   "w284",
+   "w285",
+   "w286",
+   "w287",
+   "w288",
+   "w289",
+   "w290",
+   "w291",
+   "w292",
+   "w293",
+   "w294",
+   "w295",
+   "w296",
+   "w297",
+   "w298",
+   "w299",
+   "w300",
+   "w301",
+   "w302",
+   "w303",
+   "w304",
+   "w305",
+   "w306",
+   "w307",
+   "w308",
+   "w309",
+   "w310",
+   "w311",
+   "w312",
+   "w313",
+   "w314"
+  ],
+  "a2-clitics-me-te": [
+   "w30",
+   "w31",
+   "w32",
+   "w33",
+   "w66",
+   "w67",
+   "w68",
+   "w69",
+   "w82",
+   "w83",
+   "w84",
+   "w85",
+   "w118",
+   "w119",
+   "w120",
+   "w121",
+   "w135",
+   "w136",
+   "w137",
+   "w158",
+   "w159",
+   "w160",
+   "w161",
+   "w183",
+   "w184",
+   "w185",
+   "w187",
+   "w189",
+   "w230",
+   "w231",
+   "w232",
+   "w233",
+   "w234",
+   "w235",
+   "w236",
+   "w237",
+   "w238",
+   "w239",
+   "w240",
+   "w241",
+   "w242",
+   "w243",
+   "w244",
+   "w245",
+   "w246",
+   "w247",
+   "w248",
+   "w249",
+   "w250",
+   "w251",
+   "w252",
+   "w253",
+   "w254",
+   "w255",
+   "w256",
+   "w257",
+   "w258",
+   "w259",
+   "w260",
+   "w261",
+   "w262",
+   "w263",
+   "w264",
+   "w265",
+   "w266",
+   "w267",
+   "w268",
+   "w269",
+   "w270",
+   "w271",
+   "w272",
+   "w273",
+   "w274",
+   "w275",
+   "w276",
+   "w277",
+   "w278",
+   "w279",
+   "w280",
+   "w281",
+   "w282",
+   "w283",
+   "w284",
+   "w285",
+   "w286",
+   "w287",
+   "w288",
+   "w289",
+   "w290",
+   "w291",
+   "w292",
+   "w293",
+   "w294",
+   "w295",
+   "w296",
+   "w297",
+   "w298",
+   "w299",
+   "w300",
+   "w301",
+   "w302",
+   "w303",
+   "w304",
+   "w305",
+   "w306",
+   "w307",
+   "w308",
+   "w309",
+   "w310",
+   "w311",
+   "w312",
+   "w313",
+   "w314"
+  ],
+  "b1-reflexive": [
+   "w66",
+   "w67",
+   "w68",
+   "w69"
+  ],
+  "b2-perf-composto": [
+   "w74",
+   "w75",
+   "w76",
+   "w77"
+  ],
+  "b2-fut-composto": [
+   "w74",
+   "w75",
+   "w76",
+   "w77"
+  ],
+  "a2-conj-essential": [
+   "w91",
+   "w92",
+   "w93",
+   "w98",
+   "w99",
+   "w100",
+   "w101",
+   "w103",
+   "w104",
+   "w105",
+   "w106",
+   "w107",
+   "w108",
+   "w109",
+   "w143",
+   "w144",
+   "w145",
+   "w150",
+   "w151",
+   "w152",
+   "w153",
+   "w166",
+   "w167",
+   "w168",
+   "w169"
+  ],
+  "a2-conj-quando-se": [
+   "w91",
+   "w92",
+   "w93",
+   "w98",
+   "w99",
+   "w100",
+   "w101",
+   "w103",
+   "w104",
+   "w105",
+   "w106",
+   "w107",
+   "w108",
+   "w109",
+   "w143",
+   "w144",
+   "w145",
+   "w150",
+   "w151",
+   "w152",
+   "w153",
+   "w166",
+   "w167",
+   "w168",
+   "w169"
+  ],
+  "b2-subj-intro": [
+   "w98",
+   "w99",
+   "w100",
+   "w101",
+   "w111",
+   "w112",
+   "w113",
+   "w130",
+   "w131",
+   "w132",
+   "w133",
+   "w135",
+   "w136",
+   "w137",
+   "w139",
+   "w140",
+   "w141",
+   "w143",
+   "w144",
+   "w145",
+   "w162",
+   "w163",
+   "w164",
+   "w165",
+   "w166",
+   "w167",
+   "w168",
+   "w169",
+   "w170",
+   "w171",
+   "w172",
+   "w173",
+   "w183",
+   "w184",
+   "w185",
+   "w187",
+   "w189",
+   "w230",
+   "w231",
+   "w232",
+   "w233",
+   "w234",
+   "w235",
+   "w236",
+   "w237",
+   "w238",
+   "w239",
+   "w240",
+   "w241",
+   "w242",
+   "w243",
+   "w244",
+   "w245",
+   "w246",
+   "w247",
+   "w248",
+   "w249",
+   "w250",
+   "w251",
+   "w252",
+   "w253",
+   "w254",
+   "w255",
+   "w256",
+   "w257",
+   "w258",
+   "w259",
+   "w260",
+   "w261",
+   "w262",
+   "w263",
+   "w264",
+   "w265",
+   "w266",
+   "w267",
+   "w268",
+   "w269",
+   "w270",
+   "w271",
+   "w272",
+   "w273",
+   "w274",
+   "w275",
+   "w276",
+   "w277",
+   "w278",
+   "w279",
+   "w280",
+   "w281",
+   "w282",
+   "w283",
+   "w284",
+   "w285",
+   "w286",
+   "w287",
+   "w288",
+   "w289",
+   "w290",
+   "w291",
+   "w292",
+   "w293",
+   "w294",
+   "w295",
+   "w296",
+   "w297",
+   "w298",
+   "w299",
+   "w300",
+   "w301",
+   "w302",
+   "w303",
+   "w304",
+   "w305",
+   "w306",
+   "w307",
+   "w308",
+   "w309",
+   "w310",
+   "w311",
+   "w312",
+   "w313",
+   "w314"
+  ],
+  "b2-subj-present": [
+   "w98",
+   "w99",
+   "w100",
+   "w101",
+   "w111",
+   "w112",
+   "w113",
+   "w130",
+   "w131",
+   "w132",
+   "w133",
+   "w135",
+   "w136",
+   "w137",
+   "w139",
+   "w140",
+   "w141",
+   "w143",
+   "w144",
+   "w145",
+   "w162",
+   "w163",
+   "w164",
+   "w165",
+   "w166",
+   "w167",
+   "w168",
+   "w169",
+   "w170",
+   "w171",
+   "w172",
+   "w173",
+   "w183",
+   "w184",
+   "w185",
+   "w187",
+   "w189",
+   "w230",
+   "w231",
+   "w232",
+   "w233",
+   "w234",
+   "w235",
+   "w236",
+   "w237",
+   "w238",
+   "w239",
+   "w240",
+   "w241",
+   "w242",
+   "w243",
+   "w244",
+   "w245",
+   "w246",
+   "w247",
+   "w248",
+   "w249",
+   "w250",
+   "w251",
+   "w252",
+   "w253",
+   "w254",
+   "w255",
+   "w256",
+   "w257",
+   "w258",
+   "w259",
+   "w260",
+   "w261",
+   "w262",
+   "w263",
+   "w264",
+   "w265",
+   "w266",
+   "w267",
+   "w268",
+   "w269",
+   "w270",
+   "w271",
+   "w272",
+   "w273",
+   "w274",
+   "w275",
+   "w276",
+   "w277",
+   "w278",
+   "w279",
+   "w280",
+   "w281",
+   "w282",
+   "w283",
+   "w284",
+   "w285",
+   "w286",
+   "w287",
+   "w288",
+   "w289",
+   "w290",
+   "w291",
+   "w292",
+   "w293",
+   "w294",
+   "w295",
+   "w296",
+   "w297",
+   "w298",
+   "w299",
+   "w300",
+   "w301",
+   "w302",
+   "w303",
+   "w304",
+   "w305",
+   "w306",
+   "w307",
+   "w308",
+   "w309",
+   "w310",
+   "w311",
+   "w312",
+   "w313",
+   "w314"
+  ],
+  "b2-conditional": [
+   "w103",
+   "w104",
+   "w105"
+  ],
+  "b2-conditional-uses": [
+   "w103",
+   "w104",
+   "w105"
+  ],
+  "b1-relative-que": [
+   "w118",
+   "w119",
+   "w120",
+   "w121",
+   "w174",
+   "w175",
+   "w176",
+   "w177"
+  ],
+  "b1-relative-onde": [
+   "w118",
+   "w119",
+   "w120",
+   "w121",
+   "w174",
+   "w175",
+   "w176",
+   "w177"
+  ],
+  "b2-pers-inf": [
+   "w146",
+   "w147",
+   "w148",
+   "w149"
+  ]
+ }
+}

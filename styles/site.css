@@ -127,6 +127,16 @@ a.card .tag {
 a.card.soon { opacity: .65; }
 a.card.soon .tag { color: #a8a29e; }
 
+.meta-line { margin: -.35rem 0 1.25rem; }
+.meta-line .tag {
+  display: inline-block;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
 .section-label {
   margin: 1.75rem 0 .5rem;
   font-size: .72rem;
@@ -249,6 +259,214 @@ footer {
   margin-top: 2.5rem;
   color: #a8a29e;
   font-size: .8rem;
+}
+
+/* Grammar syllabus */
+.syllabus-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem 1rem;
+  margin-bottom: 1.25rem;
+  padding: .75rem 1rem;
+  background: var(--accent-soft);
+  border-radius: 10px;
+  font-size: .88rem;
+}
+.syllabus-stat strong { color: var(--accent); margin-right: .25rem; }
+.syllabus-stat-total { font-weight: 600; }
+
+.syllabus-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .75rem 1rem;
+  margin-bottom: 1.5rem;
+}
+.syllabus-pills { display: flex; flex-wrap: wrap; gap: .4rem; }
+.syllabus-pill {
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+  padding: .35rem .75rem;
+  border-radius: 999px;
+  font-size: .82rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.syllabus-pill.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.syllabus-jump {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .85rem;
+  color: var(--muted);
+}
+.syllabus-jump a {
+  text-decoration: none;
+  font-weight: 600;
+}
+.syllabus-jump a:hover { text-decoration: underline; }
+.syllabus-reset {
+  margin-left: auto;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--muted);
+  padding: .35rem .65rem;
+  border-radius: 6px;
+  font-size: .8rem;
+  cursor: pointer;
+}
+.syllabus-reset:hover { border-color: #cfc6b8; color: var(--ink); }
+
+.syllabus-level { margin-bottom: 2rem; scroll-margin-top: 1rem; }
+.syllabus-level-heading {
+  font-size: 1.25rem;
+  margin: 0 0 .75rem;
+  padding-bottom: .35rem;
+  border-bottom: 2px solid var(--accent-soft);
+}
+.syllabus-level-meta {
+  font-size: .85rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.syllabus-category { margin-bottom: 1rem; }
+.syllabus-cat-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: .55rem .85rem;
+  font-size: .92rem;
+  font-weight: 650;
+  cursor: pointer;
+  margin-bottom: .35rem;
+}
+.syllabus-cat-toggle:hover { border-color: #cfc6b8; }
+.syllabus-cat-meta {
+  font-size: .78rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.syllabus-list {
+  list-style: none;
+  margin: 0 0 .5rem;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--card);
+}
+.syllabus-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  padding: .5rem .85rem;
+  border-bottom: 1px solid var(--line);
+  font-size: .9rem;
+}
+.syllabus-row:last-child { border-bottom: none; }
+.syllabus-row.done { opacity: .72; }
+.syllabus-row.done .syllabus-label { text-decoration: line-through; color: var(--muted); }
+.syllabus-row.done .syllabus-label a { color: var(--muted); }
+
+.syllabus-check {
+  display: flex;
+  align-items: flex-start;
+  gap: .55rem;
+  flex: 1;
+  min-width: 0;
+  cursor: pointer;
+}
+.syllabus-check input { margin-top: .25rem; flex-shrink: 0; }
+.syllabus-label a { text-decoration: none; font-weight: 500; }
+.syllabus-label a:hover { text-decoration: underline; }
+
+.syllabus-badges {
+  display: flex;
+  flex-shrink: 0;
+  gap: .35rem;
+}
+.syllabus-badge {
+  display: inline-block;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  padding: .15rem .45rem;
+  border-radius: 4px;
+  text-decoration: none;
+}
+.syllabus-badge.on-site {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+.syllabus-badge.pp {
+  background: #ede9e0;
+  color: var(--muted);
+}
+.syllabus-badge.pp:hover { background: #e7e0d5; color: var(--ink); }
+
+.syllabus-plan-link {
+  font-size: .72rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+.syllabus-plan-link a {
+  text-decoration: none;
+  font-weight: 600;
+}
+.syllabus-plan-link a:hover { text-decoration: underline; }
+
+/* Plan: syllabus chips under grammar row */
+.syllabus-map {
+  margin: .45rem 0 0 1.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .35rem .5rem;
+  font-size: .82rem;
+}
+.syllabus-map-label {
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-right: .15rem;
+}
+.syllabus-map-item {
+  display: inline-block;
+  padding: .2rem .55rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--accent);
+  font-size: .78rem;
+}
+.syllabus-map-item:hover {
+  border-color: #cfc6b8;
+  text-decoration: none;
+}
+.syllabus-map-item.done {
+  opacity: .65;
+  text-decoration: line-through;
+  color: var(--muted);
+  border-color: #e7e0d5;
 }
 
 code {

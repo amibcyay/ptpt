@@ -1,12 +1,37 @@
 /* Unified study plan hub — Sep 2026 → Aug 2032. */
 (function () {
+  const S = window.PtptSync;
+  if (!S) {
+    console.error("ptpt-sync.js must load before plan.js");
+    return;
+  }
+
   const DATA_URL = "../data/plan-weeks.json";
-  const STORAGE_KEY = "ptpt-plan-checks-v2";
-  const OVERRIDE_KEY = "ptpt-plan-overrides-v1";
-  const SYNC_CFG_KEY = "ptpt-plan-sync-cfg";
-  const SYNC_META_KEY = "ptpt-plan-sync-meta";
-  const GIST_FILE = "ptpt-plan-checks.json";
-  const SYNC_PREFIX = "ptpt1.";
+  const MAP_URL = "../data/plan-grammar-syllabus-map.json";
+  const STORAGE_KEY = S.PLAN_CHECKS_KEY;
+  const OVERRIDE_KEY = S.OVERRIDE_KEY;
+  const SYNC_CFG_KEY = S.SYNC_CFG_KEY;
+  const SYNC_META_KEY = S.SYNC_META_KEY;
+  const GIST_FILE = S.GIST_FILE;
+  const SYNC_PREFIX = S.SYNC_PREFIX;
+
+  const loadChecks = () => S.loadPlanChecks();
+  const saveChecks = (obj) => S.savePlanChecks(obj);
+  const loadOverrides = () => S.loadOverrides();
+  const saveOverrides = (obj) => S.saveOverrides(obj);
+  const loadSyncCfg = () => S.loadSyncCfg();
+  const saveSyncCfg = (cfg) => S.saveSyncCfg(cfg);
+  const loadSyncMeta = () => S.loadSyncMeta();
+  const saveSyncMeta = (meta) => S.saveSyncMeta(meta);
+  const localUpdatedAt = () => S.localUpdatedAt();
+  const touchLocal = () => S.touchLocal();
+  const encodeSyncCode = (cfg) => S.encodeSyncCode(cfg);
+  const decodeSyncCode = (raw) => S.decodeSyncCode(raw);
+  const syncLinkFor = (cfg) => S.syncLinkFor(cfg, location.pathname);
+  const pullRemote = () => S.pullRemote();
+  const pushRemote = () => S.pushRemote();
+  const createSync = (token) => S.createSync(token);
+  const connectSync = (cfg) => S.connectSync(cfg);
 
   const OVERRIDE_FIELDS = [
     "theme",
@@ -47,12 +72,29 @@
 
   const GRAMMAR_LINKS = [
     { re: /\bser\s+vs\s+estar\b|\bser\/estar\b/i, href: "../grammar/ser-vs-estar/", label: "Ser vs estar" },
-    { re: /\barticles?\b|\bgender\b|\bo\/a\b/i, href: "../grammar/articles-gender/", label: "Articles & gender" },
+    { re: /\barticles?\b|\bgender\b|\bo\/a\b|\bplural/i, href: "../grammar/articles-gender/", label: "Articles & gender" },
+    { re: /\bplural/i, href: "../grammar/plurals/", label: "Plurals" },
     { re: /\bpossess/i, href: "../grammar/possessives/", label: "Possessives" },
-    { re: /\bpreposition/i, href: "../grammar/prepositions/", label: "Prepositions" },
+    { re: /\bpreposition|\bpor\b|\bpara\b|\breg[eê]ncia/i, href: "../grammar/prepositions/", label: "Prepositions" },
+    { re: /\bsubjunct|\bconjuntiv/i, href: "../grammar/subjunctive/", label: "Subjunctive" },
+    { re: /\bimperativ/i, href: "../grammar/imperative/", label: "Imperative" },
+    { re: /\bconditional|\bcondicion/i, href: "../grammar/conditional/", label: "Conditional" },
+    { re: /\bclitic|\bpronoun|\btu\s+vs|\bvoce/i, href: "../grammar/clitics-intro/", label: "Clitics & pronouns" },
+    { re: /\badverb/i, href: "../grammar/adverbs/", label: "Adverbs" },
+    { re: /\badject/i, href: "../grammar/adjectives/", label: "Adjectives" },
+    { re: /\bconjunction|\bporque\b|\bquando\b|\bse\b/i, href: "../grammar/conjunctions/", label: "Conjunctions" },
+    { re: /\bquestion|\bnegat/i, href: "../grammar/questions-negation/", label: "Questions & negation" },
+    { re: /\bdemonstrativ|\bisto\b|\beste\b/i, href: "../grammar/demonstratives/", label: "Demonstratives" },
+    { re: /\bhaver|\bhá\b/i, href: "../grammar/haver/", label: "Haver" },
+    { re: /\bpret[eé]rito|\bpast|\bimperf|\bperfeito|\bfuture|\bfuturo/i, href: "../grammar/past-future/", label: "Past & future" },
+    { re: /\bparticip|\bcompound|\bcomposto/i, href: "../grammar/compound-tenses/", label: "Compound tenses" },
+    { re: /\breflexiv/i, href: "../grammar/reflexive/", label: "Reflexive" },
+    { re: /\brelative|\bcujo\b|\bque\b/i, href: "../grammar/relative-pronouns/", label: "Relative pronouns" },
+    { re: /\birregular|\bser\b|\bestar\b|\bter\b|\bir\b/i, href: "../grammar/presente-irregular/", label: "Irregular present" },
     { re: /\bpresente|\b-ar\b|\binfinitiv|\bconjugation|present indicative/i, href: "../grammar/presente-regular/", label: "Presente" },
     { re: /\bgostava\b|\bfaz favor\b|\bask nicely\b|\bqueria\b/i, href: "../grammar/ask-nicely/", label: "Ask nicely" },
     { re: /\bcognate/i, href: "../grammar/cognate-patterns/", label: "Cognates" },
+    { re: /\bcore verb|\bhigh-frequency verb/i, href: "../grammar/core-verbs/", label: "Core verbs" },
   ];
 
   const MONTHS = {
@@ -73,31 +115,7 @@
   let pushTimer = null;
   let syncBusy = false;
   let editingWeekId = null;
-
-  function loadChecks() {
-    try {
-      return JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}") || {};
-    } catch {
-      return {};
-    }
-  }
-
-  function saveChecks(obj) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(obj));
-  }
-
-  function loadOverrides() {
-    try {
-      const o = JSON.parse(localStorage.getItem(OVERRIDE_KEY) || "{}") || {};
-      return o && typeof o === "object" ? o : {};
-    } catch {
-      return {};
-    }
-  }
-
-  function saveOverrides(obj) {
-    localStorage.setItem(OVERRIDE_KEY, JSON.stringify(obj || {}));
-  }
+  let grammarSyllabusMap = null;
 
   function weekHasOverride(id) {
     return !!loadOverrides()[id];
@@ -123,46 +141,9 @@
     };
   }
 
-  function loadSyncCfg() {
-    try {
-      const c = JSON.parse(localStorage.getItem(SYNC_CFG_KEY) || "null");
-      if (c && c.gistId && c.token) return c;
-    } catch {
-      /* ignore */
-    }
-    return null;
-  }
-
-  function saveSyncCfg(cfg) {
-    if (!cfg) localStorage.removeItem(SYNC_CFG_KEY);
-    else localStorage.setItem(SYNC_CFG_KEY, JSON.stringify(cfg));
-  }
-
-  function loadSyncMeta() {
-    try {
-      return JSON.parse(localStorage.getItem(SYNC_META_KEY) || "{}") || {};
-    } catch {
-      return {};
-    }
-  }
-
-  function saveSyncMeta(meta) {
-    localStorage.setItem(SYNC_META_KEY, JSON.stringify(meta || {}));
-  }
-
-  function localUpdatedAt() {
-    return Number(loadSyncMeta().updatedAt) || 0;
-  }
-
-  function touchLocal() {
-    const meta = loadSyncMeta();
-    meta.updatedAt = Date.now();
-    saveSyncMeta(meta);
-  }
-
   function progressWhere() {
     return loadSyncCfg()
-      ? "synced across devices (checks + plan edits)"
+      ? "synced across devices (checks + syllabus + plan edits)"
       : "saved in this browser only";
   }
 
@@ -181,173 +162,45 @@
     else delete all[id][skill];
     if (!Object.keys(all[id]).length) delete all[id];
     saveChecks(all);
+    if (skill === "grammar" && grammarSyllabusMap?.weeks?.[id]) {
+      for (const sid of grammarSyllabusMap.weeks[id].syllabusIds || []) {
+        S.setSyllabusCheck(sid, on);
+      }
+    }
     touchLocal();
     schedulePush();
   }
 
-  function b64urlEncode(str) {
-    const bytes = new TextEncoder().encode(str);
-    let bin = "";
-    bytes.forEach((b) => {
-      bin += String.fromCharCode(b);
-    });
-    return btoa(bin).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/g, "");
-  }
-
-  function b64urlDecode(str) {
-    const pad = str.length % 4 === 0 ? "" : "=".repeat(4 - (str.length % 4));
-    const b64 = str.replace(/-/g, "+").replace(/_/g, "/") + pad;
-    const bin = atob(b64);
-    const bytes = Uint8Array.from(bin, (c) => c.charCodeAt(0));
-    return new TextDecoder().decode(bytes);
-  }
-
-  function encodeSyncCode(cfg) {
-    return SYNC_PREFIX + b64urlEncode(JSON.stringify({ g: cfg.gistId, t: cfg.token }));
-  }
-
-  function decodeSyncCode(raw) {
-    let s = String(raw || "").trim();
-    const urlMatch = s.match(/[?&]sync=([^&#]+)/i);
-    if (urlMatch) s = decodeURIComponent(urlMatch[1]);
-    if (s.startsWith(SYNC_PREFIX)) s = s.slice(SYNC_PREFIX.length);
-    try {
-      const obj = JSON.parse(b64urlDecode(s));
-      if (obj && obj.g && obj.t) return { gistId: obj.g, token: obj.t };
-    } catch {
-      /* ignore */
+  function syncPlanGrammarFromSyllabus(changedId) {
+    if (!grammarSyllabusMap?.syllabusToWeeks) return;
+    const weekIds = grammarSyllabusMap.syllabusToWeeks[changedId] || [];
+    if (!weekIds.length) return;
+    const syllabusChecks = S.loadSyllabusChecks();
+    const all = loadChecks();
+    let planChanged = false;
+    for (const wid of weekIds) {
+      const entry = grammarSyllabusMap.weeks[wid];
+      if (!entry?.syllabusIds?.length) continue;
+      const allDone = entry.syllabusIds.every((sid) => syllabusChecks[sid]);
+      if (!all[wid]) all[wid] = {};
+      if (allDone) {
+        if (!all[wid].grammar) planChanged = true;
+        all[wid].grammar = true;
+      } else if (all[wid].grammar) {
+        delete all[wid].grammar;
+        planChanged = true;
+        if (!Object.keys(all[wid]).length) delete all[wid];
+      }
     }
-    return null;
-  }
-
-  function syncLinkFor(cfg) {
-    const code = encodeSyncCode(cfg);
-    const base = `${location.origin}${location.pathname}`;
-    return `${base}?sync=${encodeURIComponent(code)}`;
-  }
-
-  function envelope(checks, overrides, updatedAt) {
-    return {
-      v: 2,
-      updatedAt: updatedAt || Date.now(),
-      checks: checks || {},
-      weekOverrides: overrides || {},
-    };
-  }
-
-  async function gistRequest(method, path, token, body) {
-    const res = await fetch(`https://api.github.com${path}`, {
-      method,
-      headers: {
-        Accept: "application/vnd.github+json",
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-        "X-GitHub-Api-Version": "2022-11-28",
-      },
-      body: body ? JSON.stringify(body) : undefined,
-    });
-    const text = await res.text();
-    let json = null;
-    try {
-      json = text ? JSON.parse(text) : null;
-    } catch {
-      json = null;
+    if (planChanged) {
+      saveChecks(all);
+      touchLocal();
+      schedulePush();
     }
-    if (!res.ok) {
-      const msg =
-        (json && (json.message || json.error)) ||
-        `GitHub API ${res.status}`;
-      throw new Error(msg);
-    }
-    return json;
-  }
-
-  function parseGistPayload(gist) {
-    const file =
-      (gist.files && gist.files[GIST_FILE]) ||
-      (gist.files && Object.values(gist.files)[0]);
-    if (!file || !file.content) throw new Error("Sync file missing in gist.");
-    const payload = JSON.parse(file.content);
-    return {
-      updatedAt: Number(payload.updatedAt) || 0,
-      checks: payload.checks && typeof payload.checks === "object" ? payload.checks : {},
-      weekOverrides:
-        payload.weekOverrides && typeof payload.weekOverrides === "object"
-          ? payload.weekOverrides
-          : {},
-    };
-  }
-
-  async function pullRemote() {
-    const cfg = loadSyncCfg();
-    if (!cfg) return { changed: false };
-    const gist = await gistRequest("GET", `/gists/${cfg.gistId}`, cfg.token);
-    const remote = parseGistPayload(gist);
-    const localAt = localUpdatedAt();
-    if (remote.updatedAt > localAt) {
-      saveChecks(remote.checks);
-      saveOverrides(remote.weekOverrides);
-      applyOverridesToData();
-      saveSyncMeta({ updatedAt: remote.updatedAt, lastPull: Date.now() });
-      return { changed: true, remote };
-    }
-    saveSyncMeta({ ...loadSyncMeta(), lastPull: Date.now() });
-    return { changed: false, remote };
-  }
-
-  async function pushRemote() {
-    const cfg = loadSyncCfg();
-    if (!cfg) return;
-    const updatedAt = localUpdatedAt() || Date.now();
-    const content = JSON.stringify(
-      envelope(loadChecks(), loadOverrides(), updatedAt),
-      null,
-      2
-    );
-    await gistRequest("PATCH", `/gists/${cfg.gistId}`, cfg.token, {
-      files: { [GIST_FILE]: { content } },
-    });
-    saveSyncMeta({ ...loadSyncMeta(), updatedAt, lastPush: Date.now() });
   }
 
   function schedulePush() {
-    if (!loadSyncCfg()) return;
-    clearTimeout(pushTimer);
-    pushTimer = setTimeout(() => {
-      pushRemote().catch((err) => {
-        setSyncStatus(`Sync push failed: ${err.message}`, true);
-      });
-    }, 800);
-  }
-
-  async function createSync(token) {
-    const updatedAt = Date.now();
-    const content = JSON.stringify(
-      envelope(loadChecks(), loadOverrides(), updatedAt),
-      null,
-      2
-    );
-    const gist = await gistRequest("POST", "/gists", token, {
-      description: "ptpt study plan checklist + edits sync",
-      public: false,
-      files: { [GIST_FILE]: { content } },
-    });
-    const cfg = { gistId: gist.id, token };
-    saveSyncCfg(cfg);
-    saveSyncMeta({ updatedAt, lastPush: Date.now() });
-    return cfg;
-  }
-
-  async function connectSync(cfg) {
-    saveSyncCfg(cfg);
-    const remote = await pullRemote();
-    const hasLocal =
-      Object.keys(loadChecks()).length > 0 || Object.keys(loadOverrides()).length > 0;
-    if (!remote.changed && hasLocal) {
-      touchLocal();
-      await pushRemote();
-    }
-    return remote;
+    S.schedulePush((err) => setSyncStatus(`Sync push failed: ${err.message}`, true));
   }
 
   function setSyncStatus(text, isError) {
@@ -394,7 +247,7 @@
       const ago = when
         ? ` · last sync ${new Date(when).toLocaleString()}`
         : "";
-      setSyncStatus(`Sync on${ago}. Checklist and plan edits sync. Treat your sync code like a password.`);
+      setSyncStatus(`Sync on${ago}. Checklist, syllabus, and plan edits sync. Treat your sync code like a password.`);
       actions.innerHTML = `
         <button type="button" id="sync-now">Sync now</button>
         <button type="button" id="sync-copy">Copy code</button>
@@ -833,6 +686,21 @@
   const MONTH1_SCRIPT_URL =
     "https://docs.google.com/document/d/1Vdow94VdPx9N7Kdz5-qntESqtwoaTmVpkZGu4ldjrjg/edit?tab=t.0#heading=h.hn9i3br5cc79";
 
+  function syllabusMapHtml(weekId) {
+    const entry = grammarSyllabusMap?.weeks?.[weekId];
+    if (!entry?.syllabusIds?.length) return "";
+    const syllabusChecks = S.loadSyllabusChecks();
+    const chips = entry.syllabusIds
+      .map((id) => {
+        const label = (entry.labels && entry.labels[id]) || id;
+        const short = label.split("—")[0].split("–")[0].trim();
+        const done = syllabusChecks[id] ? " done" : "";
+        return `<a class="syllabus-map-item${done}" href="../grammar/syllabus/#${esc(id)}">${esc(short)}</a>`;
+      })
+      .join("");
+    return `<div class="syllabus-map"><span class="syllabus-map-label">Syllabus</span>${chips}</div>`;
+  }
+
   function skillLinks(key, text, week) {
     const links = [];
     if (key === "vocab") {
@@ -869,7 +737,10 @@
       }
     }
     if (key === "review") links.push(`<a href="../verbs/">Verbs</a>`);
-    return links.length ? `<div class="skill-links">${links.join("")}</div>` : "";
+    const extra = key === "grammar" && week?.id ? syllabusMapHtml(week.id) : "";
+    return links.length || extra
+      ? `<div class="skill-links">${links.join("")}</div>${extra}`
+      : "";
   }
 
   function esc(s) {
@@ -1446,6 +1317,25 @@
 
   async function init() {
     const lead = document.getElementById("lead");
+    S.onRemoteApplied = () => {
+      applyOverridesToData();
+      refreshOpenWeekPanels();
+    };
+    window.addEventListener("ptpt-syllabus-changed", (e) => {
+      if (e.detail?.id) syncPlanGrammarFromSyllabus(e.detail.id);
+      refreshOpenWeekPanels();
+    });
+    window.addEventListener("storage", (e) => {
+      if (e.key === S.SYLLABUS_STORAGE_KEY || e.key === S.PLAN_CHECKS_KEY) {
+        refreshOpenWeekPanels();
+      }
+    });
+    try {
+      const mapRes = await fetch(MAP_URL);
+      if (mapRes.ok) grammarSyllabusMap = await mapRes.json();
+    } catch {
+      grammarSyllabusMap = null;
+    }
     try {
       const res = await fetch(DATA_URL);
       if (!res.ok) throw new Error(res.statusText);
@@ -1473,9 +1363,24 @@
       }
     }
     setupTabs();
-    const { week } = findThisWeek(data.weeks, new Date());
-    syncBrowseToWeek(week, toISODate(new Date()));
-    renderThisWeek();
+    const weekParam = new URLSearchParams(location.search).get("week");
+    const targetWeek =
+      weekParam && data.weeks.find((w) => w.id === weekParam)
+        ? data.weeks.find((w) => w.id === weekParam)
+        : null;
+    if (targetWeek) {
+      selectedId = targetWeek.id;
+      syncBrowseToWeek(targetWeek);
+      document.querySelector('.tabs button[data-tab="browse"]')?.classList.add("active");
+      document.querySelector('.tabs button[data-tab="this-week"]')?.classList.remove("active");
+      document.getElementById("panel-browse")?.classList.add("active");
+      document.getElementById("panel-this-week")?.classList.remove("active");
+      renderBrowse();
+    } else {
+      const { week } = findThisWeek(data.weeks, new Date());
+      syncBrowseToWeek(week, toISODate(new Date()));
+      renderThisWeek();
+    }
     renderSyncBar();
   }
 
