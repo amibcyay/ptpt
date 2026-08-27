@@ -402,9 +402,10 @@ footer {
 }
 .syllabus-row {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  gap: .75rem;
+  gap: .5rem .75rem;
+  flex-wrap: wrap;
   padding: .5rem .85rem;
   border-bottom: 1px solid var(--line);
   font-size: .9rem;
@@ -418,18 +419,27 @@ footer {
   display: flex;
   align-items: flex-start;
   gap: .55rem;
-  flex: 1;
+  flex: 1 1 auto;
   min-width: 0;
+  max-width: 100%;
   cursor: pointer;
 }
 .syllabus-check input { margin-top: .25rem; flex-shrink: 0; }
+.syllabus-label {
+  min-width: 0;
+  line-height: 1.45;
+  word-wrap: break-word;
+}
 .syllabus-label a { text-decoration: none; font-weight: 500; }
 .syllabus-label a:hover { text-decoration: underline; }
 
 .syllabus-badges {
   display: flex;
-  flex-shrink: 0;
+  flex-wrap: wrap;
+  align-items: center;
   gap: .35rem;
+  flex: 0 1 auto;
+  max-width: 100%;
 }
 .syllabus-badge {
   display: inline-block;
@@ -506,6 +516,8 @@ footer {
   font-size: .72rem;
   color: var(--muted);
   font-weight: 500;
+  white-space: normal;
+  line-height: 1.35;
 }
 .syllabus-plan-link a {
   text-decoration: none;
@@ -779,6 +791,40 @@ code {
   background: #ede9e0;
   padding: .1em .35em;
   border-radius: 4px;
+}
+
+@media (max-width: 640px) {
+  .syllabus-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: .65rem;
+  }
+  .syllabus-search-wrap {
+    max-width: none;
+    flex: 1 1 auto;
+  }
+  .syllabus-reset {
+    margin-left: 0;
+    align-self: flex-start;
+  }
+  .syllabus-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: .45rem;
+    padding: .65rem .75rem;
+  }
+  .syllabus-check {
+    width: 100%;
+  }
+  .syllabus-badges {
+    width: 100%;
+    padding-left: 1.45rem;
+    box-sizing: border-box;
+  }
+  .syllabus-badge.add-week {
+    white-space: normal;
+    text-align: center;
+  }
 }
 
 @media (max-width: 520px) {
