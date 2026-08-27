@@ -12,6 +12,36 @@
     display: flex; flex-wrap: wrap; gap: .4rem;
     margin: 0 0 1rem;
   }
+  .track-bar {
+    margin: 0 0 1rem;
+  }
+  .track-toggle {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: .35rem;
+    margin: 0 0 .45rem;
+  }
+  .track-btn {
+    padding: .4rem .75rem;
+    border: 1px solid var(--line);
+    background: var(--card);
+    border-radius: 8px;
+    font: inherit;
+    font-size: .88rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--ink);
+  }
+  .track-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+  .track-note {
+    margin: 0;
+    font-size: .88rem;
+    color: var(--muted);
+  }
   .tabs button {
     padding: .4rem .75rem;
     border: 1px solid var(--line);
@@ -488,6 +518,8 @@
     <h1 class="brand"><img class="brand-logo" src="../logo.png?v=2" alt="" width="40" height="40"/>Study plan</h1>
     <p class="lead" id="lead" hidden></p>
 
+    <div id="trackBar" class="track-bar" aria-live="polite"></div>
+
     <div class="tabs" role="tablist">
       <button type="button" class="active" data-tab="this-week" role="tab">This week</button>
       <button type="button" data-tab="browse" role="tab">Browse</button>
@@ -540,7 +572,7 @@
   <script src="../scripts/fuzzy.js"></script>
   <script src="../scripts/vocab-sheet.js" defer></script>
   <script src="../scripts/ptpt-sync.js" defer></script>
-  <script src="../scripts/plan.js?v=inline12" defer></script>
+  <script src="../scripts/plan.js?v=inline13" defer></script>
   <script src="../scripts/translator.js" defer></script>
 </body>
 </html>

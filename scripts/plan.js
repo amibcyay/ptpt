@@ -1,4 +1,4 @@
-/* Unified study plan hub — Sep 2026 → Aug 2032. */
+/* Unified study plan hub — 3-year (→2029) or 5-year (→2032) track. */
 (function () {
   const S = window.PtptSync;
   if (!S) {
@@ -6,8 +6,10 @@
     return;
   }
 
-  const DATA_URL = "../data/plan-weeks.json";
+  const DATA_URL_5Y = "../data/plan-weeks.json";
+  const DATA_URL_3Y = "../data/plan-weeks-3y.json";
   const MAP_URL = "../data/plan-grammar-syllabus-map.json";
+  const TRACK_KEY = "ptpt-plan-track";
   const STORAGE_KEY = S.PLAN_CHECKS_KEY;
   const OVERRIDE_KEY = S.OVERRIDE_KEY;
   const SYNC_CFG_KEY = S.SYNC_CFG_KEY;
@@ -116,12 +118,120 @@
   let syncBusy = false;
   let editingWeekId = null;
   let grammarSyllabusMap = null;
+  let grammarMapAll = null;
   let syllabusCatalog = [];
   let syllabusById = {};
   let editingManualSyllabus = []; // draft list while editing a week
   let editingHiddenAuto = []; // auto-mapped ids the user removed while editing
+  let activeTrack = "5y";
 
   const SYLLABUS_JSON_URL = "../data/grammar-syllabus.json";
+
+  function normalizeTrack(raw) {
+    const t = String(raw || "").toLowerCase();
+    if (t === "3y" || t === "3" || t === "2029") return "3y";
+    return "5y";
+  }
+
+  function dataUrlForTrack(track) {
+    return normalizeTrack(track) === "3y" ? DATA_URL_3Y : DATA_URL_5Y;
+  }
+
+  function loadStoredTrack() {
+    try {
+      return normalizeTrack(localStorage.getItem(TRACK_KEY));
+    } catch {
+      return "5y";
+    }
+  }
+
+  function persistTrack(track) {
+    activeTrack = normalizeTrack(track);
+    try {
+      localStorage.setItem(TRACK_KEY, activeTrack);
+    } catch {
+      /* ignore */
+    }
+  }
+
+  function applyGrammarMapTrack() {
+    if (!grammarMapAll) {
+      grammarSyllabusMap = null;
+      return;
+    }
+    const tracks = grammarMapAll.tracks;
+    if (tracks && tracks[activeTrack]) {
+      grammarSyllabusMap = tracks[activeTrack];
+    } else {
+      // Legacy flat map (pre-tracks)
+      grammarSyllabusMap = grammarMapAll;
+    }
+  }
+
+  function trackBannerText() {
+    if (activeTrack === "3y") {
+      return (
+        data?.meta?.hoursNote ||
+        "3-year DIPLE track · ~16–22 h/week · ends Sep 2029"
+      );
+    }
+    return (
+      data?.meta?.hoursNote ||
+      "5-year ladder · ~5 h/week · ends Aug 2032"
+    );
+  }
+
+  function renderTrackToggle() {
+    const bar = document.getElementById("trackBar");
+    if (!bar) return;
+    bar.innerHTML = `
+      <div class="track-toggle" role="group" aria-label="Plan track">
+        <button type="button" class="track-btn${activeTrack === "3y" ? " active" : ""}" data-track="3y">3-year → 2029</button>
+        <button type="button" class="track-btn${activeTrack === "5y" ? " active" : ""}" data-track="5y">5-year → 2032</button>
+      </div>
+      <p class="track-note">${esc(trackBannerText())}</p>`;
+    bar.querySelectorAll("[data-track]").forEach((btn) => {
+      btn.addEventListener("click", async () => {
+        const next = normalizeTrack(btn.getAttribute("data-track"));
+        if (next === activeTrack) return;
+        await switchTrack(next);
+      });
+    });
+  }
+
+  async function switchTrack(track) {
+    persistTrack(track);
+    exitEditMode();
+    selectedId = null;
+    browseDateValue = "";
+    try {
+      const res = await fetch(dataUrlForTrack(activeTrack));
+      if (!res.ok) throw new Error(res.statusText);
+      baseData = await res.json();
+      applyOverridesToData();
+      applyGrammarMapTrack();
+    } catch (err) {
+      const lead = document.getElementById("lead");
+      if (lead) {
+        lead.hidden = false;
+        lead.textContent = `Could not load ${activeTrack} plan data.`;
+      }
+      console.error(err);
+      return;
+    }
+    const url = new URL(location.href);
+    url.searchParams.set("track", activeTrack);
+    url.searchParams.delete("week");
+    history.replaceState(null, "", url.pathname + url.search + url.hash);
+    renderTrackToggle();
+    const { week } = findThisWeek(data.weeks, new Date());
+    syncBrowseToWeek(week, toISODate(new Date()));
+    const thisWeekActive = document
+      .getElementById("panel-this-week")
+      ?.classList.contains("active");
+    if (thisWeekActive) renderThisWeek({ resetToToday: true });
+    else renderBrowse();
+  }
 
   function fold(s) {
     return typeof window.foldPt === "function"
@@ -1594,8 +1704,12 @@
     });
     try {
       const mapRes = await fetch(MAP_URL);
-      if (mapRes.ok) grammarSyllabusMap = await mapRes.json();
+      if (mapRes.ok) {
+        grammarMapAll = await mapRes.json();
+        applyGrammarMapTrack();
+      }
     } catch {
+      grammarMapAll = null;
       grammarSyllabusMap = null;
     }
     try {
@@ -1609,16 +1723,23 @@
     } catch {
       syllabusCatalog = [];
     }
+    const params = new URLSearchParams(location.search);
+    const weekParamEarly = params.get("week");
+    const trackParam = params.get("track");
+    if (trackParam) persistTrack(trackParam);
+    else if (weekParamEarly && String(weekParamEarly).startsWith("3y-")) persistTrack("3y");
+    else persistTrack(loadStoredTrack());
     try {
-      const res = await fetch(DATA_URL);
+      const res = await fetch(dataUrlForTrack(activeTrack));
       if (!res.ok) throw new Error(res.statusText);
       baseData = await res.json();
       applyOverridesToData();
+      applyGrammarMapTrack();
     } catch (e) {
       if (lead) {
         lead.hidden = false;
         lead.textContent =
-          "Could not load plan-weeks.json. Serve the site over HTTP (not file://).";
+          "Could not load plan weeks. Serve the site over HTTP (not file://).";
       }
       return;
     }
@@ -1636,7 +1757,8 @@
       }
     }
     setupTabs();
-    const weekParam = new URLSearchParams(location.search).get("week");
+    renderTrackToggle();
+    const weekParam = weekParamEarly;
     const targetWeek =
       weekParam && data.weeks.find((w) => w.id === weekParam)
         ? data.weeks.find((w) => w.id === weekParam)
