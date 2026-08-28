@@ -124,8 +124,17 @@
   let editingManualSyllabus = []; // draft list while editing a week
   let editingHiddenAuto = []; // auto-mapped ids the user removed while editing
   let activeTrack = "5y";
+  let planSearchQuery = "";
+  let planSearchTimer = null;
+  let planSearchBound = false;
 
   const SYLLABUS_JSON_URL = "../data/grammar-syllabus.json";
+  const PLAN_SEARCH_FIELDS = [
+    { key: "theme", rank: 1, label: "Theme" },
+    { key: "vocab", rank: 2, label: "Vocab" },
+    { key: "grammar", rank: 2, label: "Grammar" },
+    { key: "output", rank: 3, label: "Output" },
+  ];
 
   function normalizeTrack(raw) {
     const t = String(raw || "").toLowerCase();
@@ -182,6 +191,206 @@
     return `${main} · ${progressNote}`;
   }
 
+  function buildPlanSearchIndex() {
+    return !!(data?.weeks?.length && syllabusCatalog.length);
+  }
+
+  function matchSnippet(text, query, maxLen = 90) {
+    if (!text) return "";
+    const hay = fold(text);
+    const idx = hay.indexOf(query);
+    if (idx < 0) {
+      const trimmed = text.trim();
+      return trimmed.length > maxLen ? `${trimmed.slice(0, maxLen)}…` : trimmed;
+    }
+    const start = Math.max(0, idx - 20);
+    const end = Math.min(text.length, idx + query.length + 50);
+    let snip = text.slice(start, end).trim();
+    if (start > 0) snip = `…${snip}`;
+    if (end < text.length) snip = `${snip}…`;
+    return snip;
+  }
+
+  function searchPlanSchedule(query) {
+    const q = fold(query).trim();
+    if (!q || !data?.weeks?.length) return [];
+    const byId = new Map();
+
+    const addHit = (week, rank, matchKind, matchLabel, snippet) => {
+      if (!week?.id) return;
+      const prev = byId.get(week.id);
+      if (!prev || rank < prev.rank) {
+        byId.set(week.id, { week, rank, matchKind, matchLabel, snippet });
+      }
+    };
+
+    for (const item of syllabusCatalog) {
+      const hay = fold(`${item.id} ${item.level} ${item.category} ${item.label}`);
+      if (!hay.includes(q)) continue;
+      for (const wid of weeksForSyllabusId(item.id)) {
+        const week = data.weeks.find((w) => w.id === wid);
+        addHit(week, 0, "syllabus", `Syllabus · ${item.label}`, item.label);
+      }
+    }
+
+    for (const week of data.weeks) {
+      const prev = byId.get(week.id);
+      if (prev?.rank === 0) continue;
+      for (const { key, rank, label } of PLAN_SEARCH_FIELDS) {
+        const text = week[key] || "";
+        if (!fold(text).includes(q)) continue;
+        const snip = matchSnippet(text, q);
+        addHit(week, rank, key, `${label} · ${snip}`, snip);
+        break;
+      }
+    }
+
+    return [...byId.values()].sort(
+      (a, b) => a.rank - b.rank || (a.week.week || 0) - (b.week.week || 0)
+    );
+  }
+
+  function syncPlanSearchParam(q) {
+    const url = new URL(location.href);
+    const trimmed = String(q || "").trim();
+    if (trimmed) url.searchParams.set("q", trimmed);
+    else url.searchParams.delete("q");
+    history.replaceState(null, "", url.pathname + url.search + url.hash);
+  }
+
+  function closePlanSearchResults() {
+    const results = document.getElementById("plan-search-results");
+    const didyou = document.getElementById("plan-search-didyou");
+    if (results) {
+      results.hidden = true;
+      results.innerHTML = "";
+    }
+    if (didyou) {
+      didyou.hidden = true;
+      didyou.innerHTML = "";
+    }
+  }
+
+  function renderPlanSearch() {
+    const input = document.getElementById("plan-search");
+    const resultsEl = document.getElementById("plan-search-results");
+    const didyouEl = document.getElementById("plan-search-didyou");
+    if (!input || !resultsEl || !didyouEl) return;
+
+    const raw = String(planSearchQuery || input.value || "").trim();
+    if (input.value !== planSearchQuery) input.value = planSearchQuery;
+
+    if (!raw) {
+      closePlanSearchResults();
+      return;
+    }
+
+    if (!buildPlanSearchIndex()) {
+      closePlanSearchResults();
+      return;
+    }
+
+    const q = fold(raw);
+    const hits = searchPlanSchedule(raw);
+    didyouEl.hidden = true;
+    didyouEl.innerHTML = "";
+
+    if (!hits.length) {
+      resultsEl.hidden = false;
+      resultsEl.innerHTML = `<p class="plan-search-empty">No weeks match on this track.</p>`;
+      if (raw.length >= 2 && window.PtFuzzy && syllabusCatalog.length) {
+        const cands = syllabusCatalog.map((i) => ({
+          key: i.id,
+          label: i.label,
+          hay: `${i.label} ${i.category || ""}`,
+          meta: i.level,
+        }));
+        const fuzzy = PtFuzzy.suggest(raw, cands, { limit: 5 });
+        if (fuzzy.length) {
+          didyouEl.hidden = false;
+          didyouEl.innerHTML = PtFuzzy.didYouMeanHtml(raw, fuzzy, (s) => {
+            const item = syllabusById[s.key];
+            const label = item?.label || s.label;
+            return `data-plan-suggest="${esc(label)}"`;
+          });
+          didyouEl.querySelectorAll("[data-plan-suggest]").forEach((btn) => {
+            btn.addEventListener("click", () => {
+              const next = btn.getAttribute("data-plan-suggest") || "";
+              planSearchQuery = next;
+              input.value = next;
+              syncPlanSearchParam(next);
+              renderPlanSearch();
+              input.focus();
+            });
+          });
+        }
+      }
+      return;
+    }
+
+    resultsEl.hidden = false;
+    resultsEl.innerHTML = hits
+      .map(({ week, matchLabel }) => {
+        const title = `${weekTitle(week)} · ${week.dates}`;
+        return `<button type="button" class="plan-search-hit" data-goto-week="${esc(week.id)}">
+          <strong>${esc(title)}</strong>
+          <span class="plan-search-meta">${esc(matchLabel)}</span>
+        </button>`;
+      })
+      .join("");
+    resultsEl.querySelectorAll("[data-goto-week]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const wid = btn.getAttribute("data-goto-week");
+        if (wid) goToPlanWeek(wid);
+      });
+    });
+  }
+
+  function goToPlanWeek(weekId) {
+    const week = data?.weeks?.find((w) => w.id === weekId);
+    if (!week) return;
+    if (editingWeekId && editingWeekId !== weekId) exitEditMode();
+    syncBrowseToWeek(week);
+    document.querySelectorAll(".tabs button").forEach((b) => b.classList.remove("active"));
+    document.querySelectorAll(".panel").forEach((p) => p.classList.remove("active"));
+    document.querySelector('.tabs button[data-tab="browse"]')?.classList.add("active");
+    document.getElementById("panel-browse")?.classList.add("active");
+    document.getElementById("panel-this-week")?.classList.remove("active");
+    renderBrowse();
+    closePlanSearchResults();
+    const url = new URL(location.href);
+    url.searchParams.set("week", weekId);
+    history.replaceState(null, "", url.pathname + url.search + url.hash);
+    requestAnimationFrame(() => {
+      document.querySelector("#browse-detail")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }
+
+  function bindPlanSearch() {
+    if (planSearchBound) return;
+    const input = document.getElementById("plan-search");
+    if (!input) return;
+    planSearchBound = true;
+
+    const applySearch = () => {
+      planSearchQuery = input.value || "";
+      syncPlanSearchParam(planSearchQuery);
+      renderPlanSearch();
+    };
+
+    input.addEventListener("input", () => {
+      if (planSearchTimer) clearTimeout(planSearchTimer);
+      planSearchTimer = setTimeout(applySearch, 150);
+    });
+    input.addEventListener("search", applySearch);
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closePlanSearchResults();
+    });
+    input.addEventListener("focus", () => {
+      if (String(input.value || "").trim()) renderPlanSearch();
+    });
+  }
+
   function renderTrackToggle() {
     const bar = document.getElementById("trackBar");
     if (!bar) return;
@@ -232,6 +441,8 @@
       ?.classList.contains("active");
     if (thisWeekActive) renderThisWeek({ resetToToday: true });
     else renderBrowse();
+    buildPlanSearchIndex();
+    renderPlanSearch();
   }
 
   function fold(s) {
@@ -1702,6 +1913,8 @@
         if (wrap && wrap.contains(e.target)) return;
         dd.hidden = true;
       });
+      const planWrap = document.getElementById("planSearchBar");
+      if (planWrap && !planWrap.contains(e.target)) closePlanSearchResults();
     });
     try {
       const mapRes = await fetch(MAP_URL);
@@ -1758,7 +1971,16 @@
       }
     }
     setupTabs();
+    bindPlanSearch();
     renderTrackToggle();
+    buildPlanSearchIndex();
+    const qParam = params.get("q");
+    if (qParam) {
+      planSearchQuery = qParam;
+      const searchInput = document.getElementById("plan-search");
+      if (searchInput) searchInput.value = qParam;
+      renderPlanSearch();
+    }
     const weekParam = weekParamEarly;
     const targetWeek =
       weekParam && data.weeks.find((w) => w.id === weekParam)

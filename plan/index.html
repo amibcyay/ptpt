@@ -497,6 +497,75 @@
     border-color: #fecaca;
     background: #fef2f2;
   }
+  .plan-search-wrap {
+    position: relative;
+    margin: 0 0 1rem;
+    max-width: 36rem;
+  }
+  .plan-search {
+    width: 100%;
+    padding: .5rem .7rem;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font: inherit;
+    background: #fff;
+  }
+  .plan-search-results {
+    position: absolute;
+    z-index: 20;
+    left: 0;
+    right: 0;
+    top: calc(100% + .25rem);
+    max-height: min(24rem, 60vh);
+    overflow: auto;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .08);
+  }
+  .plan-search-results:not([hidden]) {
+    display: block;
+  }
+  .plan-search-hit {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: .65rem .85rem;
+    border: 0;
+    border-bottom: 1px solid var(--line);
+    background: transparent;
+    font: inherit;
+    cursor: pointer;
+    color: var(--ink);
+  }
+  .plan-search-hit:last-child {
+    border-bottom: 0;
+  }
+  .plan-search-hit:hover,
+  .plan-search-hit:focus-visible {
+    background: #fafaf9;
+  }
+  .plan-search-hit strong {
+    display: block;
+    font-size: .92rem;
+    margin: 0 0 .2rem;
+  }
+  .plan-search-hit .plan-search-meta {
+    display: block;
+    font-size: .82rem;
+    color: var(--muted);
+    line-height: 1.35;
+  }
+  .plan-search-empty {
+    padding: .75rem .85rem;
+    margin: 0;
+    font-size: .88rem;
+    color: var(--muted);
+  }
+  .plan-search-didyou {
+    margin: .35rem 0 0;
+    font-size: .85rem;
+  }
 </style>
 </head>
 <body>
@@ -519,6 +588,15 @@
     <p class="lead" id="lead" hidden></p>
 
     <div id="trackBar" class="track-bar" aria-live="polite"></div>
+
+    <div id="planSearchBar" class="plan-search-wrap">
+      <label for="plan-search" class="visually-hidden">Search plan</label>
+      <input type="search" id="plan-search" class="plan-search"
+        placeholder="Search grammar, vocab, or syllabus… (e.g. subjunctive, Feliz Natal)"
+        autocomplete="off" />
+      <div id="plan-search-results" class="plan-search-results" hidden></div>
+      <div id="plan-search-didyou" class="plan-search-didyou" hidden></div>
+    </div>
 
     <div class="tabs" role="tablist">
       <button type="button" class="active" data-tab="this-week" role="tab">This week</button>
@@ -572,7 +650,7 @@
   <script src="../scripts/fuzzy.js"></script>
   <script src="../scripts/vocab-sheet.js" defer></script>
   <script src="../scripts/ptpt-sync.js" defer></script>
-  <script src="../scripts/plan.js?v=inline14" defer></script>
+  <script src="../scripts/plan.js?v=inline15" defer></script>
   <script src="../scripts/translator.js" defer></script>
 </body>
 </html>
