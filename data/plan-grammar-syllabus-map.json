@@ -45,33 +45,33 @@
      "theme": "Numbers, money, time",
      "syllabusIds": [
       "a1-questions",
-      "a1-e-que",
       "a2-adv-time",
-      "a2-adv-place"
+      "a2-adv-place",
+      "a1-e-que"
      ],
      "labels": {
       "a1-questions": "Interrogatives & negation — quem, onde, quando, como, porquê, o que, quanto; não, nunca, nada",
-      "a1-e-que": "É que in questions",
       "a2-adv-time": "Adverbs — time, manner, degree (já, ainda, bem…)",
-      "a2-adv-place": "Adverbs of place — aqui, ali, lá; aonde vs onde"
+      "a2-adv-place": "Adverbs of place — aqui, ali, lá; aonde vs onde",
+      "a1-e-que": "É que in questions"
      }
     },
     "w4": {
      "weekNum": 4,
      "theme": "Month 1 check + café preview",
      "syllabusIds": [
+      "a1-plurals-s",
       "a1-ser-estar",
       "a1-irreg-present",
       "a1-irreg-present-more",
-      "a2-ask-nicely",
-      "a1-plurals-s"
+      "a2-ask-nicely"
      ],
      "labels": {
+      "a1-plurals-s": "Plurals — -s, -es, -ões, irregulars",
       "a1-ser-estar": "Ser vs estar — identity, traits, location, mood",
       "a1-irreg-present": "Core irregulars — ser, estar, ter, ir, vir, fazer, poder, querer, ver, dizer, sair, pôr…",
       "a1-irreg-present-more": "More high-frequency irregulars — dar, saber, haver, pedir, trazer…",
-      "a2-ask-nicely": "Asking nicely — queria, podia, será que, faz favor",
-      "a1-plurals-s": "Plurals — -s, -es, -ões, irregulars"
+      "a2-ask-nicely": "Asking nicely — queria, podia, será que, faz favor"
      }
     },
     "w5": {
@@ -4041,16 +4041,19 @@
      "w6",
      "w14"
     ],
-    "a1-e-que": [
-     "w3",
-     "w6",
-     "w14"
-    ],
     "a2-adv-time": [
      "w3"
     ],
     "a2-adv-place": [
      "w3"
+    ],
+    "a1-e-que": [
+     "w3",
+     "w6",
+     "w14"
+    ],
+    "a1-plurals-s": [
+     "w4"
     ],
     "a2-ask-nicely": [
      "w4",
@@ -4070,9 +4073,6 @@
      "w203",
      "w204",
      "w205"
-    ],
-    "a1-plurals-s": [
-     "w4"
     ],
     "a1-demonstratives": [
      "w6",
@@ -4827,7 +4827,7 @@
    }
   },
   "3y": {
-   "weekCount": 129,
+   "weekCount": 137,
    "weeks": {
     "3y-w1": {
      "weekNum": 1,
@@ -4847,29 +4847,45 @@
     },
     "3y-w2": {
      "weekNum": 2,
-     "theme": "Numbers, money, time",
+     "theme": "Who you are · Numbers, money, time",
      "syllabusIds": [
       "a1-questions",
-      "a1-e-que",
       "a2-adv-time",
-      "a2-adv-place"
+      "a2-adv-place",
+      "a1-ser-estar",
+      "a1-noun-gender",
+      "a1-def-articles",
+      "a1-possessives",
+      "a1-e-que"
      ],
      "labels": {
       "a1-questions": "Interrogatives & negation — quem, onde, quando, como, porquê, o que, quanto; não, nunca, nada",
-      "a1-e-que": "É que in questions",
       "a2-adv-time": "Adverbs — time, manner, degree (já, ainda, bem…)",
-      "a2-adv-place": "Adverbs of place — aqui, ali, lá; aonde vs onde"
+      "a2-adv-place": "Adverbs of place — aqui, ali, lá; aonde vs onde",
+      "a1-ser-estar": "Ser vs estar — identity, traits, location, mood",
+      "a1-noun-gender": "Noun gender & number; agreement with articles/adjectives",
+      "a1-def-articles": "Definite & indefinite articles — o/a, um/uma",
+      "a1-possessives": "Possessives — o meu, a tua… (+ article habits)",
+      "a1-e-que": "É que in questions"
      }
     },
     "3y-w3": {
      "weekNum": 3,
-     "theme": "Café and food",
+     "theme": "Month 1 check + café preview · Café and food",
      "syllabusIds": [
+      "a1-plurals-s",
+      "a1-ser-estar",
+      "a1-irreg-present",
+      "a1-irreg-present-more",
       "a1-present-ar",
       "a1-present-er",
       "a2-ask-nicely"
      ],
      "labels": {
+      "a1-plurals-s": "Plurals — -s, -es, -ões, irregulars",
+      "a1-ser-estar": "Ser vs estar — identity, traits, location, mood",
+      "a1-irreg-present": "Core irregulars — ser, estar, ter, ir, vir, fazer, poder, querer, ver, dizer, sair, pôr…",
+      "a1-irreg-present-more": "More high-frequency irregulars — dar, saber, haver, pedir, trazer…",
       "a1-present-ar": "Regular present — -AR (incl. stem changes overview)",
       "a1-present-er": "Regular present — -ER",
       "a2-ask-nicely": "Asking nicely — queria, podia, será que, faz favor"
@@ -4877,9 +4893,12 @@
     },
     "3y-w4": {
      "weekNum": 4,
-     "theme": "Around town",
+     "theme": "Shopping · Around town",
      "syllabusIds": [
       "a2-prep-verbs",
+      "a1-questions",
+      "a1-e-que",
+      "a1-demonstratives",
       "a2-haver-há",
       "a2-haver-time",
       "a1-irreg-present",
@@ -4887,6 +4906,9 @@
      ],
      "labels": {
       "a2-prep-verbs": "Verb + preposition pairings (gostar de, pensar em…)",
+      "a1-questions": "Interrogatives & negation — quem, onde, quando, como, porquê, o que, quanto; não, nunca, nada",
+      "a1-e-que": "É que in questions",
+      "a1-demonstratives": "Demonstratives — este/esse/aquele, isto/isso/aquilo & basic contractions",
       "a2-haver-há": "Haver — há (there is/are), existence vs ter",
       "a2-haver-time": "Há + time — há dois anos",
       "a1-irreg-present": "Core irregulars — ser, estar, ter, ir, vir, fazer, poder, querer, ver, dizer, sair, pôr…",
@@ -4895,38 +4917,14 @@
     },
     "3y-w5": {
      "weekNum": 5,
-     "theme": "Hotel",
-     "syllabusIds": [
-      "a2-ask-nicely"
-     ],
-     "labels": {
-      "a2-ask-nicely": "Asking nicely — queria, podia, será que, faz favor"
-     }
-    },
-    "3y-w7": {
-     "weekNum": 7,
-     "theme": "Travel-ready review",
-     "syllabusIds": [
-      "a1-ser-estar",
-      "a1-irreg-present",
-      "a1-irreg-present-more",
-      "a2-ask-nicely"
-     ],
-     "labels": {
-      "a1-ser-estar": "Ser vs estar — identity, traits, location, mood",
-      "a1-irreg-present": "Core irregulars — ser, estar, ter, ir, vir, fazer, poder, querer, ver, dizer, sair, pôr…",
-      "a1-irreg-present-more": "More high-frequency irregulars — dar, saber, haver, pedir, trazer…",
-      "a2-ask-nicely": "Asking nicely — queria, podia, será que, faz favor"
-     }
-    },
-    "3y-w8": {
-     "weekNum": 8,
-     "theme": "Personal travel lines",
+     "theme": "Transport + month 2 check · Hotel",
      "syllabusIds": [
       "a1-irreg-present",
       "a1-irreg-present-more",
       "a1-present-ar",
       "a1-present-er",
+      "a2-ask-nicely",
+      "a1-estar-a",
       "a1-ir-inf",
       "a2-past-ar"
      ],
@@ -4935,13 +4933,59 @@
       "a1-irreg-present-more": "More high-frequency irregulars — dar, saber, haver, pedir, trazer…",
       "a1-present-ar": "Regular present — -AR (incl. stem changes overview)",
       "a1-present-er": "Regular present — -ER",
+      "a2-ask-nicely": "Asking nicely — queria, podia, será que, faz favor",
+      "a1-estar-a": "Continuous present — estar a + infinitive (EP)",
       "a1-ir-inf": "Immediate future — ir + infinitive",
       "a2-past-ar": "Pretérito perfeito simples — regular -AR"
      }
     },
+    "3y-w7": {
+     "weekNum": 7,
+     "theme": "Festive + travel mock day · Travel-ready review",
+     "syllabusIds": [
+      "a1-ser-estar",
+      "a1-irreg-present",
+      "a1-irreg-present-more",
+      "a2-ask-nicely",
+      "a1-ir-inf",
+      "a2-past-ar"
+     ],
+     "labels": {
+      "a1-ser-estar": "Ser vs estar — identity, traits, location, mood",
+      "a1-irreg-present": "Core irregulars — ser, estar, ter, ir, vir, fazer, poder, querer, ver, dizer, sair, pôr…",
+      "a1-irreg-present-more": "More high-frequency irregulars — dar, saber, haver, pedir, trazer…",
+      "a2-ask-nicely": "Asking nicely — queria, podia, será que, faz favor",
+      "a1-ir-inf": "Immediate future — ir + infinitive",
+      "a2-past-ar": "Pretérito perfeito simples — regular -AR"
+     }
+    },
+    "3y-w8": {
+     "weekNum": 8,
+     "theme": "Travel-ready review · Personal travel lines",
+     "syllabusIds": [
+      "a1-questions",
+      "a1-e-que",
+      "a1-demonstratives",
+      "a1-irreg-present",
+      "a1-irreg-present-more",
+      "a1-present-ar",
+      "a1-present-er",
+      "a1-ir-inf"
+     ],
+     "labels": {
+      "a1-questions": "Interrogatives & negation — quem, onde, quando, como, porquê, o que, quanto; não, nunca, nada",
+      "a1-e-que": "É que in questions",
+      "a1-demonstratives": "Demonstratives — este/esse/aquele, isto/isso/aquilo & basic contractions",
+      "a1-irreg-present": "Core irregulars — ser, estar, ter, ir, vir, fazer, poder, querer, ver, dizer, sair, pôr…",
+      "a1-irreg-present-more": "More high-frequency irregulars — dar, saber, haver, pedir, trazer…",
+      "a1-present-ar": "Regular present — -AR (incl. stem changes overview)",
+      "a1-present-er": "Regular present — -ER",
+      "a1-ir-inf": "Immediate future — ir + infinitive"
+     }
+    },
     "3y-w9": {
      "weekNum": 9,
-     "theme": "Year-end consolidate",
+     "theme": "Festive and help phrases · Year-end consolidate",
      "syllabusIds": [
       "a1-ser-estar",
       "a1-noun-gender",
@@ -5087,6 +5131,20 @@
       "a2-clitics-me-te": "Clitics me & te in use"
      }
     },
+    "3y-w18": {
+     "weekNum": 18,
+     "theme": "A1 reading month",
+     "syllabusIds": [
+      "a1-ser-estar",
+      "a1-irreg-present",
+      "a1-irreg-present-more"
+     ],
+     "labels": {
+      "a1-ser-estar": "Ser vs estar — identity, traits, location, mood",
+      "a1-irreg-present": "Core irregulars — ser, estar, ter, ir, vir, fazer, poder, querer, ver, dizer, sair, pôr…",
+      "a1-irreg-present-more": "More high-frequency irregulars — dar, saber, haver, pedir, trazer…"
+     }
+    },
     "3y-w19": {
      "weekNum": 19,
      "theme": "A1 reading month",
@@ -5139,6 +5197,30 @@
     },
     "3y-w22": {
      "weekNum": 22,
+     "theme": "A1 checkpoint · Right now in Portugal",
+     "syllabusIds": [
+      "a1-ser-estar",
+      "a1-noun-gender",
+      "a1-def-articles",
+      "a1-irreg-present",
+      "a1-irreg-present-more",
+      "a1-present-ar",
+      "a1-present-er",
+      "a1-estar-a"
+     ],
+     "labels": {
+      "a1-ser-estar": "Ser vs estar — identity, traits, location, mood",
+      "a1-noun-gender": "Noun gender & number; agreement with articles/adjectives",
+      "a1-def-articles": "Definite & indefinite articles — o/a, um/uma",
+      "a1-irreg-present": "Core irregulars — ser, estar, ter, ir, vir, fazer, poder, querer, ver, dizer, sair, pôr…",
+      "a1-irreg-present-more": "More high-frequency irregulars — dar, saber, haver, pedir, trazer…",
+      "a1-present-ar": "Regular present — -AR (incl. stem changes overview)",
+      "a1-present-er": "Regular present — -ER",
+      "a1-estar-a": "Continuous present — estar a + infinitive (EP)"
+     }
+    },
+    "3y-w23": {
+     "weekNum": 23,
      "theme": "Right now in Portugal",
      "syllabusIds": [
       "a1-irreg-present",
@@ -5155,9 +5237,9 @@
       "a1-estar-a": "Continuous present — estar a + infinitive (EP)"
      }
     },
-    "3y-w23": {
-     "weekNum": 23,
-     "theme": "Right now in Portugal",
+    "3y-w24": {
+     "weekNum": 24,
+     "theme": "Right now in Portugal · Last weekend",
      "syllabusIds": [
       "a1-irreg-present",
       "a1-irreg-present-more",
@@ -5191,7 +5273,7 @@
     },
     "3y-w26": {
      "weekNum": 26,
-     "theme": "A trip I took",
+     "theme": "Last weekend · A trip I took",
      "syllabusIds": [
       "a1-ir-inf",
       "a2-past-ar",
@@ -5223,14 +5305,18 @@
     },
     "3y-w28": {
      "weekNum": 28,
-     "theme": "Used to",
+     "theme": "A trip I took · Used to",
      "syllabusIds": [
       "a1-ir-inf",
-      "a2-past-ar"
+      "a2-past-ar",
+      "a1-irreg-present",
+      "a1-irreg-present-more"
      ],
      "labels": {
       "a1-ir-inf": "Immediate future — ir + infinitive",
-      "a2-past-ar": "Pretérito perfeito simples — regular -AR"
+      "a2-past-ar": "Pretérito perfeito simples — regular -AR",
+      "a1-irreg-present": "Core irregulars — ser, estar, ter, ir, vir, fazer, poder, querer, ver, dizer, sair, pôr…",
+      "a1-irreg-present-more": "More high-frequency irregulars — dar, saber, haver, pedir, trazer…"
      }
     },
     "3y-w29": {
@@ -5247,7 +5333,7 @@
     },
     "3y-w30": {
      "weekNum": 30,
-     "theme": "Telling a story",
+     "theme": "Used to · Telling a story",
      "syllabusIds": [
       "a1-ir-inf",
       "a2-past-ar"
@@ -5269,9 +5355,21 @@
       "a2-past-ar": "Pretérito perfeito simples — regular -AR"
      }
     },
+    "3y-w32": {
+     "weekNum": 32,
+     "theme": "Telling a story · Clothes and comparison",
+     "syllabusIds": [
+      "a1-ir-inf",
+      "a2-past-ar"
+     ],
+     "labels": {
+      "a1-ir-inf": "Immediate future — ir + infinitive",
+      "a2-past-ar": "Pretérito perfeito simples — regular -AR"
+     }
+    },
     "3y-w34": {
      "weekNum": 34,
-     "theme": "Household life",
+     "theme": "Clothes and comparison · Household life",
      "syllabusIds": [
       "a2-clitics-intro",
       "a2-clitics-me-te",
@@ -5299,16 +5397,24 @@
     },
     "3y-w36": {
      "weekNum": 36,
-     "theme": "Household life",
+     "theme": "Household life · At the doctor",
      "syllabusIds": [
       "a2-clitics-intro",
       "a2-clitics-me-te",
-      "b1-reflexive"
+      "a2-haver-há",
+      "a2-haver-time",
+      "b1-reflexive",
+      "a1-irreg-present",
+      "a1-irreg-present-more"
      ],
      "labels": {
       "a2-clitics-intro": "Clitic pronouns — me, te, o/a, nos…; intro & forms",
       "a2-clitics-me-te": "Clitics me & te in use",
-      "b1-reflexive": "Reflexive verbs & pronouns — lavar-se"
+      "a2-haver-há": "Haver — há (there is/are), existence vs ter",
+      "a2-haver-time": "Há + time — há dois anos",
+      "b1-reflexive": "Reflexive verbs & pronouns — lavar-se",
+      "a1-irreg-present": "Core irregulars — ser, estar, ter, ir, vir, fazer, poder, querer, ver, dizer, sair, pôr…",
+      "a1-irreg-present-more": "More high-frequency irregulars — dar, saber, haver, pedir, trazer…"
      }
     },
     "3y-w37": {
@@ -5329,16 +5435,20 @@
     },
     "3y-w38": {
      "weekNum": 38,
-     "theme": "At the doctor",
+     "theme": "At the doctor · Workdays",
      "syllabusIds": [
       "a2-haver-há",
       "a2-haver-time",
+      "b1-mais-que-perf",
+      "b1-perf-composto",
       "a1-irreg-present",
       "a1-irreg-present-more"
      ],
      "labels": {
       "a2-haver-há": "Haver — há (there is/are), existence vs ter",
       "a2-haver-time": "Há + time — há dois anos",
+      "b1-mais-que-perf": "Pretérito mais-que-perfeito composto — já tinha saído quando…",
+      "b1-perf-composto": "Pretérito perfeito composto — tenho estudado (ongoing relevance)",
       "a1-irreg-present": "Core irregulars — ser, estar, ter, ir, vir, fazer, poder, querer, ver, dizer, sair, pôr…",
       "a1-irreg-present-more": "More high-frequency irregulars — dar, saber, haver, pedir, trazer…"
      }
@@ -5361,18 +5471,20 @@
     },
     "3y-w40": {
      "weekNum": 40,
-     "theme": "Workdays",
+     "theme": "Workdays · City services",
      "syllabusIds": [
       "b1-mais-que-perf",
       "b1-perf-composto",
       "a1-irreg-present",
-      "a1-irreg-present-more"
+      "a1-irreg-present-more",
+      "a2-ask-nicely"
      ],
      "labels": {
       "b1-mais-que-perf": "Pretérito mais-que-perfeito composto — já tinha saído quando…",
       "b1-perf-composto": "Pretérito perfeito composto — tenho estudado (ongoing relevance)",
       "a1-irreg-present": "Core irregulars — ser, estar, ter, ir, vir, fazer, poder, querer, ver, dizer, sair, pôr…",
-      "a1-irreg-present-more": "More high-frequency irregulars — dar, saber, haver, pedir, trazer…"
+      "a1-irreg-present-more": "More high-frequency irregulars — dar, saber, haver, pedir, trazer…",
+      "a2-ask-nicely": "Asking nicely — queria, podia, será que, faz favor"
      }
     },
     "3y-w41": {
@@ -5681,14 +5793,22 @@
     },
     "3y-w63": {
      "weekNum": 63,
-     "theme": "Study and work",
+     "theme": "Who and which · Study and work",
      "syllabusIds": [
+      "a2-clitics-intro",
+      "a2-clitics-me-te",
       "a2-haver-há",
-      "a2-haver-time"
+      "a2-haver-time",
+      "a2-relative-que",
+      "b1-relative-onde"
      ],
      "labels": {
+      "a2-clitics-intro": "Clitic pronouns — me, te, o/a, nos…; intro & forms",
+      "a2-clitics-me-te": "Clitics me & te in use",
       "a2-haver-há": "Haver — há (there is/are), existence vs ter",
-      "a2-haver-time": "Há + time — há dois anos"
+      "a2-haver-time": "Há + time — há dois anos",
+      "a2-relative-que": "Basic relative que (& quem)",
+      "b1-relative-onde": "Relative onde & cujo/cuja"
      }
     },
     "3y-w64": {
@@ -5703,9 +5823,21 @@
       "a2-haver-time": "Há + time — há dois anos"
      }
     },
+    "3y-w65": {
+     "weekNum": 65,
+     "theme": "Study and work · Headlines",
+     "syllabusIds": [
+      "a2-haver-há",
+      "a2-haver-time"
+     ],
+     "labels": {
+      "a2-haver-há": "Haver — há (there is/are), existence vs ter",
+      "a2-haver-time": "Há + time — há dois anos"
+     }
+    },
     "3y-w67": {
      "weekNum": 67,
-     "theme": "Home admin",
+     "theme": "Headlines · Home admin",
      "syllabusIds": [
       "b1-subj-intro",
       "b1-subj-present"
@@ -5718,6 +5850,18 @@
     "3y-w68": {
      "weekNum": 68,
      "theme": "Home admin",
+     "syllabusIds": [
+      "b1-subj-intro",
+      "b1-subj-present"
+     ],
+     "labels": {
+      "b1-subj-intro": "Subjunctive mood — when & why (doubt, wish, emotion, necessity)",
+      "b1-subj-present": "Presente do conjuntivo — espero que, é possível que, para que…"
+     }
+    },
+    "3y-w69": {
+     "weekNum": 69,
+     "theme": "Home admin · DEPLE checkpoint",
      "syllabusIds": [
       "b1-subj-intro",
       "b1-subj-present"
@@ -5747,9 +5891,43 @@
       "a2-past-ar": "Pretérito perfeito simples — regular -AR"
      }
     },
+    "3y-w71": {
+     "weekNum": 71,
+     "theme": "DEPLE checkpoint · Subjunctive in the wild",
+     "syllabusIds": [
+      "b1-subj-intro",
+      "b1-subj-present",
+      "a2-clitics-intro",
+      "a2-clitics-me-te",
+      "a1-ir-inf",
+      "a2-past-ar"
+     ],
+     "labels": {
+      "b1-subj-intro": "Subjunctive mood — when & why (doubt, wish, emotion, necessity)",
+      "b1-subj-present": "Presente do conjuntivo — espero que, é possível que, para que…",
+      "a2-clitics-intro": "Clitic pronouns — me, te, o/a, nos…; intro & forms",
+      "a2-clitics-me-te": "Clitics me & te in use",
+      "a1-ir-inf": "Immediate future — ir + infinitive",
+      "a2-past-ar": "Pretérito perfeito simples — regular -AR"
+     }
+    },
     "3y-w72": {
      "weekNum": 72,
      "theme": "Subjunctive in the wild",
+     "syllabusIds": [
+      "a2-prep-verbs",
+      "b1-subj-intro",
+      "b1-subj-present"
+     ],
+     "labels": {
+      "a2-prep-verbs": "Verb + preposition pairings (gostar de, pensar em…)",
+      "b1-subj-intro": "Subjunctive mood — when & why (doubt, wish, emotion, necessity)",
+      "b1-subj-present": "Presente do conjuntivo — espero que, é possível que, para que…"
+     }
+    },
+    "3y-w73": {
+     "weekNum": 73,
+     "theme": "Subjunctive in the wild · If I had",
      "syllabusIds": [
       "a2-prep-verbs",
       "b1-subj-intro",
@@ -5783,20 +5961,26 @@
     },
     "3y-w75": {
      "weekNum": 75,
-     "theme": "Inflected infinitive fluency",
+     "theme": "If I had · Inflected infinitive fluency",
      "syllabusIds": [
       "a2-prep-verbs",
-      "a1-present-ar",
-      "a1-present-er",
-      "b1-pers-inf",
-      "c1-inf-syntax"
+      "b1-subj-intro",
+      "b1-subj-present",
+      "a2-conj-essential",
+      "a2-conj-quando-se",
+      "a1-ir-inf",
+      "a2-past-ar",
+      "a1-present-ar"
      ],
      "labels": {
       "a2-prep-verbs": "Verb + preposition pairings (gostar de, pensar em…)",
-      "a1-present-ar": "Regular present — -AR (incl. stem changes overview)",
-      "a1-present-er": "Regular present — -ER",
-      "b1-pers-inf": "Infinitivo pessoal — para tu fazeres, ao chegarmos",
-      "c1-inf-syntax": "Advanced infinitive syntax — impersonal vs personal in condensed/formal style"
+      "b1-subj-intro": "Subjunctive mood — when & why (doubt, wish, emotion, necessity)",
+      "b1-subj-present": "Presente do conjuntivo — espero que, é possível que, para que…",
+      "a2-conj-essential": "Essential conjunctions — e, mas, ou, porque",
+      "a2-conj-quando-se": "Subordinating — quando, se, porque, enquanto…",
+      "a1-ir-inf": "Immediate future — ir + infinitive",
+      "a2-past-ar": "Pretérito perfeito simples — regular -AR",
+      "a1-present-ar": "Regular present — -AR (incl. stem changes overview)"
      }
     },
     "3y-w76": {
@@ -5819,14 +6003,24 @@
     },
     "3y-w77": {
      "weekNum": 77,
-     "theme": "They said that",
+     "theme": "Inflected infinitive fluency · They said that",
      "syllabusIds": [
+      "a2-prep-verbs",
       "a2-conj-essential",
-      "a2-conj-quando-se"
+      "a2-conj-quando-se",
+      "a1-present-ar",
+      "a1-present-er",
+      "b1-pers-inf",
+      "c1-inf-syntax"
      ],
      "labels": {
+      "a2-prep-verbs": "Verb + preposition pairings (gostar de, pensar em…)",
       "a2-conj-essential": "Essential conjunctions — e, mas, ou, porque",
-      "a2-conj-quando-se": "Subordinating — quando, se, porque, enquanto…"
+      "a2-conj-quando-se": "Subordinating — quando, se, porque, enquanto…",
+      "a1-present-ar": "Regular present — -AR (incl. stem changes overview)",
+      "a1-present-er": "Regular present — -ER",
+      "b1-pers-inf": "Infinitivo pessoal — para tu fazeres, ao chegarmos",
+      "c1-inf-syntax": "Advanced infinitive syntax — impersonal vs personal in condensed/formal style"
      }
     },
     "3y-w78": {
@@ -5843,12 +6037,16 @@
     },
     "3y-w79": {
      "weekNum": 79,
-     "theme": "Argue a point",
+     "theme": "They said that · Argue a point",
      "syllabusIds": [
-      "a2-prep-verbs"
+      "a2-prep-verbs",
+      "a2-conj-essential",
+      "a2-conj-quando-se"
      ],
      "labels": {
-      "a2-prep-verbs": "Verb + preposition pairings (gostar de, pensar em…)"
+      "a2-prep-verbs": "Verb + preposition pairings (gostar de, pensar em…)",
+      "a2-conj-essential": "Essential conjunctions — e, mas, ou, porque",
+      "a2-conj-quando-se": "Subordinating — quando, se, porque, enquanto…"
      }
     },
     "3y-w80": {
@@ -6081,7 +6279,7 @@
     },
     "3y-w104": {
      "weekNum": 104,
-     "theme": "DIPLE speaking",
+     "theme": "DIPLE writing · DIPLE speaking",
      "syllabusIds": [
       "a2-ask-nicely"
      ],
@@ -6099,9 +6297,19 @@
       "a2-ask-nicely": "Asking nicely — queria, podia, será que, faz favor"
      }
     },
+    "3y-w106": {
+     "weekNum": 106,
+     "theme": "DIPLE speaking · Integrated mock 1",
+     "syllabusIds": [
+      "a2-ask-nicely"
+     ],
+     "labels": {
+      "a2-ask-nicely": "Asking nicely — queria, podia, será que, faz favor"
+     }
+    },
     "3y-w118": {
      "weekNum": 118,
-     "theme": "Taper and sit DIPLE",
+     "theme": "Timed mock DIPLE 2 and booking · Taper and sit DIPLE",
      "syllabusIds": [
       "b1-subj-intro",
       "b1-subj-present",
@@ -6133,7 +6341,7 @@
     },
     "3y-w120": {
      "weekNum": 120,
-     "theme": "Strengthen and DIPLE practice",
+     "theme": "Taper and sit DIPLE · Strengthen and DIPLE practice",
      "syllabusIds": [
       "b1-subj-intro",
       "b1-subj-present",
@@ -6807,23 +7015,28 @@
    "syllabusToWeeks": {
     "a1-noun-gender": [
      "3y-w1",
+     "3y-w2",
      "3y-w9",
      "3y-w16",
      "3y-w17",
      "3y-w20",
-     "3y-w21"
+     "3y-w21",
+     "3y-w22"
     ],
     "a1-def-articles": [
      "3y-w1",
+     "3y-w2",
      "3y-w9",
      "3y-w16",
      "3y-w17",
      "3y-w20",
-     "3y-w21"
+     "3y-w21",
+     "3y-w22"
     ],
     "a1-present-ar": [
      "3y-w1",
      "3y-w3",
+     "3y-w5",
      "3y-w8",
      "3y-w10",
      "3y-w11",
@@ -6831,14 +7044,17 @@
      "3y-w15",
      "3y-w22",
      "3y-w23",
+     "3y-w24",
      "3y-w59",
      "3y-w60",
      "3y-w75",
-     "3y-w76"
+     "3y-w76",
+     "3y-w77"
     ],
     "a1-present-er": [
      "3y-w1",
      "3y-w3",
+     "3y-w5",
      "3y-w8",
      "3y-w10",
      "3y-w11",
@@ -6846,16 +7062,16 @@
      "3y-w15",
      "3y-w22",
      "3y-w23",
+     "3y-w24",
      "3y-w59",
      "3y-w60",
-     "3y-w75",
-     "3y-w76"
+     "3y-w76",
+     "3y-w77"
     ],
     "a1-questions": [
-     "3y-w2"
-    ],
-    "a1-e-que": [
-     "3y-w2"
+     "3y-w2",
+     "3y-w4",
+     "3y-w8"
     ],
     "a2-adv-time": [
      "3y-w2"
@@ -6863,47 +7079,34 @@
     "a2-adv-place": [
      "3y-w2"
     ],
-    "a2-ask-nicely": [
+    "a1-ser-estar": [
+     "3y-w2",
      "3y-w3",
-     "3y-w5",
      "3y-w7",
      "3y-w9",
-     "3y-w41",
-     "3y-w42",
-     "3y-w57",
-     "3y-w58",
-     "3y-w104",
-     "3y-w105"
+     "3y-w18",
+     "3y-w19",
+     "3y-w20",
+     "3y-w21",
+     "3y-w22"
     ],
-    "a2-prep-verbs": [
-     "3y-w4",
-     "3y-w47",
-     "3y-w48",
-     "3y-w59",
-     "3y-w60",
-     "3y-w72",
-     "3y-w75",
-     "3y-w76",
-     "3y-w79",
-     "3y-w80",
-     "3y-w81"
+    "a1-possessives": [
+     "3y-w2",
+     "3y-w12",
+     "3y-w13"
     ],
-    "a2-haver-há": [
+    "a1-e-que": [
+     "3y-w2",
      "3y-w4",
-     "3y-w37",
-     "3y-w38",
-     "3y-w63",
-     "3y-w64"
+     "3y-w8"
     ],
-    "a2-haver-time": [
-     "3y-w4",
-     "3y-w37",
-     "3y-w38",
-     "3y-w63",
-     "3y-w64"
+    "a1-plurals-s": [
+     "3y-w3"
     ],
     "a1-irreg-present": [
+     "3y-w3",
      "3y-w4",
+     "3y-w5",
      "3y-w7",
      "3y-w8",
      "3y-w9",
@@ -6911,14 +7114,18 @@
      "3y-w13",
      "3y-w14",
      "3y-w15",
+     "3y-w18",
      "3y-w19",
      "3y-w20",
      "3y-w21",
      "3y-w22",
      "3y-w23",
+     "3y-w24",
      "3y-w25",
      "3y-w26",
      "3y-w27",
+     "3y-w28",
+     "3y-w36",
      "3y-w37",
      "3y-w38",
      "3y-w39",
@@ -6929,7 +7136,9 @@
      "3y-w52"
     ],
     "a1-irreg-present-more": [
+     "3y-w3",
      "3y-w4",
+     "3y-w5",
      "3y-w7",
      "3y-w8",
      "3y-w9",
@@ -6937,14 +7146,18 @@
      "3y-w13",
      "3y-w14",
      "3y-w15",
+     "3y-w18",
      "3y-w19",
      "3y-w20",
      "3y-w21",
      "3y-w22",
      "3y-w23",
+     "3y-w24",
      "3y-w25",
      "3y-w26",
      "3y-w27",
+     "3y-w28",
+     "3y-w36",
      "3y-w37",
      "3y-w38",
      "3y-w39",
@@ -6954,14 +7167,68 @@
      "3y-w51",
      "3y-w52"
     ],
-    "a1-ser-estar": [
+    "a2-ask-nicely": [
+     "3y-w3",
+     "3y-w5",
      "3y-w7",
      "3y-w9",
-     "3y-w19",
-     "3y-w20",
-     "3y-w21"
+     "3y-w40",
+     "3y-w41",
+     "3y-w42",
+     "3y-w57",
+     "3y-w58",
+     "3y-w104",
+     "3y-w105",
+     "3y-w106"
+    ],
+    "a2-prep-verbs": [
+     "3y-w4",
+     "3y-w47",
+     "3y-w48",
+     "3y-w59",
+     "3y-w60",
+     "3y-w72",
+     "3y-w73",
+     "3y-w75",
+     "3y-w76",
+     "3y-w77",
+     "3y-w79",
+     "3y-w80",
+     "3y-w81"
+    ],
+    "a1-demonstratives": [
+     "3y-w4",
+     "3y-w8"
+    ],
+    "a2-haver-há": [
+     "3y-w4",
+     "3y-w36",
+     "3y-w37",
+     "3y-w38",
+     "3y-w63",
+     "3y-w64",
+     "3y-w65"
+    ],
+    "a2-haver-time": [
+     "3y-w4",
+     "3y-w36",
+     "3y-w37",
+     "3y-w38",
+     "3y-w63",
+     "3y-w64",
+     "3y-w65"
+    ],
+    "a1-estar-a": [
+     "3y-w5",
+     "3y-w14",
+     "3y-w15",
+     "3y-w22",
+     "3y-w23",
+     "3y-w24"
     ],
     "a1-ir-inf": [
+     "3y-w5",
+     "3y-w7",
      "3y-w8",
      "3y-w14",
      "3y-w15",
@@ -6972,6 +7239,7 @@
      "3y-w29",
      "3y-w30",
      "3y-w31",
+     "3y-w32",
      "3y-w43",
      "3y-w44",
      "3y-w49",
@@ -6979,14 +7247,17 @@
      "3y-w51",
      "3y-w52",
      "3y-w70",
+     "3y-w71",
      "3y-w74",
+     "3y-w75",
      "3y-w86",
      "3y-w87",
      "3y-w90",
      "3y-w91"
     ],
     "a2-past-ar": [
-     "3y-w8",
+     "3y-w5",
+     "3y-w7",
      "3y-w14",
      "3y-w15",
      "3y-w25",
@@ -6996,6 +7267,7 @@
      "3y-w29",
      "3y-w30",
      "3y-w31",
+     "3y-w32",
      "3y-w43",
      "3y-w44",
      "3y-w49",
@@ -7003,21 +7275,13 @@
      "3y-w51",
      "3y-w52",
      "3y-w70",
+     "3y-w71",
      "3y-w74",
+     "3y-w75",
      "3y-w86",
      "3y-w87",
      "3y-w90",
      "3y-w91"
-    ],
-    "a1-possessives": [
-     "3y-w12",
-     "3y-w13"
-    ],
-    "a1-estar-a": [
-     "3y-w14",
-     "3y-w15",
-     "3y-w22",
-     "3y-w23"
     ],
     "a2-clitics-intro": [
      "3y-w16",
@@ -7029,7 +7293,9 @@
      "3y-w44",
      "3y-w61",
      "3y-w62",
+     "3y-w63",
      "3y-w70",
+     "3y-w71",
      "3y-w82",
      "3y-w83",
      "3y-w94",
@@ -7091,7 +7357,9 @@
      "3y-w44",
      "3y-w61",
      "3y-w62",
+     "3y-w63",
      "3y-w70",
+     "3y-w71",
      "3y-w82",
      "3y-w83",
      "3y-w94",
@@ -7149,10 +7417,12 @@
      "3y-w36"
     ],
     "b1-mais-que-perf": [
+     "3y-w38",
      "3y-w39",
      "3y-w40"
     ],
     "b1-perf-composto": [
+     "3y-w38",
      "3y-w39",
      "3y-w40"
     ],
@@ -7166,8 +7436,10 @@
      "3y-w55",
      "3y-w56",
      "3y-w74",
+     "3y-w75",
      "3y-w77",
      "3y-w78",
+     "3y-w79",
      "3y-w86",
      "3y-w87"
     ],
@@ -7181,8 +7453,10 @@
      "3y-w55",
      "3y-w56",
      "3y-w74",
+     "3y-w75",
      "3y-w77",
      "3y-w78",
+     "3y-w79",
      "3y-w86",
      "3y-w87"
     ],
@@ -7193,9 +7467,13 @@
      "3y-w58",
      "3y-w67",
      "3y-w68",
+     "3y-w69",
      "3y-w70",
+     "3y-w71",
      "3y-w72",
+     "3y-w73",
      "3y-w74",
+     "3y-w75",
      "3y-w84",
      "3y-w85",
      "3y-w86",
@@ -7258,9 +7536,13 @@
      "3y-w58",
      "3y-w67",
      "3y-w68",
+     "3y-w69",
      "3y-w70",
+     "3y-w71",
      "3y-w72",
+     "3y-w73",
      "3y-w74",
+     "3y-w75",
      "3y-w84",
      "3y-w85",
      "3y-w86",
@@ -7327,22 +7609,24 @@
     "a2-relative-que": [
      "3y-w61",
      "3y-w62",
+     "3y-w63",
      "3y-w90",
      "3y-w91"
     ],
     "b1-relative-onde": [
      "3y-w61",
      "3y-w62",
+     "3y-w63",
      "3y-w90",
      "3y-w91"
     ],
     "b1-pers-inf": [
-     "3y-w75",
-     "3y-w76"
+     "3y-w76",
+     "3y-w77"
     ],
     "c1-inf-syntax": [
-     "3y-w75",
-     "3y-w76"
+     "3y-w76",
+     "3y-w77"
     ]
    }
   }
@@ -7390,33 +7674,33 @@
    "theme": "Numbers, money, time",
    "syllabusIds": [
     "a1-questions",
-    "a1-e-que",
     "a2-adv-time",
-    "a2-adv-place"
+    "a2-adv-place",
+    "a1-e-que"
    ],
    "labels": {
     "a1-questions": "Interrogatives & negation — quem, onde, quando, como, porquê, o que, quanto; não, nunca, nada",
-    "a1-e-que": "É que in questions",
     "a2-adv-time": "Adverbs — time, manner, degree (já, ainda, bem…)",
-    "a2-adv-place": "Adverbs of place — aqui, ali, lá; aonde vs onde"
+    "a2-adv-place": "Adverbs of place — aqui, ali, lá; aonde vs onde",
+    "a1-e-que": "É que in questions"
    }
   },
   "w4": {
    "weekNum": 4,
    "theme": "Month 1 check + café preview",
    "syllabusIds": [
+    "a1-plurals-s",
     "a1-ser-estar",
     "a1-irreg-present",
     "a1-irreg-present-more",
-    "a2-ask-nicely",
-    "a1-plurals-s"
+    "a2-ask-nicely"
    ],
    "labels": {
+    "a1-plurals-s": "Plurals — -s, -es, -ões, irregulars",
     "a1-ser-estar": "Ser vs estar — identity, traits, location, mood",
     "a1-irreg-present": "Core irregulars — ser, estar, ter, ir, vir, fazer, poder, querer, ver, dizer, sair, pôr…",
     "a1-irreg-present-more": "More high-frequency irregulars — dar, saber, haver, pedir, trazer…",
-    "a2-ask-nicely": "Asking nicely — queria, podia, será que, faz favor",
-    "a1-plurals-s": "Plurals — -s, -es, -ões, irregulars"
+    "a2-ask-nicely": "Asking nicely — queria, podia, será que, faz favor"
    }
   },
   "w5": {
@@ -11192,11 +11476,13 @@
    "w40",
    "w41",
    "3y-w1",
+   "3y-w2",
    "3y-w9",
    "3y-w16",
    "3y-w17",
    "3y-w20",
-   "3y-w21"
+   "3y-w21",
+   "3y-w22"
   ],
   "a1-def-articles": [
    "w1",
@@ -11211,11 +11497,13 @@
    "w40",
    "w41",
    "3y-w1",
+   "3y-w2",
    "3y-w9",
    "3y-w16",
    "3y-w17",
    "3y-w20",
-   "3y-w21"
+   "3y-w21",
+   "3y-w22"
   ],
   "a1-present-ar": [
    "w1",
@@ -11244,6 +11532,7 @@
    "w149",
    "3y-w1",
    "3y-w3",
+   "3y-w5",
    "3y-w8",
    "3y-w10",
    "3y-w11",
@@ -11251,10 +11540,12 @@
    "3y-w15",
    "3y-w22",
    "3y-w23",
+   "3y-w24",
    "3y-w59",
    "3y-w60",
    "3y-w75",
-   "3y-w76"
+   "3y-w76",
+   "3y-w77"
   ],
   "a1-present-er": [
    "w1",
@@ -11283,6 +11574,7 @@
    "w149",
    "3y-w1",
    "3y-w3",
+   "3y-w5",
    "3y-w8",
    "3y-w10",
    "3y-w11",
@@ -11290,10 +11582,11 @@
    "3y-w15",
    "3y-w22",
    "3y-w23",
+   "3y-w24",
    "3y-w59",
    "3y-w60",
-   "3y-w75",
-   "3y-w76"
+   "3y-w76",
+   "3y-w77"
   ],
   "a1-ser-estar": [
    "w2",
@@ -11307,11 +11600,15 @@
    "w39",
    "w40",
    "w41",
+   "3y-w2",
+   "3y-w3",
    "3y-w7",
    "3y-w9",
+   "3y-w18",
    "3y-w19",
    "3y-w20",
-   "3y-w21"
+   "3y-w21",
+   "3y-w22"
   ],
   "a1-possessives": [
    "w2",
@@ -11319,6 +11616,7 @@
    "w23",
    "w24",
    "w25",
+   "3y-w2",
    "3y-w12",
    "3y-w13"
   ],
@@ -11373,7 +11671,9 @@
    "w99",
    "w100",
    "w101",
+   "3y-w3",
    "3y-w4",
+   "3y-w5",
    "3y-w7",
    "3y-w8",
    "3y-w9",
@@ -11381,14 +11681,18 @@
    "3y-w13",
    "3y-w14",
    "3y-w15",
+   "3y-w18",
    "3y-w19",
    "3y-w20",
    "3y-w21",
    "3y-w22",
    "3y-w23",
+   "3y-w24",
    "3y-w25",
    "3y-w26",
    "3y-w27",
+   "3y-w28",
+   "3y-w36",
    "3y-w37",
    "3y-w38",
    "3y-w39",
@@ -11449,7 +11753,9 @@
    "w99",
    "w100",
    "w101",
+   "3y-w3",
    "3y-w4",
+   "3y-w5",
    "3y-w7",
    "3y-w8",
    "3y-w9",
@@ -11457,14 +11763,18 @@
    "3y-w13",
    "3y-w14",
    "3y-w15",
+   "3y-w18",
    "3y-w19",
    "3y-w20",
    "3y-w21",
    "3y-w22",
    "3y-w23",
+   "3y-w24",
    "3y-w25",
    "3y-w26",
    "3y-w27",
+   "3y-w28",
+   "3y-w36",
    "3y-w37",
    "3y-w38",
    "3y-w39",
@@ -11478,13 +11788,9 @@
    "w3",
    "w6",
    "w14",
-   "3y-w2"
-  ],
-  "a1-e-que": [
-   "w3",
-   "w6",
-   "w14",
-   "3y-w2"
+   "3y-w2",
+   "3y-w4",
+   "3y-w8"
   ],
   "a2-adv-time": [
    "w3",
@@ -11493,6 +11799,18 @@
   "a2-adv-place": [
    "w3",
    "3y-w2"
+  ],
+  "a1-e-que": [
+   "w3",
+   "w6",
+   "w14",
+   "3y-w2",
+   "3y-w4",
+   "3y-w8"
+  ],
+  "a1-plurals-s": [
+   "w4",
+   "3y-w3"
   ],
   "a2-ask-nicely": [
    "w4",
@@ -11516,19 +11834,20 @@
    "3y-w5",
    "3y-w7",
    "3y-w9",
+   "3y-w40",
    "3y-w41",
    "3y-w42",
    "3y-w57",
    "3y-w58",
    "3y-w104",
-   "3y-w105"
-  ],
-  "a1-plurals-s": [
-   "w4"
+   "3y-w105",
+   "3y-w106"
   ],
   "a1-demonstratives": [
    "w6",
-   "w14"
+   "w14",
+   "3y-w4",
+   "3y-w8"
   ],
   "a2-prep-verbs": [
    "w7",
@@ -11556,8 +11875,10 @@
    "3y-w59",
    "3y-w60",
    "3y-w72",
+   "3y-w73",
    "3y-w75",
    "3y-w76",
+   "3y-w77",
    "3y-w79",
    "3y-w80",
    "3y-w81"
@@ -11573,10 +11894,12 @@
    "w124",
    "w125",
    "3y-w4",
+   "3y-w36",
    "3y-w37",
    "3y-w38",
    "3y-w63",
-   "3y-w64"
+   "3y-w64",
+   "3y-w65"
   ],
   "a2-haver-time": [
    "w7",
@@ -11589,10 +11912,12 @@
    "w124",
    "w125",
    "3y-w4",
+   "3y-w36",
    "3y-w37",
    "3y-w38",
    "3y-w63",
-   "3y-w64"
+   "3y-w64",
+   "3y-w65"
   ],
   "a1-estar-a": [
    "w8",
@@ -11604,10 +11929,12 @@
    "w43",
    "w44",
    "w45",
+   "3y-w5",
    "3y-w14",
    "3y-w15",
    "3y-w22",
-   "3y-w23"
+   "3y-w23",
+   "3y-w24"
   ],
   "a1-ir-inf": [
    "w8",
@@ -11658,6 +11985,8 @@
    "w175",
    "w176",
    "w177",
+   "3y-w5",
+   "3y-w7",
    "3y-w8",
    "3y-w14",
    "3y-w15",
@@ -11668,6 +11997,7 @@
    "3y-w29",
    "3y-w30",
    "3y-w31",
+   "3y-w32",
    "3y-w43",
    "3y-w44",
    "3y-w49",
@@ -11675,7 +12005,9 @@
    "3y-w51",
    "3y-w52",
    "3y-w70",
+   "3y-w71",
    "3y-w74",
+   "3y-w75",
    "3y-w86",
    "3y-w87",
    "3y-w90",
@@ -11730,7 +12062,8 @@
    "w175",
    "w176",
    "w177",
-   "3y-w8",
+   "3y-w5",
+   "3y-w7",
    "3y-w14",
    "3y-w15",
    "3y-w25",
@@ -11740,6 +12073,7 @@
    "3y-w29",
    "3y-w30",
    "3y-w31",
+   "3y-w32",
    "3y-w43",
    "3y-w44",
    "3y-w49",
@@ -11747,7 +12081,9 @@
    "3y-w51",
    "3y-w52",
    "3y-w70",
+   "3y-w71",
    "3y-w74",
+   "3y-w75",
    "3y-w86",
    "3y-w87",
    "3y-w90",
@@ -11876,7 +12212,9 @@
    "3y-w44",
    "3y-w61",
    "3y-w62",
+   "3y-w63",
    "3y-w70",
+   "3y-w71",
    "3y-w82",
    "3y-w83",
    "3y-w94",
@@ -12051,7 +12389,9 @@
    "3y-w44",
    "3y-w61",
    "3y-w62",
+   "3y-w63",
    "3y-w70",
+   "3y-w71",
    "3y-w82",
    "3y-w83",
    "3y-w94",
@@ -12117,6 +12457,7 @@
    "w75",
    "w76",
    "w77",
+   "3y-w38",
    "3y-w39",
    "3y-w40"
   ],
@@ -12125,6 +12466,7 @@
    "w75",
    "w76",
    "w77",
+   "3y-w38",
    "3y-w39",
    "3y-w40"
   ],
@@ -12163,8 +12505,10 @@
    "3y-w55",
    "3y-w56",
    "3y-w74",
+   "3y-w75",
    "3y-w77",
    "3y-w78",
+   "3y-w79",
    "3y-w86",
    "3y-w87"
   ],
@@ -12203,8 +12547,10 @@
    "3y-w55",
    "3y-w56",
    "3y-w74",
+   "3y-w75",
    "3y-w77",
    "3y-w78",
+   "3y-w79",
    "3y-w86",
    "3y-w87"
   ],
@@ -12337,9 +12683,13 @@
    "3y-w58",
    "3y-w67",
    "3y-w68",
+   "3y-w69",
    "3y-w70",
+   "3y-w71",
    "3y-w72",
+   "3y-w73",
    "3y-w74",
+   "3y-w75",
    "3y-w84",
    "3y-w85",
    "3y-w86",
@@ -12524,9 +12874,13 @@
    "3y-w58",
    "3y-w67",
    "3y-w68",
+   "3y-w69",
    "3y-w70",
+   "3y-w71",
    "3y-w72",
+   "3y-w73",
    "3y-w74",
+   "3y-w75",
    "3y-w84",
    "3y-w85",
    "3y-w86",
@@ -12607,6 +12961,7 @@
    "w177",
    "3y-w61",
    "3y-w62",
+   "3y-w63",
    "3y-w90",
    "3y-w91"
   ],
@@ -12621,6 +12976,7 @@
    "w177",
    "3y-w61",
    "3y-w62",
+   "3y-w63",
    "3y-w90",
    "3y-w91"
   ],
@@ -12629,16 +12985,16 @@
    "w147",
    "w148",
    "w149",
-   "3y-w75",
-   "3y-w76"
+   "3y-w76",
+   "3y-w77"
   ],
   "c1-inf-syntax": [
    "w146",
    "w147",
    "w148",
    "w149",
-   "3y-w75",
-   "3y-w76"
+   "3y-w76",
+   "3y-w77"
   ]
  }
 }

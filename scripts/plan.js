@@ -169,16 +169,17 @@
   }
 
   function trackBannerText() {
+    const progressNote = "Progress is separate from the other track.";
     if (activeTrack === "3y") {
-      return (
+      const main =
         data?.meta?.hoursNote ||
-        "3-year DIPLE track · ~16–22 h/week · ends Sep 2029"
-      );
+        "3-year DIPLE track · ~16–22 h/week · ends Sep 2029";
+      return `${main} · ${progressNote}`;
     }
-    return (
+    const main =
       data?.meta?.hoursNote ||
-      "5-year ladder · ~5 h/week · ends Aug 2032"
-    );
+      "5-year ladder · ~5 h/week · ends Aug 2032";
+    return `${main} · ${progressNote}`;
   }
 
   function renderTrackToggle() {
